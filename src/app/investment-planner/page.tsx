@@ -8,6 +8,8 @@ import {
 } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { storage, fmt, calc } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { useTranslation } from 'react-i18next';
 
 interface FormData {
   amount: number; period: number;
@@ -161,11 +163,17 @@ export default function InvestmentPlanner() {
         )}
 
         {step >= 0 && (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
-            <button onClick={() => setStep(step === 0 ? -1 : step - 1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> Back</button>
-            <h1 className="heading-md">Investment Planner</h1>
-            <div style={{ width: 60 }} />
-          </div>
+          <PageHeader 
+            title="Investment Planner"
+            backHref="/"
+            accentColor="#6C5CE7"
+            rightSlot={step === 4 ? (
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Success' : 'Save'}</button>
+                <button onClick={() => { setStep(0); setForm(INIT_FORM); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+              </div>
+            ) : null}
+          />
         )}
 
         {step >= 0 && (

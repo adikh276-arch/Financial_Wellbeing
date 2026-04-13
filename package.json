@@ -1,0 +1,35 @@
+{
+  "name": "financial-wellness",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 80",
+    "build": "next build",
+    "start": "next start -p 80",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.4.2",
+    "framer-motion": "^12.38.0",
+    "i18next": "^26.0.4",
+    "i18next-browser-languagedetector": "^8.2.1",
+    "i18next-resources-to-backend": "^1.2.1",
+    "lucide-react": "^1.8.0",
+    "next": "16.2.3",
+    "pg": "^8.20.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-i18next": "^17.0.2",
+    "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/pg": "^8.20.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.3",
+    "typescript": "^5"
+  }
+}

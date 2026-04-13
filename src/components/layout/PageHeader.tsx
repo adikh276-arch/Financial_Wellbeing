@@ -35,17 +35,17 @@ export function PageHeader({
     }}>
       <div style={{ maxWidth: 640, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: steps ? 'var(--space-2)' : 0 }}>
-          <Link href={backHref} className="back-btn" aria-label={label}>
-            <ChevronLeft size={18} />
-          </Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <Link href={backHref} className="back-btn" aria-label={label}>
+              <ChevronLeft size={18} />
+            </Link>
+            {showLanguage && <LanguageSelector />}
+          </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             {subtitle && <p className="label-caps" style={{ color: accentColor, marginBottom: 1 }}>{t(subtitle)}</p>}
             <h1 style={{ fontWeight: 700, fontSize: 'var(--text-base)', color: 'var(--text-primary)', lineHeight: 1.2 }} className="truncate">{t(title)}</h1>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            {rightSlot}
-            {showLanguage && <LanguageSelector />}
-          </div>
+          {rightSlot}
         </div>
         {steps && (
           <div style={{ display: 'flex', gap: 4 }}>

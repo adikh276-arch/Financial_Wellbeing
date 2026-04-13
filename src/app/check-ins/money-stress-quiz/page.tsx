@@ -8,6 +8,8 @@ import {
   Shield, Brain, Zap, Info, ArrowUpRight, Target, Clock
 } from 'lucide-react';
 import { storage } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
   { id: 'worry', text: 'How often do you worry about money?', options: ['Rarely or never', 'Sometimes', 'Often', 'Almost always'] },
@@ -83,18 +85,17 @@ export default function MoneyStressQuiz() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
-        {(step > 0 && step <= QUESTIONS.length) || step === QUESTIONS.length + 1 ? (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
-             <h1 className="heading-md">Money Stress Quiz</h1>
-             {step === QUESTIONS.length + 1 && (
-               <div style={{ display: 'flex', gap: 8 }}>
-                 <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Result Saved' : 'Save'}</button>
-                 <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
-               </div>
-             )}
+      <PageHeader 
+        title="Money Stress Quiz"
+        backHref="/"
+        rightSlot={step === QUESTIONS.length + 1 ? (
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Result Saved' : 'Save'}</button>
+            <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
           </div>
         ) : null}
+      />
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
         {step === 0 && (
           <div style={{ textAlign: 'center', padding: 'var(--space-12) 0', animation: 'fadeIn 0.4s ease' }}>

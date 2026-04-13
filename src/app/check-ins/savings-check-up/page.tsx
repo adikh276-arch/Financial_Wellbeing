@@ -6,6 +6,8 @@ import {
   Activity, Target, TrendingUp, Info, CheckCircle2, ChevronLeft, AlertTriangle, Wallet, Clock
 } from 'lucide-react';
 import { storage, fmt } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
   { id: 'hasEF', text: 'Do you have an emergency fund?', options: ['None at all', 'Partially funded (1-2 mo)', 'Fully funded (3-6 mo)', 'Over-funded (6+ mo)'] },
@@ -64,6 +66,16 @@ export default function SavingsCheckup() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+      <PageHeader 
+        title="Savings Check-up"
+        backHref="/"
+        rightSlot={step === QUESTIONS.length + 1 ? (
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Success' : 'Save'}</button>
+            <button onClick={() => setStep(0)} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+          </div>
+        ) : null}
+      />
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {step === 0 && (
@@ -122,9 +134,8 @@ export default function SavingsCheckup() {
                 <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{result.desc}</p>
              </div>
 
-             <div className="stack-4">
-                <button onClick={handleSave} className="btn btn-primary btn-lg btn-full">{saved ? <Check /> : <Save />} {saved ? 'Status Saved' : 'Confirm & Save'}</button>
-                <button onClick={() => setStep(0)} className="btn btn-secondary btn-lg btn-full">Pulse Check Again</button>
+             <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>Use the controls at the top to save your results or start over.</p>
              </div>
           </div>
         )}

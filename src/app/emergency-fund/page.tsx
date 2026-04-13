@@ -7,7 +7,9 @@ import {
   BarChart4, TrendingUp, MapPin, Calendar, ArrowRight,
   TrendingDown, MinusCircle, XCircle, ChevronLeft, RotateCcw, Clock
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { storage, fmt } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 interface EFData {
   monthlyExpenses: number;
@@ -104,17 +106,19 @@ export default function EmergencyFund() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+      <PageHeader 
+        title="Emergency Fund Builder"
+        backHref="/"
+        accentColor="#e84393"
+        rightSlot={(
+           <div style={{ display: 'flex', gap: 8 }}>
+              <button className="btn btn-primary btn-sm" onClick={handleSave}>
+                 {saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved' : 'Save'}
+              </button>
+           </div>
+        )}
+      />
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
-        
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-8)' }}>
-          <h1 className="heading-md">Emergency Reserve</h1>
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button onClick={() => setShowHistory(!showHistory)} className="btn btn-secondary btn-icon"><Clock size={16} /></button>
-            <button onClick={handleSave} className="btn btn-primary btn-sm">
-              {saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Snapshot Saved' : 'Save Status'}
-            </button>
-          </div>
-        </div>
 
         {showHistory && history.length > 0 && (
           <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-8)', animation: 'slideInDown 0.3s ease' }}>

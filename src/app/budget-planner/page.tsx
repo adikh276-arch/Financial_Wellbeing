@@ -12,6 +12,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import ClientOnly from '@/components/ClientOnly';
 import { storage, fmt, calc } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 type Field =
   'income' | 'otherIncome' |
@@ -216,19 +217,13 @@ export default function BudgetPlanner() {
         )}
 
         {step >= 0 && (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
-            <button onClick={() => setStep(step === 0 ? -1 : step - 1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> Back</button>
-            <h1 className="heading-md">Budget Planner</h1>
-            <div style={{ width: 60 }} />
-          </div>
-        )}
-
-        {step >= 0 && (
-          <div style={{ display: 'flex', gap: 4, marginBottom: 'var(--space-6)' }}>
-            {STEPS.map((s, i) => (
-              <div key={s} style={{ flex: 1, height: 3, borderRadius: 2, background: i <= step ? 'var(--brand-primary)' : 'var(--border-default)', transition: 'all 0.4s ease' }} />
-            ))}
-          </div>
+          <PageHeader 
+            title="Budget Planner"
+            backHref="/"
+            steps={STEPS}
+            currentStep={step}
+            accentColor="#00A884"
+          />
         )}
 
         {step === 0 && (

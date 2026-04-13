@@ -1,8 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Activity, ArrowRight, RotateCcw, Save, Check, ChevronRight, ChevronLeft, Target, Award, Zap, Shield, TrendingUp, Compass } from 'lucide-react';
-import { storage, fmt } from '@/lib/storage';
+import { 
+  Award, TrendingUp, Shield, Activity, Target, 
+  ArrowRight, ChevronLeft, ChevronRight, Check, Save, RotateCcw, 
+  Search, Calculator, Wallet, Zap, Heart, AlertCircle, Clock, Compass
+} from 'lucide-react';
+import { storage } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 /* Questions */
 const QUESTIONS = [
@@ -46,11 +51,9 @@ export default function FinancialHealthScore() {
   const [history, setHistory] = useState<any[]>([]);
 
   useEffect(() => {
-    // 1. Local
     const list = storage.get('health_score_history') || [];
     setHistory(Array.isArray(list) ? list : []);
 
-    // 2. Fetch remote
     storage.fetch('health_score_history').then(remote => {
       if (Array.isArray(remote)) {
         setHistory(remote);
@@ -99,10 +102,9 @@ export default function FinancialHealthScore() {
     const data = { score, date: new Date().toISOString() };
     storage.set('financial_health_score', data);
     
-    // History
     const newHistory = [data, ...history.slice(0, 9)];
     storage.set('health_score_history', newHistory);
-    storage.sync('health_score_history', data); // Sync only the single newest data object
+    storage.sync('health_score_history', data);
     setHistory(newHistory);
     
     setSaved(true);
@@ -116,6 +118,16 @@ export default function FinancialHealthScore() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+      <PageHeader 
+        title="Financial Health Score"
+        backHref="/"
+        rightSlot={step === totalQuestions ? (
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved!' : 'Save'}</button>
+            <button onClick={() => { setStep(-1); setAnswers({}); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+          </div>
+        ) : null}
+      />
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {step === -1 && (
@@ -169,7 +181,7 @@ export default function FinancialHealthScore() {
 
         {step >= 0 && step < totalQuestions && currentQ && (
           <div key={step} style={{ animation: 'slideInRight 0.3s ease both' }}>
-            <div style={{ display: 'flex', itemsCenter: 'center', gap: 8, marginBottom: 12 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
               <span className="badge badge-gold">{currentQ.category}</span>
             </div>
             <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-8)', lineHeight: 1.25 }}>
@@ -214,14 +226,6 @@ export default function FinancialHealthScore() {
 
         {step === totalQuestions && (
           <div style={{ animation: 'fadeIn 0.5s ease' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-8)' }}>
-              <button onClick={() => { setStep(-1); setAnswers({}); }} className="btn btn-secondary btn-sm"><RotateCcw size={14} /> Reset</button>
-              <h1 className="heading-md">Audit Results</h1>
-              <button onClick={handleSave} className="btn btn-primary btn-sm" style={{ background: '#F39C12', border: 'none' }}>
-                {saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved!' : 'Save Result'}
-              </button>
-            </div>
-
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-10)' }}>
               <div style={{ position: 'relative', display: 'inline-block', marginBottom: 'var(--space-6)' }}>
                 <svg width={200} height={200} viewBox="0 0 180 180">

@@ -7,6 +7,8 @@ import {
   ChevronLeft, Info, Activity, Clock
 } from 'lucide-react';
 import { storage } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
   { id: 'emergency', text: 'Do you have at least 3 months of emergency expenses saved?', options: ['No savings yet', 'Working on it (1-2 months)', 'Yes (3-5 months)', 'Complete (6+ months)'] },
@@ -66,6 +68,16 @@ export default function InvestmentReadiness() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+      <PageHeader 
+        title="Investment Readiness"
+        backHref="/"
+        rightSlot={step === QUESTIONS.length + 1 ? (
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check /> : <Save />} {saved ? 'Success' : 'Secure This Result'}</button>
+            <button onClick={() => setStep(0)} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+          </div>
+        ) : null}
+      />
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {step === 0 && (
@@ -124,9 +136,8 @@ export default function InvestmentReadiness() {
                 <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{readiness.desc}</p>
              </div>
 
-             <div className="stack-4">
-                <button onClick={handleSave} className="btn btn-primary btn-lg btn-full">{saved ? <Check /> : <Save />} {saved ? 'Success' : 'Secure This Result'}</button>
-                <button onClick={() => setStep(0)} className="btn btn-secondary btn-lg btn-full">Recalibrate Profile</button>
+             <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>Use the controls at the top to save your results or start over.</p>
              </div>
           </div>
         )}

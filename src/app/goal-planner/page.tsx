@@ -7,6 +7,7 @@ import {
   Plane, Home, GraduationCap, Car, Heart, Shield, Umbrella, Rocket, Layout, Calendar
 } from 'lucide-react';
 import { storage, fmt, calc } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
 import { differenceInMonths, parseISO, format } from 'date-fns';
 
 const CATEGORIES = [
@@ -109,7 +110,21 @@ export default function GoalPlanner() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      <div style={{ maxWidth: 720, margin: '0 auto', padding: 'var(--space-8) var(--space-4) var(--space-16)' }}>
+      <PageHeader 
+        title="Goal Planner" 
+        backHref="/"
+        accentColor="#FDCB6E"
+        rightSlot={saved ? (
+          <div style={{ background: 'var(--brand-success-glow)', color: 'var(--brand-success)', padding: '6px 16px', borderRadius: 99, fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 }}>
+            <Check size={14} /> Saved and synced
+          </div>
+        ) : (
+          <div style={{ background: 'var(--bg-card)', color: 'var(--text-faint)', padding: '6px 16px', borderRadius: 99, fontSize: 11, fontWeight: 700 }}>
+            {goals.length} active goals
+          </div>
+        )}
+      />
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {step === -1 && (
           <div style={{ animation: 'fadeInUp 0.4s ease both' }}>

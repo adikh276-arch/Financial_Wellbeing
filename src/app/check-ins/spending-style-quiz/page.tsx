@@ -8,6 +8,8 @@ import {
   CreditCard, Calendar, BarChart2, Heart, Info
 } from 'lucide-react';
 import { storage } from '@/lib/storage';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
   { id: 'q1', text: 'When you encounter an unsolicited discount or sale event:', options: ['Disregard entirely - utility over price always', 'Analytical review for potential high-value needs', 'Capitalize on the discount opportunity immediately'] },
@@ -112,23 +114,19 @@ export default function SpendingStyleQuiz() {
   };
 
   return (
+  return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      {/* Navigation removed as per requirement */}
-
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
-        {(step > 0 && step <= 10) || step === 11 ? (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
-            <div style={{ flex: 1 }}>
-              <h1 style={{ fontWeight: 700, fontSize: 'var(--text-base)', color: 'var(--text-primary)' }}>Spending Style Quiz</h1>
-            </div>
-            {step === 11 && (
-              <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved!' : 'Save'}</button>
-                <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
-              </div>
-            )}
+      <PageHeader 
+        title="Spending Style Quiz"
+        backHref="/"
+        rightSlot={step === 11 ? (
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved!' : 'Save'}</button>
+            <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
           </div>
         ) : null}
+      />
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         {step > 0 && step <= 10 && (
           <div style={{ marginBottom: 'var(--space-10)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>

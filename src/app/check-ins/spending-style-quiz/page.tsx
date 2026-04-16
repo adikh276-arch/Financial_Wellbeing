@@ -153,7 +153,7 @@ export default function SpendingStyleQuiz() {
             {prevResult && (
               <div style={{ marginBottom: 'var(--space-10)', display: 'inline-flex', alignItems: 'center', gap: 12, padding: '10px 24px', background: 'var(--bg-card-hover)', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-subtle)' }}>
                 <span style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase' }}>{t('LAST KNOWN ARCHETYPE:')}</span>
-                <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--brand-primary)' }}>{STYLES.find(s => s.id === prevResult.styleId)?.label}</span>
+                <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--brand-primary)' }}>{t(STYLES.find(s => s.id === prevResult.styleId)?.label || '')}</span>
               </div>
             )}
             <div style={{ display: 'block' }}>
@@ -171,7 +171,7 @@ export default function SpendingStyleQuiz() {
                 <div style={{ width: 16, height: 2, background: 'var(--brand-primary)', borderRadius: 2 }} />
                 DIMENSION {step} / 10
               </div>
-              <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-10)', lineHeight: 1.2, fontWeight: 800 }}>{currentQ?.text}</h2>
+              <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-10)', lineHeight: 1.2, fontWeight: 800 }}>{t(currentQ?.text || '')}</h2>
               <div className="stack-4">
                 {currentQ?.options.map((opt, i) => (
                   <button key={i} onClick={() => handleAnswer(i)} className="card card-hover" style={{ 
@@ -189,7 +189,7 @@ export default function SpendingStyleQuiz() {
                     }}>
                       {String.fromCharCode(65 + i)}
                     </div>
-                    <span style={{ fontWeight: 600, fontSize: 'var(--text-base)', color: 'var(--text-primary)' }}>{opt}</span>
+                    <span style={{ fontWeight: 600, fontSize: 'var(--text-base)', color: 'var(--text-primary)' }}>{t(opt)}</span>
                   </button>
                 ))}
               </div>
@@ -222,8 +222,8 @@ export default function SpendingStyleQuiz() {
                 <style.icon size={36} color="white" strokeWidth={2.5} />
               </div>
               <div style={{ fontSize: 11, fontWeight: 800, color: 'rgba(255,255,255,0.8)', marginBottom: 8, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{t('VERIFIED ARCHETYPE')}</div>
-              <div className="display-sm" style={{ marginBottom: 'var(--space-4)', fontWeight: 900 }}>{style.label}</div>
-              <p style={{ fontSize: 'var(--text-lg)', maxWidth: 600, margin: '0 auto', opacity: 0.95, lineHeight: 1.6, fontWeight: 500 }}>{style.description}</p>
+              <div className="display-sm" style={{ marginBottom: 'var(--space-4)', fontWeight: 900 }}>{t(style.label)}</div>
+              <p style={{ fontSize: 'var(--text-lg)', maxWidth: 600, margin: '0 auto', opacity: 0.95, lineHeight: 1.6, fontWeight: 500 }}>{t(style.description)}</p>
             </div>
 
             <div className="responsive-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-6)', marginBottom: 'var(--space-8)' }}>
@@ -267,7 +267,7 @@ export default function SpendingStyleQuiz() {
                 {style.recommendations.map((r, i) => (
                   <div key={i} className="card" style={{ padding: 'var(--space-5)', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', display: 'flex', gap: 20, alignItems: 'center' }}>
                     <div style={{ width: 40, height: 40, borderRadius: 'var(--radius-xl)', background: 'var(--brand-primary-glow)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: 'var(--brand-primary)', flexShrink: 0, fontSize: 16 }}>0{i + 1}</div>
-                    <div style={{ fontSize: 'var(--text-base)', color: 'var(--text-primary)', fontWeight: 700 }}>{r}</div>
+                    <div style={{ fontSize: 'var(--text-base)', color: 'var(--text-primary)', fontWeight: 700 }}>{t(r)}</div>
                   </div>
                 ))}
               </div>

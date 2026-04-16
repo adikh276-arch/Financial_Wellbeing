@@ -200,7 +200,7 @@ export default function GoalPlanner() {
                     <div className="form-group">
                       <label className="form-label">{t('Category')}</label>
                       <select className="form-input" required value={form.category} onChange={e => setForm({ ...form, category: e.target.value })}>
-                        {CATEGORIES.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
+                        {CATEGORIES.map(c => <option key={c.id} value={c.id}>{t(c.label)}</option>)}
                       </select>
                     </div>
                     <div className="form-group">

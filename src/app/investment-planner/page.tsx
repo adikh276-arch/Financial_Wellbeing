@@ -237,8 +237,8 @@ export default function InvestmentPlanner() {
                   <button key={r} onClick={() => setForm(f => ({ ...f, risk: r }))} className={`option-btn ${selected ? 'active' : ''}`} style={{ borderColor: selected ? p.color : undefined }}>
                     <div className="option-letter" style={{ color: p.color, background: selected ? `${p.color}15` : undefined }}>{r[0]}</div>
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontWeight: 700, fontSize: 14 }}>{r}</div>
-                      <div style={{ fontSize: 11, color: 'var(--text-faint)' }}>Target {p.returnRange} CAGR</div>
+                      <div style={{ fontWeight: 700, fontSize: 14 }}>{t(r)}</div>
+                      <div style={{ fontSize: 11, color: 'var(--text-faint)' }}>{t('Target')} {p.returnRange} {t('CAGR')}</div>
                     </div>
                     {selected && <Check size={16} color={p.color} />}
                   </button>
@@ -298,7 +298,7 @@ export default function InvestmentPlanner() {
                    {profile.allocation.map(a => (
                      <div key={a.name} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
                        <div style={{ width: 8, height: 8, borderRadius: '50%', background: a.color }} />
-                       <span style={{ fontWeight: 600, flex: 1 }}>{a.name}</span>
+                       <span style={{ fontWeight: 600, flex: 1 }}>{t(a.name)}</span>
                        <span style={{ fontWeight: 800 }}>{a.value}%</span>
                      </div>
                    ))}

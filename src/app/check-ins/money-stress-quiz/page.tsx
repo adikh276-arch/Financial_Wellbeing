@@ -140,7 +140,7 @@ export default function MoneyStressQuiz() {
                 {currentQ.options.map((opt, i) => (
                   <button key={i} onClick={() => handleAnswer(i)} className="option-btn">
                     <div className="option-letter">{String.fromCharCode(65 + i)}</div>
-                    <span className="option-text">{opt}</span>
+                    <span className="option-text">{t(opt)}</span>
                   </button>
                 ))}
               </div>

@@ -292,7 +292,7 @@ export default function FinancialHealthScore() {
                        {section.actions.map(action => (
                          <div key={action} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: 10, background: 'white', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
                            <Check size={14} color="var(--brand-success)" style={{ marginTop: 2 }} />
-                           <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-secondary)' }}>{action}</span>
+                           <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-secondary)' }}>{t(action)}</span>
                          </div>
                        ))}
                     </div>

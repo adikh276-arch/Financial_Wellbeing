@@ -7,6 +7,7 @@ import {
   Brain, Shield, Landmark, Zap, Copy, Check as CheckIcon, 
   Sparkles, Compass, Lightbulb
 } from 'lucide-react';
+import { LanguageSelector } from '@/components/LanguageSelector';
 
 const CATEGORY_META: Record<string, { color: string; bg: string }> = {
   Savings: { color: '#00A884', bg: '#00A88412' },
@@ -26,6 +27,7 @@ const TIPS = [
 ];
 
 export default function FinancialTips() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState('All');
   const [copied, setCopied] = useState<string | null>(null);
 

@@ -5,6 +5,8 @@ import {
   HelpCircle, ChevronDown, ChevronUp, Search, 
   Wallet, Shield, TrendingUp, CreditCard, Brain, Zap, Clock, BookOpen, MessageCircle
 } from 'lucide-react';
+import { LanguageSelector } from '@/components/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const FAQS = [
   { q: "How much emergency fund is ideal?", a: "A standard recommendation is 3-6 months of essential living expenses. If your income is volatile or you work in a niche industry, consider 9-12 months for extreme security.", icon: Shield },
@@ -16,6 +18,7 @@ const FAQS = [
 ];
 
 export default function FinancialFAQs() {
+  const { t } = useTranslation();
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (

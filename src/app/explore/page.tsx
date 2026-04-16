@@ -1,5 +1,6 @@
 'use client';
 import { useTranslation } from 'react-i18next';
+import { LanguageSelector } from '@/components/LanguageSelector';
 
 import Link from 'next/link';
 import { Lightbulb, HelpCircle, BookOpen, MessageSquare, FileText, ArrowRight, Sparkles } from 'lucide-react';
@@ -58,6 +59,7 @@ const sections = [
 ];
 
 export default function ExploreHub() {
+  const { t } = useTranslation();
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       {/* Header */}
@@ -67,9 +69,13 @@ export default function ExploreHub() {
         borderBottom: '1px solid var(--border-subtle)',
         padding: 'var(--space-4)',
       }}>
-        <div style={{ maxWidth: 680, margin: '0 auto' }}>
-          <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>Content Library</p>
-          <h1 className="heading-xl" style={{ color: 'var(--text-primary)' }}>Explore</h1>
+        <div style={{ maxWidth: 680, margin: '0 auto', display: 'flex', alignItems: 'center' }}>
+          <div>
+            <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>{t('Content Library')}</p>
+            <h1 className="heading-xl" style={{ color: 'var(--text-primary)' }}>{t('Explore')}</h1>
+          </div>
+          <div style={{ flex: 1 }} />
+          <LanguageSelector />
         </div>
       </div>
 
@@ -88,9 +94,9 @@ export default function ExploreHub() {
               <Sparkles size={22} color="white" strokeWidth={2.5} />
             </div>
             <div>
-              <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'var(--text-xs)', fontWeight: 600 }}>100+ pieces of content</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'var(--text-xs)', fontWeight: 600 }}>{t('100+ pieces of content')}</p>
               <h2 style={{ color: 'white', fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 800, letterSpacing: '-0.015em' }}>
-                Financial Wisdom
+                {t('Financial Wisdom')}
               </h2>
             </div>
           </div>
@@ -117,17 +123,17 @@ export default function ExploreHub() {
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
-                        <h3 style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 'var(--text-base)' }}>{section.label}</h3>
+                        <h3 style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 'var(--text-base)' }}>{t(section.label)}</h3>
                         <span style={{
                           fontSize: 10, fontWeight: 700, color: section.color,
                           background: section.colorBg, padding: '2px 7px',
                           borderRadius: 99, border: `1px solid ${section.color}25`,
                           textTransform: 'uppercase', letterSpacing: '0.05em', flexShrink: 0
                         }}>
-                          {section.count}
+                          {t(section.count)}
                         </span>
                       </div>
-                      <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', lineHeight: 1.4 }}>{section.desc}</p>
+                      <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', lineHeight: 1.4 }}>{t(section.desc)}</p>
                     </div>
                     <div style={{
                       width: 32, height: 32, borderRadius: 'var(--radius-md)',

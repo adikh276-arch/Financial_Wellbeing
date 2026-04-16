@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Zap, BarChart2, AlertCircle, Shield, Target, PieChart, Heart, Star, Compass, TrendingUp, Brain } from 'lucide-react';
+import { ChevronRight, BookOpen, Clock, ArrowRight, Zap, BarChart2, AlertCircle, Shield, Target, PieChart, Heart, Star, Compass, TrendingUp, Brain } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { LanguageSelector } from '@/components/LanguageSelector';
 
 const modules = [
   { href: '/learn/budgeting-basics', label: 'Budgeting Basics', icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715', tag: 'Foundational' },
@@ -23,6 +24,7 @@ const modules = [
 const tags = ['All', 'Foundational', 'Habits', 'Investing', 'Debt', 'Safety', 'Goals', 'Behavior', 'Mindset', 'Strategy'];
 
 export default function LearnHub() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState('All');
   const filtered = filter === 'All' ? modules : modules.filter(m => m.tag === filter);
 
@@ -32,7 +34,8 @@ export default function LearnHub() {
          <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-brand)' }}>
             <BookOpen size={22} color="white" />
          </div>
-         <h1 className="heading-md">Academy</h1>
+         <h1 className="heading-md" style={{ flex: 1 }}>{t('Academy')}</h1>
+         <LanguageSelector />
       </div>
 
       <div className="page-wrapper">

@@ -116,7 +116,7 @@ export default function InvestmentReadiness() {
                <div className="progress-bar" style={{ height: 4 }}><div className="progress-fill" style={{ width: `${progress}%` }} /></div>
              </div>
              <div className="card" style={{ padding: 'var(--space-8)' }}>
-                <h2 className="heading-lg" style={{ marginBottom: 'var(--space-10)' }}>{QUESTIONS[step-1].text}</h2>
+                <h2 className="heading-lg" style={{ marginBottom: 'var(--space-10)' }}>{t(QUESTIONS[step-1].text)}</h2>
                 <div className="stack-3">
                    {QUESTIONS[step-1].options.map((opt, i) => (
                       <button key={i} onClick={() => handleAnswer(i)} className="option-btn">
@@ -133,8 +133,8 @@ export default function InvestmentReadiness() {
           <div style={{ animation: 'fadeIn 0.5s ease' }}>
              <div style={{ background: readiness.color, borderRadius: 'var(--radius-3xl)', padding: 'var(--space-10)', textAlign: 'center', color: 'white', marginBottom: 'var(--space-8)' }}>
                 <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>{t('READINESS ARCHETYPE')}</p>
-                <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{readiness.label}</div>
-                <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{readiness.desc}</p>
+                <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{t(readiness.label)}</div>
+                <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{t(readiness.desc)}</p>
              </div>
 
              <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>

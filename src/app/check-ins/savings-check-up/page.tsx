@@ -114,7 +114,7 @@ export default function SavingsCheckup() {
                <div className="progress-bar" style={{ height: 4 }}><div className="progress-fill" style={{ width: `${progress}%` }} /></div>
              </div>
              <div className="card" style={{ padding: 'var(--space-8)' }}>
-                <h2 className="heading-lg" style={{ marginBottom: 'var(--space-10)' }}>{QUESTIONS[step-1].text}</h2>
+                <h2 className="heading-lg" style={{ marginBottom: 'var(--space-10)' }}>{t(QUESTIONS[step-1].text)}</h2>
                 <div className="stack-3">
                    {QUESTIONS[step-1].options.map((opt, i) => (
                       <button key={i} onClick={() => handleAnswer(i)} className="option-btn">

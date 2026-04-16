@@ -6,6 +6,8 @@ import {
   Smartphone, Activity, XCircle, AlertTriangle, HelpCircle,
   Coins, Layout, Info
 } from 'lucide-react';
+import { LanguageSelector } from '@/components/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const MYTHS = [
   { myth: 'I need a lot of money to start investing', reality: 'Wealth building is about consistency and time. Many platforms allow micro-investments. Start small, but start now.', verdict: 'MYTH', icon: Coins },
@@ -22,13 +24,15 @@ const VERDICT_CONFIG = {
 };
 
 export default function FinancialMyths() {
+  const { t } = useTranslation();
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <div className="topbar">
         <div style={{ width: 44, height: 44, borderRadius: '12px', background: 'var(--brand-danger)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(225,112,85,0.3)' }}>
           <AlertCircle size={20} color="white" />
         </div>
-        <div><h1 className="heading-md">Myth vs. Reality</h1></div>
+        <div style={{ flex: 1 }}><h1 className="heading-md">{t('Myth vs. Reality')}</h1></div>
+        <LanguageSelector />
       </div>
 
       <div className="page-wrapper">

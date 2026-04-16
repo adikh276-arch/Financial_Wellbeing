@@ -45,6 +45,7 @@ const SCORE_LABELS = [
 ];
 
 export default function FinancialHealthScore() {
+  const { t } = useTranslation();
   const [step, setStep] = useState(-1); 
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [saved, setSaved] = useState(false);
@@ -119,7 +120,7 @@ export default function FinancialHealthScore() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Financial Health Score"
+        title={t('Financial Health Score')}
         backHref="/"
         rightSlot={step === totalQuestions ? (
           <div style={{ display: 'flex', gap: 8 }}>
@@ -135,17 +136,17 @@ export default function FinancialHealthScore() {
             <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
               <Award size={40} color="#F39C12" />
             </div>
-            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>Audit Your Wealth</h1>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Audit Your Wealth')}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 440, margin: '0 auto var(--space-10)' }}>
               15 diagnostic parameters to evaluate your stability, resilience, and growth potential. Get an institutional-grade score in minutes.
             </p>
             <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220, background: 'linear-gradient(135deg, #F39C12, #f1c40f)', border: 'none' }}>
-              Begin Analysis <ArrowRight size={18} style={{ marginLeft: 8 }} />
+              {t('Begin Analysis')} <ArrowRight size={18} style={{ marginLeft: 8 }} />
             </button>
 
             {history.length > 0 && (
               <div style={{ marginTop: 'var(--space-16)', textAlign: 'left' }}>
-                <label className="label-caps" style={{ marginBottom: 'var(--space-4)', display: 'block' }}>Historical Performance</label>
+                <label className="label-caps" style={{ marginBottom: 'var(--space-4)', display: 'block' }}>{t('Historical Performance')}</label>
                 <div className="stack-3">
                   {history.map((h, i) => (
                     <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -154,7 +155,7 @@ export default function FinancialHealthScore() {
                           {h.score}
                         </div>
                         <div>
-                          <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>Diagnostic Run</div>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>{t('Diagnostic Run')}</div>
                           <div style={{ fontSize: 10, color: 'var(--text-faint)' }}>{new Date(h.date).toLocaleDateString()}</div>
                         </div>
                       </div>
@@ -170,7 +171,7 @@ export default function FinancialHealthScore() {
         {step >= 0 && step < totalQuestions && (
           <div style={{ marginBottom: 'var(--space-8)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
-              <button onClick={() => setStep(step === 0 ? -1 : step - 1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> Back</button>
+              <button onClick={() => setStep(step === 0 ? -1 : step - 1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> {t('Back')}</button>
               <div style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--text-faint)' }}>Diagnostic {step + 1}/{totalQuestions}</div>
             </div>
             <div className="progress-bar">
@@ -217,7 +218,7 @@ export default function FinancialHealthScore() {
                   onChange={e => setAnswers(prev => ({ ...prev, [currentQ.id]: Number(e.target.value) }))} style={{ width: '100%', marginBottom: 'var(--space-8)' }} />
                 <button className="btn btn-primary btn-lg" style={{ width: '100%', background: '#F39C12', border: 'none' }}
                   onClick={() => { if (step < totalQuestions - 1) setStep(s => s + 1); else computeAndShow(); }}>
-                  Continue <ChevronRight size={18} />
+                  {t('Continue')} <ChevronRight size={18} />
                 </button>
               </div>
             )}
@@ -244,7 +245,7 @@ export default function FinancialHealthScore() {
                 </svg>
                 <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                   <div style={{ fontSize: 56, fontWeight: 900, fontFamily: 'var(--font-display)', color: 'var(--text-primary)', lineHeight: 1 }}>{score}</div>
-                  <div style={{ fontSize: 10, color: 'var(--text-faint)', fontWeight: 800, textTransform: 'uppercase', marginTop: 4 }}>Wealth Grade</div>
+                  <div style={{ fontSize: 10, color: 'var(--text-faint)', fontWeight: 800, textTransform: 'uppercase', marginTop: 4 }}>{t('Wealth Grade')}</div>
                 </div>
               </div>
               <div className="heading-xl" style={{ color: scoreInfo.color, marginBottom: 8 }}>{scoreInfo.emoji} {scoreInfo.label}</div>
@@ -252,7 +253,7 @@ export default function FinancialHealthScore() {
             </div>
 
             <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-6)' }}>
-              <div style={{ fontWeight: 800, fontSize: 11, color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 'var(--space-5)' }}>Diagonal Metrics</div>
+              <div style={{ fontWeight: 800, fontSize: 11, color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 'var(--space-5)' }}>{t('Diagonal Metrics')}</div>
               <div className="stack-4">
                 {Object.entries(CATEGORY_MAX).map(([cat, maxCat]) => {
                   const catScore = catScores[cat] || 0;
@@ -275,7 +276,7 @@ export default function FinancialHealthScore() {
             <div style={{ background: '#F39C120A', border: '1px solid #F39C1222', borderRadius: 'var(--radius-xl)', padding: 'var(--space-6)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 'var(--space-5)' }}>
                 <Compass size={20} color="#F39C12" />
-                <span style={{ fontWeight: 800, fontSize: 13, color: 'var(--text-primary)' }}>Institutional Roadmap</span>
+                <span style={{ fontWeight: 800, fontSize: 13, color: 'var(--text-primary)' }}>{t('Institutional Roadmap')}</span>
               </div>
               <div className="stack-6">
                 {[

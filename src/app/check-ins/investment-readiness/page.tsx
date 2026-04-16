@@ -26,6 +26,7 @@ const READINESS_LEVELS = [
 ];
 
 export default function InvestmentReadiness() {
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [saved, setSaved] = useState(false);
@@ -69,7 +70,7 @@ export default function InvestmentReadiness() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Investment Readiness"
+        title={t('Investment Readiness')}
         backHref="/"
         rightSlot={step === QUESTIONS.length + 1 ? (
           <div style={{ display: 'flex', gap: 8 }}>
@@ -85,14 +86,14 @@ export default function InvestmentReadiness() {
             <div style={{ width: 80, height: 80, borderRadius: 'var(--radius-2xl)', background: 'var(--brand-primary-glow)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', margin: '0 auto var(--space-8)' }}>
               <TrendingUp size={40} />
             </div>
-            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>Investment Readiness</h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 480, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>Are you prepared for the volatility of the markets? Evaluate your core financial pillars to determine your optimal entry strategy.</p>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Investment Readiness')}</h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 480, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>{t('Are you prepared for the volatility of the markets? Evaluate your core financial pillars to determine your optimal entry strategy.')}</p>
             
-            <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>Start Evaluation</button>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>{t('Start Evaluation')}</button>
 
             {history.length > 0 && (
               <div style={{ textAlign: 'left' }}>
-                <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>Previous Results</label>
+                <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>{t('Previous Results')}</label>
                 <div className="stack-3">
                    {history.map((h, i) => (
                       <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -131,13 +132,13 @@ export default function InvestmentReadiness() {
         {step === QUESTIONS.length + 1 && (
           <div style={{ animation: 'fadeIn 0.5s ease' }}>
              <div style={{ background: readiness.color, borderRadius: 'var(--radius-3xl)', padding: 'var(--space-10)', textAlign: 'center', color: 'white', marginBottom: 'var(--space-8)' }}>
-                <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>READINESS ARCHETYPE</p>
+                <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>{t('READINESS ARCHETYPE')}</p>
                 <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{readiness.label}</div>
                 <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{readiness.desc}</p>
              </div>
 
              <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>Use the controls at the top to save your results or start over.</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>{t('Use the controls at the top to save your results or start over.')}</p>
              </div>
           </div>
         )}

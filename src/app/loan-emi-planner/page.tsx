@@ -146,7 +146,7 @@ export default function LoanEMIPlanner() {
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-16)' }}>
         {(step === 1 || step === 0) && (
           <PageHeader 
-            title="Loan & EMI Planner"
+            title={t('Loan & EMI Planner')}
             backHref="/"
             rightSlot={step === 1 ? (
               <div style={{ display: 'flex', gap: 8 }}>

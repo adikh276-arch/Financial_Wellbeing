@@ -37,6 +37,7 @@ const STRESS_LEVELS = [
 ];
 
 export default function MoneyStressQuiz() {
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [saved, setSaved] = useState(false);
@@ -86,7 +87,7 @@ export default function MoneyStressQuiz() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Money Stress Quiz"
+        title={t('Money Stress Quiz')}
         backHref="/"
         rightSlot={step === QUESTIONS.length + 1 ? (
           <div style={{ display: 'flex', gap: 8 }}>
@@ -102,16 +103,16 @@ export default function MoneyStressQuiz() {
             <div style={{ width: 80, height: 80, borderRadius: 'var(--radius-2xl)', background: 'var(--bg-glass-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', margin: '0 auto var(--space-8)', border: '1px solid var(--border-subtle)' }}>
               <HeartPulse size={40} strokeWidth={1.5} />
             </div>
-            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>Quantify Your Financial Stress</h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 540, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>Identify the behavioral and structural drivers of financial anxiety with our clinical-grade diagnostic.</p>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Quantify Your Financial Stress')}</h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 540, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>{t('Identify the behavioral and structural drivers of financial anxiety with our clinical-grade diagnostic.')}</p>
             
             <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>
-              Run Analysis <ArrowRight size={18} />
+              {t('Run Analysis')} <ArrowRight size={18} />
             </button>
 
             {history.length > 0 && (
               <div style={{ textAlign: 'left' }}>
-                 <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>Recent Assessments</label>
+                 <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>{t('Recent Assessments')}</label>
                  <div className="stack-3">
                    {history.map((h, i) => (
                       <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -150,14 +151,14 @@ export default function MoneyStressQuiz() {
         {step === QUESTIONS.length + 1 && (
           <div style={{ animation: 'fadeIn 0.6s ease' }}>
              <div style={{ background: stressLevel.color, borderRadius: 'var(--radius-3xl)', padding: 'var(--space-10)', textAlign: 'center', color: 'white', marginBottom: 'var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
-                <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>DIAGNOSTIC STATE</p>
+                <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>{t('DIAGNOSTIC STATE')}</p>
                 <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{stressLevel.label}</div>
                 <p style={{ opacity: 0.9, fontSize: 'var(--text-base)', lineHeight: 1.5 }}>{stressLevel.desc}</p>
              </div>
 
              <div className="card" style={{ padding: 'var(--space-8)', marginBottom: 'var(--space-8)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
-                   <span className="label-caps">Stress Spectrum</span>
+                   <span className="label-caps">{t('Stress Spectrum')}</span>
                    <span style={{ fontSize: 13, fontWeight: 800 }}>{totalStress} / 45</span>
                 </div>
                 <div className="progress-bar" style={{ height: 12, background: 'var(--bg-neutral)' }}>
@@ -166,17 +167,17 @@ export default function MoneyStressQuiz() {
              </div>
 
              <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--brand-primary-glow)', border: '1px solid var(--border-brand)' }}>
-                <h3 className="heading-sm" style={{ marginBottom: 'var(--space-4)', color: 'var(--brand-primary)' }}>Tactical Relief Plan</h3>
+                <h3 className="heading-sm" style={{ marginBottom: 'var(--space-4)', color: 'var(--brand-primary)' }}>{t('Tactical Relief Plan')}</h3>
                 <div className="stack-3">
                    {totalStress > 20 ? (
                      <>
-                        <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>Execute immediate cashflow audit & budget freeze.</div>
-                        <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>Automate and prioritize high-interest debt payments.</div>
+                        <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>{t('Execute immediate cashflow audit & budget freeze.')}</div>
+                        <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>{t('Automate and prioritize high-interest debt payments.')}</div>
                      </>
                    ) : (
-                      <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>Optimize redundant reserve channels into yields.</div>
+                      <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>{t('Optimize redundant reserve channels into yields.')}</div>
                    )}
-                   <button className="btn btn-secondary btn-full" style={{ marginTop: 'var(--space-4)' }} onClick={() => setStep(0)}>Recalibrate Assessment</button>
+                   <button className="btn btn-secondary btn-full" style={{ marginTop: 'var(--space-4)' }} onClick={() => setStep(0)}>{t('Recalibrate Assessment')}</button>
                 </div>
              </div>
           </div>

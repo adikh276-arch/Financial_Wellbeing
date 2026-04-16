@@ -41,6 +41,7 @@ const newGoalTemplate = (): Omit<Goal, 'id' | 'createdAt'> => ({
 });
 
 export default function GoalPlanner() {
+  const { t } = useTranslation();
   const [goals, setGoals] = useState<Goal[]>([]);
   const [step, setStep] = useState(-1);
   const [showForm, setShowForm] = useState(false);
@@ -111,12 +112,12 @@ export default function GoalPlanner() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Goal Planner" 
+        title={t('Goal Planner')} 
         backHref="/"
         accentColor="#FDCB6E"
         rightSlot={saved ? (
           <div style={{ background: 'var(--brand-success-glow)', color: 'var(--brand-success)', padding: '6px 16px', borderRadius: 99, fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 }}>
-            <Check size={14} /> Saved and synced
+            <Check size={14} /> {t('Saved and synced')}
           </div>
         ) : (
           <div style={{ background: 'var(--bg-card)', color: 'var(--text-faint)', padding: '6px 16px', borderRadius: 99, fontSize: 11, fontWeight: 700 }}>
@@ -132,9 +133,9 @@ export default function GoalPlanner() {
               <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)', border: '1px solid var(--border-subtle)' }}>
                 <Target size={40} color="var(--brand-primary)" />
               </div>
-              <h1 className="display-sm" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>Dream with Discipline</h1>
+              <h1 className="display-sm" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>{t('Dream with Discipline')}</h1>
               <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 440, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>
-                Define your financial milestones. Track progress toward your house, car, or education goals with real-time probability analysis.
+                {t('Define your financial milestones. Track progress toward your house, car, or education goals with real-time probability analysis.')}
               </p>
               <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
                 {goals.length > 0 ? 'Manage My Goals' : 'Create First Goal'} <Target size={18} style={{ marginLeft: 8 }} />
@@ -142,14 +143,14 @@ export default function GoalPlanner() {
 
               {goals.length > 0 && (
                 <div style={{ marginTop: 'var(--space-12)', textAlign: 'left' }}>
-                  <label className="label-caps" style={{ marginBottom: 'var(--space-4)', display: 'block' }}>Summary Statistics</label>
+                  <label className="label-caps" style={{ marginBottom: 'var(--space-4)', display: 'block' }}>{t('Summary Statistics')}</label>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
                     <div className="card" style={{ padding: 'var(--space-6)' }}>
-                      <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', marginBottom: 4 }}>TOTAL TARGET</div>
+                      <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', marginBottom: 4 }}>{t('TOTAL TARGET')}</div>
                       <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--text-primary)' }}>{fmt.currency(totalTargetValue)}</div>
                     </div>
                     <div className="card" style={{ padding: 'var(--space-6)' }}>
-                      <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', marginBottom: 4 }}>TOTAL SAVED</div>
+                      <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', marginBottom: 4 }}>{t('TOTAL SAVED')}</div>
                       <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--brand-success)' }}>{fmt.currency(totalSavedValue)}</div>
                     </div>
                   </div>
@@ -162,10 +163,10 @@ export default function GoalPlanner() {
         {step === 0 && (
           <div style={{ animation: 'fadeIn 0.35s ease' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-8)' }}>
-              <button onClick={() => setStep(-1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> Back</button>
-              <h2 className="heading-md">Goal Planner</h2>
+              <button onClick={() => setStep(-1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> {t('Back')}</button>
+              <h2 className="heading-md">{t('Goal Planner')}</h2>
               <button className="btn btn-primary btn-sm" onClick={() => { setShowForm(true); setEditId(null); setForm(newGoalTemplate()); }}>
-                <Plus size={14} /> New Goal
+                <Plus size={14} /> {t('New Goal')}
               </button>
             </div>
 
@@ -173,11 +174,11 @@ export default function GoalPlanner() {
             {goals.length > 0 && (
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
                 <div className="card" style={{ padding: 'var(--space-4)', background: 'var(--bg-glass-light)' }}>
-                  <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-muted)' }}>ON TRACK</div>
+                  <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-muted)' }}>{t('ON TRACK')}</div>
                   <div style={{ fontSize: 18, fontWeight: 800, color: '#00A884' }}>{onTrackCount} / {goals.length}</div>
                 </div>
                 <div className="card" style={{ padding: 'var(--space-4)', background: 'var(--bg-glass-light)' }}>
-                   <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-muted)' }}>MONTHLY NEEDED</div>
+                   <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-muted)' }}>{t('MONTHLY NEEDED')}</div>
                    <div style={{ fontSize: 18, fontWeight: 800, color: 'var(--brand-primary)' }}>{fmt.currency(totalMonthlyNeeded)}</div>
                 </div>
               </div>
@@ -192,48 +193,48 @@ export default function GoalPlanner() {
                 
                 <div className="stack-4">
                   <div className="form-group">
-                    <label className="form-label">Goal Name</label>
+                    <label className="form-label">{t('Goal Name')}</label>
                     <input type="text" className="form-input" required placeholder="e.g. Master's in CS" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div className="form-group">
-                      <label className="form-label">Category</label>
+                      <label className="form-label">{t('Category')}</label>
                       <select className="form-input" required value={form.category} onChange={e => setForm({ ...form, category: e.target.value })}>
                         {CATEGORIES.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
                       </select>
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Priority</label>
+                      <label className="form-label">{t('Priority')}</label>
                       <select className="form-input" required value={form.priority} onChange={e => setForm({ ...form, priority: e.target.value as any })}>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
+                        <option value="High">{t('High')}</option>
+                        <option value="Medium">{t('Medium')}</option>
+                        <option value="Low">{t('Low')}</option>
                       </select>
                     </div>
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div className="form-group">
-                      <label className="form-label">Target Capital</label>
+                      <label className="form-label">{t('Target Capital')}</label>
                       <input type="number" className="form-input" required min="1" placeholder="0.00" value={form.target || ''} onChange={e => setForm({ ...form, target: Math.max(0, Number(e.target.value)) })} />
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Target Date</label>
+                      <label className="form-label">{t('Target Date')}</label>
                       <input type="date" className="form-input" required min={new Date().toISOString().split('T')[0]} value={form.targetDate} onChange={e => setForm({ ...form, targetDate: e.target.value })} />
                     </div>
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div className="form-group">
-                      <label className="form-label">Existing Savings</label>
+                      <label className="form-label">{t('Existing Savings')}</label>
                       <input type="number" className="form-input" min="0" placeholder="0.00" value={form.current || ''} onChange={e => setForm({ ...form, current: Math.max(0, Number(e.target.value)) })} />
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Current Monthly Saving</label>
+                      <label className="form-label">{t('Current Monthly Saving')}</label>
                       <input type="number" className="form-input" min="0" placeholder="0.00" value={form.monthly || ''} onChange={e => setForm({ ...form, monthly: Math.max(0, Number(e.target.value)) })} />
                     </div>
                   </div>
                   
                   <div style={{ display: 'flex', gap: 12, marginTop: 'var(--space-4)' }}>
-                    <button className="btn btn-secondary" style={{ flex: 1 }} onClick={() => { setShowForm(false); setEditId(null); }}>Discard</button>
+                    <button className="btn btn-secondary" style={{ flex: 1 }} onClick={() => { setShowForm(false); setEditId(null); }}>{t('Discard')}</button>
                     <button className="btn btn-primary" style={{ flex: 2 }} onClick={handleSubmit} disabled={!form.name || !form.target || !form.targetDate}>
                       {editId ? 'Update Strategy' : 'Deploy Goal'}
                     </button>
@@ -246,7 +247,7 @@ export default function GoalPlanner() {
               {goals.length === 0 && !showForm && (
                 <div style={{ textAlign: 'center', padding: 'var(--space-12) 0', color: 'var(--text-muted)' }}>
                   <Calendar size={48} strokeWidth={1} style={{ marginBottom: 16, opacity: 0.5 }} />
-                  <p>No active goals yet. Start by defining your first objective.</p>
+                  <p>{t('No active goals yet. Start by defining your first objective.')}</p>
                 </div>
               )}
               {goals.map(goal => {
@@ -285,11 +286,11 @@ export default function GoalPlanner() {
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', background: 'var(--bg-base)', padding: 'var(--space-3)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-subtle)' }}>
                        <div>
-                         <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>Required / Mo</div>
+                         <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>{t('Required / Mo')}</div>
                          <div style={{ fontSize: 13, fontWeight: 700, color: onTrack ? '#00A884' : 'var(--brand-danger)' }}>{fmt.currency(needed)}</div>
                        </div>
                        <div>
-                         <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>Time Horizon</div>
+                         <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>{t('Time Horizon')}</div>
                          <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>{months !== null ? `${months} months` : 'N/A'}</div>
                        </div>
                     </div>

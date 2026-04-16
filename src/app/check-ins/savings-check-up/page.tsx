@@ -24,6 +24,7 @@ const SCORES = [
 ];
 
 export default function SavingsCheckup() {
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [saved, setSaved] = useState(false);
@@ -67,7 +68,7 @@ export default function SavingsCheckup() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Savings Check-up"
+        title={t('Savings Check-up')}
         backHref="/"
         rightSlot={step === QUESTIONS.length + 1 ? (
           <div style={{ display: 'flex', gap: 8 }}>
@@ -83,14 +84,14 @@ export default function SavingsCheckup() {
             <div style={{ width: 80, height: 80, borderRadius: 'var(--radius-2xl)', background: 'var(--brand-primary-glow)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', margin: '0 auto var(--space-8)' }}>
               <ShieldCheck size={40} />
             </div>
-            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>Savings Check-up</h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 480, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>Audit your liquidity strength and behavioral compounding. Benchmark your retention velocity against professional targets.</p>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Savings Check-up')}</h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 480, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>{t('Audit your liquidity strength and behavioral compounding. Benchmark your retention velocity against professional targets.')}</p>
             
-            <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>Start Check-up</button>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>{t('Start Check-up')}</button>
 
             {history.length > 0 && (
               <div style={{ textAlign: 'left' }}>
-                <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>History</label>
+                <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>{t('History')}</label>
                 <div className="stack-3">
                    {history.map((h, i) => (
                       <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -129,13 +130,13 @@ export default function SavingsCheckup() {
         {step === QUESTIONS.length + 1 && (
           <div style={{ animation: 'fadeIn 0.5s ease' }}>
              <div style={{ background: result.color, borderRadius: 'var(--radius-2xl)', padding: 'var(--space-10)', textAlign: 'center', color: 'white', marginBottom: 'var(--space-8)' }}>
-                <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>RESERVE STATUS</p>
+                <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>{t('RESERVE STATUS')}</p>
                 <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{result.label}</div>
                 <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{result.desc}</p>
              </div>
 
              <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>Use the controls at the top to save your results or start over.</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>{t('Use the controls at the top to save your results or start over.')}</p>
              </div>
           </div>
         )}

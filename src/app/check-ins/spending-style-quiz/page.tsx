@@ -61,6 +61,7 @@ const STYLES = [
 ];
 
 export default function SpendingStyleQuiz() {
+  const { t } = useTranslation();
   const [step, setStep] = useState(0); 
   const [answers, setAnswers] = useState<number[]>([]);
   const [saved, setSaved] = useState(false);
@@ -116,7 +117,7 @@ export default function SpendingStyleQuiz() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Spending Style Quiz"
+        title={t('Spending Style Quiz')}
         backHref="/"
         rightSlot={step === 11 ? (
           <div style={{ display: 'flex', gap: 8 }}>
@@ -129,7 +130,7 @@ export default function SpendingStyleQuiz() {
         {step > 0 && step <= 10 && (
           <div style={{ marginBottom: 'var(--space-10)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-              <span style={{ fontSize: 10, color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>EVALUATION DEPTH</span>
+              <span style={{ fontSize: 10, color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t('EVALUATION DEPTH')}</span>
               <span style={{ fontSize: 10, color: 'var(--brand-primary)', fontWeight: 800 }}>{Math.round(progress)}% COMPLETE</span>
             </div>
             <div className="progress-bar" style={{ height: 6, background: 'var(--bg-neutral)' }}><div className="progress-fill" style={{ width: `${progress}%`, background: 'var(--gradient-brand)' }} /></div>
@@ -145,19 +146,19 @@ export default function SpendingStyleQuiz() {
             }}>
               <Brain size={40} strokeWidth={1.5} />
             </div>
-            <h1 className="display-sm" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>Decode Your Money DNA</h1>
+            <h1 className="display-sm" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>{t('Decode Your Money DNA')}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 540, margin: '0 auto var(--space-8)', lineHeight: 1.6 }}>
-              A specialized psychometric evaluation designed to identify your core behavioral spending archetypes and provide institutional-grade tactical interventions.
+              {t('A specialized psychometric evaluation designed to identify your core behavioral spending archetypes and provide institutional-grade tactical interventions.')}
             </p>
             {prevResult && (
               <div style={{ marginBottom: 'var(--space-10)', display: 'inline-flex', alignItems: 'center', gap: 12, padding: '10px 24px', background: 'var(--bg-card-hover)', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-subtle)' }}>
-                <span style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase' }}>LAST KNOWN ARCHETYPE:</span>
+                <span style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase' }}>{t('LAST KNOWN ARCHETYPE:')}</span>
                 <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--brand-primary)' }}>{STYLES.find(s => s.id === prevResult.styleId)?.label}</span>
               </div>
             )}
             <div style={{ display: 'block' }}>
               <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px' }}>
-                Begin Analysis <ArrowRight size={18} />
+                {t('Begin Analysis')} <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -195,7 +196,7 @@ export default function SpendingStyleQuiz() {
             </div>
             {step > 1 && (
               <button className="btn btn-ghost" style={{ marginTop: 'var(--space-6)', color: 'var(--text-muted)' }} onClick={() => { setStep(s => s - 1); setAnswers(a => a.slice(0, -1)); }}>
-                <ChevronLeft size={16} /> Re-evaluate previous dimension
+                <ChevronLeft size={16} /> {t('Re-evaluate previous dimension')}
               </button>
             )}
           </div>
@@ -220,7 +221,7 @@ export default function SpendingStyleQuiz() {
               }}>
                 <style.icon size={36} color="white" strokeWidth={2.5} />
               </div>
-              <div style={{ fontSize: 11, fontWeight: 800, color: 'rgba(255,255,255,0.8)', marginBottom: 8, letterSpacing: '0.25em', textTransform: 'uppercase' }}>VERIFIED ARCHETYPE</div>
+              <div style={{ fontSize: 11, fontWeight: 800, color: 'rgba(255,255,255,0.8)', marginBottom: 8, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{t('VERIFIED ARCHETYPE')}</div>
               <div className="display-sm" style={{ marginBottom: 'var(--space-4)', fontWeight: 900 }}>{style.label}</div>
               <p style={{ fontSize: 'var(--text-lg)', maxWidth: 600, margin: '0 auto', opacity: 0.95, lineHeight: 1.6, fontWeight: 500 }}>{style.description}</p>
             </div>
@@ -228,7 +229,7 @@ export default function SpendingStyleQuiz() {
             <div className="responsive-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-6)', marginBottom: 'var(--space-8)' }}>
               <div className="card" style={{ borderTop: '4px solid #00A884', padding: 'var(--space-8)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#00A884', fontWeight: 800, fontSize: 11, textTransform: 'uppercase', marginBottom: 'var(--space-6)', letterSpacing: '0.05em' }}>
-                  <TrendingUp size={16} /> Strategic Assets
+                  <TrendingUp size={16} /> {t('Strategic Assets')}
                 </div>
                 <div className="stack-4">
                   {style.strengths.map((s, i) => (
@@ -243,7 +244,7 @@ export default function SpendingStyleQuiz() {
               </div>
               <div className="card" style={{ borderTop: '4px solid #E74C3C', padding: 'var(--space-8)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#E74C3C', fontWeight: 800, fontSize: 11, textTransform: 'uppercase', marginBottom: 'var(--space-6)', letterSpacing: '0.05em' }}>
-                  <AlertTriangle size={16} /> Operational Friction
+                  <AlertTriangle size={16} /> {t('Operational Friction')}
                 </div>
                 <div className="stack-4">
                   {style.challenges.map((c, i) => (
@@ -260,7 +261,7 @@ export default function SpendingStyleQuiz() {
 
             <div className="card" style={{ padding: 'var(--space-10)', border: '1px solid var(--border-brand)', background: 'var(--bg-glass-light)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--brand-primary)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase', marginBottom: 'var(--space-8)', letterSpacing: '0.1em' }}>
-                <Target size={22} /> Behavioral Optimization Strategy
+                <Target size={22} /> {t('Behavioral Optimization Strategy')}
               </div>
               <div className="stack-4">
                 {style.recommendations.map((r, i) => (
@@ -273,7 +274,7 @@ export default function SpendingStyleQuiz() {
             </div>
 
             <div style={{ marginTop: 'var(--space-12)', display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(0); setAnswers([]); }}>Recalibrate Profile</button>
+              <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(0); setAnswers([]); }}>{t('Recalibrate Profile')}</button>
             </div>
           </div>
         )}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Award, TrendingUp, Shield, Activity, Target, 
   ArrowRight, ChevronLeft, ChevronRight, Check, Save, RotateCcw, 

@@ -162,7 +162,7 @@ export default function InvestmentPlanner() {
                   {history.map((h, i) => (
                     <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                       <div>
-                        <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>{h.goal}</div>
+                        <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>{t(h.goal)}</div>
                         <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Target: {fmt.currency(h.projectedAmount)}</div>
                       </div>
                       <div style={{ textAlign: 'right' }}>

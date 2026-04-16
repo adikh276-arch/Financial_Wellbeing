@@ -1,4 +1,5 @@
 'use client';
+import { useTranslation } from 'react-i18next';
 import { LearnModule } from '@/components/LearnModule';
 import { Scale, BarChart4, Target, Lightbulb, CheckCircle } from 'lucide-react';
 

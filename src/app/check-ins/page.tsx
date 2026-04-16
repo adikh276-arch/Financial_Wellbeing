@@ -1,4 +1,5 @@
 'use client';
+import { useTranslation } from 'react-i18next';
 
 import Link from 'next/link';
 import { CheckSquare, Heart, Activity, TrendingUp, ArrowRight, Star } from 'lucide-react';

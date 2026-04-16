@@ -58,9 +58,9 @@ export default function LearnHub() {
                     <Icon size={20} color={mod.color} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 14, marginBottom: 4 }}>{mod.label}</div>
+                    <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 14, marginBottom: 4 }}>{t(mod.label)}</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                       <span style={{ fontSize: 10, fontWeight: 750, color: mod.color, background: mod.colorBg, padding: '2px 8px', borderRadius: 99, border: `1px solid ${mod.color}25` }}>{mod.tag}</span>
+                       <span style={{ fontSize: 10, fontWeight: 750, color: mod.color, background: mod.colorBg, padding: '2px 8px', borderRadius: 99, border: `1px solid ${mod.color}25` }}>{t(mod.tag)}</span>
                        <span style={{ fontSize: 10, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}><Clock size={10} /> {mod.time}</span>
                     </div>
                   </div>

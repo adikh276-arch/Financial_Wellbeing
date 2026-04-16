@@ -2,6 +2,7 @@
 
 import { FileText, Clock, ChevronRight, X, BookOpen, Star, Award, TrendingUp, Shield, Activity, Target, Zap, Heart } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ARTICLES = [
   { id: 1, title: 'The Complete Beginner\'s Guide to Mutual Funds', author: 'Financial Wellness Team', readTime: '12 min', category: 'Investing', preview: 'Mutual funds are a simple way to start investing professionally. Learn about systematic plans and risk-adjusted returns.', content: 'Detailed content about mutual funds...', icon: TrendingUp, color: '#6C5CE7' },

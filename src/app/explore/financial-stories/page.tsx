@@ -45,7 +45,7 @@ export default function FinancialStories() {
 
                   <div style={{ flex: 1, minWidth: '280px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', flexWrap: 'wrap', marginBottom: 'var(--space-3)' }}>
-                      <span className="heading-sm" style={{ color: 'var(--text-primary)' }}>{story.name}</span>
+                      <span className="heading-sm" style={{ color: 'var(--text-primary)' }}>{t(story.name)}</span>
                       <span style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}>
                         <MapPin size={12} /> {t(story.city)}
                       </span>

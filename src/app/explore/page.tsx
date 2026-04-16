@@ -1,4 +1,5 @@
 'use client';
+import { useTranslation } from 'react-i18next';
 
 import Link from 'next/link';
 import { Lightbulb, HelpCircle, BookOpen, MessageSquare, FileText, ArrowRight, Sparkles } from 'lucide-react';

@@ -137,7 +137,7 @@ export default function BudgetPlanner() {
         <Icon size={16} color="var(--text-muted)" strokeWidth={2} />
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-faint)', display: 'block', marginBottom: 2 }}>{label}</label>
+        <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-faint)', display: 'block', marginBottom: 2 }}>{t(label)}</label>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
           <input
             type="number"
@@ -163,7 +163,7 @@ export default function BudgetPlanner() {
   const PctBar = ({ label, pct, target, color }: { label: string; pct: number; target: number; color: string }) => (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-        <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-secondary)' }}>{label}</span>
+        <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-secondary)' }}>{t(label)}</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-faint)' }}>Target {target}%</span>
           <span style={{ fontSize: 13, fontWeight: 800, color: pct > target ? '#E74C3C' : '#00A884' }}>{Math.round(pct)}%</span>

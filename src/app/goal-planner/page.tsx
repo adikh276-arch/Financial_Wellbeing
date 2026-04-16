@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Target, Plus, Edit2, Trash2, Check, Save, X, 
   TrendingUp, AlertTriangle, Star, CheckCircle2, AlertCircle, ChevronLeft, ArrowRight,

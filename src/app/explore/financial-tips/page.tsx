@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   PiggyBank, Target, ListChecks, CreditCard, TrendingUp, 
   Brain, Shield, Landmark, Zap, Copy, Check as CheckIcon, 

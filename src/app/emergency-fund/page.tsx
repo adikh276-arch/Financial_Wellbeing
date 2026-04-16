@@ -26,16 +26,16 @@ interface EFHistory {
 }
 
 const SCENARIOS = [
-  { icon: HeartPulse, label: 'Medical Emergency', months: 2, desc: 'Covers typical urgent medical crises' },
-  { icon: Briefcase, label: 'Income Security', months: 6, desc: 'Safety net for potential job loss' },
-  { icon: Home, label: 'Asset Repair', months: 1, desc: 'Coverage for major home/car repairs' },
-  { icon: Users, label: 'Family Support', months: 3, desc: 'Funds for unexpected family needs' },
+  { icon: HeartPulse, label: t("Medical Emergency"), months: 2, desc: t("Covers typical urgent medical crises") },
+  { icon: Briefcase, label: t("Income Security"), months: 6, desc: t("Safety net for potential job loss") },
+  { icon: Home, label: t("Asset Repair"), months: 1, desc: t("Coverage for major home/car repairs") },
+  { icon: Users, label: t("Family Support"), months: 3, desc: t("Funds for unexpected family needs") },
 ];
 
 const WHERE_TIPS = [
-  { icon: Wallet, label: 'High-Yield Savings', rate: '3-5%', pros: 'Fully liquid, instant access', cons: 'Lower relative returns' },
-  { icon: BarChart4, label: 'Fixed Deposits', rate: '6-8%', pros: 'Guaranteed, FDIC-insured', cons: 'Time-locked capital' },
-  { icon: TrendingUp, label: 'Money Market Funds', rate: '4-6%', pros: 'Better than savings', cons: 'T+1 withdrawal time' },
+  { icon: Wallet, label: t("High-Yield Savings"), rate: '3-5%', pros: t("Fully liquid, instant access"), cons: t("Lower relative returns") },
+  { icon: BarChart4, label: t("Fixed Deposits"), rate: '6-8%', pros: t("Guaranteed, FDIC-insured"), cons: t("Time-locked capital") },
+  { icon: TrendingUp, label: t("Money Market Funds"), rate: '4-6%', pros: t("Better than savings"), cons: t("T+1 withdrawal time") },
 ];
 
 export default function EmergencyFund() {
@@ -96,7 +96,7 @@ export default function EmergencyFund() {
   }));
 
   const getStatusLabel = () => {
-    if (percent === 0) return { label: 'NOT STARTED', color: 'var(--brand-danger)' };
+    if (percent === 0) return { label: t("NOT STARTED"), color: 'var(--brand-danger)' };
     if (percent < 30) return { label: 'VULNERABLE', color: 'var(--brand-danger)' };
     if (percent < 60) return { label: 'DEVELOPING', color: 'var(--brand-gold)' };
     if (percent < 95) return { label: 'RESILIENT', color: 'var(--brand-accent)' };
@@ -108,21 +108,21 @@ export default function EmergencyFund() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Emergency Fund Builder"
+        title={t("Emergency Fund Builder")}
         backHref="/"
         accentColor="#e84393"
         rightSlot={(
            <div style={{ display: 'flex', gap: 8 }}>
-              <button className="btn btn-primary btn-sm" onClick={handleSave}>
+              <button className=t("btn btn-primary btn-sm") onClick={handleSave}>
                  {saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved') : t('Save')}
               </button>
            </div>
         )}
       />
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
         {showHistory && history.length > 0 && (
-          <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-8)', animation: 'slideInDown 0.3s ease' }}>
+          <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-8)', animation: t("slideInDown 0.3s ease") }}>
             <label className="label-caps">{t('Financial History')}</label>
             <div className="stack-3" style={{ marginTop: 'var(--space-4)' }}>
               {history.map((h, i) => (
@@ -216,7 +216,7 @@ export default function EmergencyFund() {
           {/* Section 3: Strategic Scenarios */}
           <div className="card" style={{ padding: 'var(--space-8)' }}>
              <label className="label-caps" style={{ marginBottom: 'var(--space-6)' }}>{t('Resilience Scenarios')}</label>
-             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
+             <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: 'var(--space-4)' }}>
                 {scenariosCovers.map(s => (
                   <div key={s.label} style={{ padding: 'var(--space-5)', borderRadius: 'var(--radius-xl)', background: s.covered ? '#00A88408' : '#e8439308', border: `1px solid ${s.covered ? '#00A88415' : '#e8439315'}` }}>
                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>

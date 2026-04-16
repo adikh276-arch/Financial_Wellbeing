@@ -3,12 +3,12 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
 const STORIES = [
-  { id: 'sarah', name: 'Sarah, 29', city: 'London', income: '6,000', achievement: 'Sarah Achievement', story: 'Sarah Story', color: 'var(--brand-primary)', icon: Trophy },
-  { id: 'michael', name: 'Michael, 34', city: 'New York', income: '12,000', achievement: 'Michael Achievement', story: 'Michael Story', color: '#00A884', icon: Target },
-  { id: 'chloe', name: 'Chloe, 27', city: 'Paris', income: '4,500', achievement: 'Chloe Achievement', story: 'Chloe Story', color: 'var(--brand-gold)', icon: TrendingUp },
-  { id: 'david', name: 'David, 42', city: 'Sydney', income: '25,000', achievement: 'David Achievement', story: 'David Story', color: '#F85A4B', icon: Rocket },
-  { id: 'elena', name: 'Elena, 52', city: 'Madrid', income: '8,000', achievement: 'Elena Achievement', story: 'Elena Story', color: '#00B1B1', icon: Gem },
-  { id: 'liam', name: 'Liam, 25', city: 'Dublin', income: '3,500', achievement: 'Liam Achievement', story: 'Liam Story', color: 'var(--brand-primary-light)', icon: Zap },
+  { id: 'sarah', name: t("Sarah, 29"), city: 'London', income: '6,000', achievement: t("Sarah Achievement"), story: t("Sarah Story"), color: 'var(--brand-primary)', icon: Trophy },
+  { id: 'michael', name: t("Michael, 34"), city: t("New York"), income: '12,000', achievement: t("Michael Achievement"), story: t("Michael Story"), color: '#00A884', icon: Target },
+  { id: 'chloe', name: t("Chloe, 27"), city: 'Paris', income: '4,500', achievement: t("Chloe Achievement"), story: t("Chloe Story"), color: 'var(--brand-gold)', icon: TrendingUp },
+  { id: 'david', name: t("David, 42"), city: 'Sydney', income: '25,000', achievement: t("David Achievement"), story: t("David Story"), color: '#F85A4B', icon: Rocket },
+  { id: 'elena', name: t("Elena, 52"), city: 'Madrid', income: '8,000', achievement: t("Elena Achievement"), story: t("Elena Story"), color: '#00B1B1', icon: Gem },
+  { id: 'liam', name: t("Liam, 25"), city: 'Dublin', income: '3,500', achievement: t("Liam Achievement"), story: t("Liam Story"), color: 'var(--brand-primary-light)', icon: Zap },
 ];
 
 export default function FinancialStories() {
@@ -17,12 +17,12 @@ export default function FinancialStories() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader
-        title="Financial Stories"
+        title={t("Financial Stories")}
         backHref="/explore"
         accentColor="var(--brand-primary)"
       />
 
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         <div style={{ marginBottom: 'var(--space-10)' }}>
           <h1 className="heading-xl" style={{ marginBottom: 'var(--space-2)', color: 'var(--text-primary)' }}>{t("Real Journeys, Real Results")}</h1>
           <p style={{ color: 'var(--text-secondary)' }}>{t("Authentic success stories from people who transformed their financial lives.")}</p>
@@ -49,7 +49,7 @@ export default function FinancialStories() {
                       <span style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}>
                         <MapPin size={12} /> {t(story.city)}
                       </span>
-                      <span className="badge badge-neutral" style={{ padding: '4px 10px', fontWeight: 700 }}>{t('Income: £{{income}} / mo', { income: story.income })}</span>
+                      <span className=t("badge badge-neutral") style={{ padding: '4px 10px', fontWeight: 700 }}>{t('Income: £{{income}} / mo', { income: story.income })}</span>
                     </div>
 
                     <div style={{ padding: 'var(--space-3) var(--space-4)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-lg)', marginBottom: 'var(--space-5)', display: 'inline-flex', alignItems: 'center', gap: 8 }}>

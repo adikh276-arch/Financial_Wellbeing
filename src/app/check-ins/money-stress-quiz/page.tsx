@@ -12,28 +12,28 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
-  { id: 'worry', text: 'How often do you worry about money?', options: ['Rarely or never', 'Sometimes', 'Often', 'Almost always'] },
-  { id: 'debt', text: 'Do you have debt that worries you?', options: ['No concerning debt', 'Minor debt concern', 'Moderate concern', 'Significant stress'] },
-  { id: 'emergency', text: 'Can you cover a 1,000 unit emergency right now?', options: ['Yes, easily', 'Yes, with effort', 'Barely', 'No'] },
-  { id: 'arguments', text: 'Do you fight with partner/family about money?', options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
-  { id: 'avoidance', text: 'Do you avoid looking at bank statements?', options: ['Never - I check regularly', 'Rarely', 'Sometimes', 'Yes, often'] },
-  { id: 'plan', text: 'Do you have a clear financial plan?', options: ['Yes, written and tracked', 'Somewhat', 'Vague ideas', 'No plan'] },
-  { id: 'confidence', text: 'How confident are you about your financial future?', options: ['Very confident', 'Somewhat confident', 'Neutral', 'Not confident at all'] },
-  { id: 'health', text: 'Has money stress affected your sleep or health?', options: ['Never', 'Rarely', 'Sometimes', 'Yes, regularly'] },
-  { id: 'impulse', text: 'Do you spend impulsively to feel better?', options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
-  { id: 'goals', text: 'How clear are your financial goals?', options: ['Very clear - written down', 'Somewhat clear', 'Vague', 'No financial goals'] },
-  { id: 'track', text: 'Are you on track with your financial goals?', options: ['Yes, on track', 'Mostly on track', 'Partially', 'Not really'] },
-  { id: 'compare', text: 'Do you compare yourself to others financially?', options: ['Never - I focus on my journey', 'Rarely', 'Sometimes', 'Often - it stresses me'] },
-  { id: 'control', text: 'How much control do you feel over your finances?', options: ['Complete control', 'Mostly in control', 'Some control', 'Feels out of control'] },
-  { id: 'optimism', text: 'How optimistic are you about your financial future?', options: ['Very optimistic', 'Somewhat optimistic', 'Neutral', 'Pessimistic'] },
-  { id: 'emergency_access', text: 'Could you access emergency savings within 24 hours?', options: ['Yes, easily', 'Yes, with effort', 'Partially', 'No savings access'] },
+  { id: 'worry', text: t("How often do you worry about money?"), options: [t("Rarely or never"), 'Sometimes', 'Often', t("Almost always")] },
+  { id: 'debt', text: t("Do you have debt that worries you?"), options: [t("No concerning debt"), t("Minor debt concern"), t("Moderate concern"), t("Significant stress")] },
+  { id: 'emergency', text: t("Can you cover a 1,000 unit emergency right now?"), options: [t("Yes, easily"), t("Yes, with effort"), 'Barely', 'No'] },
+  { id: 'arguments', text: t("Do you fight with partner/family about money?"), options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
+  { id: 'avoidance', text: t("Do you avoid looking at bank statements?"), options: [t("Never - I check regularly"), 'Rarely', 'Sometimes', t("Yes, often")] },
+  { id: 'plan', text: t("Do you have a clear financial plan?"), options: [t("Yes, written and tracked"), 'Somewhat', t("Vague ideas"), t("No plan")] },
+  { id: 'confidence', text: t("How confident are you about your financial future?"), options: [t("Very confident"), t("Somewhat confident"), 'Neutral', t("Not confident at all")] },
+  { id: 'health', text: t("Has money stress affected your sleep or health?"), options: ['Never', 'Rarely', 'Sometimes', t("Yes, regularly")] },
+  { id: 'impulse', text: t("Do you spend impulsively to feel better?"), options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
+  { id: 'goals', text: t("How clear are your financial goals?"), options: [t("Very clear - written down"), t("Somewhat clear"), 'Vague', t("No financial goals")] },
+  { id: 'track', text: t("Are you on track with your financial goals?"), options: [t("Yes, on track"), t("Mostly on track"), 'Partially', t("Not really")] },
+  { id: 'compare', text: t("Do you compare yourself to others financially?"), options: [t("Never - I focus on my journey"), 'Rarely', 'Sometimes', t("Often - it stresses me")] },
+  { id: 'control', text: t("How much control do you feel over your finances?"), options: [t("Complete control"), t("Mostly in control"), t("Some control"), t("Feels out of control")] },
+  { id: 'optimism', text: t("How optimistic are you about your financial future?"), options: [t("Very optimistic"), t("Somewhat optimistic"), 'Neutral', 'Pessimistic'] },
+  { id: 'emergency_access', text: t("Could you access emergency savings within 24 hours?"), options: [t("Yes, easily"), t("Yes, with effort"), 'Partially', t("No savings access")] },
 ];
 
 const STRESS_LEVELS = [
-  { min: 0, max: 15, label: 'OPTIMIZED', icon: Smile, color: '#00A884', desc: 'Your financial foundations are exceptionally strong. You maintain a state of low anxiety and high sovereignty over your capital.' },
-  { min: 15, max: 25, label: 'ELEVATED', icon: Meh, color: 'var(--brand-gold)', desc: 'Detectable stress areas are present. Your foundations are stable, but targeted improvements are required to achieve total peace.' },
-  { min: 25, max: 35, label: 'TURBULENT', icon: Frown, color: '#E17055', desc: 'Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.' },
-  { min: 35, max: 60, label: 'CRITICAL', icon: AlertCircle, color: '#E74C3C', desc: 'Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.' },
+  { min: 0, max: 15, label: 'OPTIMIZED', icon: Smile, color: '#00A884', desc: t("Your financial foundations are exceptionally strong. You maintain a state of low anxiety and high sovereignty over your capital.") },
+  { min: 15, max: 25, label: 'ELEVATED', icon: Meh, color: 'var(--brand-gold)', desc: t("Detectable stress areas are present. Your foundations are stable, but targeted improvements are required to achieve total peace.") },
+  { min: 25, max: 35, label: 'TURBULENT', icon: Frown, color: '#E17055', desc: t("Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.") },
+  { min: 35, max: 60, label: 'CRITICAL', icon: AlertCircle, color: '#E74C3C', desc: t("Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.") },
 ];
 
 export default function MoneyStressQuiz() {
@@ -91,22 +91,22 @@ export default function MoneyStressQuiz() {
         backHref="/"
         rightSlot={step === QUESTIONS.length + 1 ? (
           <div style={{ display: 'flex', gap: 8 }}>
-            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Result Saved') : t('Save')}</button>
-            <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+            <button onClick={handleSave} className=t("btn btn-primary btn-sm")>{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Result Saved') : t('Save')}</button>
+            <button onClick={() => { setStep(0); setAnswers([]); }} className=t("btn btn-secondary btn-icon btn-sm")><RotateCcw size={14} /></button>
           </div>
         ) : null}
       />
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
         {step === 0 && (
-          <div style={{ textAlign: 'center', padding: 'var(--space-12) 0', animation: 'fadeIn 0.4s ease' }}>
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) 0', animation: t("fadeIn 0.4s ease") }}>
             <div style={{ width: 80, height: 80, borderRadius: 'var(--radius-2xl)', background: 'var(--bg-glass-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-primary)', margin: '0 auto var(--space-8)', border: '1px solid var(--border-subtle)' }}>
               <HeartPulse size={40} strokeWidth={1.5} />
             </div>
             <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Quantify Your Financial Stress')}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 540, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>{t('Identify the behavioral and structural drivers of financial anxiety with our clinical-grade diagnostic.')}</p>
             
-            <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>
+            <button className=t("btn btn-primary btn-lg") onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>
               {t('Run Analysis')} <ArrowRight size={18} />
             </button>
 
@@ -130,7 +130,7 @@ export default function MoneyStressQuiz() {
         )}
 
         {step > 0 && step <= QUESTIONS.length && currentQ && (
-          <div key={step} style={{ animation: 'slideInRight 0.35s ease' }}>
+          <div key={step} style={{ animation: t("slideInRight 0.35s ease") }}>
             <div style={{ marginBottom: 'var(--space-8)' }}>
               <div className="progress-bar" style={{ height: 4, background: 'var(--border-subtle)' }}><div className="progress-fill" style={{ width: `${progress}%` }} /></div>
             </div>
@@ -149,7 +149,7 @@ export default function MoneyStressQuiz() {
         )}
 
         {step === QUESTIONS.length + 1 && (
-          <div style={{ animation: 'fadeIn 0.6s ease' }}>
+          <div style={{ animation: t("fadeIn 0.6s ease") }}>
              <div style={{ background: stressLevel.color, borderRadius: 'var(--radius-3xl)', padding: 'var(--space-10)', textAlign: 'center', color: 'white', marginBottom: 'var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
                 <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>{t('DIAGNOSTIC STATE')}</p>
                 <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{stressLevel.label}</div>
@@ -177,7 +177,7 @@ export default function MoneyStressQuiz() {
                    ) : (
                       <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>{t('Optimize redundant reserve channels into yields.')}</div>
                    )}
-                   <button className="btn btn-secondary btn-full" style={{ marginTop: 'var(--space-4)' }} onClick={() => setStep(0)}>{t('Recalibrate Assessment')}</button>
+                   <button className=t("btn btn-secondary btn-full") style={{ marginTop: 'var(--space-4)' }} onClick={() => setStep(0)}>{t('Recalibrate Assessment')}</button>
                 </div>
              </div>
           </div>

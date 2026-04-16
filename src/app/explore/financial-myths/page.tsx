@@ -10,16 +10,16 @@ import { LanguageSelector } from '@/components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 
 const MYTHS = [
-  { myth: 'I need a lot of money to start investing', reality: 'Wealth building is about consistency and time. Many platforms allow micro-investments. Start small, but start now.', verdict: 'MYTH', icon: Coins },
-  { myth: 'Budgeting means giving up everything fun', reality: 'Effective budgeting includes a dedicated "wants" category. It gives you guilt-free permission to enjoy your money.', verdict: 'MYTH', icon: Layout },
-  { myth: 'Strategic debt should always be avoided', reality: 'Low-interest debt used to acquire high-yield assets can build wealth faster (e.g., mortgages or student loans).', verdict: 'COMPLEX', icon: CreditCard },
-  { myth: 'Insurance is a form of investment', reality: 'Insurance is for protection; investments are for growth. Mixing them usually results in higher costs and lower returns.', verdict: 'MYTH', icon: Shield },
-  { myth: 'You are too young to worry about retirement', reality: 'Compounding is most powerful in your 20s. Starting at 25 vs 35 can significantly change your terminal wealth.', verdict: 'MYTH', icon: Timer },
+  { myth: t("I need a lot of money to start investing"), reality: t("Wealth building is about consistency and time. Many platforms allow micro-investments. Start small, but start now."), verdict: 'MYTH', icon: Coins },
+  { myth: t("Budgeting means giving up everything fun"), reality: 'Effective budgeting includes a dedicated "wants" category. It gives you guilt-free permission to enjoy your money.t(", verdict: ")MYTH', icon: Layout },
+  { myth: t("Strategic debt should always be avoided"), reality: t("Low-interest debt used to acquire high-yield assets can build wealth faster (e.g., mortgages or student loans)."), verdict: 'COMPLEX', icon: CreditCard },
+  { myth: t("Insurance is a form of investment"), reality: t("Insurance is for protection; investments are for growth. Mixing them usually results in higher costs and lower returns."), verdict: 'MYTH', icon: Shield },
+  { myth: t("You are too young to worry about retirement"), reality: t("Compounding is most powerful in your 20s. Starting at 25 vs 35 can significantly change your terminal wealth."), verdict: 'MYTH', icon: Timer },
 ];
 
 const VERDICT_CONFIG = {
   MYTH: { color: 'var(--brand-danger)', icon: XCircle, label: 'Busted' },
-  PARTIAL: { color: 'var(--brand-gold)', icon: AlertTriangle, label: 'Partial Truth' },
+  PARTIAL: { color: 'var(--brand-gold)', icon: AlertTriangle, label: t("Partial Truth") },
   COMPLEX: { color: 'var(--brand-accent)', icon: HelpCircle, label: 'Nuanced' }
 };
 
@@ -47,7 +47,7 @@ export default function FinancialMyths() {
             const VerdictIcon = config.icon;
             const MythIcon = item.icon;
             return (
-              <div key={i} className="card card-hover" style={{ borderLeft: `6px solid ${config.color}`, padding: 'var(--space-6)' }}>
+              <div key={i} className=t("card card-hover") style={{ borderLeft: `6px solid ${config.color}`, padding: 'var(--space-6)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '4px 12px', background: `${config.color}10`, borderRadius: 99, color: config.color, fontSize: 10, fontWeight: 900 }}>
                       <VerdictIcon size={12} /> {config.label}

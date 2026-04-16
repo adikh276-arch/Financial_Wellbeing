@@ -26,7 +26,7 @@ function TokenHandler() {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
-          "Authorization": token.startsWith('Bearer ') ? token : `Bearer ${token}` 
+          "Authorization": token.startsWith(t("Bearer ")) ? token : `Bearer ${token}` 
         },
         body: JSON.stringify({ token, auth_token: token }),
       })
@@ -44,7 +44,7 @@ function TokenHandler() {
           }
         })
         .catch(err => {
-          console.error("Auth failed:", err);
+          console.error(t("Auth failed:"), err);
           // Still redirect to clear the token from URL even if it failed
           router.replace("/");
         });
@@ -55,19 +55,19 @@ function TokenHandler() {
 }
 
 const featuredTools = [
-  { href: '/investment-planner', label: 'Investment Planner', desc: 'Grow wealth', icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
-  { href: '/loan-emi-planner', label: 'Loan & EMI Planner', desc: 'Calc repay', icon: Calculator, gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', glow: 'rgba(9,132,227,0.35)' },
-  { href: '/goal-planner', label: 'Goal Planner', desc: 'Set targets', icon: Target, gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', glow: 'rgba(253,203,110,0.35)' },
-  { href: '/budget-planner', label: 'Budget Planner', desc: 'Track spend', icon: Wallet, gradient: 'linear-gradient(135deg, #00A884, #00D2D3)', glow: 'rgba(0,168,132,0.35)' },
-  { href: '/emergency-fund', label: 'Emergency Fund', desc: 'Build safety', icon: Shield, gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', glow: 'rgba(232,67,147,0.35)' },
-  { href: '/financial-health-score', label: 'Financial Health Score', desc: 'Get graded', icon: Activity, gradient: 'linear-gradient(135deg, #F39C12, #f1c40f)', glow: 'rgba(243,156,18,0.35)' },
+  { href: '/investment-planner', label: t("Investment Planner"), desc: t("Grow wealth"), icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
+  { href: '/loan-emi-planner', label: t("Loan & EMI Planner"), desc: t("Calc repay"), icon: Calculator, gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', glow: 'rgba(9,132,227,0.35)' },
+  { href: '/goal-planner', label: t("Goal Planner"), desc: t("Set targets"), icon: Target, gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', glow: 'rgba(253,203,110,0.35)' },
+  { href: '/budget-planner', label: t("Budget Planner"), desc: t("Track spend"), icon: Wallet, gradient: 'linear-gradient(135deg, #00A884, #00D2D3)', glow: 'rgba(0,168,132,0.35)' },
+  { href: '/emergency-fund', label: t("Emergency Fund"), desc: t("Build safety"), icon: Shield, gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', glow: 'rgba(232,67,147,0.35)' },
+  { href: '/financial-health-score', label: t("Financial Health Score"), desc: t("Get graded"), icon: Activity, gradient: 'linear-gradient(135deg, #F39C12, #f1c40f)', glow: 'rgba(243,156,18,0.35)' },
 ];
 
 const featuredModules = [
-  { href: '/learn/budgeting-basics', label: 'Budgeting Basics', icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715' },
-  { href: '/learn/saving-habits', label: 'Saving Habits', icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215' },
-  { href: '/learn/debt-management', label: 'Debt Management', icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15' },
-  { href: '/learn/investing-basics', label: 'Investing Basics', icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315' },
+  { href: '/learn/budgeting-basics', label: t("Budgeting Basics"), icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715' },
+  { href: '/learn/saving-habits', label: t("Saving Habits"), icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215' },
+  { href: '/learn/debt-management', label: t("Debt Management"), icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15' },
+  { href: '/learn/investing-basics', label: t("Investing Basics"), icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315' },
 ];
 
 export default function FinancialWellnessDashboard() {
@@ -91,7 +91,7 @@ export default function FinancialWellnessDashboard() {
         <div style={{ position: 'absolute', bottom: -40, right: 60, width: 140, height: 140, borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
         <div style={{ position: 'absolute', top: 40, left: -30, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.03)' }} />
 
-        <div style={{ maxWidth: 680, margin: '0 auto', position: 'relative' }}>
+        <div style={{ maxWidth: 680, margin: t("0 auto"), position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-5)' }}>
             <div>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 'var(--text-sm)', fontWeight: 500 }}>{t("Good morning")}</p>
@@ -128,7 +128,7 @@ export default function FinancialWellnessDashboard() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 680, margin: '0 auto', padding: '0 var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 680, margin: t("0 auto"), padding: '0 var(--space-4) var(--space-16)' }}>
         <section style={{ marginTop: 'var(--space-6)', marginBottom: 'var(--space-8)' }}>
           <div style={{ marginBottom: 'var(--space-5)' }}>
             <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>{t("Suite Hub")}</p>
@@ -144,8 +144,8 @@ export default function FinancialWellnessDashboard() {
                     background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
                     padding: 'var(--space-4)', boxShadow: 'var(--shadow-xs)',
                     display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-2)',
-                    cursor: 'pointer', transition: 'all 0.2s ease', textAlign: 'center',
-                    animation: 'fadeInUp 0.3s ease both', animationDelay: `${i * 40}ms`,
+                    cursor: 'pointer', transition: t("all 0.2s ease"), textAlign: 'center',
+                    animation: t("fadeInUp 0.3s ease both"), animationDelay: `${i * 40}ms`,
                   }}>
                     <div style={{
                       width: 44, height: 44, borderRadius: 'var(--radius-xl)',
@@ -169,17 +169,17 @@ export default function FinancialWellnessDashboard() {
                 <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Personal Assessments")}</h3>
                 <Link href="/check-ins" style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("View All")}</Link>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: 'var(--space-3)' }}>
                 {[
-                  { href: '/check-ins/spending-style-quiz', label: 'Spending Style Quiz', icon: Brain, color: '#6C5CE7' },
-                  { href: '/check-ins/savings-check-up', label: 'Savings Check-up', icon: Wallet, color: '#e84393' },
-                  { href: '/check-ins/money-stress-quiz', label: 'Money Stress Quiz', icon: Activity, color: '#F39C12' },
-                  { href: '/check-ins/investment-readiness', label: 'Investment Readiness', icon: TrendingUp, color: '#00A884' },
+                  { href: '/check-ins/spending-style-quiz', label: t("Spending Style Quiz"), icon: Brain, color: '#6C5CE7' },
+                  { href: '/check-ins/savings-check-up', label: t("Savings Check-up"), icon: Wallet, color: '#e84393' },
+                  { href: '/check-ins/money-stress-quiz', label: t("Money Stress Quiz"), icon: Activity, color: '#F39C12' },
+                  { href: '/check-ins/investment-readiness', label: t("Investment Readiness"), icon: TrendingUp, color: '#00A884' },
                 ].map(item => (
                   <Link key={item.href} href={item.href} style={{ 
                     display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-4)',
                     background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
-                    textDecoration: 'none', transition: 'all 0.2s ease'
+                    textDecoration: 'none', transition: t("all 0.2s ease")
                   }} className="card-tap">
                     <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-lg)', background: `${item.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <item.icon size={16} color={item.color} />
@@ -195,14 +195,14 @@ export default function FinancialWellnessDashboard() {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
                 <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Knowledge & Insights")}</h3>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: 'var(--space-3)' }}>
                 <div style={{ display: 'contents' }}>
                   {[
-                    { href: '/explore/financial-tips', label: 'Financial Tips', gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', icon: Sparkles },
-                    { href: '/explore/financial-stories', label: 'Financial Stories', gradient: 'linear-gradient(135deg, #6C5CE7, #a29bfe)', icon: BookOpen },
-                    { href: '/explore/financial-articles', label: 'Financial Articles', gradient: 'linear-gradient(135deg, #00A884, #55efc4)', icon: Compass },
-                    { href: '/explore/financial-faqs', label: 'Financial FAQs', gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
-                    { href: '/explore/financial-myths', label: 'Financial Myths', gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
+                    { href: '/explore/financial-tips', label: t("Financial Tips"), gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', icon: Sparkles },
+                    { href: '/explore/financial-stories', label: t("Financial Stories"), gradient: 'linear-gradient(135deg, #6C5CE7, #a29bfe)', icon: BookOpen },
+                    { href: '/explore/financial-articles', label: t("Financial Articles"), gradient: 'linear-gradient(135deg, #00A884, #55efc4)', icon: Compass },
+                    { href: '/explore/financial-faqs', label: t("Financial FAQs"), gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
+                    { href: '/explore/financial-myths', label: t("Financial Myths"), gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
                   ].map(item => (
                     <Link key={item.href} href={item.href} style={{ 
                       display: 'flex', flexDirection: 'column', gap: 8,
@@ -225,7 +225,7 @@ export default function FinancialWellnessDashboard() {
               </div>
               <div className="stack-3">
                 {featuredModules.map(mod => (
-                  <Link key={mod.href} href={mod.href} className="card card-tap" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
+                  <Link key={mod.href} href={mod.href} className=t("card card-tap") style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
                     <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-lg)', background: mod.colorBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <mod.icon size={16} color={mod.color} />
                     </div>

@@ -12,7 +12,7 @@ import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import ClientOnly from '@/components/ClientOnly';
 
-const LOAN_TYPES = ['Personal Loan', 'Home Loan', 'Auto Loan', 'Education Loan', 'Business Loan'];
+const LOAN_TYPES = [t("Personal Loan"), t("Home Loan"), t("Auto Loan"), t("Education Loan"), t("Business Loan")];
 
 interface LoanForm {
   principal: number;
@@ -74,7 +74,7 @@ export default function LoanEMIPlanner() {
   const { t } = useTranslation();
   const [step, setStep] = useState(-1);
   const [saved, setSaved] = useState(false);
-  const [form, setForm] = useState<LoanForm>({ principal: 0, type: 'Personal Loan', rate: 12, tenureYears: 5, processingFee: 0 });
+  const [form, setForm] = useState<LoanForm>({ principal: 0, type: t("Personal Loan"), rate: 12, tenureYears: 5, processingFee: 0 });
   const [result, setResult] = useState<any>(null);
   const [history, setHistory] = useState<any[]>([]);
 
@@ -143,15 +143,15 @@ export default function LoanEMIPlanner() {
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       {/* Navigation removed as per requirement */}
 
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-5) var(--space-4) var(--space-16)' }}>
         {(step === 1 || step === 0) && (
           <PageHeader 
             title={t('Loan & EMI Planner')}
             backHref="/"
             rightSlot={step === 1 ? (
               <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
-                <button onClick={() => { setStep(0); setResult(null); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+                <button onClick={handleSave} className=t("btn btn-primary btn-sm")>{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
+                <button onClick={() => { setStep(0); setResult(null); }} className=t("btn btn-secondary btn-icon btn-sm")><RotateCcw size={14} /></button>
               </div>
             ) : null}
           />
@@ -164,7 +164,7 @@ export default function LoanEMIPlanner() {
         )}
 
         {step === -1 && (
-          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: t("fadeIn 0.5s ease") }}>
             <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
               <Landmark size={40} color="var(--brand-primary)" />
             </div>
@@ -172,7 +172,7 @@ export default function LoanEMIPlanner() {
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 400, margin: '0 auto var(--space-10)' }}>
               {t("Architect your debt profile. Calculate EMIs, interest impact, and optimize your repayment lifecycle with institutional precision.")}
             </p>
-            <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 200 }}>
+            <button className=t("btn btn-primary btn-lg") onClick={() => setStep(0)} style={{ minWidth: 200 }}>
               {t("Begin Analysis")} <ArrowRight size={18} />
             </button>
 
@@ -199,7 +199,7 @@ export default function LoanEMIPlanner() {
         )}
 
         {step === 0 && (
-          <div style={{ maxWidth: 800, animation: 'fadeIn 0.4s ease' }}>
+          <div style={{ maxWidth: 800, animation: t("fadeIn 0.4s ease") }}>
             <div style={{ marginBottom: 'var(--space-10)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--brand-primary)', fontWeight: 700, fontSize: 'var(--text-xs)', textTransform: 'uppercase', marginBottom: 12 }}>
                 <div style={{ width: 12, height: 2, background: 'var(--brand-primary)', borderRadius: 2 }} />
@@ -222,7 +222,7 @@ export default function LoanEMIPlanner() {
                           background: form.type === type ? 'var(--brand-primary-glow)' : 'var(--bg-card)',
                           borderColor: form.type === type ? 'var(--brand-primary)' : 'var(--border-subtle)',
                           color: form.type === type ? 'var(--brand-primary)' : 'var(--text-muted)',
-                          cursor: 'pointer', transition: 'all 0.2s ease'
+                          cursor: 'pointer', transition: t("all 0.2s ease")
                         }}
                         onClick={() => setForm(f => ({ ...f, type }))}>
                         {t(type)}
@@ -272,7 +272,7 @@ export default function LoanEMIPlanner() {
                 </div>
               </div>
 
-              <button className="btn btn-primary btn-lg" disabled={!form.principal || !form.rate} onClick={compute} style={{ alignSelf: 'flex-start', padding: '16px 32px' }}>
+              <button className=t("btn btn-primary btn-lg") disabled={!form.principal || !form.rate} onClick={compute} style={{ alignSelf: 'flex-start', padding: '16px 32px' }}>
                 {t("Analyze Repayment")} <ArrowRight size={18} />
               </button>
             </div>
@@ -280,7 +280,7 @@ export default function LoanEMIPlanner() {
         )}
 
         {step === 1 && result && (
-          <div style={{ animation: 'fadeIn 0.4s ease' }}>
+          <div style={{ animation: t("fadeIn 0.4s ease") }}>
             {/* Impact Metrics */}
             <div className="responsive-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-6)', marginBottom: 'var(--space-10)' }}>
               <div style={{ background: 'var(--bg-glass-light)', border: '1px solid var(--border-brand)', borderRadius: 'var(--radius-2xl)', padding: 'var(--space-8)' }}>
@@ -334,8 +334,8 @@ export default function LoanEMIPlanner() {
                       <XAxis dataKey="year" tickFormatter={v => `${t("YR")} ${v}`} tick={{ fill: 'var(--text-muted)', fontSize: 10, fontWeight: 700 }} axisLine={false} tickLine={false} />
                       <YAxis tickFormatter={v => fmt.currency(v, true)} tick={{ fill: 'var(--text-muted)', fontSize: 10, fontWeight: 700 }} axisLine={false} tickLine={false} width={80} />
                       <Tooltip content={<CustomTooltip />} />
-                      <Area type="monotone" dataKey="principal" name={t("Principal")} stroke="var(--brand-primary)" fill="url(#gradPrincipal)" strokeWidth={3} />
-                      <Area type="monotone" dataKey="interest" name={t("Interest")} stroke="#E74C3C" fill="url(#gradInterest)" strokeWidth={3} />
+                      <Area type="monotone" dataKey="principal" name={t("Principalt(")} stroke=")var(--brand-primary)t(" fill=")url(#gradPrincipal)" strokeWidth={3} />
+                      <Area type="monotone" dataKey="interest" name={t("Interestt(")} stroke=")#E74C3Ct(" fill=")url(#gradInterest)" strokeWidth={3} />
                     </AreaChart>
                   </ResponsiveContainer>
                 </ClientOnly>
@@ -364,9 +364,9 @@ export default function LoanEMIPlanner() {
                 </div>
                 <div className="stack-3">
                   {[
-                    { text: 'Aggressively negotiate a lower interest rate.', icon: Landmark },
-                    { text: 'Execute consistent part-prepayments annually.', icon: ShieldCheck },
-                    { text: 'Audit market lenders for balance transfer ops.', icon: BarChart3 },
+                    { text: t("Aggressively negotiate a lower interest rate."), icon: Landmark },
+                    { text: t("Execute consistent part-prepayments annually."), icon: ShieldCheck },
+                    { text: t("Audit market lenders for balance transfer ops."), icon: BarChart3 },
                   ].map((tip, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', fontWeight: 500 }}>
                       <div style={{ width: 28, height: 28, borderRadius: 'var(--radius-md)', background: 'rgba(0,168,132,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-success)', flexShrink: 0 }}>
@@ -409,7 +409,7 @@ export default function LoanEMIPlanner() {
               </div>
             </div>
 
-            <button className="btn btn-secondary btn-lg" style={{ marginTop: 'var(--space-8)' }} onClick={() => { setStep(0); setResult(null); }}>
+            <button className=t("btn btn-secondary btn-lg") style={{ marginTop: 'var(--space-8)' }} onClick={() => { setStep(0); setResult(null); }}>
               <ChevronRight size={18} style={{ transform: 'rotate(180deg)' }} /> {t("Adjust Parameters")}
             </button>
           </div>

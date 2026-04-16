@@ -17,7 +17,7 @@ const CATEGORIES = [
   { id: 'Education', icon: GraduationCap, label: 'Education' },
   { id: 'Car', icon: Car, label: 'Car' },
   { id: 'Wedding', icon: Heart, label: 'Wedding' },
-  { id: 'Emergency Fund', icon: Shield, label: 'Emergency Fund' },
+  { id: t("Emergency Fund"), icon: Shield, label: t("Emergency Fund") },
   { id: 'Retirement', icon: Umbrella, label: 'Retirement' },
   { id: 'Investment', icon: TrendingUp, label: 'Investment' },
   { id: 'Other', icon: Target, label: 'Other' }
@@ -38,7 +38,7 @@ interface Goal {
 }
 
 const newGoalTemplate = (): Omit<Goal, 'id' | 'createdAt'> => ({
-  name: '', target: 0, targetDate: '', category: 'Other', priority: 'Medium', current: 0, monthly: 0,
+  name: 't(", target: 0, targetDate: ")t(", category: ")Othert(", priority: ")Medium', current: 0, monthly: 0,
 });
 
 export default function GoalPlanner() {
@@ -126,10 +126,10 @@ export default function GoalPlanner() {
           </div>
         )}
       />
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {step === -1 && (
-          <div style={{ animation: 'fadeInUp 0.4s ease both' }}>
+          <div style={{ animation: t("fadeInUp 0.4s ease both") }}>
             <div style={{ textAlign: 'center', padding: 'var(--space-12) 0' }}>
               <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)', border: '1px solid var(--border-subtle)' }}>
                 <Target size={40} color="var(--brand-primary)" />
@@ -138,14 +138,14 @@ export default function GoalPlanner() {
               <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 440, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>
                 {t('Define your financial milestones. Track progress toward your house, car, or education goals with real-time probability analysis.')}
               </p>
-              <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
+              <button className=t("btn btn-primary btn-lg") onClick={() => setStep(0)} style={{ minWidth: 220 }}>
                 {goals.length > 0 ? t('Manage My Goals') : t('Create First Goal')} <Target size={18} style={{ marginLeft: 8 }} />
               </button>
 
               {goals.length > 0 && (
                 <div style={{ marginTop: 'var(--space-12)', textAlign: 'left' }}>
                   <label className="label-caps" style={{ marginBottom: 'var(--space-4)', display: 'block' }}>{t('Summary Statistics')}</label>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
                     <div className="card" style={{ padding: 'var(--space-6)' }}>
                       <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', marginBottom: 4 }}>{t('TOTAL TARGET')}</div>
                       <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--text-primary)' }}>{fmt.currency(totalTargetValue)}</div>
@@ -162,11 +162,11 @@ export default function GoalPlanner() {
         )}
 
         {step === 0 && (
-          <div style={{ animation: 'fadeIn 0.35s ease' }}>
+          <div style={{ animation: t("fadeIn 0.35s ease") }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-8)' }}>
-              <button onClick={() => setStep(-1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> {t('Back')}</button>
+              <button onClick={() => setStep(-1)} className=t("btn btn-secondary btn-sm")><ChevronLeft size={14} /> {t('Back')}</button>
               <h2 className="heading-md">{t('Goal Planner')}</h2>
-              <button className="btn btn-primary btn-sm" onClick={() => { setShowForm(true); setEditId(null); setForm(newGoalTemplate()); }}>
+              <button className=t("btn btn-primary btn-sm") onClick={() => { setShowForm(true); setEditId(null); setForm(newGoalTemplate()); }}>
                 <Plus size={14} /> {t('New Goal')}
               </button>
             </div>
@@ -186,10 +186,10 @@ export default function GoalPlanner() {
             )}
 
             {showForm && (
-              <div className="card" style={{ border: '2px solid var(--brand-primary)', marginBottom: 'var(--space-8)', padding: 'var(--space-8)', animation: 'slideInRight 0.3s ease' }}>
+              <div className="card" style={{ border: '2px solid var(--brand-primary)', marginBottom: 'var(--space-8)', padding: 'var(--space-8)', animation: t("slideInRight 0.3s ease") }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
                   <h3 className="heading-sm">{editId ? t('Modify Goal') : t('Define Strategic Goal')}</h3>
-                  <button onClick={() => setShowForm(false)} className="btn btn-secondary btn-icon"><X size={16} /></button>
+                  <button onClick={() => setShowForm(false)} className=t("btn btn-secondary btn-icon")><X size={16} /></button>
                 </div>
                 
                 <div className="stack-4">
@@ -197,7 +197,7 @@ export default function GoalPlanner() {
                     <label className="form-label">{t('Goal Name')}</label>
                     <input type="text" className="form-input" required placeholder="e.g. Master's in CS" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: '16px' }}>
                     <div className="form-group">
                       <label className="form-label">{t('Category')}</label>
                       <select className="form-input" required value={form.category} onChange={e => setForm({ ...form, category: e.target.value })}>
@@ -213,7 +213,7 @@ export default function GoalPlanner() {
                       </select>
                     </div>
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: '16px' }}>
                     <div className="form-group">
                       <label className="form-label">{t('Target Capital')}</label>
                       <input type="number" className="form-input" required min="1" placeholder="0.00" value={form.target || ''} onChange={e => setForm({ ...form, target: Math.max(0, Number(e.target.value)) })} />
@@ -223,7 +223,7 @@ export default function GoalPlanner() {
                       <input type="date" className="form-input" required min={new Date().toISOString().split('T')[0]} value={form.targetDate} onChange={e => setForm({ ...form, targetDate: e.target.value })} />
                     </div>
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: '16px' }}>
                     <div className="form-group">
                       <label className="form-label">{t('Existing Savings')}</label>
                       <input type="number" className="form-input" min="0" placeholder="0.00" value={form.current || ''} onChange={e => setForm({ ...form, current: Math.max(0, Number(e.target.value)) })} />
@@ -235,8 +235,8 @@ export default function GoalPlanner() {
                   </div>
                   
                   <div style={{ display: 'flex', gap: 12, marginTop: 'var(--space-4)' }}>
-                    <button className="btn btn-secondary" style={{ flex: 1 }} onClick={() => { setShowForm(false); setEditId(null); }}>{t('Discard')}</button>
-                    <button className="btn btn-primary" style={{ flex: 2 }} onClick={handleSubmit} disabled={!form.name || !form.target || !form.targetDate}>
+                    <button className=t("btn btn-secondary") style={{ flex: 1 }} onClick={() => { setShowForm(false); setEditId(null); }}>{t('Discard')}</button>
+                    <button className=t("btn btn-primary") style={{ flex: 2 }} onClick={handleSubmit} disabled={!form.name || !form.target || !form.targetDate}>
                       {editId ? t('Update Strategy') : t('Deploy Goal')}
                     </button>
                   </div>
@@ -272,8 +272,8 @@ export default function GoalPlanner() {
                         </div>
                       </div>
                       <div style={{ display: 'flex', gap: 4 }}>
-                        <button className="btn btn-secondary btn-icon btn-sm" onClick={() => handleEdit(goal)}><Edit2 size={13} /></button>
-                        <button className="btn btn-secondary btn-icon btn-sm" onClick={() => handleDelete(goal.id)} style={{ color: 'var(--brand-danger)' }}><Trash2 size={13} /></button>
+                        <button className=t("btn btn-secondary btn-icon btn-sm") onClick={() => handleEdit(goal)}><Edit2 size={13} /></button>
+                        <button className=t("btn btn-secondary btn-icon btn-sm") onClick={() => handleDelete(goal.id)} style={{ color: 'var(--brand-danger)' }}><Trash2 size={13} /></button>
                       </div>
                     </div>
 
@@ -285,14 +285,14 @@ export default function GoalPlanner() {
                       <div className="progress-bar" style={{ height: 8 }}><div className="progress-fill" style={{ width: `${percent}%`, background: onTrack ? '#00A884' : 'var(--brand-gold)' }} /></div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', background: 'var(--bg-base)', padding: 'var(--space-3)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-subtle)' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: t("1fr 1fr"), gap: 'var(--space-4)', background: 'var(--bg-base)', padding: 'var(--space-3)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-subtle)' }}>
                        <div>
                          <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>{t('Required / Mo')}</div>
                          <div style={{ fontSize: 13, fontWeight: 700, color: onTrack ? '#00A884' : 'var(--brand-danger)' }}>{fmt.currency(needed)}</div>
                        </div>
                        <div>
                          <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>{t('Time Horizon')}</div>
-                         <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>{months !== null ? t('{{count}} months', { count: months }) : 'N/A'}</div>
+                         <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>{months !== null ? t('{{count}} monthst(", { count: months }) : ")N/A'}</div>
                        </div>
                     </div>
                   </div>

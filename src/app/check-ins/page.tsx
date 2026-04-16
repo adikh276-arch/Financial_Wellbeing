@@ -7,55 +7,56 @@ import { CheckSquare, Heart, Activity, TrendingUp, ArrowRight, Star } from 'luci
 const checkIns = [
   {
     href: '/check-ins/spending-style-quiz',
-    label: 'Spending Style Quiz',
-    desc: 'Decode your money personality & behavioral archetype',
+    label: t("Spending Style Quiz"),
+    desc: t("Decode your money personality & behavioral archetype"),
     icon: CheckSquare,
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
     glow: 'rgba(108,92,231,0.3)',
     color: '#6C5CE7',
     time: '5 min',
-    questions: '10 questions',
+    questions: t("10 questions"),
     tag: 'Behavior',
   },
   {
     href: '/check-ins/savings-check-up',
-    label: 'Savings Check-up',
-    desc: 'Benchmark your emergency fund, savings rate and habits',
+    label: t("Savings Check-up"),
+    desc: t("Benchmark your emergency fund, savings rate and habits"),
     icon: Heart,
     gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
     glow: 'rgba(232,67,147,0.3)',
     color: '#e84393',
     time: '4 min',
-    questions: '5 inputs',
+    questions: t("5 inputs"),
     tag: 'Savings',
   },
   {
     href: '/check-ins/money-stress-quiz',
-    label: 'Money Stress Quiz',
-    desc: 'Measure your financial anxiety level and get relief tactics',
+    label: t("Money Stress Quiz"),
+    desc: t("Measure your financial anxiety level and get relief tactics"),
     icon: Activity,
     gradient: 'linear-gradient(135deg, #F39C12, #E67E22)',
     glow: 'rgba(243,156,18,0.3)',
     color: '#F39C12',
     time: '6 min',
-    questions: '15 questions',
+    questions: t("15 questions"),
     tag: 'Wellness',
   },
   {
     href: '/check-ins/investment-readiness',
-    label: 'Investment Readiness',
-    desc: 'Are your foundations strong enough to start investing?',
+    label: t("Investment Readiness"),
+    desc: t("Are your foundations strong enough to start investing?"),
     icon: TrendingUp,
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
     glow: 'rgba(0,168,132,0.3)',
     color: '#00A884',
     time: '5 min',
-    questions: '10 questions',
+    questions: t("10 questions"),
     tag: 'Investing',
   },
 ];
 
 export default function CheckInsHub() {
+  const { t } = useTranslation();
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       {/* Header */}
@@ -65,13 +66,13 @@ export default function CheckInsHub() {
         borderBottom: '1px solid var(--border-subtle)',
         padding: 'var(--space-4)',
       }}>
-        <div style={{ maxWidth: 680, margin: '0 auto' }}>
+        <div style={{ maxWidth: 680, margin: t("0 auto") }}>
           <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>Assessments</p>
           <h1 className="heading-xl" style={{ color: 'var(--text-primary)' }}>Check-ins</h1>
         </div>
       </div>
 
-      <div style={{ maxWidth: 680, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-12)' }}>
+      <div style={{ maxWidth: 680, margin: t("0 auto"), padding: 'var(--space-5) var(--space-4) var(--space-12)' }}>
         {/* Header Banner */}
         <div style={{
           background: 'linear-gradient(145deg, #e84393 0%, #fd79a8 100%)',
@@ -96,9 +97,9 @@ export default function CheckInsHub() {
             const Icon = item.icon;
             return (
               <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
-                <div className="card card-tap" style={{
+                <div className=t("card card-tap") style={{
                   padding: 'var(--space-5)',
-                  animation: 'fadeInUp 0.3s ease both',
+                  animation: t("fadeInUp 0.3s ease both"),
                   animationDelay: `${i * 70}ms`,
                 }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>

@@ -8,53 +8,53 @@ import { Lightbulb, HelpCircle, BookOpen, MessageSquare, FileText, ArrowRight, S
 const sections = [
   {
     href: '/explore/financial-tips',
-    label: 'Financial Tips',
-    desc: 'Bite-sized, actionable wisdom across all money topics',
+    label: t("Financial Tips"),
+    desc: t("Bite-sized, actionable wisdom across all money topics"),
     icon: Lightbulb,
     gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)',
     color: '#E17055',
     colorBg: '#FDCB6E12',
-    count: '50+ tips',
+    count: t("50+ tips"),
   },
   {
     href: '/explore/financial-faqs',
     label: 'FAQs',
-    desc: 'Clear answers to the most common money questions',
+    desc: t("Clear answers to the most common money questions"),
     icon: HelpCircle,
     gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)',
     color: '#0984e3',
     colorBg: '#0984e312',
-    count: '30+ answers',
+    count: t("30+ answers"),
   },
   {
     href: '/explore/financial-articles',
-    label: 'In-Depth Articles',
-    desc: 'Research-backed reads for financial mastery',
+    label: t("In-Depth Articles"),
+    desc: t("Research-backed reads for financial mastery"),
     icon: FileText,
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
     color: '#6C5CE7',
     colorBg: '#6C5CE712',
-    count: '8 articles',
+    count: t("8 articles"),
   },
   {
     href: '/explore/financial-myths',
-    label: 'Money Myths Busted',
-    desc: 'Debunking the lies that keep you financially stuck',
+    label: t("Money Myths Busted"),
+    desc: t("Debunking the lies that keep you financially stuck"),
     icon: MessageSquare,
     gradient: 'linear-gradient(135deg, #E74C3C, #C0392B)',
     color: '#E74C3C',
     colorBg: '#E74C3C12',
-    count: '12 myths',
+    count: t("12 myths"),
   },
   {
     href: '/explore/financial-stories',
-    label: 'Real Money Stories',
-    desc: 'Inspiring journeys of financial transformation',
+    label: t("Real Money Stories"),
+    desc: t("Inspiring journeys of financial transformation"),
     icon: BookOpen,
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
     color: '#00A884',
     colorBg: '#00A88412',
-    count: '6 stories',
+    count: t("6 stories"),
   },
 ];
 
@@ -69,7 +69,7 @@ export default function ExploreHub() {
         borderBottom: '1px solid var(--border-subtle)',
         padding: 'var(--space-4)',
       }}>
-        <div style={{ maxWidth: 680, margin: '0 auto', display: 'flex', alignItems: 'center' }}>
+        <div style={{ maxWidth: 680, margin: t("0 auto"), display: 'flex', alignItems: 'center' }}>
           <div>
             <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>{t('Content Library')}</p>
             <h1 className="heading-xl" style={{ color: 'var(--text-primary)' }}>{t('Explore')}</h1>
@@ -79,7 +79,7 @@ export default function ExploreHub() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 680, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-12)' }}>
+      <div style={{ maxWidth: 680, margin: t("0 auto"), padding: 'var(--space-5) var(--space-4) var(--space-12)' }}>
         {/* Banner */}
         <div style={{
           background: 'linear-gradient(145deg, #F39C12 0%, #E17055 100%)',
@@ -108,8 +108,8 @@ export default function ExploreHub() {
             const Icon = section.icon;
             return (
               <Link key={section.href} href={section.href} style={{ textDecoration: 'none' }}>
-                <div className="card card-tap" style={{
-                  animation: 'fadeInUp 0.3s ease both',
+                <div className=t("card card-tap") style={{
+                  animation: t("fadeInUp 0.3s ease both"),
                   animationDelay: `${i * 60}ms`,
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>

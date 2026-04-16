@@ -128,6 +128,20 @@ export default function InvestmentPlanner() {
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
+        {true && (
+          <PageHeader 
+            title={t('Investment Planner')}
+            backHref="/"
+            accentColor="#6C5CE7"
+            rightSlot={step === 4 ? (
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Success' : 'Save'}</button>
+                <button onClick={() => { setStep(0); setForm(INIT_FORM); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+              </div>
+            ) : null}
+          />
+        )}
+
         {step === -1 && (
           <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
             <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
@@ -161,20 +175,6 @@ export default function InvestmentPlanner() {
               </div>
             )}
           </div>
-        )}
-
-        {true && (
-          <PageHeader 
-            title={t('Investment Planner')}
-            backHref="/"
-            accentColor="#6C5CE7"
-            rightSlot={step === 4 ? (
-              <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Success' : 'Save'}</button>
-                <button onClick={() => { setStep(0); setForm(INIT_FORM); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
-              </div>
-            ) : null}
-          />
         )}
 
         {step >= 0 && (

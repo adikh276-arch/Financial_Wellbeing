@@ -179,6 +179,16 @@ export default function BudgetPlanner() {
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
+        {true && (
+          <PageHeader 
+            title={t('Budget Planner')}
+            backHref="/"
+            steps={step >= 0 ? STEPS : undefined}
+            currentStep={step >= 0 ? step : undefined}
+            accentColor="#00A884"
+          />
+        )}
+
         {step === -1 && (
           <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
             <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
@@ -214,16 +224,6 @@ export default function BudgetPlanner() {
               </div>
             )}
           </div>
-        )}
-
-        {true && (
-          <PageHeader 
-            title={t('Budget Planner')}
-            backHref="/"
-            steps={step >= 0 ? STEPS : undefined}
-            currentStep={step >= 0 ? step : undefined}
-            accentColor="#00A884"
-          />
         )}
 
         {step === 0 && (

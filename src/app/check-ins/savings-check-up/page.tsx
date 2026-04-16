@@ -72,7 +72,7 @@ export default function SavingsCheckup() {
         backHref="/"
         rightSlot={step === QUESTIONS.length + 1 ? (
           <div style={{ display: 'flex', gap: 8 }}>
-            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Success' : 'Save'}</button>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>
             <button onClick={() => setStep(0)} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
           </div>
         ) : null}

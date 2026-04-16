@@ -305,14 +305,14 @@ export default function BudgetPlanner() {
             }}>
               <div style={{ position: 'absolute', top: -20, right: -20, width: 100, height: 100, borderRadius: '50%', background: 'rgba(255,255,255,0.1)' }} />
               <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4 }}>
-                {surplus >= 0 ? 'Monthly Surplus' : 'Monthly Deficit'}
+                {surplus >= 0 ? t('Monthly Surplus') : t('Monthly Deficit')}
               </p>
               <p style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-4xl)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em', lineHeight: 1 }}>
                 {surplus >= 0 ? '+' : ''}{fmt.currency(Math.abs(surplus), true)}
               </p>
               <div style={{ display: 'flex', gap: 8, marginTop: 'var(--space-4)' }}>
                 <button onClick={handleSave} className="btn btn-secondary btn-sm" style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white' }}>
-                  {saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved!' : 'Save Result'}
+                  {saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save Result')}
                 </button>
               </div>
             </div>
@@ -322,7 +322,7 @@ export default function BudgetPlanner() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
                 <PctBar label={t('Needs')} pct={needsPct} target={50} color="#6C5CE7" />
                 <PctBar label={t('Wants')} pct={wantsPct} target={30} color="#F39C12" />
-                <PctBar label="Savings" pct={savePct} target={20} color="#00A884" />
+                <PctBar label={t('Savings')} pct={savePct} target={20} color="#00A884" />
               </div>
             </div>
 
@@ -345,9 +345,9 @@ export default function BudgetPlanner() {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
                   {chartData.map(d => (
-                    <div key={d.name} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <div key={t(d.name)} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <div style={{ width: 8, height: 8, borderRadius: '50%', background: d.color, flexShrink: 0 }} />
-                      <span style={{ fontSize: 12, color: 'var(--text-secondary)', fontWeight: 600, flex: 1 }}>{d.name}</span>
+                      <span style={{ fontSize: 12, color: 'var(--text-secondary)', fontWeight: 600, flex: 1 }}>{t(d.name)}</span>
                       <span style={{ fontSize: 12, fontWeight: 800, color: d.color }}>{d.pct}%</span>
                     </div>
                   ))}

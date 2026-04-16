@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { BookOpen, Clock, ArrowRight, Zap, BarChart2, AlertCircle, Shield, Target, PieChart, Heart, Star, Compass, TrendingUp, Brain } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const modules = [
   { href: '/learn/budgeting-basics', label: 'Budgeting Basics', icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715', tag: 'Foundational' },

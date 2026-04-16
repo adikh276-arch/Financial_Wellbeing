@@ -135,8 +135,8 @@ export default function InvestmentPlanner() {
             accentColor="#6C5CE7"
             rightSlot={step === 4 ? (
               <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Success' : 'Save'}</button>
-                <button onClick={() => { setStep(0); setForm(INIT_FORM); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>
+                <button onClick={() => { setStep(0); setForm({ amount: 0, period: 5, risk: 'Moderate', goal: 'Wealth Creation', monthly: 0 }); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
               </div>
             ) : null}
           />
@@ -268,7 +268,7 @@ export default function InvestmentPlanner() {
             <div style={{ background: profile.gradient, borderRadius: 'var(--radius-2xl)', padding: 'var(--space-8)', marginBottom: 'var(--space-6)', color: 'white' }}>
                <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', opacity: 0.8, letterSpacing: '0.05em' }}>Forecasted Wealth ({form.period}Y)</div>
                <div style={{ fontSize: 44, fontWeight: 900, fontFamily: 'var(--font-display)', margin: '8px 0' }}>{fmt.currency(projectedAmount, true)}</div>
-               <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>{profile.label} Strategy</div>
+               <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>{t('{{strategy}} Strategy', { strategy: t(profile.label) })}</div>
             </div>
 
             <div className="grid-responsive" style={{ gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>

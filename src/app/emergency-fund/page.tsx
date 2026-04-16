@@ -114,7 +114,7 @@ export default function EmergencyFund() {
         rightSlot={(
            <div style={{ display: 'flex', gap: 8 }}>
               <button className="btn btn-primary btn-sm" onClick={handleSave}>
-                 {saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved' : 'Save'}
+                 {saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved') : t('Save')}
               </button>
            </div>
         )}

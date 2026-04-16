@@ -122,7 +122,7 @@ export default function GoalPlanner() {
           </div>
         ) : (
           <div style={{ background: 'var(--bg-card)', color: 'var(--text-faint)', padding: '6px 16px', borderRadius: 99, fontSize: 11, fontWeight: 700 }}>
-            {goals.length} active goals
+            {t('{{count}} active goals', { count: goals.length })}
           </div>
         )}
       />
@@ -139,7 +139,7 @@ export default function GoalPlanner() {
                 {t('Define your financial milestones. Track progress toward your house, car, or education goals with real-time probability analysis.')}
               </p>
               <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
-                {goals.length > 0 ? 'Manage My Goals' : 'Create First Goal'} <Target size={18} style={{ marginLeft: 8 }} />
+                {goals.length > 0 ? t('Manage My Goals') : t('Create First Goal')} <Target size={18} style={{ marginLeft: 8 }} />
               </button>
 
               {goals.length > 0 && (
@@ -188,7 +188,7 @@ export default function GoalPlanner() {
             {showForm && (
               <div className="card" style={{ border: '2px solid var(--brand-primary)', marginBottom: 'var(--space-8)', padding: 'var(--space-8)', animation: 'slideInRight 0.3s ease' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
-                  <h3 className="heading-sm">{editId ? 'Modify Goal' : 'Define Strategic Goal'}</h3>
+                  <h3 className="heading-sm">{editId ? t('Modify Goal') : t('Define Strategic Goal')}</h3>
                   <button onClick={() => setShowForm(false)} className="btn btn-secondary btn-icon"><X size={16} /></button>
                 </div>
                 
@@ -237,7 +237,7 @@ export default function GoalPlanner() {
                   <div style={{ display: 'flex', gap: 12, marginTop: 'var(--space-4)' }}>
                     <button className="btn btn-secondary" style={{ flex: 1 }} onClick={() => { setShowForm(false); setEditId(null); }}>{t('Discard')}</button>
                     <button className="btn btn-primary" style={{ flex: 2 }} onClick={handleSubmit} disabled={!form.name || !form.target || !form.targetDate}>
-                      {editId ? 'Update Strategy' : 'Deploy Goal'}
+                      {editId ? t('Update Strategy') : t('Deploy Goal')}
                     </button>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export default function GoalPlanner() {
                         </div>
                         <div>
                           <h4 className="heading-sm" style={{ marginBottom: 2 }}>{goal.name}</h4>
-                          <span className="badge" style={{ fontSize: 9, background: `${PRIORITY_COLORS[goal.priority]}15`, color: PRIORITY_COLORS[goal.priority] }}>{goal.priority}</span>
+                          <span className="badge" style={{ fontSize: 9, background: `${PRIORITY_COLORS[goal.priority]}15`, color: PRIORITY_COLORS[goal.priority] }}>{t(goal.priority)}</span>
                         </div>
                       </div>
                       <div style={{ display: 'flex', gap: 4 }}>
@@ -292,7 +292,7 @@ export default function GoalPlanner() {
                        </div>
                        <div>
                          <div style={{ fontSize: 9, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>{t('Time Horizon')}</div>
-                         <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>{months !== null ? `${months} months` : 'N/A'}</div>
+                         <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>{months !== null ? t('{{count}} months', { count: months }) : 'N/A'}</div>
                        </div>
                     </div>
                   </div>

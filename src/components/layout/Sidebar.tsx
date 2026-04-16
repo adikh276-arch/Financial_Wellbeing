@@ -13,11 +13,25 @@ import {
 
 const LANGUAGES = [
   { code: 'en', label: 'English' },
-  { code: 'hi', label: 'हिन्दी' },
   { code: 'ar', label: 'العربية' },
-  { code: 'es', label: 'Español' },
-  { code: 'fr', label: 'Français' },
+  { code: 'bn', label: 'বাংলা' },
   { code: 'zh', label: '中文' },
+  { code: 'nl', label: 'Nederlands' },
+  { code: 'fr', label: 'Français' },
+  { code: 'de', label: 'Deutsch' },
+  { code: 'hi', label: 'हिन्दी' },
+  { code: 'id', label: 'Bahasa Indonesia' },
+  { code: 'it', label: 'Italiano' },
+  { code: 'ja', label: '日本語' },
+  { code: 'ko', label: '한국어' },
+  { code: 'pl', label: 'Polski' },
+  { code: 'pt', label: 'Português' },
+  { code: 'ru', label: 'Русский' },
+  { code: 'es', label: 'Spanish' },
+  { code: 'tl', label: 'Tagalog' },
+  { code: 'th', label: 'ไทย' },
+  { code: 'tr', label: 'Turkish' },
+  { code: 'vi', label: 'Tiếng Việt' },
 ];
 
 const navSections = [

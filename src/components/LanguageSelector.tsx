@@ -6,26 +6,26 @@ import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Globe, ChevronDown, Check } from 'lucide-react';
 
 const LANGUAGES = [
-  { code: 'en', label: 'English', flag: '🇺🇸' },
-  { code: 'hi', label: 'हिन्दी', flag: '🇮🇳' },
-  { code: 'pa', label: 'ਪੰਜਾਬੀ', flag: '🇮🇳' },
-  { code: 'mr', label: 'मराठी', flag: '🇮🇳' },
-  { code: 'gu', label: 'ગુજરાતી', flag: '🇮🇳' },
-  { code: 'ta', label: 'தமிழ்', flag: '🇮🇳' },
-  { code: 'te', label: 'తెలుగు', flag: '🇮🇳' },
-  { code: 'kn', label: 'ಕನ್ನಡ', flag: '🇮🇳' },
-  { code: 'ml', label: 'മലയാളം', flag: '🇮🇳' },
-  { code: 'bn', label: 'বাংলা', flag: '🇮🇳' },
-  { code: 'ar', label: 'العربية', flag: '🇦🇪' },
-  { code: 'es', label: 'Español', flag: '🇪🇸' },
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
-  { code: 'zh', label: '中文', flag: '🇨🇳' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ja', label: '日本語', flag: '🇯🇵' },
-  { code: 'ko', label: '한국어', flag: '🇰🇷' },
-  { code: 'pt', label: 'Português', flag: '🇵🇹' },
-  { code: 'it', label: 'Italiano', flag: '🇮🇹' },
-  { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+  { code: 'en', label: 'English', nativeName: 'English', flag: '🇺🇸' },
+  { code: 'ar', label: 'Arabic', nativeName: 'العربية', flag: '🇦🇪' },
+  { code: 'bn', label: 'Bengali', nativeName: 'বাংলা', flag: '🇧🇩' },
+  { code: 'zh', label: 'Chinese', nativeName: '中文', flag: '🇨🇳' },
+  { code: 'nl', label: 'Dutch', nativeName: 'Nederlands', flag: '🇳🇱' },
+  { code: 'fr', label: 'French', nativeName: 'Français', flag: '🇫🇷' },
+  { code: 'de', label: 'German', nativeName: 'Deutsch', flag: '🇩🇪' },
+  { code: 'hi', label: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳' },
+  { code: 'id', label: 'Indonesian', nativeName: 'Bahasa Indonesia', flag: '🇮🇩' },
+  { code: 'it', label: 'Italiano', nativeName: 'Italiano', flag: '🇮🇹' },
+  { code: 'ja', label: 'Japanese', nativeName: '日本語', flag: '🇯🇵' },
+  { code: 'ko', label: 'Korean', nativeName: '한국어', flag: '🇰🇷' },
+  { code: 'pl', label: 'Polish', nativeName: 'Polski', flag: '🇵🇱' },
+  { code: 'pt', label: 'Portuguese', nativeName: 'Português', flag: '🇵🇹' },
+  { code: 'ru', label: 'Russian', nativeName: 'Русский', flag: '🇷🇺' },
+  { code: 'es', label: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },
+  { code: 'tl', label: 'Tagalog', nativeName: 'Tagalog', flag: '🇵🇭' },
+  { code: 'th', label: 'Thai', nativeName: 'ไทย', flag: '🇹🇭' },
+  { code: 'tr', label: 'Turkish', nativeName: 'Türkçe', flag: '🇹🇷' },
+  { code: 'vi', label: 'Vietnamese', nativeName: 'Tiếng Việt', flag: '🇻🇳' },
 ];
 
 export function LanguageSelector() {
@@ -81,7 +81,7 @@ export function LanguageSelector() {
         }}
       >
         <Globe size={16} color="var(--brand-primary)" />
-        <span style={{ fontSize: 13 }}>{currentLang.label}</span>
+        <span style={{ fontSize: 13 }}>{currentLang.nativeName}</span>
         <ChevronDown size={14} style={{ opacity: 0.5, transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
       </button>
 
@@ -125,7 +125,7 @@ export function LanguageSelector() {
               }}
             >
               <span style={{ fontSize: 16 }}>{l.flag}</span>
-              <span style={{ flex: 1 }}>{l.label}</span>
+              <span style={{ flex: 1 }}>{l.nativeName}</span>
               {i18n.language === l.code && <Check size={14} />}
             </button>
           ))}

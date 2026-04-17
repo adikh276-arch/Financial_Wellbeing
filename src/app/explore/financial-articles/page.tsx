@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
 const ARTICLES = [
-  { id: 1, title: t("The Complete Beginner's Guide to Mutual Funds"), author: 'Financial Wellness Team', readTime: t("12 min"), category: t("Investing"), preview: t("Mutual funds are a simple way to start investing professionally. Learn about systematic plans and risk-adjusted returns."), content: t("Detailed content about mutual funds..."), icon: TrendingUp, color: '#6C5CE7' },
-  { id: 2, title: t("How the 52-Week Money Challenge Can Transform Your Savings"), author: 'Financial Wellness Team', readTime: t("8 min"), category: t("Savings"), preview: t("Gamify your saving habit by increasing your weekly goal. By week 52, you will have a substantial emergency buffer."), content: t("Step by step guide for the 52-week challenge..."), icon: Zap, color: '#00B894' },
-  { id: 3, title: t("Understanding Your Credit Score: A Deep Dive"), author: 'Financial Wellness Team', readTime: t("10 min"), category: t("Credit"), preview: t("Learn how your score is calculated and the specific behaviors that can boost it or hurt it significantly."), content: t("Comprehensive report on credit scoring algorithms..."), icon: Activity, color: '#0984e3' },
-  { id: 4, title: t("Choosing Between Long-term Savings Vehicles"), author: 'Financial Wellness Team', readTime: t("14 min"), category: t("Tax"), preview: t("Comparison of various instruments for long-horizon capital growth and tax optimization."), content: t("In-depth analysis of pension funds vs ETFs..."), icon: Shield, color: '#FDCB6E' },
-  { id: 5, title: t("The Hidden Cost of Lifestyle Inflation"), author: 'Financial Wellness Team', readTime: t("7 min"), category: t("Behavior"), preview: t("Why raises often don't lead to more wealth. Learn how to maintain your savings rate during income shifts."), content: t("Psychological strategies to combat lifestyle creep..."), icon: Heart, color: '#fd79a8' },
-  { id: 6, title: t("Emergency Fund Math: How Much is Actually Enough?"), author: 'Financial Wellness Team', readTime: t("6 min"), category: t("Savings"), preview: t("A framework to calculate your custom safety net based on volatility and fixed obligations."), content: t("Detailed mathematical models for emergency funds..."), icon: Target, color: '#e84393' },
+  { id: 1, title: "The Complete Beginner's Guide to Mutual Funds", author: 'Financial Wellness Team', readTime: "12 min", category: "Investing", preview: "Mutual funds are a simple way to start investing professionally. Learn about systematic plans and risk-adjusted returns.", content: "Detailed content about mutual funds...", icon: TrendingUp, color: '#6C5CE7' },
+  { id: 2, title: "How the 52-Week Money Challenge Can Transform Your Savings", author: 'Financial Wellness Team', readTime: "8 min", category: "Savings", preview: "Gamify your saving habit by increasing your weekly goal. By week 52, you will have a substantial emergency buffer.", content: "Step by step guide for the 52-week challenge...", icon: Zap, color: '#00B894' },
+  { id: 3, title: "Understanding Your Credit Score: A Deep Dive", author: 'Financial Wellness Team', readTime: "10 min", category: "Credit", preview: "Learn how your score is calculated and the specific behaviors that can boost it or hurt it significantly.", content: "Comprehensive report on credit scoring algorithms...", icon: Activity, color: '#0984e3' },
+  { id: 4, title: "Choosing Between Long-term Savings Vehicles", author: 'Financial Wellness Team', readTime: "14 min", category: "Tax", preview: "Comparison of various instruments for long-horizon capital growth and tax optimization.", content: "In-depth analysis of pension funds vs ETFs...", icon: Shield, color: '#FDCB6E' },
+  { id: 5, title: "The Hidden Cost of Lifestyle Inflation", author: 'Financial Wellness Team', readTime: "7 min", category: "Behavior", preview: "Why raises often don't lead to more wealth. Learn how to maintain your savings rate during income shifts.", content: "Psychological strategies to combat lifestyle creep...", icon: Heart, color: '#fd79a8' },
+  { id: 6, title: "Emergency Fund Math: How Much is Actually Enough?", author: 'Financial Wellness Team', readTime: "6 min", category: "Savings", preview: "A framework to calculate your custom safety net based on volatility and fixed obligations.", content: "Detailed mathematical models for emergency funds...", icon: Target, color: '#e84393' },
 ];
 
 export default function FinancialArticles() {
@@ -85,23 +85,23 @@ Generated on: ${new Date().toLocaleDateString()}
                   </div>
                   <div style={{ flex: 1 }}>
                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, flexWrap: 'wrap', gap: 8 }}>
-                        <span className="badge" style={{ background: `${article.color}15`, color: article.color, fontSize: 10 }}>{article.category}</span>
+                        <span className="badge" style={{ background: `${article.color}15`, color: article.color, fontSize: 10 }}>{t(article.category)}</span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: 'var(--text-muted)' }}>
-                           <Clock size={12} /> {article.readTime}
+                           <Clock size={12} /> {t(article.readTime)}
                         </div>
                      </div>
-                     <h3 className="heading-sm" style={{ marginBottom: 8 }}>{article.title}</h3>
-                     <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{article.preview}</p>
+                     <h3 className="heading-sm" style={{ marginBottom: 8 }}>{t(article.title)}</h3>
+                     <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{t(article.preview)}</p>
                      
                      {selectedId === article.id && (
                        <div style={{ marginTop: 'var(--space-6)', paddingTop: 'var(--space-6)', borderTop: '1px solid var(--border-subtle)', animation: 'fadeIn 0.3s ease' }}>
-                          <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.8 }}>The full analysis for "{article.title}" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.</p>
+                          <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.8 }}>{t("The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.", { title: t(article.title) })}</p>
                           <button 
                             className="btn btn-secondary btn-sm" 
                             style={{ marginTop: 16 }}
                             onClick={(e) => handleDownload(e, article)}
                           >
-                            Download Summary PDF
+                            {t("Download Summary PDF")}
                           </button>
                        </div>
                      )}

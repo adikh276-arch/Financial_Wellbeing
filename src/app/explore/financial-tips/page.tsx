@@ -18,12 +18,12 @@ const CATEGORY_META: Record<string, { color: string; bg: string }> = {
 };
 
 const TIPS = [
-  { category: t("Savings"), tip: "Automate your savings on payday. If you never see the money in your spending account, you won't miss it.", label: t("Automatic First") },
-  { category: t("Savings"), tip: "Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative.", label: t("Starter Win") },
-  { category: t("Budgeting"), tip: "The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade.", label: t("Cooling Period") },
-  { category: t("Budgeting"), tip: "Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth.", label: t("Leak Audit") },
-  { category: t("Debt"), tip: "Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid.", label: t("Apex Strategy") },
-  { category: t("Investing"), tip: "Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility.", label: t("Consistency") },
+  { category: "Savings", tip: "Automate your savings on payday. If you never see the money in your spending account, you won't miss it.", label: "Automatic First" },
+  { category: "Savings", tip: "Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative.", label: "Starter Win" },
+  { category: "Budgeting", tip: "The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade.", label: "Cooling Period" },
+  { category: "Budgeting", tip: "Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth.", label: "Leak Audit" },
+  { category: "Debt", tip: "Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid.", label: "Apex Strategy" },
+  { category: "Investing", tip: "Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility.", label: "Consistency" },
 ];
 
 export default function FinancialTips() {
@@ -71,10 +71,10 @@ export default function FinancialTips() {
                 <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                    <div style={{ flex: 1 }}>
                       <div style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
-                         <span className="badge" style={{ background: meta.bg, color: meta.color, fontSize: 9 }}>{tip.category}</span>
-                         <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>{tip.label}</span>
+                         <span className="badge" style={{ background: meta.bg, color: meta.color, fontSize: 9 }}>{t(tip.category)}</span>
+                         <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>{t(tip.label)}</span>
                       </div>
-                      <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.6, fontWeight: 500 }}>{tip.tip}</p>
+                      <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.6, fontWeight: 500 }}>{t(tip.tip)}</p>
                    </div>
                    <button onClick={() => handleCopy(tip.tip)} className="btn btn-secondary btn-icon btn-sm">
                       {isCopied ? <CheckIcon size={12} color="var(--brand-success)" /> : <Copy size={12} />}

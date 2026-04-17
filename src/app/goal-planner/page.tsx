@@ -12,15 +12,15 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { differenceInMonths, parseISO, format } from 'date-fns';
 
 const CATEGORIES = [
-  { id: 'Vacation', icon: Plane, label: t("Vacation") },
-  { id: 'Home', icon: Home, label: t("Home") },
-  { id: 'Education', icon: GraduationCap, label: t("Education") },
-  { id: 'Car', icon: Car, label: t("Car") },
-  { id: 'Wedding', icon: Heart, label: t("Wedding") },
-  { id: 'Emergency Fund', icon: Shield, label: t("Emergency Fund") },
-  { id: 'Retirement', icon: Umbrella, label: t("Retirement") },
-  { id: 'Investment', icon: TrendingUp, label: t("Investment") },
-  { id: 'Other', icon: Target, label: t("Other") }
+  { id: 'Vacation', icon: Plane, label: "Vacation" },
+  { id: 'Home', icon: Home, label: "Home" },
+  { id: 'Education', icon: GraduationCap, label: "Education" },
+  { id: 'Car', icon: Car, label: "Car" },
+  { id: 'Wedding', icon: Heart, label: "Wedding" },
+  { id: 'Emergency Fund', icon: Shield, label: "Emergency Fund" },
+  { id: 'Retirement', icon: Umbrella, label: "Retirement" },
+  { id: 'Investment', icon: TrendingUp, label: "Investment" },
+  { id: 'Other', icon: Target, label: "Other" }
 ];
 
 const PRIORITY_COLORS = { High: 'var(--brand-danger)', Medium: 'var(--brand-gold)', Low: 'var(--brand-success)' };
@@ -37,8 +37,8 @@ interface Goal {
   createdAt: string;
 }
 
-const newGoalTemplate = (): Omit<Goal, 'id' | 'createdAt'> => ({
-  name: '', target: 0, targetDate: '', category: t("Other"), priority: 'Medium', current: 0, monthly: 0,
+const newGoalTemplate = (catOther: string): Omit<Goal, 'id' | 'createdAt'> => ({
+  name: '', target: 0, targetDate: '', category: catOther, priority: 'Medium', current: 0, monthly: 0,
 });
 
 export default function GoalPlanner() {
@@ -47,7 +47,7 @@ export default function GoalPlanner() {
   const [step, setStep] = useState(-1);
   const [showForm, setShowForm] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
-  const [form, setForm] = useState(newGoalTemplate());
+  const [form, setForm] = useState(newGoalTemplate("Other"));
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ export default function GoalPlanner() {
       const newGoal: Goal = { ...form, id: Date.now().toString(), createdAt: new Date().toISOString() };
       save([...goals, newGoal]);
     }
-    setForm(newGoalTemplate());
+    setForm(newGoalTemplate("Other"));
     setShowForm(false);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
@@ -166,7 +166,7 @@ export default function GoalPlanner() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-8)' }}>
               <button onClick={() => setStep(-1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> {t('Back')}</button>
               <h2 className="heading-md">{t('Goal Planner')}</h2>
-              <button className="btn btn-primary btn-sm" onClick={() => { setShowForm(true); setEditId(null); setForm(newGoalTemplate()); }}>
+              <button className="btn btn-primary btn-sm" onClick={() => { setShowForm(true); setEditId(null); setForm(newGoalTemplate("Other")); }}>
                 <Plus size={14} /> {t('New Goal')}
               </button>
             </div>

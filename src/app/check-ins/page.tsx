@@ -1,5 +1,6 @@
 'use client';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'next/navigation';
 
 import Link from 'next/link';
 import { CheckSquare, Heart, Activity, TrendingUp, ArrowRight, Star } from 'lucide-react';
@@ -7,8 +8,8 @@ import { CheckSquare, Heart, Activity, TrendingUp, ArrowRight, Star } from 'luci
 const checkIns = [
   {
     href: '/check-ins/spending-style-quiz',
-    label: t("Spending Style Quiz"),
-    desc: t("Decode your money personality & behavioral archetype"),
+    label: "Spending Style Quiz",
+    desc: "Decode your money personality & behavioral archetype",
     icon: CheckSquare,
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
     glow: 'rgba(108,92,231,0.3)',
@@ -19,8 +20,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/savings-check-up',
-    label: t("Savings Check-up"),
-    desc: t("Benchmark your emergency fund, savings rate and habits"),
+    label: "Savings Check-up",
+    desc: "Benchmark your emergency fund, savings rate and habits",
     icon: Heart,
     gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
     glow: 'rgba(232,67,147,0.3)',
@@ -31,8 +32,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/money-stress-quiz',
-    label: t("Money Stress Quiz"),
-    desc: t("Measure your financial anxiety level and get relief tactics"),
+    label: "Money Stress Quiz",
+    desc: "Measure your financial anxiety level and get relief tactics",
     icon: Activity,
     gradient: 'linear-gradient(135deg, #F39C12, #E67E22)',
     glow: 'rgba(243,156,18,0.3)',
@@ -43,8 +44,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/investment-readiness',
-    label: t("Investment Readiness"),
-    desc: t("Are your foundations strong enough to start investing?"),
+    label: "Investment Readiness",
+    desc: "Are your foundations strong enough to start investing?",
     icon: TrendingUp,
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
     glow: 'rgba(0,168,132,0.3)',
@@ -57,6 +58,10 @@ const checkIns = [
 
 export default function CheckInsHub() {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
+  const query = searchParams.toString();
+  const suffix = query ? `?${query}` : '';
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       {/* Header */}
@@ -92,7 +97,7 @@ export default function CheckInsHub() {
           {checkIns.map((item, i) => {
             const Icon = item.icon;
             return (
-              <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
+              <Link key={item.href} href={`${item.href}${suffix}`} style={{ textDecoration: 'none' }}>
                 <div className="card card-tap" style={{
                   padding: 'var(--space-5)',
                   animation: 'fadeInUp 0.3s ease both',

@@ -10,17 +10,17 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
-  { id: 'hasEF', text: t("Do you have an emergency fund?"), options: ['None at all', 'Partially funded (1-2 mo)', 'Fully funded (3-6 mo)', 'Over-funded (6+ mo)'] },
-  { id: 'rate', text: t("What percentage of your income do you save?"), options: ['0-5%', '5-10%', '10-20%', 'Over 20%'] },
-  { id: 'consistency', text: t("How consistent are your savings?"), options: ['Rarely save', 'Occasional/Inconsistent', 'Mostly consistent', 'Automated & Guaranteed'] },
-  { id: 'increase', text: t("Have you increased your savings in the last 12 months?"), options: ['No, they decreased', 'Stayed the same', 'Yes, slight increase', 'Significant increase'] },
+  { id: 'hasEF', text: "Do you have an emergency fund?", options: ['None at all', 'Partially funded (1-2 mo)', 'Fully funded (3-6 mo)', 'Over-funded (6+ mo)'] },
+  { id: 'rate', text: "What percentage of your income do you save?", options: ['0-5%', '5-10%', '10-20%', 'Over 20%'] },
+  { id: 'consistency', text: "How consistent are your savings?", options: ['Rarely save', 'Occasional/Inconsistent', 'Mostly consistent', 'Automated & Guaranteed'] },
+  { id: 'increase', text: "Have you increased your savings in the last 12 months?", options: ['No, they decreased', 'Stayed the same', 'Yes, slight increase', 'Significant increase'] },
 ];
 
 const SCORES = [
-  { label: t("CRITICAL"), color: 'var(--brand-danger)', desc: t("Low liquidity and inconsistent habits. Priority: Build $1,000 starter reserve.") },
-  { label: t("STABILIZING"), color: 'var(--brand-gold)', desc: t("Foundations are forming but vulnerable. Priority: Reach 3 months coverage.") },
-  { label: t("SECURE"), color: 'var(--brand-primary)', desc: t("Robust savings buffer. Priority: Optimize for yield and growth.") },
-  { label: t("ELITE"), color: 'var(--brand-success)', desc: t("Exceptional retention. Priority: Focus on tactical wealth catalysts.") },
+  { label: "CRITICAL", color: 'var(--brand-danger)', desc: "Low liquidity and inconsistent habits. Priority: Build $1,000 starter reserve." },
+  { label: "STABILIZING", color: 'var(--brand-gold)', desc: "Foundations are forming but vulnerable. Priority: Reach 3 months coverage." },
+  { label: "SECURE", color: 'var(--brand-primary)', desc: "Robust savings buffer. Priority: Optimize for yield and growth." },
+  { label: "ELITE", color: 'var(--brand-success)', desc: "Exceptional retention. Priority: Focus on tactical wealth catalysts." },
 ];
 
 export default function SavingsCheckup() {
@@ -131,8 +131,8 @@ export default function SavingsCheckup() {
           <div style={{ animation: 'fadeIn 0.5s ease' }}>
              <div style={{ background: result.color, borderRadius: 'var(--radius-2xl)', padding: 'var(--space-10)', textAlign: 'center', color: 'white', marginBottom: 'var(--space-8)' }}>
                 <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>{t('RESERVE STATUS')}</p>
-                <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{result.label}</div>
-                <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{result.desc}</p>
+                <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{t(result.label)}</div>
+                <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{t(result.desc)}</p>
              </div>
 
              <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>

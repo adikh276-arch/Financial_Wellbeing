@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'next/navigation';
 
 import { LanguageSelector } from '../LanguageSelector';
 
@@ -24,7 +25,12 @@ export function PageHeader({
   rightSlot, steps, currentStep = 0, showLanguage = true
 }: PageHeaderProps) {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
   const label = backLabel || t('back');
+
+  const query = searchParams.toString();
+  const suffix = query ? `?${query}` : '';
+
 
   return (
     <div style={{
@@ -35,7 +41,7 @@ export function PageHeader({
     }}>
       <div style={{ maxWidth: 640, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: steps ? 'var(--space-2)' : 0 }}>
-          <Link href={backHref} className="back-btn" aria-label={label}>
+          <Link href={`${backHref}${suffix}`} className="back-btn" aria-label={label}>
             <ChevronLeft size={18} />
           </Link>
           <div style={{ flex: 1, minWidth: 0 }}>

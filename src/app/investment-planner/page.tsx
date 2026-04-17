@@ -10,6 +10,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'next/navigation';
 
 interface FormData {
   amount: number; period: number;
@@ -19,9 +20,9 @@ interface FormData {
 
 const RISK_PROFILES = {
   Conservative: {
-    return: 7.5, label: t("PRESERVATION"), color: '#00A884',
+    return: 7.5, label: "PRESERVATION", color: '#00A884',
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
-    desc: t("Stable, lower-risk. capital preservation."),
+    desc: "Stable, lower-risk. capital preservation.",
     allocation: [
       { name: 'Fixed Income', value: 50, color: '#00A884' },
       { name: 'Bullion', value: 20, color: '#F39C12' },
@@ -32,9 +33,9 @@ const RISK_PROFILES = {
     returnRange: '7-9%',
   },
   Moderate: {
-    return: 11, label: t("BALANCED"), color: '#6C5CE7',
+    return: 11, label: "BALANCED", color: '#6C5CE7',
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
-    desc: t("Balanced. Mix of growth and stability."),
+    desc: "Balanced. Mix of growth and stability.",
     allocation: [
       { name: 'Equity', value: 50, color: '#6C5CE7' },
       { name: 'Fixed Income', value: 25, color: '#00A884' },
@@ -45,9 +46,9 @@ const RISK_PROFILES = {
     returnRange: '10-13%',
   },
   Aggressive: {
-    return: 15, label: t("EXPANSION"), color: '#e84393',
+    return: 15, label: "EXPANSION", color: '#e84393',
     gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
-    desc: t("High-growth. Suited for long horizons."),
+    desc: "High-growth. Suited for long horizons.",
     allocation: [
       { name: 'Equity', value: 75, color: '#e84393' },
       { name: 'Fixed Income', value: 10, color: '#00A884' },
@@ -66,6 +67,10 @@ const STEPS = ['Capital', 'Strategy', 'Results'];
 
 export default function InvestmentPlanner() {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
+  const query = searchParams.toString();
+  const suffix = query ? `?${query}` : '';
+
   const [step, setStep] = useState(-1);
   const [saved, setSaved] = useState(false);
   const [history, setHistory] = useState<any[]>([]);
@@ -122,7 +127,6 @@ export default function InvestmentPlanner() {
 
   const projectedAmount = calc.futureValue(form.amount, profile.return, form.period, form.monthly);
   const totalInvested = form.amount + form.monthly * form.period * 12;
-  const principalPct = projectedAmount > 0 ? Math.round((totalInvested / projectedAmount) * 100) : 0;
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
@@ -133,7 +137,7 @@ export default function InvestmentPlanner() {
             title={t('Investment Planner')}
             backHref="/"
             accentColor="#6C5CE7"
-            rightSlot={step === 4 ? (
+            rightSlot={step === 2 ? (
               <div style={{ display: 'flex', gap: 8 }}>
                 <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>
                 <button onClick={() => { setStep(0); setForm({ amount: 0, period: 5, risk: 'Moderate', goal: 'Wealth Creation', monthly: 0 }); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
@@ -166,7 +170,7 @@ export default function InvestmentPlanner() {
                         <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Target: {fmt.currency(h.projectedAmount)}</div>
                       </div>
                       <div style={{ textAlign: 'right' }}>
-                        <div style={{ fontWeight: 800, fontSize: 13, color: 'var(--brand-primary)' }}>{h.riskLevel}</div>
+                        <div style={{ fontWeight: 800, fontSize: 13, color: 'var(--brand-primary)' }}>{t(h.riskLevel)}</div>
                         <div style={{ fontSize: 10, color: 'var(--text-faint)' }}>{new Date(h.date).toLocaleDateString()}</div>
                       </div>
                     </div>
@@ -266,7 +270,7 @@ export default function InvestmentPlanner() {
         {step === 2 && (
           <div style={{ animation: 'fadeInUp 0.5s ease both' }}>
             <div style={{ background: profile.gradient, borderRadius: 'var(--radius-2xl)', padding: 'var(--space-8)', marginBottom: 'var(--space-6)', color: 'white' }}>
-               <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', opacity: 0.8, letterSpacing: '0.05em' }}>Forecasted Wealth ({form.period}Y)</div>
+               <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', opacity: 0.8, letterSpacing: '0.05em' }}>{t('Forecasted Wealth ({{period}}Y)', { period: form.period })}</div>
                <div style={{ fontSize: 44, fontWeight: 900, fontFamily: 'var(--font-display)', margin: '8px 0' }}>{fmt.currency(projectedAmount, true)}</div>
                <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>{t('{{strategy}} Strategy', { strategy: t(profile.label) })}</div>
             </div>
@@ -289,13 +293,13 @@ export default function InvestmentPlanner() {
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie data={profile.allocation} cx="50%" cy="50%" innerRadius={40} outerRadius={65} paddingAngle={4} dataKey="value">
-                        {profile.allocation.map((entry, i) => <Cell key={i} fill={entry.color} stroke="none" />)}
+                        {profile.allocation.map((entry: any, i: number) => <Cell key={i} fill={entry.color} stroke="none" />)}
                       </Pie>
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
                 <div className="stack-2" style={{ flex: 1 }}>
-                   {profile.allocation.map(a => (
+                   {profile.allocation.map((a: any) => (
                      <div key={a.name} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
                        <div style={{ width: 8, height: 8, borderRadius: '50%', background: a.color }} />
                        <span style={{ fontWeight: 600, flex: 1 }}>{t(a.name)}</span>

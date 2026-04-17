@@ -1,5 +1,6 @@
 'use client';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'next/navigation';
 import { LanguageSelector } from '@/components/LanguageSelector';
 
 import Link from 'next/link';
@@ -8,8 +9,8 @@ import { Lightbulb, HelpCircle, BookOpen, MessageSquare, FileText, ArrowRight, S
 const sections = [
   {
     href: '/explore/financial-tips',
-    label: t("Financial Tips"),
-    desc: t("Bite-sized, actionable wisdom across all money topics"),
+    label: "Financial Tips",
+    desc: "Bite-sized, actionable wisdom across all money topics",
     icon: Lightbulb,
     gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)',
     color: '#E17055',
@@ -18,8 +19,8 @@ const sections = [
   },
   {
     href: '/explore/financial-faqs',
-    label: t("FAQs"),
-    desc: t("Clear answers to the most common money questions"),
+    label: "FAQs",
+    desc: "Clear answers to the most common money questions",
     icon: HelpCircle,
     gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)',
     color: '#0984e3',
@@ -28,8 +29,8 @@ const sections = [
   },
   {
     href: '/explore/financial-articles',
-    label: t("In-Depth Articles"),
-    desc: t("Research-backed reads for financial mastery"),
+    label: "In-Depth Articles",
+    desc: "Research-backed reads for financial mastery",
     icon: FileText,
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
     color: '#6C5CE7',
@@ -38,8 +39,8 @@ const sections = [
   },
   {
     href: '/explore/financial-myths',
-    label: t("Money Myths Busted"),
-    desc: t("Debunking the lies that keep you financially stuck"),
+    label: "Money Myths Busted",
+    desc: "Debunking the lies that keep you financially stuck",
     icon: MessageSquare,
     gradient: 'linear-gradient(135deg, #E74C3C, #C0392B)',
     color: '#E74C3C',
@@ -48,8 +49,8 @@ const sections = [
   },
   {
     href: '/explore/financial-stories',
-    label: t("Real Money Stories"),
-    desc: t("Inspiring journeys of financial transformation"),
+    label: "Real Money Stories",
+    desc: "Inspiring journeys of financial transformation",
     icon: BookOpen,
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
     color: '#00A884',
@@ -60,6 +61,10 @@ const sections = [
 
 export default function ExploreHub() {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
+  const query = searchParams.toString();
+  const suffix = query ? `?${query}` : '';
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       {/* Header */}
@@ -107,7 +112,7 @@ export default function ExploreHub() {
           {sections.map((section, i) => {
             const Icon = section.icon;
             return (
-              <Link key={section.href} href={section.href} style={{ textDecoration: 'none' }}>
+              <Link key={section.href} href={`${section.href}${suffix}`} style={{ textDecoration: 'none' }}>
                 <div className="card card-tap" style={{
                   animation: 'fadeInUp 0.3s ease both',
                   animationDelay: `${i * 60}ms`,

@@ -1,11 +1,16 @@
 'use client';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'next/navigation';
 
 import { LearnModule } from '@/components/LearnModule';
 import { Home, Repeat, BarChart4, Lightbulb } from 'lucide-react';
 
 export default function Rule503020() {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
+  const query = searchParams.toString();
+  const suffix = query ? `?${query}` : '';
+
   return (
     <LearnModule
       title={t("50/30/20 Rule")}
@@ -46,7 +51,7 @@ export default function Rule503020() {
         { 
           icon: Lightbulb, 
           heading: t("How to Use It in Practice"), 
-          content: t("1. Calculate 50%, 30%, 20% of your income\\n2. List all monthly expenses\\n3. Categorize each as need/want/saving\\n4. Compare to targets\\n5. Adjust over 2-3 months - don't expect perfection immediately") 
+          content: t("1. Calculate 50%, 30%, 20% of your income\n2. List all monthly expenses\n3. Categorize each as need/want/saving\n4. Compare to targets\n5. Adjust over 2-3 months - don't expect perfection immediately") 
         },
       ]}
       actionSteps={[
@@ -64,9 +69,9 @@ export default function Rule503020() {
         'Small tweaks compound to massive shifts over time'
       ]}
       nextSteps={[
-        { label: t("Budget Planner Tool"), href: '/budget-planner' }, 
-        { label: t("Budgeting Basics"), href: '/learn/budgeting-basics' }, 
-        { label: t("Saving Habits"), href: '/learn/saving-habits' }
+        { label: t("Budget Planner Tool"), href: `/budget-planner${suffix}` }, 
+        { label: t("Budgeting Basics"), href: `/learn/budgeting-basics${suffix}` }, 
+        { label: t("Saving Habits"), href: `/learn/saving-habits${suffix}` }
       ]}
     />
   );

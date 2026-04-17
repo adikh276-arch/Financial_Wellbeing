@@ -56,23 +56,27 @@ function TokenHandler() {
 }
 
 const featuredTools = [
-  { href: '/investment-planner', label: t("Investment Planner"), desc: t("Grow wealth"), icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
-  { href: '/loan-emi-planner', label: t("Loan & EMI Planner"), desc: t("Calc repay"), icon: Calculator, gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', glow: 'rgba(9,132,227,0.35)' },
-  { href: '/goal-planner', label: t("Goal Planner"), desc: t("Set targets"), icon: Target, gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', glow: 'rgba(253,203,110,0.35)' },
-  { href: '/budget-planner', label: t("Budget Planner"), desc: t("Track spend"), icon: Wallet, gradient: 'linear-gradient(135deg, #00A884, #00D2D3)', glow: 'rgba(0,168,132,0.35)' },
-  { href: '/emergency-fund', label: t("Emergency Fund"), desc: t("Build safety"), icon: Shield, gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', glow: 'rgba(232,67,147,0.35)' },
-  { href: '/financial-health-score', label: t("Financial Health Score"), desc: t("Get graded"), icon: Activity, gradient: 'linear-gradient(135deg, #F39C12, #f1c40f)', glow: 'rgba(243,156,18,0.35)' },
+  { href: '/investment-planner', label: "Investment Planner", desc: "Grow wealth", icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
+  { href: '/loan-emi-planner', label: "Loan & EMI Planner", desc: "Calc repay", icon: Calculator, gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', glow: 'rgba(9,132,227,0.35)' },
+  { href: '/goal-planner', label: "Goal Planner", desc: "Set targets", icon: Target, gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', glow: 'rgba(253,203,110,0.35)' },
+  { href: '/budget-planner', label: "Budget Planner", desc: "Track spend", icon: Wallet, gradient: 'linear-gradient(135deg, #00A884, #00D2D3)', glow: 'rgba(0,168,132,0.35)' },
+  { href: '/emergency-fund', label: "Emergency Fund", desc: "Build safety", icon: Shield, gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', glow: 'rgba(232,67,147,0.35)' },
+  { href: '/financial-health-score', label: "Financial Health Score", desc: "Get graded", icon: Activity, gradient: 'linear-gradient(135deg, #F39C12, #f1c40f)', glow: 'rgba(243,156,18,0.35)' },
 ];
 
 const featuredModules = [
-  { href: '/learn/budgeting-basics', label: t("Budgeting Basics"), icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715' },
-  { href: '/learn/saving-habits', label: t("Saving Habits"), icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215' },
-  { href: '/learn/debt-management', label: t("Debt Management"), icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15' },
-  { href: '/learn/investing-basics', label: t("Investing Basics"), icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315' },
+  { href: '/learn/budgeting-basics', label: "Budgeting Basics", icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715' },
+  { href: '/learn/saving-habits', label: "Saving Habits", icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215' },
+  { href: '/learn/debt-management', label: "Debt Management", icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15' },
+  { href: '/learn/investing-basics', label: "Investing Basics", icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315' },
 ];
 
 export default function FinancialWellnessDashboard() {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
+  
+  const query = searchParams.toString();
+  const suffix = query ? `?${query}` : '';
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
@@ -141,7 +145,7 @@ export default function FinancialWellnessDashboard() {
             {featuredTools.map((tool, i) => {
               const Icon = tool.icon;
               return (
-                <Link key={tool.href} href={tool.href} style={{ textDecoration: 'none' }}>
+                <Link key={tool.href} href={`${tool.href}${suffix}`} style={{ textDecoration: 'none' }}>
                   <div style={{
                     background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
                     padding: 'var(--space-4)', boxShadow: 'var(--shadow-xs)',
@@ -169,7 +173,7 @@ export default function FinancialWellnessDashboard() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
                 <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Personal Assessments")}</h3>
-                <Link href="/check-ins" style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("View All")}</Link>
+                <Link href={`/check-ins${suffix}`} style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("View All")}</Link>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
                 {[
@@ -178,7 +182,7 @@ export default function FinancialWellnessDashboard() {
                   { href: '/check-ins/money-stress-quiz', label: t("Money Stress Quiz"), icon: Activity, color: '#F39C12' },
                   { href: '/check-ins/investment-readiness', label: t("Investment Readiness"), icon: TrendingUp, color: '#00A884' },
                 ].map(item => (
-                  <Link key={item.href} href={item.href} style={{ 
+                  <Link key={item.href} href={`${item.href}${suffix}`} style={{ 
                     display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-4)',
                     background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
                     textDecoration: 'none', transition: 'all 0.2s ease'
@@ -206,7 +210,7 @@ export default function FinancialWellnessDashboard() {
                     { href: '/explore/financial-faqs', label: t("Financial FAQs"), gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
                     { href: '/explore/financial-myths', label: t("Financial Myths"), gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
                   ].map(item => (
-                    <Link key={item.href} href={item.href} style={{ 
+                    <Link key={item.href} href={`${item.href}${suffix}`} style={{ 
                       display: 'flex', flexDirection: 'column', gap: 8,
                       padding: 'var(--space-5)', background: item.gradient, borderRadius: 'var(--radius-xl)',
                       textDecoration: 'none', position: 'relative', overflow: 'hidden'
@@ -223,11 +227,11 @@ export default function FinancialWellnessDashboard() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
                 <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Learning Academy")}</h3>
-                <Link href="/learn" style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("12 Modules")}</Link>
+                <Link href={`/learn${suffix}`} style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("12 Modules")}</Link>
               </div>
               <div className="stack-3">
                 {featuredModules.map(mod => (
-                  <Link key={mod.href} href={mod.href} className="card card-tap" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
+                  <Link key={mod.href} href={`${mod.href}${suffix}`} className="card card-tap" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
                     <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-lg)', background: mod.colorBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <mod.icon size={16} color={mod.color} />
                     </div>

@@ -1,6 +1,8 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import { Clock, BookOpen, CheckCircle2 } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { Clock, BookOpen, CheckCircle2, ChevronRight } from 'lucide-react';
 import { PageHeader } from './layout/PageHeader';
 
 interface Section {
@@ -19,12 +21,16 @@ interface LearnModuleProps {
   sections: Section[];
   actionSteps: { number: string; text: string }[];
   keyTakeaways: string[];
+  nextSteps?: { label: string; href: string }[];
 }
 
 export function LearnModule({
-  title, subtitle, readTime, category, introduction, sections, actionSteps, keyTakeaways
+  title, subtitle, readTime, category, introduction, sections, actionSteps, keyTakeaways, nextSteps
 }: LearnModuleProps) {
   const { t } = useTranslation();
+  const searchParams = useSearchParams();
+  const query = searchParams.toString();
+  const suffix = query ? `?${query}` : '';
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
@@ -104,6 +110,20 @@ export function LearnModule({
                ))}
             </div>
           </div>
+
+          {nextSteps && nextSteps.length > 0 && (
+            <div style={{ marginTop: 'var(--space-12)' }}>
+               <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 800, marginBottom: 'var(--space-6)' }}>{t("What to explore next")}</h3>
+               <div className="stack-3">
+                 {nextSteps.map((step, i) => (
+                   <Link key={i} href={`${step.href}${suffix}`} className="card card-tap" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
+                     <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', flex: 1 }}>{t(step.label)}</span>
+                     <ChevronRight size={14} color="var(--text-faint)" />
+                   </Link>
+                 ))}
+               </div>
+            </div>
+          )}
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-16)', padding: '24px', borderTop: '1px solid var(--border-default)', color: 'var(--text-faint)', fontSize: 13, fontWeight: 600 }}>
             {t("End of module")}

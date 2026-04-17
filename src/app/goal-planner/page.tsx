@@ -12,15 +12,15 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { differenceInMonths, parseISO, format } from 'date-fns';
 
 const CATEGORIES = [
-  { id: 'Vacation', icon: Plane, label: 'Vacation' },
-  { id: 'Home', icon: Home, label: 'Home' },
-  { id: 'Education', icon: GraduationCap, label: 'Education' },
-  { id: 'Car', icon: Car, label: 'Car' },
-  { id: 'Wedding', icon: Heart, label: 'Wedding' },
-  { id: 'Emergency Fund', icon: Shield, label: 'Emergency Fund' },
-  { id: 'Retirement', icon: Umbrella, label: 'Retirement' },
-  { id: 'Investment', icon: TrendingUp, label: 'Investment' },
-  { id: 'Other', icon: Target, label: 'Other' }
+  { id: 'Vacation', icon: Plane, label: t("Vacation") },
+  { id: 'Home', icon: Home, label: t("Home") },
+  { id: 'Education', icon: GraduationCap, label: t("Education") },
+  { id: 'Car', icon: Car, label: t("Car") },
+  { id: 'Wedding', icon: Heart, label: t("Wedding") },
+  { id: 'Emergency Fund', icon: Shield, label: t("Emergency Fund") },
+  { id: 'Retirement', icon: Umbrella, label: t("Retirement") },
+  { id: 'Investment', icon: TrendingUp, label: t("Investment") },
+  { id: 'Other', icon: Target, label: t("Other") }
 ];
 
 const PRIORITY_COLORS = { High: 'var(--brand-danger)', Medium: 'var(--brand-gold)', Low: 'var(--brand-success)' };
@@ -38,7 +38,7 @@ interface Goal {
 }
 
 const newGoalTemplate = (): Omit<Goal, 'id' | 'createdAt'> => ({
-  name: '', target: 0, targetDate: '', category: 'Other', priority: 'Medium', current: 0, monthly: 0,
+  name: '', target: 0, targetDate: '', category: t("Other"), priority: 'Medium', current: 0, monthly: 0,
 });
 
 export default function GoalPlanner() {

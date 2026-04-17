@@ -26,16 +26,16 @@ interface EFHistory {
 }
 
 const SCENARIOS = [
-  { icon: HeartPulse, label: 'Medical Emergency', months: 2, desc: 'Covers typical urgent medical crises' },
-  { icon: Briefcase, label: 'Income Security', months: 6, desc: 'Safety net for potential job loss' },
-  { icon: Home, label: 'Asset Repair', months: 1, desc: 'Coverage for major home/car repairs' },
-  { icon: Users, label: 'Family Support', months: 3, desc: 'Funds for unexpected family needs' },
+  { icon: HeartPulse, label: t("Medical Emergency"), months: 2, desc: t("Covers typical urgent medical crises") },
+  { icon: Briefcase, label: t("Income Security"), months: 6, desc: t("Safety net for potential job loss") },
+  { icon: Home, label: t("Asset Repair"), months: 1, desc: t("Coverage for major home/car repairs") },
+  { icon: Users, label: t("Family Support"), months: 3, desc: t("Funds for unexpected family needs") },
 ];
 
 const WHERE_TIPS = [
-  { icon: Wallet, label: 'High-Yield Savings', rate: '3-5%', pros: 'Fully liquid, instant access', cons: 'Lower relative returns' },
-  { icon: BarChart4, label: 'Fixed Deposits', rate: '6-8%', pros: 'Guaranteed, FDIC-insured', cons: 'Time-locked capital' },
-  { icon: TrendingUp, label: 'Money Market Funds', rate: '4-6%', pros: 'Better than savings', cons: 'T+1 withdrawal time' },
+  { icon: Wallet, label: t("High-Yield Savings"), rate: '3-5%', pros: 'Fully liquid, instant access', cons: 'Lower relative returns' },
+  { icon: BarChart4, label: t("Fixed Deposits"), rate: '6-8%', pros: 'Guaranteed, FDIC-insured', cons: 'Time-locked capital' },
+  { icon: TrendingUp, label: t("Money Market Funds"), rate: '4-6%', pros: 'Better than savings', cons: 'T+1 withdrawal time' },
 ];
 
 export default function EmergencyFund() {
@@ -96,11 +96,11 @@ export default function EmergencyFund() {
   }));
 
   const getStatusLabel = () => {
-    if (percent === 0) return { label: 'NOT STARTED', color: 'var(--brand-danger)' };
-    if (percent < 30) return { label: 'VULNERABLE', color: 'var(--brand-danger)' };
-    if (percent < 60) return { label: 'DEVELOPING', color: 'var(--brand-gold)' };
-    if (percent < 95) return { label: 'RESILIENT', color: 'var(--brand-accent)' };
-    return { label: 'MASTERED', color: 'var(--brand-success)' };
+    if (percent === 0) return { label: t("NOT STARTED"), color: 'var(--brand-danger)' };
+    if (percent < 30) return { label: t("VULNERABLE"), color: 'var(--brand-danger)' };
+    if (percent < 60) return { label: t("DEVELOPING"), color: 'var(--brand-gold)' };
+    if (percent < 95) return { label: t("RESILIENT"), color: 'var(--brand-accent)' };
+    return { label: t("MASTERED"), color: 'var(--brand-success)' };
   };
 
   const status = getStatusLabel();
@@ -108,7 +108,7 @@ export default function EmergencyFund() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader 
-        title="Emergency Fund Builder"
+        title={t("Emergency Fund Builder")}
         backHref="/"
         accentColor="#e84393"
         rightSlot={(
@@ -162,8 +162,8 @@ export default function EmergencyFund() {
                 </div>
                 <input type="range" min={3} max={12} value={data.monthsCover} onChange={e => setData(d => ({ ...d, monthsCover: Number(e.target.value) }))} style={{ width: '100%', height: 6, borderRadius: 3, appearance: 'none', background: 'var(--border-subtle)', outline: 'none' }} className="accent-brand" />
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>3M (Standard)</span>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>12M (Ultimate)</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>{t("3M (Standard)")}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>{t("12M (Ultimate)")}</span>
                 </div>
               </div>
 

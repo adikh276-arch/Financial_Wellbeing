@@ -364,9 +364,9 @@ export default function LoanEMIPlanner() {
                 </div>
                 <div className="stack-3">
                   {[
-                    { text: 'Aggressively negotiate a lower interest rate.', icon: Landmark },
-                    { text: 'Execute consistent part-prepayments annually.', icon: ShieldCheck },
-                    { text: 'Audit market lenders for balance transfer ops.', icon: BarChart3 },
+                    { text: t("Aggressively negotiate a lower interest rate."), icon: Landmark },
+                    { text: t("Execute consistent part-prepayments annually."), icon: ShieldCheck },
+                    { text: t("Audit market lenders for balance transfer ops."), icon: BarChart3 },
                   ].map((tip, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', fontWeight: 500 }}>
                       <div style={{ width: 28, height: 28, borderRadius: 'var(--radius-md)', background: 'rgba(0,168,132,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--brand-success)', flexShrink: 0 }}>

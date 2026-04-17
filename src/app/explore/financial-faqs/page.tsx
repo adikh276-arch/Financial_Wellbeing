@@ -27,13 +27,13 @@ export default function FinancialFAQs() {
          <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,177,177,0.3)' }}>
             <MessageCircle size={20} color="white" />
          </div>
-         <h1 className="heading-md">Common Questions</h1>
+         <h1 className="heading-md">{t("Common Questions")}</h1>
       </div>
 
       <div className="page-wrapper">
         <div style={{ marginBottom: 'var(--space-8)' }}>
-           <h2 className="display-sm" style={{ marginBottom: 4 }}>Expert Clarity</h2>
-           <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>Answers to the most frequent financial inquiries from our community.</p>
+           <h2 className="display-sm" style={{ marginBottom: 4 }}>{t("Expert Clarity")}</h2>
+           <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>{t("Answers to the most frequent financial inquiries from our community.")}</p>
         </div>
 
         <div className="stack-4">

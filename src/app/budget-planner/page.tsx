@@ -28,33 +28,33 @@ const DEFAULT: Record<Field, number> = {
 };
 
 const INCOME_FIELDS: { key: Extract<Field, 'income' | 'otherIncome'>; label: string; icon: any }[] = [
-  { key: 'income', label: 'Monthly Salary', icon: Wallet },
-  { key: 'otherIncome', label: 'Other Income', icon: TrendingUp },
+  { key: 'income', label: t("Monthly Salary"), icon: Wallet },
+  { key: 'otherIncome', label: t("Other Income"), icon: TrendingUp },
 ];
 
 const NEEDS_FIELDS: { key: Field; label: string; icon: any }[] = [
-  { key: 'housing', label: 'Housing (Rent/EMI)', icon: Home },
-  { key: 'utilities', label: 'Utilities & Bills', icon: Zap },
-  { key: 'groceries', label: 'Groceries & Food', icon: Utensils },
-  { key: 'transport', label: 'Transport', icon: Car },
-  { key: 'insurance', label: 'Insurance', icon: HeartPulse },
-  { key: 'debtMin', label: 'Loan Payments', icon: CreditCard },
+  { key: 'housing', label: t("Housing (Rent/EMI)"), icon: Home },
+  { key: 'utilities', label: t("Utilities & Bills"), icon: Zap },
+  { key: 'groceries', label: t("Groceries & Food"), icon: Utensils },
+  { key: 'transport', label: t("Transport"), icon: Car },
+  { key: 'insurance', label: t("Insurance"), icon: HeartPulse },
+  { key: 'debtMin', label: t("Loan Payments"), icon: CreditCard },
 ];
 
 const WANTS_FIELDS: { key: Field; label: string; icon: any }[] = [
-  { key: 'entertainment', label: 'Entertainment', icon: Smile },
-  { key: 'dining', label: 'Dining Out', icon: Utensils },
-  { key: 'shopping', label: 'Shopping', icon: ShoppingBag },
-  { key: 'subscriptions', label: 'Subscriptions', icon: Tv },
-  { key: 'travel', label: 'Travel', icon: Plane },
-  { key: 'gym', label: 'Gym & Wellness', icon: Dumbbell },
+  { key: 'entertainment', label: t("Entertainment"), icon: Smile },
+  { key: 'dining', label: t("Dining Out"), icon: Utensils },
+  { key: 'shopping', label: t("Shopping"), icon: ShoppingBag },
+  { key: 'subscriptions', label: t("Subscriptions"), icon: Tv },
+  { key: 'travel', label: t("Travel"), icon: Plane },
+  { key: 'gym', label: t("Gym & Wellness"), icon: Dumbbell },
 ];
 
 const SAVE_FIELDS: { key: Field; label: string; icon: any }[] = [
-  { key: 'emergencyFund', label: 'Emergency Fund', icon: Shield },
-  { key: 'investments', label: 'Investments', icon: BarChart2 },
-  { key: 'debtExtra', label: 'Extra Debt Payment', icon: CreditCard },
-  { key: 'goalSavings', label: 'Goal Savings', icon: Star },
+  { key: 'emergencyFund', label: t("Emergency Fund"), icon: Shield },
+  { key: 'investments', label: t("Investments"), icon: BarChart2 },
+  { key: 'debtExtra', label: t("Extra Debt Payment"), icon: CreditCard },
+  { key: 'goalSavings', label: t("Goal Savings"), icon: Star },
 ];
 
 const STEPS = ['Income', 'Expenses', 'Savings & Results'];
@@ -318,7 +318,7 @@ export default function BudgetPlanner() {
             </div>
 
             <div style={{ background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-5)', marginBottom: 'var(--space-4)', boxShadow: 'var(--shadow-xs)' }}>
-              <p style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 'var(--text-sm)', marginBottom: 'var(--space-4)' }}>50/30/20 Analysis</p>
+              <p style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 'var(--text-sm)', marginBottom: 'var(--space-4)' }}>{t("50/30/20 Analysis")}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
                 <PctBar label={t('Needs')} pct={needsPct} target={50} color="#6C5CE7" />
                 <PctBar label={t('Wants')} pct={wantsPct} target={30} color="#F39C12" />

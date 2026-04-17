@@ -10,6 +10,7 @@ import {
   Clock, Brain, Zap, BarChart2, AlertCircle, Heart,
   Star, Compass, CheckCircle
 } from 'lucide-react';
+import { LanguageSelector } from '@/components/LanguageSelector';
 
 function TokenHandler() {
   const params = useSearchParams();
@@ -55,19 +56,19 @@ function TokenHandler() {
 }
 
 const featuredTools = [
-  { href: '/investment-planner', label: 'Investment Planner', desc: 'Grow wealth', icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
-  { href: '/loan-emi-planner', label: 'Loan & EMI Planner', desc: 'Calc repay', icon: Calculator, gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', glow: 'rgba(9,132,227,0.35)' },
-  { href: '/goal-planner', label: 'Goal Planner', desc: 'Set targets', icon: Target, gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', glow: 'rgba(253,203,110,0.35)' },
-  { href: '/budget-planner', label: 'Budget Planner', desc: 'Track spend', icon: Wallet, gradient: 'linear-gradient(135deg, #00A884, #00D2D3)', glow: 'rgba(0,168,132,0.35)' },
-  { href: '/emergency-fund', label: 'Emergency Fund', desc: 'Build safety', icon: Shield, gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', glow: 'rgba(232,67,147,0.35)' },
-  { href: '/financial-health-score', label: 'Financial Health Score', desc: 'Get graded', icon: Activity, gradient: 'linear-gradient(135deg, #F39C12, #f1c40f)', glow: 'rgba(243,156,18,0.35)' },
+  { href: '/investment-planner', label: t("Investment Planner"), desc: t("Grow wealth"), icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
+  { href: '/loan-emi-planner', label: t("Loan & EMI Planner"), desc: t("Calc repay"), icon: Calculator, gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', glow: 'rgba(9,132,227,0.35)' },
+  { href: '/goal-planner', label: t("Goal Planner"), desc: t("Set targets"), icon: Target, gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', glow: 'rgba(253,203,110,0.35)' },
+  { href: '/budget-planner', label: t("Budget Planner"), desc: t("Track spend"), icon: Wallet, gradient: 'linear-gradient(135deg, #00A884, #00D2D3)', glow: 'rgba(0,168,132,0.35)' },
+  { href: '/emergency-fund', label: t("Emergency Fund"), desc: t("Build safety"), icon: Shield, gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', glow: 'rgba(232,67,147,0.35)' },
+  { href: '/financial-health-score', label: t("Financial Health Score"), desc: t("Get graded"), icon: Activity, gradient: 'linear-gradient(135deg, #F39C12, #f1c40f)', glow: 'rgba(243,156,18,0.35)' },
 ];
 
 const featuredModules = [
-  { href: '/learn/budgeting-basics', label: 'Budgeting Basics', icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715' },
-  { href: '/learn/saving-habits', label: 'Saving Habits', icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215' },
-  { href: '/learn/debt-management', label: 'Debt Management', icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15' },
-  { href: '/learn/investing-basics', label: 'Investing Basics', icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315' },
+  { href: '/learn/budgeting-basics', label: t("Budgeting Basics"), icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715' },
+  { href: '/learn/saving-habits', label: t("Saving Habits"), icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215' },
+  { href: '/learn/debt-management', label: t("Debt Management"), icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15' },
+  { href: '/learn/investing-basics', label: t("Investing Basics"), icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315' },
 ];
 
 export default function FinancialWellnessDashboard() {
@@ -107,13 +108,14 @@ export default function FinancialWellnessDashboard() {
             }}>
               <Compass size={18} color="white" strokeWidth={2.5} />
             </div>
+            <LanguageSelector />
           </div>
 
           <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
             {[
-              { label: 'Tools', value: '6', color: 'rgba(255,255,255,0.2)' },
-              { label: 'Modules', value: '12', color: 'rgba(255,255,255,0.2)' },
-              { label: 'Quizzes', value: '4', color: 'rgba(255,255,255,0.2)' },
+              { label: t("Tools"), value: '6', color: 'rgba(255,255,255,0.2)' },
+              { label: t("Modules"), value: '12', color: 'rgba(255,255,255,0.2)' },
+              { label: t("Quizzes"), value: '4', color: 'rgba(255,255,255,0.2)' },
             ].map(s => (
               <div key={s.label} style={{
                 flex: 1, background: s.color, borderRadius: 'var(--radius-lg)',
@@ -171,10 +173,10 @@ export default function FinancialWellnessDashboard() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
                 {[
-                  { href: '/check-ins/spending-style-quiz', label: 'Spending Style Quiz', icon: Brain, color: '#6C5CE7' },
-                  { href: '/check-ins/savings-check-up', label: 'Savings Check-up', icon: Wallet, color: '#e84393' },
-                  { href: '/check-ins/money-stress-quiz', label: 'Money Stress Quiz', icon: Activity, color: '#F39C12' },
-                  { href: '/check-ins/investment-readiness', label: 'Investment Readiness', icon: TrendingUp, color: '#00A884' },
+                  { href: '/check-ins/spending-style-quiz', label: t("Spending Style Quiz"), icon: Brain, color: '#6C5CE7' },
+                  { href: '/check-ins/savings-check-up', label: t("Savings Check-up"), icon: Wallet, color: '#e84393' },
+                  { href: '/check-ins/money-stress-quiz', label: t("Money Stress Quiz"), icon: Activity, color: '#F39C12' },
+                  { href: '/check-ins/investment-readiness', label: t("Investment Readiness"), icon: TrendingUp, color: '#00A884' },
                 ].map(item => (
                   <Link key={item.href} href={item.href} style={{ 
                     display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-4)',
@@ -198,11 +200,11 @@ export default function FinancialWellnessDashboard() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
                 <div style={{ display: 'contents' }}>
                   {[
-                    { href: '/explore/financial-tips', label: 'Financial Tips', gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', icon: Sparkles },
-                    { href: '/explore/financial-stories', label: 'Financial Stories', gradient: 'linear-gradient(135deg, #6C5CE7, #a29bfe)', icon: BookOpen },
-                    { href: '/explore/financial-articles', label: 'Financial Articles', gradient: 'linear-gradient(135deg, #00A884, #55efc4)', icon: Compass },
-                    { href: '/explore/financial-faqs', label: 'Financial FAQs', gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
-                    { href: '/explore/financial-myths', label: 'Financial Myths', gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
+                    { href: '/explore/financial-tips', label: t("Financial Tips"), gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', icon: Sparkles },
+                    { href: '/explore/financial-stories', label: t("Financial Stories"), gradient: 'linear-gradient(135deg, #6C5CE7, #a29bfe)', icon: BookOpen },
+                    { href: '/explore/financial-articles', label: t("Financial Articles"), gradient: 'linear-gradient(135deg, #00A884, #55efc4)', icon: Compass },
+                    { href: '/explore/financial-faqs', label: t("Financial FAQs"), gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
+                    { href: '/explore/financial-myths', label: t("Financial Myths"), gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
                   ].map(item => (
                     <Link key={item.href} href={item.href} style={{ 
                       display: 'flex', flexDirection: 'column', gap: 8,

@@ -17,7 +17,7 @@ export default function FinancialStories() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       <PageHeader
-        title="Financial Stories"
+        title={t("Financial Stories")}
         backHref="/explore"
         accentColor="var(--brand-primary)"
       />

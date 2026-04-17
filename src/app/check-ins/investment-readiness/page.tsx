@@ -11,18 +11,18 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
-  { id: 'emergency', text: 'Do you have at least 3 months of emergency expenses saved?', options: ['No savings yet', 'Working on it (1-2 months)', 'Yes (3-5 months)', 'Complete (6+ months)'] },
-  { id: 'debt', text: 'How would you describe your high-interest debt (e.g., Credit Cards)?', options: ['Substantial & growing', 'Managed but present', 'Almost paid off', 'Zero high-interest debt'] },
-  { id: 'knowledge', text: 'How comfortable are you with investment concepts (Risk/Reward, diversification)?', options: ['Beginner - Need full guidance', 'Familiar with basics', 'Comfortable managing personal portfolio', 'Expert - Independent strategy'] },
-  { id: 'horizon', text: 'What is your primary investment time horizon?', options: ['Short term (< 1 year)', 'Medium term (2-5 years)', 'Long term (5-10 years)', 'Ultra long term (10+ years)'] },
-  { id: 'risk', text: 'If your portfolio dropped 20% in a month, you would:', options: ['Sell immediately to avoid further loss', 'Worry significantly', 'Stay the course', 'View it as a buying opportunity'] },
+  { id: 'emergency', text: t("Do you have at least 3 months of emergency expenses saved?"), options: ['No savings yet', 'Working on it (1-2 months)', 'Yes (3-5 months)', 'Complete (6+ months)'] },
+  { id: 'debt', text: t("How would you describe your high-interest debt (e.g., Credit Cards)?"), options: ['Substantial & growing', 'Managed but present', 'Almost paid off', 'Zero high-interest debt'] },
+  { id: 'knowledge', text: t("How comfortable are you with investment concepts (Risk/Reward, diversification)?"), options: ['Beginner - Need full guidance', 'Familiar with basics', 'Comfortable managing personal portfolio', 'Expert - Independent strategy'] },
+  { id: 'horizon', text: t("What is your primary investment time horizon?"), options: ['Short term (< 1 year)', 'Medium term (2-5 years)', 'Long term (5-10 years)', 'Ultra long term (10+ years)'] },
+  { id: 'risk', text: t("If your portfolio dropped 20% in a month, you would:"), options: ['Sell immediately to avoid further loss', 'Worry significantly', 'Stay the course', 'View it as a buying opportunity'] },
 ];
 
 const READINESS_LEVELS = [
-  { label: 'Foundation Building', color: 'var(--brand-danger)', desc: 'Focus on emergency reserves and debt elimination before entering markets.' },
-  { label: 'Market Entry', color: 'var(--brand-gold)', desc: 'You are ready for low-risk index funds. Start small and consistent.' },
-  { label: 'Growth Ready', color: 'var(--brand-primary)', desc: 'Your foundations are solid. You can take on diversified equity exposure.' },
-  { label: 'Aggressive Growth', color: 'var(--brand-success)', desc: 'Peak readiness. Optimize for tax efficiency and tactical alpha.' },
+  { label: t("Foundation Building"), color: 'var(--brand-danger)', desc: t("Focus on emergency reserves and debt elimination before entering markets.") },
+  { label: t("Market Entry"), color: 'var(--brand-gold)', desc: t("You are ready for low-risk index funds. Start small and consistent.") },
+  { label: t("Growth Ready"), color: 'var(--brand-primary)', desc: t("Your foundations are solid. You can take on diversified equity exposure.") },
+  { label: t("Aggressive Growth"), color: 'var(--brand-success)', desc: t("Peak readiness. Optimize for tax efficiency and tactical alpha.") },
 ];
 
 export default function InvestmentReadiness() {

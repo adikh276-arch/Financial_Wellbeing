@@ -19,9 +19,9 @@ interface FormData {
 
 const RISK_PROFILES = {
   Conservative: {
-    return: 7.5, label: 'PRESERVATION', color: '#00A884',
+    return: 7.5, label: t("PRESERVATION"), color: '#00A884',
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
-    desc: 'Stable, lower-risk. capital preservation.',
+    desc: t("Stable, lower-risk. capital preservation."),
     allocation: [
       { name: 'Fixed Income', value: 50, color: '#00A884' },
       { name: 'Bullion', value: 20, color: '#F39C12' },
@@ -32,9 +32,9 @@ const RISK_PROFILES = {
     returnRange: '7-9%',
   },
   Moderate: {
-    return: 11, label: 'BALANCED', color: '#6C5CE7',
+    return: 11, label: t("BALANCED"), color: '#6C5CE7',
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
-    desc: 'Balanced. Mix of growth and stability.',
+    desc: t("Balanced. Mix of growth and stability."),
     allocation: [
       { name: 'Equity', value: 50, color: '#6C5CE7' },
       { name: 'Fixed Income', value: 25, color: '#00A884' },
@@ -45,9 +45,9 @@ const RISK_PROFILES = {
     returnRange: '10-13%',
   },
   Aggressive: {
-    return: 15, label: 'EXPANSION', color: '#e84393',
+    return: 15, label: t("EXPANSION"), color: '#e84393',
     gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
-    desc: 'High-growth. Suited for long horizons.',
+    desc: t("High-growth. Suited for long horizons."),
     allocation: [
       { name: 'Equity', value: 75, color: '#e84393' },
       { name: 'Fixed Income', value: 10, color: '#00A884' },

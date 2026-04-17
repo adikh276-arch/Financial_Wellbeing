@@ -12,28 +12,28 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
-  { id: 'worry', text: 'How often do you worry about money?', options: ['Rarely or never', 'Sometimes', 'Often', 'Almost always'] },
-  { id: 'debt', text: 'Do you have debt that worries you?', options: ['No concerning debt', 'Minor debt concern', 'Moderate concern', 'Significant stress'] },
-  { id: 'emergency', text: 'Can you cover a 1,000 unit emergency right now?', options: ['Yes, easily', 'Yes, with effort', 'Barely', 'No'] },
-  { id: 'arguments', text: 'Do you fight with partner/family about money?', options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
-  { id: 'avoidance', text: 'Do you avoid looking at bank statements?', options: ['Never - I check regularly', 'Rarely', 'Sometimes', 'Yes, often'] },
-  { id: 'plan', text: 'Do you have a clear financial plan?', options: ['Yes, written and tracked', 'Somewhat', 'Vague ideas', 'No plan'] },
-  { id: 'confidence', text: 'How confident are you about your financial future?', options: ['Very confident', 'Somewhat confident', 'Neutral', 'Not confident at all'] },
-  { id: 'health', text: 'Has money stress affected your sleep or health?', options: ['Never', 'Rarely', 'Sometimes', 'Yes, regularly'] },
-  { id: 'impulse', text: 'Do you spend impulsively to feel better?', options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
-  { id: 'goals', text: 'How clear are your financial goals?', options: ['Very clear - written down', 'Somewhat clear', 'Vague', 'No financial goals'] },
-  { id: 'track', text: 'Are you on track with your financial goals?', options: ['Yes, on track', 'Mostly on track', 'Partially', 'Not really'] },
-  { id: 'compare', text: 'Do you compare yourself to others financially?', options: ['Never - I focus on my journey', 'Rarely', 'Sometimes', 'Often - it stresses me'] },
-  { id: 'control', text: 'How much control do you feel over your finances?', options: ['Complete control', 'Mostly in control', 'Some control', 'Feels out of control'] },
-  { id: 'optimism', text: 'How optimistic are you about your financial future?', options: ['Very optimistic', 'Somewhat optimistic', 'Neutral', 'Pessimistic'] },
-  { id: 'emergency_access', text: 'Could you access emergency savings within 24 hours?', options: ['Yes, easily', 'Yes, with effort', 'Partially', 'No savings access'] },
+  { id: 'worry', text: t("How often do you worry about money?"), options: ['Rarely or never', 'Sometimes', 'Often', 'Almost always'] },
+  { id: 'debt', text: t("Do you have debt that worries you?"), options: ['No concerning debt', 'Minor debt concern', 'Moderate concern', 'Significant stress'] },
+  { id: 'emergency', text: t("Can you cover a 1,000 unit emergency right now?"), options: ['Yes, easily', 'Yes, with effort', 'Barely', 'No'] },
+  { id: 'arguments', text: t("Do you fight with partner/family about money?"), options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
+  { id: 'avoidance', text: t("Do you avoid looking at bank statements?"), options: ['Never - I check regularly', 'Rarely', 'Sometimes', 'Yes, often'] },
+  { id: 'plan', text: t("Do you have a clear financial plan?"), options: ['Yes, written and tracked', 'Somewhat', 'Vague ideas', 'No plan'] },
+  { id: 'confidence', text: t("How confident are you about your financial future?"), options: ['Very confident', 'Somewhat confident', 'Neutral', 'Not confident at all'] },
+  { id: 'health', text: t("Has money stress affected your sleep or health?"), options: ['Never', 'Rarely', 'Sometimes', 'Yes, regularly'] },
+  { id: 'impulse', text: t("Do you spend impulsively to feel better?"), options: ['Never', 'Rarely', 'Sometimes', 'Often'] },
+  { id: 'goals', text: t("How clear are your financial goals?"), options: ['Very clear - written down', 'Somewhat clear', 'Vague', 'No financial goals'] },
+  { id: 'track', text: t("Are you on track with your financial goals?"), options: ['Yes, on track', 'Mostly on track', 'Partially', 'Not really'] },
+  { id: 'compare', text: t("Do you compare yourself to others financially?"), options: ['Never - I focus on my journey', 'Rarely', 'Sometimes', 'Often - it stresses me'] },
+  { id: 'control', text: t("How much control do you feel over your finances?"), options: ['Complete control', 'Mostly in control', 'Some control', 'Feels out of control'] },
+  { id: 'optimism', text: t("How optimistic are you about your financial future?"), options: ['Very optimistic', 'Somewhat optimistic', 'Neutral', 'Pessimistic'] },
+  { id: 'emergency_access', text: t("Could you access emergency savings within 24 hours?"), options: ['Yes, easily', 'Yes, with effort', 'Partially', 'No savings access'] },
 ];
 
 const STRESS_LEVELS = [
-  { min: 0, max: 15, label: 'OPTIMIZED', icon: Smile, color: '#00A884', desc: 'Your financial foundations are exceptionally strong. You maintain a state of low anxiety and high sovereignty over your capital.' },
-  { min: 15, max: 25, label: 'ELEVATED', icon: Meh, color: 'var(--brand-gold)', desc: 'Detectable stress areas are present. Your foundations are stable, but targeted improvements are required to achieve total peace.' },
-  { min: 25, max: 35, label: 'TURBULENT', icon: Frown, color: '#E17055', desc: 'Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.' },
-  { min: 35, max: 60, label: 'CRITICAL', icon: AlertCircle, color: '#E74C3C', desc: 'Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.' },
+  { min: 0, max: 15, label: t("OPTIMIZED"), icon: Smile, color: '#00A884', desc: t("Your financial foundations are exceptionally strong. You maintain a state of low anxiety and high sovereignty over your capital.") },
+  { min: 15, max: 25, label: t("ELEVATED"), icon: Meh, color: 'var(--brand-gold)', desc: t("Detectable stress areas are present. Your foundations are stable, but targeted improvements are required to achieve total peace.") },
+  { min: 25, max: 35, label: t("TURBULENT"), icon: Frown, color: '#E17055', desc: t("Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.") },
+  { min: 35, max: 60, label: t("CRITICAL"), icon: AlertCircle, color: '#E74C3C', desc: t("Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.") },
 ];
 
 export default function MoneyStressQuiz() {

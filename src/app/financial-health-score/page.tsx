@@ -12,21 +12,21 @@ import { PageHeader } from '@/components/layout/PageHeader';
 
 /* Questions */
 const QUESTIONS = [
-  { id: 'incomeStability', text: 'How stable is your income?', options: [{ label: 'Very stable (salaried)', score: 10 }, { label: 'Somewhat stable', score: 5 }, { label: 'Unstable / Freelance', score: 2 }], category: 'Income & Stability' },
-  { id: 'debtRatio', text: 'What % of income goes to debt payments?', type: 'slider', min: 0, max: 80, label: (v: number) => `${v}%`, scoreFn: (v: number) => v < 20 ? 10 : v < 36 ? 6 : v < 50 ? 3 : 0, category: 'Debt & Obligations' },
-  { id: 'emergencyFund', text: 'Do you have 6+ months of expenses saved?', options: [{ label: 'Yes, fully funded', score: 20 }, { label: 'Partial (1-3 months)', score: 10 }, { label: 'No emergency fund', score: 0 }], category: 'Savings & Emergency' },
-  { id: 'savingsRate', text: 'What % of income do you save each month?', type: 'slider', min: 0, max: 60, label: (v: number) => `${v}%`, scoreFn: (v: number) => v >= 20 ? 20 : v >= 10 ? 12 : v >= 5 ? 7 : 2, category: 'Savings & Emergency' },
-  { id: 'investingComfort', text: 'How comfortable are you with investing?', options: [{ label: 'Very comfortable', score: 15 }, { label: 'Somewhat comfortable', score: 9 }, { label: 'Not comfortable', score: 3 }, { label: 'Never invested', score: 0 }], category: 'Investment & Growth' },
-  { id: 'hasGoals', text: 'Do you have clear financial goals?', options: [{ label: 'Yes, written and tracked', score: 10 }, { label: 'A few vague ones', score: 5 }, { label: 'No goals', score: 0 }], category: 'Financial Planning' },
-  { id: 'budgetTracking', text: 'Do you track your expenses?', options: [{ label: 'Always (app/spreadsheet)', score: 10 }, { label: 'Sometimes', score: 5 }, { label: 'Never', score: 0 }], category: 'Financial Planning' },
-  { id: 'debtPayments', text: 'Do you make all loan/credit payments on time?', options: [{ label: 'Always', score: 10 }, { label: 'Sometimes', score: 5 }, { label: 'Often late', score: 0 }], category: 'Debt & Obligations' },
-  { id: 'insurance', text: 'Are you adequately insured (health + life)?', options: [{ label: 'Yes, fully covered', score: 10 }, { label: 'Partially covered', score: 5 }, { label: 'Not insured', score: 0 }], category: 'Income & Stability' },
-  { id: 'impulseSpend', text: 'How often do you impulse spend?', options: [{ label: 'Rarely', score: 10 }, { label: 'Sometimes', score: 5 }, { label: 'Often', score: 0 }], category: 'Financial Planning' },
-  { id: 'retirement', text: 'Have you started planning for retirement?', options: [{ label: 'Yes, investing consistently', score: 15 }, { label: 'Just starting', score: 8 }, { label: 'Not yet', score: 0 }], category: 'Investment & Growth' },
-  { id: 'financialLiteracy', text: 'How would you rate your financial knowledge?', options: [{ label: 'Expert', score: 10 }, { label: 'Good understanding', score: 7 }, { label: 'Basic', score: 4 }, { label: 'Very limited', score: 0 }], category: 'Financial Planning' },
-  { id: 'knowsCreditScore', text: 'Do you know your credit score?', options: [{ label: "Yes, and it's good (750+)", score: 10 }, { label: 'Yes, but it needs work', score: 5 }, { label: 'No', score: 0 }], category: 'Debt & Obligations' },
-  { id: 'hasFinancialPlan', text: 'Do you have a 5-year financial plan?', options: [{ label: 'Yes, detailed plan', score: 10 }, { label: 'Somewhat planned', score: 5 }, { label: 'No plan', score: 0 }], category: 'Financial Planning' },
-  { id: 'taxPlanning', text: 'Do you proactively plan for taxes?', options: [{ label: 'Yes, maximize deductions', score: 10 }, { label: 'Somewhat', score: 5 }, { label: 'No planning', score: 0 }], category: 'Financial Planning' },
+  { id: 'incomeStability', text: t("How stable is your income?"), options: [{ label: t("Very stable (salaried)"), score: 10 }, { label: t("Somewhat stable"), score: 5 }, { label: t("Unstable / Freelance"), score: 2 }], category: t("Income & Stability") },
+  { id: 'debtRatio', text: t("What % of income goes to debt payments?"), type: 'slider', min: 0, max: 80, label: (v: number) => `${v}%`, scoreFn: (v: number) => v < 20 ? 10 : v < 36 ? 6 : v < 50 ? 3 : 0, category: t("Debt & Obligations") },
+  { id: 'emergencyFund', text: t("Do you have 6+ months of expenses saved?"), options: [{ label: t("Yes, fully funded"), score: 20 }, { label: t("Partial (1-3 months)"), score: 10 }, { label: t("No emergency fund"), score: 0 }], category: t("Savings & Emergency") },
+  { id: 'savingsRate', text: t("What % of income do you save each month?"), type: 'slider', min: 0, max: 60, label: (v: number) => `${v}%`, scoreFn: (v: number) => v >= 20 ? 20 : v >= 10 ? 12 : v >= 5 ? 7 : 2, category: t("Savings & Emergency") },
+  { id: 'investingComfort', text: t("How comfortable are you with investing?"), options: [{ label: t("Very comfortable"), score: 15 }, { label: t("Somewhat comfortable"), score: 9 }, { label: t("Not comfortable"), score: 3 }, { label: t("Never invested"), score: 0 }], category: t("Investment & Growth") },
+  { id: 'hasGoals', text: t("Do you have clear financial goals?"), options: [{ label: t("Yes, written and tracked"), score: 10 }, { label: t("A few vague ones"), score: 5 }, { label: t("No goals"), score: 0 }], category: t("Financial Planning") },
+  { id: 'budgetTracking', text: t("Do you track your expenses?"), options: [{ label: t("Always (app/spreadsheet)"), score: 10 }, { label: t("Sometimes"), score: 5 }, { label: t("Never"), score: 0 }], category: t("Financial Planning") },
+  { id: 'debtPayments', text: t("Do you make all loan/credit payments on time?"), options: [{ label: t("Always"), score: 10 }, { label: t("Sometimes"), score: 5 }, { label: t("Often late"), score: 0 }], category: t("Debt & Obligations") },
+  { id: 'insurance', text: t("Are you adequately insured (health + life)?"), options: [{ label: t("Yes, fully covered"), score: 10 }, { label: t("Partially covered"), score: 5 }, { label: t("Not insured"), score: 0 }], category: t("Income & Stability") },
+  { id: 'impulseSpend', text: t("How often do you impulse spend?"), options: [{ label: t("Rarely"), score: 10 }, { label: t("Sometimes"), score: 5 }, { label: t("Often"), score: 0 }], category: t("Financial Planning") },
+  { id: 'retirement', text: t("Have you started planning for retirement?"), options: [{ label: t("Yes, investing consistently"), score: 15 }, { label: t("Just starting"), score: 8 }, { label: t("Not yet"), score: 0 }], category: t("Investment & Growth") },
+  { id: 'financialLiteracy', text: t("How would you rate your financial knowledge?"), options: [{ label: t("Expert"), score: 10 }, { label: t("Good understanding"), score: 7 }, { label: t("Basic"), score: 4 }, { label: t("Very limited"), score: 0 }], category: t("Financial Planning") },
+  { id: 'knowsCreditScore', text: t("Do you know your credit score?"), options: [{ label: t("Yes, and it's good (750+)"), score: 10 }, { label: t("Yes, but it needs work"), score: 5 }, { label: t("No"), score: 0 }], category: t("Debt & Obligations") },
+  { id: 'hasFinancialPlan', text: t("Do you have a 5-year financial plan?"), options: [{ label: t("Yes, detailed plan"), score: 10 }, { label: t("Somewhat planned"), score: 5 }, { label: t("No plan"), score: 0 }], category: t("Financial Planning") },
+  { id: 'taxPlanning', text: t("Do you proactively plan for taxes?"), options: [{ label: t("Yes, maximize deductions"), score: 10 }, { label: t("Somewhat"), score: 5 }, { label: t("No planning"), score: 0 }], category: t("Financial Planning") },
 ];
 
 const CATEGORY_MAX: Record<string, number> = {
@@ -38,11 +38,11 @@ const CATEGORY_MAX: Record<string, number> = {
 };
 
 const SCORE_LABELS = [
-  { min: 0, max: 40, label: 'Needs Attention', color: 'var(--brand-danger)', emoji: '⚠️', advice: 'Focus on emergency fund and stopping debt growth first.' },
-  { min: 40, max: 60, label: 'Getting Started', color: 'var(--brand-gold)', emoji: '🏗️', advice: 'Build your foundation: emergency fund -> debt -> savings.' },
-  { min: 60, max: 75, label: 'Fair', color: 'var(--brand-accent)', emoji: '⚖️', advice: 'You have basics covered. Optimize and accelerate.' },
-  { min: 75, max: 90, label: 'Good', color: '#6C5CE7', emoji: '🌟', advice: 'Strong foundation. Time to build wealth aggressively.' },
-  { min: 90, max: 101, label: 'Excellent', color: 'var(--brand-success)', emoji: '🏆', advice: 'You are in an elite group. Maintain and mentor others.' },
+  { min: 0, max: 40, label: t("Needs Attention"), color: 'var(--brand-danger)', emoji: '⚠️', advice: 'Focus on emergency fund and stopping debt growth first.' },
+  { min: 40, max: 60, label: t("Getting Started"), color: 'var(--brand-gold)', emoji: '🏗️', advice: 'Build your foundation: emergency fund -> debt -> savings.' },
+  { min: 60, max: 75, label: t("Fair"), color: 'var(--brand-accent)', emoji: '⚖️', advice: 'You have basics covered. Optimize and accelerate.' },
+  { min: 75, max: 90, label: t("Good"), color: '#6C5CE7', emoji: '🌟', advice: 'Strong foundation. Time to build wealth aggressively.' },
+  { min: 90, max: 101, label: t("Excellent"), color: 'var(--brand-success)', emoji: '🏆', advice: 'You are in an elite group. Maintain and mentor others.' },
 ];
 
 export default function FinancialHealthScore() {
@@ -138,9 +138,7 @@ export default function FinancialHealthScore() {
               <Award size={40} color="#F39C12" />
             </div>
             <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Audit Your Wealth')}</h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 440, margin: '0 auto var(--space-10)' }}>
-              15 diagnostic parameters to evaluate your stability, resilience, and growth potential. Get an institutional-grade score in minutes.
-            </p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 440, margin: '0 auto var(--space-10)' }}>{t("15 diagnostic parameters to evaluate your stability, resilience, and growth potential. Get an institutional-grade score in minutes.")}</p>
             <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220, background: 'linear-gradient(135deg, #F39C12, #f1c40f)', border: 'none' }}>
               {t('Begin Analysis')} <ArrowRight size={18} style={{ marginLeft: 8 }} />
             </button>

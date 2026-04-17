@@ -21,22 +21,26 @@ const files = getAllFiles('src/app', []).filter(f => f.endsWith('.tsx'));
 
 files.forEach(file => {
   const content = fs.readFileSync(file, 'utf8');
-  // Simple regex for t('key') or t("key")
-  const regexes = [
-    /t\(\s*'([^']+)'/g,
-    /t\(\s*"([^"]+)"/g
-  ];
   
-  regexes.forEach(regex => {
-    let match;
-    while ((match = regex.exec(content)) !== null) {
-      const key = match[1];
+  // Regex that handles escaped quotes
+  const doubleQuoteRegex = /t\(\s*"((?:[^"\\]|\\.)*)"/g;
+  const singleQuoteRegex = /t\(\s*'((?:[^'\\]|\\.)*)'/g;
+  
+  let match;
+  while ((match = doubleQuoteRegex.exec(content)) !== null) {
+      let key = match[1].replace(/\\"/g, '"').replace(/\\\\/g, '\\');
       if (!enJson[key]) {
-        console.log('Adding key:', key);
-        enJson[key] = key;
+          console.log('Adding key (double):', key);
+          enJson[key] = key;
       }
-    }
-  });
+  }
+  while ((match = singleQuoteRegex.exec(content)) !== null) {
+      let key = match[1].replace(/\\'/g, "'").replace(/\\\\/g, '\\');
+      if (!enJson[key]) {
+          console.log('Adding key (single):', key);
+          enJson[key] = key;
+      }
+  }
 });
 
 fs.writeFileSync(enPath, JSON.stringify(enJson, null, 2));

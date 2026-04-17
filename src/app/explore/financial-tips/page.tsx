@@ -18,12 +18,12 @@ const CATEGORY_META: Record<string, { color: string; bg: string }> = {
 };
 
 const TIPS = [
-  { category: 'Savings', tip: "Automate your savings on payday. If you never see the money in your spending account, you won't miss it.", label: 'Automatic First' },
-  { category: 'Savings', tip: "Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative.", label: 'Starter Win' },
-  { category: 'Budgeting', tip: "The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade.", label: 'Cooling Period' },
-  { category: 'Budgeting', tip: "Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth.", label: 'Leak Audit' },
-  { category: 'Debt', tip: "Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid.", label: 'Apex Strategy' },
-  { category: 'Investing', tip: "Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility.", label: 'Consistency' },
+  { category: t("Savings"), tip: "Automate your savings on payday. If you never see the money in your spending account, you won't miss it.", label: t("Automatic First") },
+  { category: t("Savings"), tip: "Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative.", label: t("Starter Win") },
+  { category: t("Budgeting"), tip: "The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade.", label: t("Cooling Period") },
+  { category: t("Budgeting"), tip: "Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth.", label: t("Leak Audit") },
+  { category: t("Debt"), tip: "Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid.", label: t("Apex Strategy") },
+  { category: t("Investing"), tip: "Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility.", label: t("Consistency") },
 ];
 
 export default function FinancialTips() {
@@ -46,13 +46,13 @@ export default function FinancialTips() {
          <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--brand-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(253,203,110,0.3)' }}>
             <Lightbulb size={20} color="white" />
          </div>
-         <h1 className="heading-md">Strategic Tips</h1>
+         <h1 className="heading-md">{t("Strategic Tips")}</h1>
       </div>
 
       <div className="page-wrapper">
         <div style={{ marginBottom: 'var(--space-8)' }}>
-           <h2 className="display-sm" style={{ marginBottom: 4 }}>Bite-Sized Wisdom</h2>
-           <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>High-impact tactical moves to optimize your financial trajectory.</p>
+           <h2 className="display-sm" style={{ marginBottom: 4 }}>{t("Bite-Sized Wisdom")}</h2>
+           <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>{t("High-impact tactical moves to optimize your financial trajectory.")}</p>
         </div>
 
         <div className="chip-row" style={{ marginBottom: 'var(--space-8)' }}>

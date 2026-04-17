@@ -1,4 +1,9 @@
 const fs = require('fs');
+const https = require('https');
+
+// Read API Key from .env.local
+const env = fs.readFileSync('.env.local', 'utf8');
+const API_KEY = env.match(/GOOGLE_TRANSLATE_API_KEY=(.*)/)[1].trim();
 
 const langs = [
   'ar', 'bn', 'zh', 'nl', 'fr', 'de', 'hi', 'id', 'it', 'ja', 
@@ -6,22 +11,51 @@ const langs = [
 ];
 
 async function translateBatch(keys, targetLang) {
-  try {
-    const text = keys.join(' ||| ');
-    const url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=" + targetLang + "&dt=t&q=" + encodeURIComponent(text);
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('status ' + res.status);
-    const data = await res.json();
-    const resultText = data[0].map(x => x[0]).join('');
-    const results = resultText.split(/\s*\|\|\|\s*/);
+    if (!API_KEY) throw new Error("API Key missing");
     
-    if (results.length !== keys.length) {
-       return keys; 
-    }
-    return results;
-  } catch(e) {
-    return keys;
-  }
+    return new Promise((resolve) => {
+        const data = JSON.stringify({
+            q: keys,
+            target: targetLang
+        });
+
+        const options = {
+            hostname: 'translation.googleapis.com',
+            path: `/language/translate/v2?key=${API_KEY}`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(data)
+            }
+        };
+
+        const req = https.request(options, (res) => {
+            let body = '';
+            res.on('data', (chunk) => body += chunk);
+            res.on('end', () => {
+                try {
+                    const json = JSON.parse(body);
+                    if (json.data && json.data.translations) {
+                        resolve(json.data.translations.map(t => t.translatedText));
+                    } else {
+                        console.error("\nError for " + targetLang + " Batch: " + JSON.stringify(keys).substring(0, 100) + "...", json);
+                        resolve(keys); // Fallback to original
+                    }
+                } catch (e) {
+                    console.error("\nParse Error for " + targetLang, e);
+                    resolve(keys);
+                }
+            });
+        });
+
+        req.on('error', (e) => {
+            console.error("\nRequest Error for " + targetLang, e);
+            resolve(keys);
+        });
+
+        req.write(data);
+        req.end();
+    });
 }
 
 async function run() {
@@ -29,30 +63,26 @@ async function run() {
   
   for (const lang of langs) {
     const path = "src/locales/" + lang + "/common.json";
-    let langJson = {};
-    if (fs.existsSync(path)) {
-       langJson = JSON.parse(fs.readFileSync(path, 'utf8'));
-    }
+    let langJson = fs.existsSync(path) ? JSON.parse(fs.readFileSync(path, 'utf8')) : {};
 
-    let missing = [];
-    for (const key of Object.keys(enJson)) {
-       if (!langJson[key]) missing.push(key);
-    }
+    let missing = Object.keys(enJson).filter(k => !langJson[k] || langJson[k] === k);
 
     if (missing.length > 0) {
-      console.log("Translating " + missing.length + " for " + lang + "...");
-      // Split into batches of 40 to avoid URL length limits
-      for (let i = 0; i < missing.length; i += 40) {
-          const chunk = missing.slice(i, i + 40);
-          const results = await translateBatch(chunk, lang);
-          for (let j = 0; j < chunk.length; j++) {
-             langJson[chunk[j]] = results[j] || chunk[j];
-          }
+      console.log("\nTranslating " + missing.length + " for " + lang + "...");
+      // Using batch size 20 to be safe and adding a delay
+      for (let i = 0; i < missing.length; i += 20) {
+          const chunk = missing.slice(i, i + 20);
+          const results = await translateBatch(chunk.map(k => enJson[k]), lang);
+          chunk.forEach((key, j) => {
+             langJson[key] = results[j] || key;
+          });
+          process.stdout.write('.');
+          await new Promise(r => setTimeout(r, 1000)); // Rate limit protection
       }
       fs.writeFileSync(path, JSON.stringify(langJson, null, 2));
-      await new Promise(r => setTimeout(r, 500));
+      console.log(" Done.");
     }
   }
-  console.log('Done.');
 }
+
 run();

@@ -7,8 +7,8 @@ import { CheckSquare, Heart, Activity, TrendingUp, ArrowRight, Star } from 'luci
 const checkIns = [
   {
     href: '/check-ins/spending-style-quiz',
-    label: 'Spending Style Quiz',
-    desc: 'Decode your money personality & behavioral archetype',
+    label: t("Spending Style Quiz"),
+    desc: t("Decode your money personality & behavioral archetype"),
     icon: CheckSquare,
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
     glow: 'rgba(108,92,231,0.3)',
@@ -19,8 +19,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/savings-check-up',
-    label: 'Savings Check-up',
-    desc: 'Benchmark your emergency fund, savings rate and habits',
+    label: t("Savings Check-up"),
+    desc: t("Benchmark your emergency fund, savings rate and habits"),
     icon: Heart,
     gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
     glow: 'rgba(232,67,147,0.3)',
@@ -31,8 +31,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/money-stress-quiz',
-    label: 'Money Stress Quiz',
-    desc: 'Measure your financial anxiety level and get relief tactics',
+    label: t("Money Stress Quiz"),
+    desc: t("Measure your financial anxiety level and get relief tactics"),
     icon: Activity,
     gradient: 'linear-gradient(135deg, #F39C12, #E67E22)',
     glow: 'rgba(243,156,18,0.3)',
@@ -43,8 +43,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/investment-readiness',
-    label: 'Investment Readiness',
-    desc: 'Are your foundations strong enough to start investing?',
+    label: t("Investment Readiness"),
+    desc: t("Are your foundations strong enough to start investing?"),
     icon: TrendingUp,
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
     glow: 'rgba(0,168,132,0.3)',
@@ -56,6 +56,7 @@ const checkIns = [
 ];
 
 export default function CheckInsHub() {
+  const { t } = useTranslation();
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
       {/* Header */}
@@ -66,8 +67,8 @@ export default function CheckInsHub() {
         padding: 'var(--space-4)',
       }}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
-          <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>Assessments</p>
-          <h1 className="heading-xl" style={{ color: 'var(--text-primary)' }}>Check-ins</h1>
+          <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>{t("Assessments")}</p>
+          <h1 className="heading-xl" style={{ color: 'var(--text-primary)' }}>{t("Check-ins")}</h1>
         </div>
       </div>
 
@@ -81,13 +82,9 @@ export default function CheckInsHub() {
           position: 'relative', overflow: 'hidden',
         }}>
           <div style={{ position: 'absolute', top: -20, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.12)' }} />
-          <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 'var(--space-2)' }}>4 Assessments</p>
-          <h2 style={{ color: 'white', fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 800, marginBottom: 'var(--space-1)', letterSpacing: '-0.015em' }}>
-            Know yourself first
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'var(--text-sm)' }}>
-            Personalized diagnostics to reveal what's working and what needs fixing.
-          </p>
+          <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 'var(--space-2)' }}>{t("4 Assessments")}</p>
+          <h2 style={{ color: 'white', fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 800, marginBottom: 'var(--space-1)', letterSpacing: '-0.015em' }}>{t("Know yourself first")}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'var(--text-sm)' }}>{t("Personalized diagnostics to reveal what's working and what needs fixing.")}</p>
         </div>
 
         {/* Check-in Cards */}

@@ -11,18 +11,18 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
-  { id: 'emergency', text: t("Do you have at least 3 months of emergency expenses saved?"), options: [t("No savings yet"), t("Working on it (1-2 months)"), t("Yes (3-5 months)"), t("Complete (6+ months)")] },
-  { id: 'debt', text: t("How would you describe your high-interest debt (e.g., Credit Cards)?"), options: [t("Substantial & growing"), t("Managed but present"), t("Almost paid off"), t("Zero high-interest debt")] },
-  { id: 'knowledge', text: t("How comfortable are you with investment concepts (Risk/Reward, diversification)?"), options: [t("Beginner - Need full guidance"), t("Familiar with basics"), t("Comfortable managing personal portfolio"), t("Expert - Independent strategy")] },
-  { id: 'horizon', text: t("What is your primary investment time horizon?"), options: [t("Short term (< 1 year)"), t("Medium term (2-5 years)"), t("Long term (5-10 years)"), t("Ultra long term (10+ years)")] },
-  { id: 'risk', text: 'If your portfolio dropped 20% in a month, you would:', options: [t("Sell immediately to avoid further loss"), t("Worry significantly"), t("Stay the course"), t("View it as a buying opportunity")] },
+  { id: 'emergency', text: 'Do you have at least 3 months of emergency expenses saved?', options: ['No savings yet', 'Working on it (1-2 months)', 'Yes (3-5 months)', 'Complete (6+ months)'] },
+  { id: 'debt', text: 'How would you describe your high-interest debt (e.g., Credit Cards)?', options: ['Substantial & growing', 'Managed but present', 'Almost paid off', 'Zero high-interest debt'] },
+  { id: 'knowledge', text: 'How comfortable are you with investment concepts (Risk/Reward, diversification)?', options: ['Beginner - Need full guidance', 'Familiar with basics', 'Comfortable managing personal portfolio', 'Expert - Independent strategy'] },
+  { id: 'horizon', text: 'What is your primary investment time horizon?', options: ['Short term (< 1 year)', 'Medium term (2-5 years)', 'Long term (5-10 years)', 'Ultra long term (10+ years)'] },
+  { id: 'risk', text: 'If your portfolio dropped 20% in a month, you would:', options: ['Sell immediately to avoid further loss', 'Worry significantly', 'Stay the course', 'View it as a buying opportunity'] },
 ];
 
 const READINESS_LEVELS = [
-  { label: t("Foundation Building"), color: 'var(--brand-danger)', desc: t("Focus on emergency reserves and debt elimination before entering markets.") },
-  { label: t("Market Entry"), color: 'var(--brand-gold)', desc: t("You are ready for low-risk index funds. Start small and consistent.") },
-  { label: t("Growth Ready"), color: 'var(--brand-primary)', desc: t("Your foundations are solid. You can take on diversified equity exposure.") },
-  { label: t("Aggressive Growth"), color: 'var(--brand-success)', desc: t("Peak readiness. Optimize for tax efficiency and tactical alpha.") },
+  { label: 'Foundation Building', color: 'var(--brand-danger)', desc: 'Focus on emergency reserves and debt elimination before entering markets.' },
+  { label: 'Market Entry', color: 'var(--brand-gold)', desc: 'You are ready for low-risk index funds. Start small and consistent.' },
+  { label: 'Growth Ready', color: 'var(--brand-primary)', desc: 'Your foundations are solid. You can take on diversified equity exposure.' },
+  { label: 'Aggressive Growth', color: 'var(--brand-success)', desc: 'Peak readiness. Optimize for tax efficiency and tactical alpha.' },
 ];
 
 export default function InvestmentReadiness() {
@@ -74,12 +74,12 @@ export default function InvestmentReadiness() {
         backHref="/"
         rightSlot={step === QUESTIONS.length + 1 ? (
           <div style={{ display: 'flex', gap: 8 }}>
-            <button onClick={handleSave} className=t("btn btn-primary btn-sm")>{saved ? <Check /> : <Save />} {saved ? t('Success') : t('Secure This Result')}</button>
-            <button onClick={() => setStep(0)} className=t("btn btn-secondary btn-icon btn-sm")><RotateCcw size={14} /></button>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check /> : <Save />} {saved ? t('Success') : t('Secure This Result')}</button>
+            <button onClick={() => setStep(0)} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
           </div>
         ) : null}
       />
-      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {step === 0 && (
           <div style={{ textAlign: 'center', padding: 'var(--space-12) 0' }}>
@@ -89,7 +89,7 @@ export default function InvestmentReadiness() {
             <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Investment Readiness')}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 480, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>{t('Are you prepared for the volatility of the markets? Evaluate your core financial pillars to determine your optimal entry strategy.')}</p>
             
-            <button className=t("btn btn-primary btn-lg") onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>{t('Start Evaluation')}</button>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px', marginBottom: 'var(--space-12)' }}>{t('Start Evaluation')}</button>
 
             {history.length > 0 && (
               <div style={{ textAlign: 'left' }}>
@@ -111,7 +111,7 @@ export default function InvestmentReadiness() {
         )}
 
         {step > 0 && step <= QUESTIONS.length && (
-          <div style={{ animation: t("slideInRight 0.3s ease") }}>
+          <div style={{ animation: 'slideInRight 0.3s ease' }}>
              <div style={{ marginBottom: 'var(--space-8)' }}>
                <div className="progress-bar" style={{ height: 4 }}><div className="progress-fill" style={{ width: `${progress}%` }} /></div>
              </div>
@@ -130,7 +130,7 @@ export default function InvestmentReadiness() {
         )}
 
         {step === QUESTIONS.length + 1 && (
-          <div style={{ animation: t("fadeIn 0.5s ease") }}>
+          <div style={{ animation: 'fadeIn 0.5s ease' }}>
              <div style={{ background: readiness.color, borderRadius: 'var(--radius-3xl)', padding: 'var(--space-10)', textAlign: 'center', color: 'white', marginBottom: 'var(--space-8)' }}>
                 <p className="label-caps" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>{t('READINESS ARCHETYPE')}</p>
                 <div className="display-sm" style={{ fontWeight: 900, marginBottom: 8 }}>{t(readiness.label)}</div>

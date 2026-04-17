@@ -21,45 +21,45 @@ const RISK_PROFILES = {
   Conservative: {
     return: 7.5, label: 'PRESERVATION', color: '#00A884',
     gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
-    desc: t("Stable, lower-risk. capital preservation."),
+    desc: 'Stable, lower-risk. capital preservation.',
     allocation: [
-      { name: t("Fixed Income"), value: 50, color: '#00A884' },
+      { name: 'Fixed Income', value: 50, color: '#00A884' },
       { name: 'Bullion', value: 20, color: '#F39C12' },
       { name: 'Equity', value: 20, color: '#6C5CE7' },
       { name: 'Liquidity', value: 10, color: '#9CA3AF' },
     ],
-    vehicles: [t("Debt Mutual Funds"), t("Sovereign Gold Bonds"), 'PPF', 'NPS'],
+    vehicles: ['Debt Mutual Funds', 'Sovereign Gold Bonds', 'PPF', 'NPS'],
     returnRange: '7-9%',
   },
   Moderate: {
     return: 11, label: 'BALANCED', color: '#6C5CE7',
     gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
-    desc: t("Balanced. Mix of growth and stability."),
+    desc: 'Balanced. Mix of growth and stability.',
     allocation: [
       { name: 'Equity', value: 50, color: '#6C5CE7' },
-      { name: t("Fixed Income"), value: 25, color: '#00A884' },
+      { name: 'Fixed Income', value: 25, color: '#00A884' },
       { name: 'Bullion', value: 15, color: '#F39C12' },
       { name: 'Liquidity', value: 10, color: '#9CA3AF' },
     ],
-    vehicles: [t("Hybrid Mutual Funds"), t("Large-cap Index Funds"), t("Corporate Bonds"), t("Blue-chip Stocks")],
+    vehicles: ['Hybrid Mutual Funds', 'Large-cap Index Funds', 'Corporate Bonds', 'Blue-chip Stocks'],
     returnRange: '10-13%',
   },
   Aggressive: {
     return: 15, label: 'EXPANSION', color: '#e84393',
     gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
-    desc: t("High-growth. Suited for long horizons."),
+    desc: 'High-growth. Suited for long horizons.',
     allocation: [
       { name: 'Equity', value: 75, color: '#e84393' },
-      { name: t("Fixed Income"), value: 10, color: '#00A884' },
+      { name: 'Fixed Income', value: 10, color: '#00A884' },
       { name: 'Bullion', value: 10, color: '#F39C12' },
       { name: 'Liquidity', value: 5, color: '#9CA3AF' },
     ],
-    vehicles: [t("Direct Equity"), t("Small-cap Focus Funds"), t("Sector ETFs"), t("International Funds")],
+    vehicles: ['Direct Equity', 'Small-cap Focus Funds', 'Sector ETFs', 'International Funds'],
     returnRange: '14-18%',
   },
 };
 
-const GOALS = [t("Wealth Creation"), 'Retirement', t("Real Estate"), 'Education', 'Other'];
+const GOALS = ['Wealth Creation', 'Retirement', 'Real Estate', 'Education', 'Other'];
 const PERIODS = [1, 3, 5, 10, 20];
 
 const STEPS = ['Capital', 'Strategy', 'Results'];
@@ -70,7 +70,7 @@ export default function InvestmentPlanner() {
   const [saved, setSaved] = useState(false);
   const [history, setHistory] = useState<any[]>([]);
   const [form, setForm] = useState<FormData>({
-    amount: 0, period: 5, risk: 'Moderate', goal: t("Wealth Creation"), monthly: 0
+    amount: 0, period: 5, risk: 'Moderate', goal: 'Wealth Creation', monthly: 0
   });
 
   useEffect(() => {
@@ -126,7 +126,7 @@ export default function InvestmentPlanner() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {true && (
           <PageHeader 
@@ -135,15 +135,15 @@ export default function InvestmentPlanner() {
             accentColor="#6C5CE7"
             rightSlot={step === 4 ? (
               <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className=t("btn btn-primary btn-sm")>{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>
-                <button onClick={() => { setStep(0); setForm({ amount: 0, period: 5, risk: 'Moderate', goal: t("Wealth Creation"), monthly: 0 }); }} className=t("btn btn-secondary btn-icon btn-sm")><RotateCcw size={14} /></button>
+                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>
+                <button onClick={() => { setStep(0); setForm({ amount: 0, period: 5, risk: 'Moderate', goal: 'Wealth Creation', monthly: 0 }); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
               </div>
             ) : null}
           />
         )}
 
         {step === -1 && (
-          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: t("fadeIn 0.5s ease") }}>
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
             <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
               <TrendingUp size={40} color="var(--brand-primary)" />
             </div>
@@ -151,7 +151,7 @@ export default function InvestmentPlanner() {
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 440, margin: '0 auto var(--space-10)' }}>
               {t('Model your financial future. Simulate asset growth across diverse risk profiles and optimize your portfolio allocation.')}
             </p>
-            <button className=t("btn btn-primary btn-lg") onClick={() => setStep(0)} style={{ minWidth: 220 }}>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
               {t('Begin Analysis')} <ArrowRight size={18} style={{ marginLeft: 8 }} />
             </button>
 
@@ -183,14 +183,14 @@ export default function InvestmentPlanner() {
                <div key={s} style={{
                  flex: 1, height: 3, borderRadius: 2,
                  background: i <= step ? 'var(--brand-primary)' : 'var(--border-default)',
-                 transition: t("all 0.4s ease"),
+                 transition: 'all 0.4s ease',
                }} />
              ))}
            </div>
         )}
 
         {step === 0 && (
-          <div style={{ animation: t("fadeInUp 0.4s ease both") }}>
+          <div style={{ animation: 'fadeInUp 0.4s ease both' }}>
             <p className="label-caps" style={{ color: 'var(--brand-primary)', marginBottom: 'var(--space-2)' }}>{t('Step 1: Capital Configuration')}</p>
             <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-6)' }}>{t('Determine your seed capital')}</h2>
             
@@ -218,14 +218,14 @@ export default function InvestmentPlanner() {
               </div>
             </div>
 
-            <button onClick={() => setStep(1)} disabled={!form.amount && !form.monthly} className=t("btn btn-primary btn-lg btn-full")>
+            <button onClick={() => setStep(1)} disabled={!form.amount && !form.monthly} className="btn btn-primary btn-lg btn-full">
               {t('Proceed to Strategy')} <ArrowRight size={18} />
             </button>
           </div>
         )}
 
         {step === 1 && (
-          <div style={{ animation: t("slideInRight 0.35s ease both") }}>
+          <div style={{ animation: 'slideInRight 0.35s ease both' }}>
             <p className="label-caps" style={{ color: 'var(--brand-primary)', marginBottom: 'var(--space-2)' }}>{t('Step 2: Risk Profile')}</p>
             <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-6)' }}>{t('Asset Allocation Strategy')}</h2>
 
@@ -257,21 +257,21 @@ export default function InvestmentPlanner() {
               </div>
             </div>
 
-            <button onClick={compute} className=t("btn btn-primary btn-lg btn-full")>
+            <button onClick={compute} className="btn btn-primary btn-lg btn-full">
               {t('Generate Portfolio')} <BarChart3 size={18} />
             </button>
           </div>
         )}
 
         {step === 2 && (
-          <div style={{ animation: t("fadeInUp 0.5s ease both") }}>
+          <div style={{ animation: 'fadeInUp 0.5s ease both' }}>
             <div style={{ background: profile.gradient, borderRadius: 'var(--radius-2xl)', padding: 'var(--space-8)', marginBottom: 'var(--space-6)', color: 'white' }}>
                <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', opacity: 0.8, letterSpacing: '0.05em' }}>Forecasted Wealth ({form.period}Y)</div>
                <div style={{ fontSize: 44, fontWeight: 900, fontFamily: 'var(--font-display)', margin: '8px 0' }}>{fmt.currency(projectedAmount, true)}</div>
                <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>{t('{{strategy}} Strategy', { strategy: t(profile.label) })}</div>
             </div>
 
-            <div className="grid-responsive" style={{ gridTemplateColumns: t("1fr 1fr"), gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
+            <div className="grid-responsive" style={{ gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
               <div className="card" style={{ padding: 'var(--space-5)' }}>
                 <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase' }}>{t('Invested')}</div>
                 <div style={{ fontSize: 18, fontWeight: 800 }}>{fmt.currency(totalInvested, true)}</div>
@@ -306,7 +306,7 @@ export default function InvestmentPlanner() {
               </div>
             </div>
 
-            <button onClick={() => setStep(-1)} className=t("btn btn-secondary btn-full")>
+            <button onClick={() => setStep(-1)} className="btn btn-secondary btn-full">
               <RotateCcw size={16} /> {t('New Assessment')}
             </button>
           </div>

@@ -6,11 +6,11 @@ import AuthGuard from "@/components/AuthGuard";
 
 export const metadata: Metadata = {
   title: {
-    default: t("Financial Wellness — Master Your Money"),
-    template: t("%s | Financial Wellness")
+    default: 'Financial Wellness — Master Your Money',
+    template: '%s | Financial Wellness'
   },
-  description: t("A premium financial wellness platform with tools, education, and insights to transform your financial health."),
-  keywords: t("financial wellness, budget planner, investment planner, EMI calculator, goal planner"),
+  description: 'A premium financial wellness platform with tools, education, and insights to transform your financial health.',
+  keywords: 'financial wellness, budget planner, investment planner, EMI calculator, goal planner',
   icons: {
     icon: [
       { url: '/financial_wellbeing/favicon.png' },

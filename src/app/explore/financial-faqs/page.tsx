@@ -9,12 +9,12 @@ import { LanguageSelector } from '@/components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 
 const FAQS = [
-  { q: t("How much emergency fund is ideal?"), a: t("A standard recommendation is 3-6 months of essential living expenses. If your income is volatile or you work in a niche industry, consider 9-12 months for extreme security."), icon: Shield },
-  { q: t("Should I pay off debt or invest first?"), a: t("Generally, pay off high-interest debt (above 7-8%) first. If your debt is low-interest (like a mortgage) and you have a solid reserve, starting an index fund investment can build more wealth over time."), icon: CreditCard },
-  { q: t("What is the 50/30/20 rule?"), a: "It's a simple allocation model: 50% of income for Needs (rent, bills), 30% for Wants (hobbies, dining), and 20% for Savings and Debt repayment.", icon: Wallet },
-  { q: t("How do I start investing with small amounts?"), a: t("Use systematic investment plans (SIPs) or micro-investing platforms. Buying low-cost index funds regularly is more important than the starting amount."), icon: TrendingUp },
-  { q: t("Is insurance an investment?"), a: "Strictly speaking, no. Insurance is risk protection. Traditional plans that mix both often have high fees. It's usually better to keep them separate: buy pure insurance and invest for growth.", icon: Brain },
-  { q: t("When should I review my financial plan?"), a: t("At least once every 6 months, or whenever a major life event occurs (career change, marriage, etc.). Regular audits ensure your strategy remains aligned with your goals."), icon: Clock },
+  { q: "How much emergency fund is ideal?", a: "A standard recommendation is 3-6 months of essential living expenses. If your income is volatile or you work in a niche industry, consider 9-12 months for extreme security.", icon: Shield },
+  { q: "Should I pay off debt or invest first?", a: "Generally, pay off high-interest debt (above 7-8%) first. If your debt is low-interest (like a mortgage) and you have a solid reserve, starting an index fund investment can build more wealth over time.", icon: CreditCard },
+  { q: "What is the 50/30/20 rule?", a: "It's a simple allocation model: 50% of income for Needs (rent, bills), 30% for Wants (hobbies, dining), and 20% for Savings and Debt repayment.", icon: Wallet },
+  { q: "How do I start investing with small amounts?", a: "Use systematic investment plans (SIPs) or micro-investing platforms. Buying low-cost index funds regularly is more important than the starting amount.", icon: TrendingUp },
+  { q: "Is insurance an investment?", a: "Strictly speaking, no. Insurance is risk protection. Traditional plans that mix both often have high fees. It's usually better to keep them separate: buy pure insurance and invest for growth.", icon: Brain },
+  { q: "When should I review my financial plan?", a: "At least once every 6 months, or whenever a major life event occurs (career change, marriage, etc.). Regular audits ensure your strategy remains aligned with your goals.", icon: Clock },
 ];
 
 export default function FinancialFAQs() {
@@ -50,7 +50,7 @@ export default function FinancialFAQs() {
                    {openIdx === i ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </button>
                 {openIdx === i && (
-                  <div style={{ padding: 'var(--space-5) var(--space-6)', background: 'white', borderTop: '1px solid var(--border-subtle)', animation: t("fadeIn 0.25s ease") }}>
+                  <div style={{ padding: 'var(--space-5) var(--space-6)', background: 'white', borderTop: '1px solid var(--border-subtle)', animation: 'fadeIn 0.25s ease' }}>
                      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7 }}>{faq.a}</p>
                   </div>
                 )}

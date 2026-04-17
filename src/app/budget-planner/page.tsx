@@ -28,36 +28,36 @@ const DEFAULT: Record<Field, number> = {
 };
 
 const INCOME_FIELDS: { key: Extract<Field, 'income' | 'otherIncome'>; label: string; icon: any }[] = [
-  { key: 'income', label: t("Monthly Salary"), icon: Wallet },
-  { key: 'otherIncome', label: t("Other Income"), icon: TrendingUp },
+  { key: 'income', label: 'Monthly Salary', icon: Wallet },
+  { key: 'otherIncome', label: 'Other Income', icon: TrendingUp },
 ];
 
 const NEEDS_FIELDS: { key: Field; label: string; icon: any }[] = [
-  { key: 'housing', label: t("Housing (Rent/EMI)"), icon: Home },
-  { key: 'utilities', label: t("Utilities & Bills"), icon: Zap },
-  { key: 'groceries', label: t("Groceries & Food"), icon: Utensils },
+  { key: 'housing', label: 'Housing (Rent/EMI)', icon: Home },
+  { key: 'utilities', label: 'Utilities & Bills', icon: Zap },
+  { key: 'groceries', label: 'Groceries & Food', icon: Utensils },
   { key: 'transport', label: 'Transport', icon: Car },
   { key: 'insurance', label: 'Insurance', icon: HeartPulse },
-  { key: 'debtMin', label: t("Loan Payments"), icon: CreditCard },
+  { key: 'debtMin', label: 'Loan Payments', icon: CreditCard },
 ];
 
 const WANTS_FIELDS: { key: Field; label: string; icon: any }[] = [
   { key: 'entertainment', label: 'Entertainment', icon: Smile },
-  { key: 'dining', label: t("Dining Out"), icon: Utensils },
+  { key: 'dining', label: 'Dining Out', icon: Utensils },
   { key: 'shopping', label: 'Shopping', icon: ShoppingBag },
   { key: 'subscriptions', label: 'Subscriptions', icon: Tv },
   { key: 'travel', label: 'Travel', icon: Plane },
-  { key: 'gym', label: t("Gym & Wellness"), icon: Dumbbell },
+  { key: 'gym', label: 'Gym & Wellness', icon: Dumbbell },
 ];
 
 const SAVE_FIELDS: { key: Field; label: string; icon: any }[] = [
-  { key: 'emergencyFund', label: t("Emergency Fund"), icon: Shield },
+  { key: 'emergencyFund', label: 'Emergency Fund', icon: Shield },
   { key: 'investments', label: 'Investments', icon: BarChart2 },
-  { key: 'debtExtra', label: t("Extra Debt Payment"), icon: CreditCard },
-  { key: 'goalSavings', label: t("Goal Savings"), icon: Star },
+  { key: 'debtExtra', label: 'Extra Debt Payment', icon: CreditCard },
+  { key: 'goalSavings', label: 'Goal Savings', icon: Star },
 ];
 
-const STEPS = ['Income', 'Expenses', t("Savings & Results")];
+const STEPS = ['Income', 'Expenses', 'Savings & Results'];
 
 export default function BudgetPlanner() {
   const { t } = useTranslation();
@@ -170,14 +170,14 @@ export default function BudgetPlanner() {
         </div>
       </div>
       <div style={{ height: 8, background: 'var(--bg-base)', borderRadius: 4, overflow: 'hidden' }}>
-        <div style={{ height: '100%', width: `${Math.min(pct, 100)}%`, background: pct > target ? 'linear-gradient(90deg, #E74C3C, #C0392B)' : `linear-gradient(90deg, ${color}aa, ${color})`, borderRadius: 4, transition: t("width 0.8s ease") }} />
+        <div style={{ height: '100%', width: `${Math.min(pct, 100)}%`, background: pct > target ? 'linear-gradient(90deg, #E74C3C, #C0392B)' : `linear-gradient(90deg, ${color}aa, ${color})`, borderRadius: 4, transition: 'width 0.8s ease' }} />
       </div>
     </div>
   );
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      <div style={{ maxWidth: 640, margin: t("0 auto"), padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {true && (
           <PageHeader 
@@ -190,7 +190,7 @@ export default function BudgetPlanner() {
         )}
 
         {step === -1 && (
-          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: t("fadeIn 0.5s ease") }}>
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
             <div style={{ width: 80, height: 80, borderRadius: '24px', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', boxShadow: 'var(--shadow-lg)' }}>
               <Wallet size={40} color="var(--brand-primary)" />
             </div>
@@ -198,7 +198,7 @@ export default function BudgetPlanner() {
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 440, margin: '0 auto var(--space-10)' }}>
               {t('Master your cash flow. Optimize the 50/30/20 rule and ensure every dollar serves your long-term wealth strategy.')}
             </p>
-            <button className=t("btn btn-primary btn-lg") onClick={() => setStep(0)} style={{ minWidth: 220 }}>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
               {t("Begin Analysis")} <ArrowRight size={18} />
             </button>
 
@@ -227,13 +227,13 @@ export default function BudgetPlanner() {
         )}
 
         {step === 0 && (
-          <div style={{ animation: t("fadeInUp 0.4s ease both") }}>
+          <div style={{ animation: 'fadeInUp 0.4s ease both' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
               <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-2xl)', background: 'linear-gradient(135deg, #00A884, #00D2D3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-4)', boxShadow: '0 8px 20px rgba(0,168,132,0.3)' }}>
                 <Wallet size={26} color="white" strokeWidth={2.5} />
               </div>
               <p className="label-caps" style={{ color: '#00A884', marginBottom: 6 }}>{t('Step 1 of 3')}</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{t('What\t("s your income?"))}</h2>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{t('What\'s your income?')}</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>{t('Enter all monthly income sources')}</p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
@@ -245,14 +245,14 @@ export default function BudgetPlanner() {
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-3xl)', fontWeight: 900, color: 'var(--text-primary)', letterSpacing: '-0.025em' }}>{fmt.currency(totalIncome, true)}</p>
               </div>
             )}
-            <button onClick={() => setStep(1)} disabled={!totalIncome} className=t("btn btn-primary btn-lg") style={{ width: '100%' }}>
+            <button onClick={() => setStep(1)} disabled={!totalIncome} className="btn btn-primary btn-lg" style={{ width: '100%' }}>
               {t('Next: Expenses')} <ArrowRight size={18} />
             </button>
           </div>
         )}
 
         {step === 1 && (
-          <div style={{ animation: t("slideInRight 0.35s ease both") }}>
+          <div style={{ animation: 'slideInRight 0.35s ease both' }}>
             <p className="label-caps" style={{ color: 'var(--brand-primary)', marginBottom: 4 }}>{t('Step 2 of 3')}</p>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em', marginBottom: 'var(--space-5)' }}>{t('Monthly spending')}</h2>
 
@@ -282,12 +282,12 @@ export default function BudgetPlanner() {
               </div>
             </div>
 
-            <button onClick={() => setStep(2)} className=t("btn btn-primary btn-lg") style={{ width: '100%' }}>{t('Savings & Results ')}<ChevronRight size={18} /></button>
+            <button onClick={() => setStep(2)} className="btn btn-primary btn-lg" style={{ width: '100%' }}>{t('Savings & Results ')}<ChevronRight size={18} /></button>
           </div>
         )}
 
         {step === 2 && (
-          <div style={{ animation: t("fadeInUp 0.4s ease both") }}>
+          <div style={{ animation: 'fadeInUp 0.4s ease both' }}>
             <p className="label-caps" style={{ color: 'var(--brand-primary)', marginBottom: 4 }}>{t('Step 3 of 3')}</p>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.015em', marginBottom: 'var(--space-4)' }}>
               {t('Savings allocation')}
@@ -311,7 +311,7 @@ export default function BudgetPlanner() {
                 {surplus >= 0 ? '+' : ''}{fmt.currency(Math.abs(surplus), true)}
               </p>
               <div style={{ display: 'flex', gap: 8, marginTop: 'var(--space-4)' }}>
-                <button onClick={handleSave} className=t("btn btn-secondary btn-sm") style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white' }}>
+                <button onClick={handleSave} className="btn btn-secondary btn-sm" style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white' }}>
                   {saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save Result')}
                 </button>
               </div>
@@ -356,7 +356,7 @@ export default function BudgetPlanner() {
             </div>
 
             <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
-              <button onClick={() => { setStep(0); setForm(DEFAULT); }} className=t("btn btn-secondary") style={{ flex: 1 }}><RotateCcw size={14} /> {t('Reset All')}</button>
+              <button onClick={() => { setStep(0); setForm(DEFAULT); }} className="btn btn-secondary" style={{ flex: 1 }}><RotateCcw size={14} /> {t('Reset All')}</button>
             </div>
           </div>
         )}

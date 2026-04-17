@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: t("Financial Myths"),
+  title: 'Financial Myths',
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

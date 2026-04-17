@@ -2,67 +2,109 @@ const fs = require('fs');
 const path = require('path');
 
 function getAllFiles(dirPath, arrayOfFiles) {
-  const files = fs.readdirSync(dirPath).filter(f => !f.startsWith('.'));
+  const files = fs.readdirSync(dirPath);
   arrayOfFiles = arrayOfFiles || [];
   files.forEach(function(file) {
-    let p = path.join(dirPath, file);
-    if (fs.statSync(p).isDirectory()) {
-      arrayOfFiles = getAllFiles(p, arrayOfFiles);
-    } else if (file.endsWith('.tsx')) {
-      arrayOfFiles.push(p);
+    if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+      arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+    } else {
+      arrayOfFiles.push(path.join(dirPath, "/", file));
     }
   });
   return arrayOfFiles;
 }
 
-const files = getAllFiles('src/app', []);
+const enJson = JSON.parse(fs.readFileSync('src/locales/en/common.json', 'utf8'));
 
-const props = ['title', 'subtitle', 'heading', 'introduction', 'category', 'label', 'desc', 'text'];
+const files = getAllFiles('src/app', []).filter(f => f.endsWith('.tsx'));
 
-files.forEach(file => {
+for (const file of files) {
   let content = fs.readFileSync(file, 'utf8');
   let changed = false;
 
-  // Split into lines to avoid matching 'use client'
-  let lines = content.split('\n');
-  let newLines = lines.map(line => {
-      if (line.includes("'use client'") || line.includes('"use client"')) return line;
-      if (line.includes('import ') || line.includes('from ')) return line;
-
-      let newline = line;
-
-      // 1. Props (Avoid double t())
-      props.forEach(p => {
-        const reg = new RegExp(`\\b${p}=["']([^"']+)["']`, 'g');
-        newline = newline.replace(reg, (match, val) => {
-            if (val.length > 3 && !val.includes('t(') && (val.includes(' ') || val.length > 8)) {
-                changed = true;
-                return `${p}={t(${JSON.stringify(val)})}`;
-            }
-            return match;
-        });
-      });
-
-      // 2. Phrases in strings (Avoid double t())
-      // We look for "Text" or 'Text' but NOT inside t()
-      // This regex is tricky. We ensure no t( before the quote.
-      // We'll use a safer approach: only target strings that look like phrases and are NOT part of an object key or style
-      newline = newline.replace(/(?<!t\()(['"])([^'"]+)\1/g, (match, quote, val) => {
-          if (val.length > 5 && val.includes(' ') && !val.includes('var(') && !val.includes('url(') && !val.includes('t(')) {
-              // Extra check: not a style prop like 'flex-start' or '100vh' or 'var(--...)'
-              if (!val.includes('--') && !val.includes('0%') && !val.includes('100%') && !val.includes('px')) {
-                  changed = true;
-                  return `t(${JSON.stringify(val)})`;
-              }
-          }
-          return match;
-      });
-
-      return newline;
+  // 1. Ternaries in JSX: {cond ? 'A' : 'B'}
+  content = content.replace(/\{([^?}]+\?)\s*'([^']+)'\s*:\s*'([^']+)'\}/g, (match, cond, p1, p2) => {
+      if (p1.length > 1 && !p1.includes('{') && p2.length > 1 && !p2.includes('{')) {
+          enJson[p1] = p1;
+          enJson[p2] = p2;
+          changed = true;
+          return `{ \${cond} t('\${p1.replace(/'/g, "\\\\'")}') : t('\${p2.replace(/'/g, "\\\\'")}') }`;
+      }
+      return match;
   });
 
-  if (changed) {
-    fs.writeFileSync(file, newLines.join('\n'));
-    console.log('Fixed:', file);
+  // 2. Props string literals: title="Title" -> title={t('Title')}
+  // Except for things like style="...", className="...", key="...", type="...", min="...", max="..."
+  const skipProps = ['className', 'style', 'key', 'type', 'min', 'max', 'id', 'href', 'backHref', 'fieldKey', 'color'];
+  content = content.replace(/(\w+)="([^"]+)"/g, (match, prop, val) => {
+      if (skipProps.includes(prop)) return match;
+      if (val.length > 1 && /[a-zA-Z]/.test(val) && !val.includes('var(')) {
+          enJson[val] = val;
+          changed = true;
+          return `\${prop}={t('\${val.replace(/'/g, "\\\\'")}')}`;
+      }
+      return match;
+  });
+
+  // 3. Static text nodes in JSX: >Text< -> >{t('Text')}<
+  // This is tricky. We'll look for > followed by alphanumeric followed by <
+  content = content.replace(/>\s*([A-Za-z0-9][^<>{}\n\r]*[A-Za-z0-9])\s*</g, (match, p1) => {
+      // Skip if it looks like a number or is already translated
+      if (/^\d+(\.\d+)?$/.test(p1)) return match;
+      if (p1.startsWith('{') || p1.includes('t(')) return match;
+      
+      enJson[p1.trim()] = p1.trim();
+      changed = true;
+      return `>{t('\${p1.trim().replace(/'/g, "\\\\'")}')}<`;
+  });
+
+  // 4. Units in template literals: `${val} months` -> {t('{{count}} months', { count: val })}
+  content = content.replace(/\{`\$\{(.*?)\}\s+(months|years)`\}/g, (match, val, unit) => {
+      const key = `{{count}} \${unit}`;
+      enJson[key] = key;
+      changed = true;
+      return `{t('\${key}', { count: \${val} })}`;
+  });
+
+  // 5. Special case for "2 active goals" etc
+  content = content.replace(/\{goals\.length\}\s+active goals/g, (match) => {
+      const key = '{{count}} active goals';
+      enJson[key] = key;
+      changed = true;
+      return `{t('\${key}', { count: goals.length })}`;
+  });
+
+  // 6. Fix specifically identified missing t() in budget planner
+  if (content.includes('label="Savings"')) {
+      content = content.replace('label="Savings"', 'label={t("Savings")}');
+      changed = true;
   }
-});
+
+  // 7. Fix any remaining {variable} that should be {t(variable)}
+  // Like {goal.priority}, {cat}, {r}, {h.goal}, {h.riskLevel}
+  const varsToWrap = [
+    'goal.priority', 'goal.category', 'h.riskLevel', 'h.goal', 
+    's.label', 'm.tag', 'mod.tag', 'mod.label', 'opt.label', 'opt',
+    'p.label', 'profile.label', 'entry.name', 'a.name', 'd.name'
+  ];
+  for (const v of varsToWrap) {
+      const regex = new RegExp(`>\\\\{\\${v}\\\\\}<`, 'g');
+      if (regex.test(content)) {
+          content = content.replace(regex, `>{t(\${v})}<`);
+          changed = true;
+      }
+  }
+
+  // 8. Fix the crash in InvestmentPlanner where INIT_FORM is missing
+  if (file.includes('investment-planner') && content.includes('setForm(INIT_FORM)')) {
+      content = content.replace('setForm(INIT_FORM)', 'setForm({ amount: 0, period: 5, risk: "Moderate", goal: "Wealth Creation", monthly: 0 })');
+      changed = true;
+  }
+
+  if (changed) {
+    fs.writeFileSync(file, content, 'utf8');
+  }
+}
+
+fs.writeFileSync('src/locales/en/common.json', JSON.stringify(enJson, null, 2));
+console.log('Fitted app with a bulletproof translation layer.');

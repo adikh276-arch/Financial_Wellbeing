@@ -21,15 +21,23 @@ const files = getAllFiles('src/app', []).filter(f => f.endsWith('.tsx'));
 
 files.forEach(file => {
   const content = fs.readFileSync(file, 'utf8');
+  // Simple regex for t('key') or t("key")
+  const regexes = [
+    /t\(\s*'([^']+)'/g,
+    /t\(\s*"([^"]+)"/g
+  ];
   
-  // Matches t('key')
-  const tRegex = /t\(\s*['"]([^'"]+)['"]\s*[,)]/g;
-  let tMatch;
-  while ((tMatch = tRegex.exec(content)) !== null) {
-    const key = tMatch[1].replace(/\\'/g, "'");
-    if (key && !enJson[key]) enJson[key] = key;
-  }
+  regexes.forEach(regex => {
+    let match;
+    while ((match = regex.exec(content)) !== null) {
+      const key = match[1];
+      if (!enJson[key]) {
+        console.log('Adding key:', key);
+        enJson[key] = key;
+      }
+    }
+  });
 });
 
 fs.writeFileSync(enPath, JSON.stringify(enJson, null, 2));
-console.log('Done extraction.');
+console.log('Done.');

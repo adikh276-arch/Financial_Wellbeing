@@ -1,59 +1,15 @@
 'use client';
 
-import { useEffect, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import {
   TrendingUp, Calculator, Target, PieChart, Shield, Activity,
-  BookOpen, ArrowRight, ChevronRight, Sparkles, Wallet,
-  Clock, Brain, Zap, BarChart2, AlertCircle, Heart,
-  Star, Compass, CheckCircle
+  BookOpen, ArrowRight, Sparkles, Wallet,
+  Clock, Brain, Zap, BarChart2, AlertCircle,
+  Star, Compass
 } from 'lucide-react';
 import { LanguageSelector } from '@/components/LanguageSelector';
-
-function TokenHandler() {
-  const params = useSearchParams();
-  const router = useRouter();
-
-  useEffect(() => {
-    const token = params.get('token');
-    if (token) {
-      // Prevent infinite loops if token is invalid but stays in URL
-      if (sessionStorage.getItem("processed_token") === token) return;
-      sessionStorage.setItem("processed_token", token);
-
-      fetch("https://api.mantracare.com/user/user-info", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Authorization": token.startsWith('Bearer ') ? token : `Bearer ${token}` 
-        },
-        body: JSON.stringify({ token, auth_token: token }),
-      })
-        .then(res => res.ok ? res.json() : (res.status === 400 ? fetch("https://api.mantracare.com/user/user-info", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token })
-        }).then(r => r.json()) : Promise.reject(res.status)))
-        .then(data => {
-          const userId = data.id || data.user_id || data.therapy_user_id || data.user?.id || data.data?.id;
-          if (userId) {
-            sessionStorage.setItem("financial_wellbeing_user_id", userId.toString());
-            sessionStorage.setItem("session_token", token);
-            router.replace("/");
-          }
-        })
-        .catch(err => {
-          console.error("Auth failed:", err);
-          // Still redirect to clear the token from URL even if it failed
-          router.replace("/");
-        });
-    }
-  }, [params, router]);
-
-  return null;
-}
 
 const featuredTools = [
   { href: '/investment-planner', label: "Investment Planner", desc: "Grow wealth", icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
@@ -73,17 +29,9 @@ const featuredModules = [
 
 export default function FinancialWellnessDashboard() {
   const { t } = useTranslation();
-  const searchParams = useSearchParams();
-  
-  const query = searchParams.toString();
-  const suffix = query ? `?${query}` : '';
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      <Suspense fallback={null}>
-        <TokenHandler />
-      </Suspense>
-
       {/* Hero Section */}
       <div style={{
         background: 'linear-gradient(160deg, #6C5CE7 0%, #5A49CB 35%, #4a3ab5 100%)',
@@ -104,22 +52,24 @@ export default function FinancialWellnessDashboard() {
                 {t("Your Money Dashboard")}
               </h1>
             </div>
-            <div style={{
-              width: 40, height: 40, borderRadius: 'var(--radius-full)',
-              background: 'rgba(255,255,255,0.15)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              backdropFilter: 'blur(10px)',
-            }}>
-              <Compass size={18} color="white" strokeWidth={2.5} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+              <div style={{
+                width: 40, height: 40, borderRadius: 'var(--radius-full)',
+                background: 'rgba(255,255,255,0.15)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                backdropFilter: 'blur(10px)',
+              }}>
+                <Compass size={18} color="white" strokeWidth={2.5} />
+              </div>
+              <LanguageSelector />
             </div>
-            <LanguageSelector />
           </div>
 
           <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
             {[
-              { label: t("Tools"), value: '6', color: 'rgba(255,255,255,0.2)' },
-              { label: t("Modules"), value: '12', color: 'rgba(255,255,255,0.2)' },
-              { label: t("Quizzes"), value: '4', color: 'rgba(255,255,255,0.2)' },
+              { label: "Tools", value: '6', color: 'rgba(255,255,255,0.2)' },
+              { label: "Modules", value: '12', color: 'rgba(255,255,255,0.2)' },
+              { label: "Quizzes", value: '4', color: 'rgba(255,255,255,0.2)' },
             ].map(s => (
               <div key={s.label} style={{
                 flex: 1, background: s.color, borderRadius: 'var(--radius-lg)',
@@ -145,7 +95,7 @@ export default function FinancialWellnessDashboard() {
             {featuredTools.map((tool, i) => {
               const Icon = tool.icon;
               return (
-                <Link key={tool.href} href={`${tool.href}${suffix}`} style={{ textDecoration: 'none' }}>
+                <Link key={tool.href} href={tool.href} style={{ textDecoration: 'none' }}>
                   <div style={{
                     background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
                     padding: 'var(--space-4)', boxShadow: 'var(--shadow-xs)',
@@ -173,16 +123,16 @@ export default function FinancialWellnessDashboard() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
                 <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Personal Assessments")}</h3>
-                <Link href={`/check-ins${suffix}`} style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("View All")}</Link>
+                <Link href="/check-ins" style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("View All")}</Link>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
                 {[
-                  { href: '/check-ins/spending-style-quiz', label: t("Spending Style Quiz"), icon: Brain, color: '#6C5CE7' },
-                  { href: '/check-ins/savings-check-up', label: t("Savings Check-up"), icon: Wallet, color: '#e84393' },
-                  { href: '/check-ins/money-stress-quiz', label: t("Money Stress Quiz"), icon: Activity, color: '#F39C12' },
-                  { href: '/check-ins/investment-readiness', label: t("Investment Readiness"), icon: TrendingUp, color: '#00A884' },
+                  { href: '/check-ins/spending-style-quiz', label: "Spending Style Quiz", icon: Brain, color: '#6C5CE7' },
+                  { href: '/check-ins/savings-check-up', label: "Savings Check-up", icon: Wallet, color: '#e84393' },
+                  { href: '/check-ins/money-stress-quiz', label: "Money Stress Quiz", icon: Activity, color: '#F39C12' },
+                  { href: '/check-ins/investment-readiness', label: "Investment Readiness", icon: TrendingUp, color: '#00A884' },
                 ].map(item => (
-                  <Link key={item.href} href={`${item.href}${suffix}`} style={{ 
+                  <Link key={item.href} href={item.href} style={{ 
                     display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-4)',
                     background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
                     textDecoration: 'none', transition: 'all 0.2s ease'
@@ -204,13 +154,13 @@ export default function FinancialWellnessDashboard() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
                 <div style={{ display: 'contents' }}>
                   {[
-                    { href: '/explore/financial-tips', label: t("Financial Tips"), gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', icon: Sparkles },
-                    { href: '/explore/financial-stories', label: t("Financial Stories"), gradient: 'linear-gradient(135deg, #6C5CE7, #a29bfe)', icon: BookOpen },
-                    { href: '/explore/financial-articles', label: t("Financial Articles"), gradient: 'linear-gradient(135deg, #00A884, #55efc4)', icon: Compass },
-                    { href: '/explore/financial-faqs', label: t("Financial FAQs"), gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
-                    { href: '/explore/financial-myths', label: t("Financial Myths"), gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
+                    { href: '/explore/financial-tips', label: "Financial Tips", gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', icon: Sparkles },
+                    { href: '/explore/financial-stories', label: "Financial Stories", gradient: 'linear-gradient(135deg, #6C5CE7, #a29bfe)', icon: BookOpen },
+                    { href: '/explore/financial-articles', label: "Financial Articles", gradient: 'linear-gradient(135deg, #00A884, #55efc4)', icon: Compass },
+                    { href: '/explore/financial-faqs', label: "Financial FAQs", gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
+                    { href: '/explore/financial-myths', label: "Financial Myths", gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
                   ].map(item => (
-                    <Link key={item.href} href={`${item.href}${suffix}`} style={{ 
+                    <Link key={item.href} href={item.href} style={{ 
                       display: 'flex', flexDirection: 'column', gap: 8,
                       padding: 'var(--space-5)', background: item.gradient, borderRadius: 'var(--radius-xl)',
                       textDecoration: 'none', position: 'relative', overflow: 'hidden'
@@ -227,11 +177,11 @@ export default function FinancialWellnessDashboard() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
                 <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Learning Academy")}</h3>
-                <Link href={`/learn${suffix}`} style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("12 Modules")}</Link>
+                <Link href="/learn" style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("12 Modules")}</Link>
               </div>
               <div className="stack-3">
                 {featuredModules.map(mod => (
-                  <Link key={mod.href} href={`${mod.href}${suffix}`} className="card card-tap" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
+                  <Link key={mod.href} href={mod.href} className="card card-tap" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
                     <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-lg)', background: mod.colorBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <mod.icon size={16} color={mod.color} />
                     </div>

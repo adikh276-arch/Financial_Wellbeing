@@ -75,31 +75,31 @@ export default function FinancialWellnessDashboard() {
   return (
     <div className="flex min-h-screen bg-[#F9FAFB]">
       <div className="flex-1 flex flex-col min-w-0">
-        <main className="max-w-[1000px] w-full mx-auto px-4 md:px-6 py-4 md:py-8">
+        <main className="dashboard-wrapper">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-start gap-3 mb-8"
+            className="dashboard-header"
           >
             <button
               onClick={() => router.back()}
-              className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-[#64748B] hover:text-[#043570] transition-colors mt-2"
+              className="dashboard-back-btn"
             >
               <ChevronLeft size={20} />
             </button>
-            <div
-              className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
-              style={{ backgroundColor: themeBg }}
-            >
+            
+            <div className="dashboard-logo">
               <DollarSign size={24} style={{ color: themeColor }} strokeWidth={2.5} />
             </div>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-2xl md:text-3xl font-bold text-[#020817] mb-1">{t("Financial Self-Care")}</h1>
-              <p className="text-sm md:text-base text-[#64748B] leading-relaxed">
+
+            <div className="dashboard-title-section">
+              <h1 className="dashboard-title">{t("Financial Self-Care")}</h1>
+              <p className="dashboard-subtitle">
                 {t("Build healthier financial habits through content, reflection, and guidance.")}
               </p>
             </div>
+
             <div className="flex-shrink-0">
               <LanguageSelector />
             </div>
@@ -107,33 +107,21 @@ export default function FinancialWellnessDashboard() {
 
           {/* Learn */}
           <motion.div
-            className="mb-10"
+            className="dashboard-section"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 }}
+            transition={{ delay: 0.1 }}
           >
-            <h2 className="text-lg font-semibold mb-5 text-[#0f172b]">{t("Learn")}</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <h2 className="dashboard-section-title">{t("Learn")}</h2>
+            <div className="dashboard-grid">
               {learnItems.map((item, i) => {
                 const ItemIcon = item.icon;
                 return (
-                  <Link key={item.title} href={item.route} className="block">
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 + i * 0.04 }}
-                      whileHover={{ y: -4, shadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)" }}
-                      whileTap={{ scale: 0.98 }}
-                      className="bg-white border border-[#E2E8F0] rounded-2xl p-5 h-full hover:border-[#CBD5E1] transition-all text-left group"
-                    >
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
-                        style={{ backgroundColor: themeBg }}
-                      >
-                        <ItemIcon size={24} style={{ color: themeColor }} strokeWidth={2} />
-                      </div>
-                      <p className="text-[14px] leading-tight text-[#1E293B] font-semibold">{t(item.title)}</p>
-                    </motion.div>
+                  <Link key={item.title} href={item.route} className="dashboard-card animate-fade-in" style={{ animationDelay: `${0.1 + i * 0.05}s` }}>
+                    <div className="dashboard-card-icon">
+                      <ItemIcon size={24} strokeWidth={2} />
+                    </div>
+                    <p className="dashboard-card-title">{t(item.title)}</p>
                   </Link>
                 );
               })}
@@ -142,33 +130,21 @@ export default function FinancialWellnessDashboard() {
 
           {/* Check-ins */}
           <motion.div
-            className="mb-10"
+            className="dashboard-section"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <h2 className="text-lg font-semibold mb-5 text-[#0f172b]">{t("Check-ins")}</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <h2 className="dashboard-section-title">{t("Check-ins")}</h2>
+            <div className="dashboard-grid">
               {checkinItems.map((item, i) => {
                 const ItemIcon = item.icon;
                 return (
-                  <Link key={item.title} href={item.route} className="block">
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 + i * 0.05 }}
-                      whileHover={{ y: -4 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="bg-white border border-[#E2E8F0] rounded-2xl p-5 h-full hover:shadow-lg hover:border-[#CBD5E1] transition-all text-left group"
-                    >
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                        style={{ backgroundColor: themeBg }}
-                      >
-                        <ItemIcon size={24} style={{ color: themeColor }} strokeWidth={2} />
-                      </div>
-                      <p className="text-[14px] leading-tight text-[#1E293B] font-semibold">{t(item.title)}</p>
-                    </motion.div>
+                  <Link key={item.title} href={item.route} className="dashboard-card animate-fade-in" style={{ animationDelay: `${0.2 + i * 0.05}s` }}>
+                    <div className="dashboard-card-icon">
+                      <ItemIcon size={24} strokeWidth={2} />
+                    </div>
+                    <p className="dashboard-card-title">{t(item.title)}</p>
                   </Link>
                 );
               })}
@@ -177,39 +153,27 @@ export default function FinancialWellnessDashboard() {
 
           {/* Explore */}
           <motion.div
-            className="mb-10"
+            className="dashboard-section"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <h2 className="text-lg font-semibold mb-5 text-[#0f172b]">{t("Explore")}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h2 className="dashboard-section-title">{t("Explore")}</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16 }}>
               {exploreItems.map((item, i) => {
                 const ItemIcon = item.icon;
                 return (
-                  <Link key={item.title} href={item.route} className="block">
-                    <motion.div
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + i * 0.05 }}
-                      whileHover={{ x: 5 }}
-                      whileTap={{ scale: 0.99 }}
-                      className="flex items-center justify-between bg-white border border-[#E2E8F0] rounded-2xl p-5 hover:shadow-md hover:border-[#CBD5E1] transition-all group"
-                    >
-                      <div className="flex items-center gap-5">
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
-                          style={{ backgroundColor: themeBg }}
-                        >
-                          <ItemIcon size={24} style={{ color: themeColor }} strokeWidth={2} />
-                        </div>
-                        <div className="text-left">
-                          <p className="text-[#1E293B] text-base font-semibold">{t(item.title)}</p>
-                          <p className="text-xs text-[#94A3B8] mt-1">{t(item.desc)}</p>
-                        </div>
+                  <Link key={item.title} href={item.route} className="dashboard-explore-card animate-slide-in" style={{ animationDelay: `${0.3 + i * 0.05}s` }}>
+                    <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+                      <div className="dashboard-explore-icon">
+                        <ItemIcon size={24} strokeWidth={2} />
                       </div>
-                      <ChevronRight size={20} className="text-[#CBD5E1] transition-colors group-hover:text-blue-500" />
-                    </motion.div>
+                      <div className="dashboard-explore-content">
+                        <p className="dashboard-explore-title">{t(item.title)}</p>
+                        <p className="dashboard-explore-desc">{t(item.desc)}</p>
+                      </div>
+                    </div>
+                    <ChevronRight size={18} className="text-[#CBD5E1]" />
                   </Link>
                 );
               })}

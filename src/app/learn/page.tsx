@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation';
 import { LanguageSelector } from '@/components/LanguageSelector';
 
 const modules = [
-  { href: '/learn/budgeting-basics', label: "Budgeting Basics", icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715', tag: 'Foundational' },
+  { href: '/learn/budgeting-basics', label: "Budgeting Basics", icon: PieChart, time: '5 min', color: '#2563EB', colorBg: '#2563EB15', tag: 'Foundational' },
   { href: '/learn/saving-habits', label: "Saving Habits", icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215', tag: 'Habits' },
   { href: '/learn/debt-management', label: "Debt Management", icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15', tag: 'Debt' },
   { href: '/learn/investing-basics', label: "Investing Basics", icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315', tag: 'Investing' },
@@ -17,7 +17,7 @@ const modules = [
   { href: '/learn/50-30-20-rule', label: "50/30/20 Rule", icon: PieChart, time: '4 min', color: '#00B1B1', colorBg: '#00B1B115', tag: 'Foundational' },
   { href: '/learn/mindful-spending', label: "Mindful Spending", icon: Heart, time: '6 min', color: '#e84393', colorBg: '#e8439315', tag: 'Behavior' },
   { href: '/learn/your-money-priorities', label: "Your Money Priorities", icon: Star, time: '7 min', color: '#FDCB6E', colorBg: '#FDCB6E15', tag: 'Mindset' },
-  { href: '/learn/plan-for-your-future', label: "Plan for Your Future", icon: Compass, time: '9 min', color: '#6C5CE7', colorBg: '#6C5CE715', tag: 'Strategy' },
+  { href: '/learn/plan-for-your-future', label: "Plan for Your Future", icon: Compass, time: '9 min', color: '#2563EB', colorBg: '#2563EB15', tag: 'Strategy' },
   { href: '/learn/understand-your-income-expenses', label: "Understand Your Income & Expenses", icon: TrendingUp, time: '6 min', color: '#0984e3', colorBg: '#0984e315', tag: 'Foundational' },
   { href: '/learn/avoid-common-money-mistakes', label: "Avoid Common Money Mistakes", icon: Brain, time: '10 min', color: '#E17055', colorBg: '#E1705515', tag: 'Behavior' },
 ];

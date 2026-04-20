@@ -1,198 +1,221 @@
 'use client';
 
-import { Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { motion } from "framer-motion";
 import {
-  TrendingUp, Calculator, Target, PieChart, Shield, Activity,
-  BookOpen, ArrowRight, Sparkles, Wallet,
-  Clock, Brain, Zap, BarChart2, AlertCircle,
-  Star, Compass
-} from 'lucide-react';
+  ChevronLeft,
+  ChevronRight,
+  DollarSign,
+  Lightbulb,
+  MessageSquare,
+  Wallet,
+  PiggyBank,
+  CreditCard,
+  TrendingUp,
+  Shield,
+  Target,
+  Heart,
+  BarChart3,
+  FileText,
+  HelpCircle,
+  Compass,
+  CalendarCheck,
+  Receipt,
+  AlertCircle,
+} from "lucide-react";
+import Link from 'next/link';
 import { LanguageSelector } from '@/components/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
-const featuredTools = [
-  { href: '/investment-planner', label: "Investment Planner", desc: "Grow wealth", icon: TrendingUp, gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)', glow: 'rgba(108,92,231,0.35)' },
-  { href: '/loan-emi-planner', label: "Loan & EMI Planner", desc: "Calc repay", icon: Calculator, gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', glow: 'rgba(9,132,227,0.35)' },
-  { href: '/goal-planner', label: "Goal Planner", desc: "Set targets", icon: Target, gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', glow: 'rgba(253,203,110,0.35)' },
-  { href: '/budget-planner', label: "Budget Planner", desc: "Track spend", icon: Wallet, gradient: 'linear-gradient(135deg, #00A884, #00D2D3)', glow: 'rgba(0,168,132,0.35)' },
-  { href: '/emergency-fund', label: "Emergency Fund", desc: "Build safety", icon: Shield, gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', glow: 'rgba(232,67,147,0.35)' },
-  { href: '/financial-health-score', label: "Financial Health Score", desc: "Get graded", icon: Activity, gradient: 'linear-gradient(135deg, #F39C12, #f1c40f)', glow: 'rgba(243,156,18,0.35)' },
+const themeColor = "#2563EB";
+const themeBg = "#EFF6FF";
+
+const learnItems = [
+  { title: "Budgeting Basics", icon: Wallet, route: "/learn/budgeting-basics" },
+  { title: "Saving Habits", icon: PiggyBank, route: "/learn/saving-habits" },
+  { title: "Debt Management", icon: CreditCard, route: "/learn/debt-management" },
+  { title: "Investing Basics", icon: TrendingUp, route: "/learn/investing-basics" },
+  { title: "Emergency Fund", icon: Shield, route: "/learn/emergency-fund" },
+  { title: "Financial Goals", icon: Target, route: "/learn/financial-goals" },
+  { title: "50/30/20 Rule", icon: BarChart3, route: "/learn/50-30-20-rule" },
+  { title: "Mindful Spending", icon: Heart, route: "/learn/mindful-spending" },
+  { title: "Your Money Priorities", icon: Compass, route: "/learn/your-money-priorities" },
+  { title: "Plan for Your Future", icon: CalendarCheck, route: "/learn/plan-for-your-future" },
+  { title: "Understand Your Income & Expenses", icon: Receipt, route: "/learn/understand-your-income-expenses" },
+  { title: "Avoid Common Money Mistakes", icon: AlertCircle, route: "/learn/avoid-common-money-mistakes" },
 ];
 
-const featuredModules = [
-  { href: '/learn/budgeting-basics', label: "Budgeting Basics", icon: PieChart, time: '5 min', color: '#6C5CE7', colorBg: '#6C5CE715' },
-  { href: '/learn/saving-habits', label: "Saving Habits", icon: Zap, time: '6 min', color: '#F39C12', colorBg: '#F39C1215' },
-  { href: '/learn/debt-management', label: "Debt Management", icon: AlertCircle, time: '7 min', color: '#E74C3C', colorBg: '#E74C3C15' },
-  { href: '/learn/investing-basics', label: "Investing Basics", icon: BarChart2, time: '8 min', color: '#0984e3', colorBg: '#0984e315' },
+const checkinItems = [
+  { title: "Spending Style Quiz", icon: Wallet, route: "/check-ins/spending-style-quiz" },
+  { title: "Savings Check-up", icon: PiggyBank, route: "/check-ins/savings-check-up" },
+  { title: "Money Stress Quiz", icon: Heart, route: "/check-ins/money-stress-quiz" },
+  { title: "Investment Readiness", icon: TrendingUp, route: "/check-ins/investment-readiness" },
 ];
+
+const exploreItems = [
+  { title: "Financial Tips", icon: Lightbulb, route: "/explore/financial-tips", desc: "Quick ideas to improve your money habits" },
+  { title: "Financial Stories", icon: MessageSquare, route: "/explore/financial-stories", desc: "Real experiences from people like you" },
+  { title: "Financial Articles", icon: FileText, route: "/explore/financial-articles", desc: "In-depth reads on financial wellbeing" },
+  { title: "Financial FAQs", icon: HelpCircle, route: "/explore/financial-faqs", desc: "Answers to common money questions" },
+  { title: "Financial Myths", icon: HelpCircle, route: "/explore/financial-myths", desc: "Common misconceptions about money" },
+];
+
+// Note: Quick Tools are accessible via these routes but not displayed as buttons:
+// /investment-planner
+// /loan-emi-planner
+// /goal-planner
+// /budget-planner
+// /emergency-fund
+// /financial-health-score
 
 export default function FinancialWellnessDashboard() {
+  const router = useRouter();
   const { t } = useTranslation();
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      {/* Hero Section */}
-      <div style={{
-        background: 'linear-gradient(160deg, #6C5CE7 0%, #5A49CB 35%, #4a3ab5 100%)',
-        padding: 'var(--space-8) var(--space-4)',
-        paddingTop: 'calc(env(safe-area-inset-top, 0px) + var(--space-8))',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        <div style={{ position: 'absolute', top: -60, right: -40, width: 200, height: 200, borderRadius: '50%', background: 'rgba(255,255,255,0.06)' }} />
-        <div style={{ position: 'absolute', bottom: -40, right: 60, width: 140, height: 140, borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
-        <div style={{ position: 'absolute', top: 40, left: -30, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.03)' }} />
-
-        <div style={{ maxWidth: 680, margin: '0 auto', position: 'relative' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-5)' }}>
-            <div>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 'var(--text-sm)', fontWeight: 500 }}>{t("Good morning")}</p>
-              <h1 style={{ color: 'white', fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: 2 }}>
-                {t("Your Money Dashboard")}
-              </h1>
+    <div className="flex min-h-screen bg-[#F9FAFB]">
+      <div className="flex-1 flex flex-col min-w-0">
+        <main className="max-w-[1000px] w-full mx-auto px-4 md:px-6 py-4 md:py-8">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-start gap-3 mb-8"
+          >
+            <button
+              onClick={() => router.back()}
+              className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-[#64748B] hover:text-[#043570] transition-colors mt-2"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <div
+              className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
+              style={{ backgroundColor: themeBg }}
+            >
+              <DollarSign size={24} style={{ color: themeColor }} strokeWidth={2.5} />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-              <div style={{
-                width: 40, height: 40, borderRadius: 'var(--radius-full)',
-                background: 'rgba(255,255,255,0.15)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                backdropFilter: 'blur(10px)',
-              }}>
-                <Compass size={18} color="white" strokeWidth={2.5} />
-              </div>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-2xl md:text-3xl font-bold text-[#020817] mb-1">{t("Financial Self-Care")}</h1>
+              <p className="text-sm md:text-base text-[#64748B] leading-relaxed">
+                {t("Build healthier financial habits through content, reflection, and guidance.")}
+              </p>
+            </div>
+            <div className="flex-shrink-0">
               <LanguageSelector />
             </div>
-          </div>
+          </motion.div>
 
-          <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
-            {[
-              { label: "Tools", value: '6', color: 'rgba(255,255,255,0.2)' },
-              { label: "Modules", value: '12', color: 'rgba(255,255,255,0.2)' },
-              { label: "Quizzes", value: '4', color: 'rgba(255,255,255,0.2)' },
-            ].map(s => (
-              <div key={s.label} style={{
-                flex: 1, background: s.color, borderRadius: 'var(--radius-lg)',
-                padding: 'var(--space-3)', textAlign: 'center',
-                backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.12)',
-              }}>
-                <div style={{ color: 'white', fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', fontWeight: 800 }}>{s.value}</div>
-                <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'var(--text-xs)', fontWeight: 600 }}>{t(s.label)}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div style={{ maxWidth: 680, margin: '0 auto', padding: '0 var(--space-4) var(--space-16)' }}>
-        <section style={{ marginTop: 'var(--space-6)', marginBottom: 'var(--space-8)' }}>
-          <div style={{ marginBottom: 'var(--space-5)' }}>
-            <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>{t("Suite Hub")}</p>
-            <h2 className="heading-lg" style={{ color: 'var(--text-primary)' }}>{t("Your Financial Suite")}</h2>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
-            {featuredTools.map((tool, i) => {
-              const Icon = tool.icon;
-              return (
-                <Link key={tool.href} href={tool.href} style={{ textDecoration: 'none' }}>
-                  <div style={{
-                    background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
-                    padding: 'var(--space-4)', boxShadow: 'var(--shadow-xs)',
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-2)',
-                    cursor: 'pointer', transition: 'all 0.2s ease', textAlign: 'center',
-                    animation: 'fadeInUp 0.3s ease both', animationDelay: `${i * 40}ms`,
-                  }}>
-                    <div style={{
-                      width: 44, height: 44, borderRadius: 'var(--radius-xl)',
-                      background: tool.gradient, boxShadow: `0 4px 12px ${tool.glow}`,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                      <Icon size={20} color="white" strokeWidth={2.5} />
-                    </div>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-secondary)', lineHeight: 1.2 }}>{t(tool.label)}</span>
-                    <span style={{ fontSize: 10, color: 'var(--text-faint)', fontWeight: 500 }}>{t(tool.desc)}</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
-            {/* Check-ins */}
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
-                <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Personal Assessments")}</h3>
-                <Link href="/check-ins" style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("View All")}</Link>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
-                {[
-                  { href: '/check-ins/spending-style-quiz', label: "Spending Style Quiz", icon: Brain, color: '#6C5CE7' },
-                  { href: '/check-ins/savings-check-up', label: "Savings Check-up", icon: Wallet, color: '#e84393' },
-                  { href: '/check-ins/money-stress-quiz', label: "Money Stress Quiz", icon: Activity, color: '#F39C12' },
-                  { href: '/check-ins/investment-readiness', label: "Investment Readiness", icon: TrendingUp, color: '#00A884' },
-                ].map(item => (
-                  <Link key={item.href} href={item.href} style={{ 
-                    display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-4)',
-                    background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)',
-                    textDecoration: 'none', transition: 'all 0.2s ease'
-                  }} className="card-tap">
-                    <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-lg)', background: `${item.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <item.icon size={16} color={item.color} />
-                    </div>
-                    <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-primary)' }}>{t(item.label)}</span>
+          {/* Learn */}
+          <motion.div
+            className="mb-10"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.08 }}
+          >
+            <h2 className="text-lg font-semibold mb-5 text-[#0f172b]">{t("Learn")}</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {learnItems.map((item, i) => {
+                const ItemIcon = item.icon;
+                return (
+                  <Link key={item.title} href={item.route} className="block">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 + i * 0.04 }}
+                      whileHover={{ y: -4, shadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)" }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-white border border-[#E2E8F0] rounded-2xl p-5 h-full hover:border-[#CBD5E1] transition-all text-left group"
+                    >
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
+                        style={{ backgroundColor: themeBg }}
+                      >
+                        <ItemIcon size={24} style={{ color: themeColor }} strokeWidth={2} />
+                      </div>
+                      <p className="text-[14px] leading-tight text-[#1E293B] font-semibold">{t(item.title)}</p>
+                    </motion.div>
                   </Link>
-                ))}
-              </div>
+                );
+              })}
             </div>
+          </motion.div>
 
-            {/* Explore resources */}
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
-                <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Knowledge & Insights")}</h3>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
-                <div style={{ display: 'contents' }}>
-                  {[
-                    { href: '/explore/financial-tips', label: "Financial Tips", gradient: 'linear-gradient(135deg, #FDCB6E, #E17055)', icon: Sparkles },
-                    { href: '/explore/financial-stories', label: "Financial Stories", gradient: 'linear-gradient(135deg, #6C5CE7, #a29bfe)', icon: BookOpen },
-                    { href: '/explore/financial-articles', label: "Financial Articles", gradient: 'linear-gradient(135deg, #00A884, #55efc4)', icon: Compass },
-                    { href: '/explore/financial-faqs', label: "Financial FAQs", gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)', icon: Brain },
-                    { href: '/explore/financial-myths', label: "Financial Myths", gradient: 'linear-gradient(135deg, #e84393, #fd79a8)', icon: Star },
-                  ].map(item => (
-                    <Link key={item.href} href={item.href} style={{ 
-                      display: 'flex', flexDirection: 'column', gap: 8,
-                      padding: 'var(--space-5)', background: item.gradient, borderRadius: 'var(--radius-xl)',
-                      textDecoration: 'none', position: 'relative', overflow: 'hidden'
-                    }} className="card-tap">
-                      <item.icon size={20} color="white" style={{ marginBottom: 8 }} />
-                      <div style={{ color: 'white', fontWeight: 700, fontSize: 13 }}>{t(item.label)}</div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Academy */}
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-4)' }}>
-                <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)' }}>{t("Learning Academy")}</h3>
-                <Link href="/learn" style={{ fontSize: 'var(--text-xs)', fontWeight: 700, color: 'var(--brand-primary)' }}>{t("12 Modules")}</Link>
-              </div>
-              <div className="stack-3">
-                {featuredModules.map(mod => (
-                  <Link key={mod.href} href={mod.href} className="card card-tap" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 'var(--space-3) var(--space-4)', textDecoration: 'none' }}>
-                    <div style={{ width: 32, height: 32, borderRadius: 'var(--radius-lg)', background: mod.colorBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <mod.icon size={16} color={mod.color} />
-                    </div>
-                    <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', flex: 1 }}>{t(mod.label)}</span>
-                    <ArrowRight size={14} color="var(--text-faint)" />
+          {/* Check-ins */}
+          <motion.div
+            className="mb-10"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2 className="text-lg font-semibold mb-5 text-[#0f172b]">{t("Check-ins")}</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {checkinItems.map((item, i) => {
+                const ItemIcon = item.icon;
+                return (
+                  <Link key={item.title} href={item.route} className="block">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + i * 0.05 }}
+                      whileHover={{ y: -4 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-white border border-[#E2E8F0] rounded-2xl p-5 h-full hover:shadow-lg hover:border-[#CBD5E1] transition-all text-left group"
+                    >
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                        style={{ backgroundColor: themeBg }}
+                      >
+                        <ItemIcon size={24} style={{ color: themeColor }} strokeWidth={2} />
+                      </div>
+                      <p className="text-[14px] leading-tight text-[#1E293B] font-semibold">{t(item.title)}</p>
+                    </motion.div>
                   </Link>
-                ))}
-              </div>
+                );
+              })}
             </div>
-          </div>
-        </section>
+          </motion.div>
+
+          {/* Explore */}
+          <motion.div
+            className="mb-10"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <h2 className="text-lg font-semibold mb-5 text-[#0f172b]">{t("Explore")}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {exploreItems.map((item, i) => {
+                const ItemIcon = item.icon;
+                return (
+                  <Link key={item.title} href={item.route} className="block">
+                    <motion.div
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + i * 0.05 }}
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.99 }}
+                      className="flex items-center justify-between bg-white border border-[#E2E8F0] rounded-2xl p-5 hover:shadow-md hover:border-[#CBD5E1] transition-all group"
+                    >
+                      <div className="flex items-center gap-5">
+                        <div
+                          className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                          style={{ backgroundColor: themeBg }}
+                        >
+                          <ItemIcon size={24} style={{ color: themeColor }} strokeWidth={2} />
+                        </div>
+                        <div className="text-left">
+                          <p className="text-[#1E293B] text-base font-semibold">{t(item.title)}</p>
+                          <p className="text-xs text-[#94A3B8] mt-1">{t(item.desc)}</p>
+                        </div>
+                      </div>
+                      <ChevronRight size={20} className="text-[#CBD5E1] transition-colors group-hover:text-blue-500" />
+                    </motion.div>
+                  </Link>
+                );
+              })}
+            </div>
+          </motion.div>
+        </main>
       </div>
     </div>
   );

@@ -111,7 +111,7 @@ export default function BudgetPlanner() {
   const savePct = totalIncome > 0 ? (totalSavings / totalIncome) * 100 : 0;
 
   const chartData = [
-    { name: 'Needs', value: totalNeeds, color: '#6C5CE7', pct: Math.round(needsPct) },
+    { name: 'Needs', value: totalNeeds, color: '#2563EB', pct: Math.round(needsPct) },
     { name: 'Wants', value: totalWants, color: '#F39C12', pct: Math.round(wantsPct) },
     { name: 'Savings', value: totalSavings, color: '#00A884', pct: Math.round(savePct) },
     ...(surplus > 0 ? [{ name: 'Unallocated', value: surplus, color: '#E5E7EB', pct: Math.round((surplus / totalIncome) * 100) }] : []),
@@ -258,11 +258,11 @@ export default function BudgetPlanner() {
 
             <div style={{ marginBottom: 'var(--space-5)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 'var(--space-3)' }}>
-                <div style={{ width: 24, height: 24, borderRadius: 'var(--radius-md)', background: '#6C5CE715', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Home size={13} color="#6C5CE7" />
+                <div style={{ width: 24, height: 24, borderRadius: 'var(--radius-md)', background: '#2563EB15', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Home size={13} color="#2563EB" />
                 </div>
                 <span style={{ fontWeight: 700, fontSize: 'var(--text-sm)', color: 'var(--text-secondary)' }}>{t('Needs')}</span>
-                <span style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 700, color: '#6C5CE7' }}>{fmt.currency(totalNeeds, true)}</span>
+                <span style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 700, color: '#2563EB' }}>{fmt.currency(totalNeeds, true)}</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
                 {NEEDS_FIELDS.map(f => <InputRow key={f.key} icon={f.icon} label={f.label} fieldKey={f.key} />)}
@@ -320,7 +320,7 @@ export default function BudgetPlanner() {
             <div style={{ background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-5)', marginBottom: 'var(--space-4)', boxShadow: 'var(--shadow-xs)' }}>
               <p style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 'var(--text-sm)', marginBottom: 'var(--space-4)' }}>{t("50/30/20 Analysis")}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-                <PctBar label={t('Needs')} pct={needsPct} target={50} color="#6C5CE7" />
+                <PctBar label={t('Needs')} pct={needsPct} target={50} color="#2563EB" />
                 <PctBar label={t('Wants')} pct={wantsPct} target={30} color="#F39C12" />
                 <PctBar label={t('Savings')} pct={savePct} target={20} color="#00A884" />
               </div>

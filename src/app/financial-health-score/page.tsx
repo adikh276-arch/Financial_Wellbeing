@@ -41,7 +41,7 @@ const SCORE_LABELS = [
   { min: 0, max: 40, label: "Needs Attention", color: 'var(--brand-danger)', emoji: '⚠️', advice: 'Focus on emergency fund and stopping debt growth first.' },
   { min: 40, max: 60, label: "Getting Started", color: 'var(--brand-gold)', emoji: '🏗️', advice: 'Build your foundation: emergency fund -> debt -> savings.' },
   { min: 60, max: 75, label: "Fair", color: 'var(--brand-accent)', emoji: '⚖️', advice: 'You have basics covered. Optimize and accelerate.' },
-  { min: 75, max: 90, label: "Good", color: '#6C5CE7', emoji: '🌟', advice: 'Strong foundation. Time to build wealth aggressively.' },
+  { min: 75, max: 90, label: "Good", color: '#2563EB', emoji: '🌟', advice: 'Strong foundation. Time to build wealth aggressively.' },
   { min: 90, max: 101, label: "Excellent", color: 'var(--brand-success)', emoji: '🏆', advice: 'You are in an elite group. Maintain and mentor others.' },
 ];
 

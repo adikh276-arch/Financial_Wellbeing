@@ -11,7 +11,7 @@ import { LanguageSelector } from '@/components/LanguageSelector';
 
 const CATEGORY_META: Record<string, { color: string; bg: string }> = {
   Savings: { color: '#00A884', bg: '#00A88412' },
-  Budgeting: { color: '#6C5CE7', bg: '#6C5CE712' },
+  Budgeting: { color: '#2563EB', bg: '#2563EB12' },
   Debt: { color: '#E74C3C', bg: '#E74C3C12' },
   Investing: { color: '#0984e3', bg: '#0984e312' },
   Behavior: { color: '#F39C12', bg: '#F39C1212' },

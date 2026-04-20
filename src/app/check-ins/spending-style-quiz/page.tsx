@@ -41,7 +41,7 @@ const STYLES = [
     label: "The Equitable Optimizer",
     icon: Scale,
     color: 'var(--brand-primary)',
-    gradient: 'linear-gradient(135deg, #6C5CE7 0%, #8b7ff7 100%)',
+    gradient: 'linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)',
     description: 'You maintain a high-functioning equilibrium between current fulfillment and future security. An adaptable and pragmatic fiscal behavioral model.',
     strengths: ['Sustainable lifestyle balance', 'High adaptability to market shifts', 'Low psychological stress regarding money'],
     challenges: ['May lack aggressive growth momentum', 'Savings velocity might be inconsistent', 'Risk of "middle ground" stagnation'],

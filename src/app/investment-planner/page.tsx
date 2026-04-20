@@ -26,18 +26,18 @@ const RISK_PROFILES = {
     allocation: [
       { name: 'Fixed Income', value: 50, color: '#00A884' },
       { name: 'Bullion', value: 20, color: '#F39C12' },
-      { name: 'Equity', value: 20, color: '#6C5CE7' },
+      { name: 'Equity', value: 20, color: '#2563EB' },
       { name: 'Liquidity', value: 10, color: '#9CA3AF' },
     ],
     vehicles: ['Debt Mutual Funds', 'Sovereign Gold Bonds', 'PPF', 'NPS'],
     returnRange: '7-9%',
   },
   Moderate: {
-    return: 11, label: "BALANCED", color: '#6C5CE7',
-    gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
+    return: 11, label: "BALANCED", color: '#2563EB',
+    gradient: 'linear-gradient(135deg, #2563EB, #60A5FA)',
     desc: "Balanced. Mix of growth and stability.",
     allocation: [
-      { name: 'Equity', value: 50, color: '#6C5CE7' },
+      { name: 'Equity', value: 50, color: '#2563EB' },
       { name: 'Fixed Income', value: 25, color: '#00A884' },
       { name: 'Bullion', value: 15, color: '#F39C12' },
       { name: 'Liquidity', value: 10, color: '#9CA3AF' },
@@ -136,7 +136,7 @@ export default function InvestmentPlanner() {
           <PageHeader 
             title={t('Investment Planner')}
             backHref="/"
-            accentColor="#6C5CE7"
+            accentColor="#2563EB"
             rightSlot={step === 2 ? (
               <div style={{ display: 'flex', gap: 8 }}>
                 <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>

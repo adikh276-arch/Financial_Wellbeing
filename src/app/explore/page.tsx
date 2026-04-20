@@ -32,9 +32,9 @@ const sections = [
     label: "In-Depth Articles",
     desc: "Research-backed reads for financial mastery",
     icon: FileText,
-    gradient: 'linear-gradient(135deg, #6C5CE7, #8B7FF7)',
-    color: '#6C5CE7',
-    colorBg: '#6C5CE712',
+    gradient: 'linear-gradient(135deg, #2563EB, #60A5FA)',
+    color: '#2563EB',
+    colorBg: '#2563EB12',
     count: '8 articles',
   },
   {

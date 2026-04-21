@@ -22,13 +22,42 @@ import {
   CalendarCheck,
   Receipt,
   AlertCircle,
+  ArrowRight,
+  TrendingDown,
 } from "lucide-react";
 import Link from 'next/link';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 
-const themeColor = "#2563EB";
-const themeBg = "#EFF6FF";
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 }
+  }
+};
+
+const headerVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 }
+  }
+};
 
 const learnItems = [
   { title: "Budgeting Basics", icon: Wallet, route: "/learn/budgeting-basics" },
@@ -60,127 +89,138 @@ const exploreItems = [
   { title: "Financial Myths", icon: HelpCircle, route: "/explore/financial-myths", desc: "Common misconceptions about money" },
 ];
 
-// Note: Quick Tools are accessible via these routes but not displayed as buttons:
-// /investment-planner
-// /loan-emi-planner
-// /goal-planner
-// /budget-planner
-// /emergency-fund
-// /financial-health-score
-
 export default function FinancialWellnessDashboard() {
   const router = useRouter();
   const { t } = useTranslation();
 
   return (
-    <div className="flex min-h-screen bg-[#F9FAFB]">
-      <div className="flex-1 flex flex-col min-w-0">
-        <main className="dashboard-wrapper">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="dashboard-header"
+    <div className="min-h-screen">
+      <main className="dashboard-wrapper">
+        {/* Header */}
+        <motion.header
+          initial="hidden"
+          animate="visible"
+          variants={headerVariants}
+          className="dashboard-header"
+        >
+          <button
+            onClick={() => router.back()}
+            className="back-btn"
+            aria-label="Go back"
           >
-            <button
-              onClick={() => router.back()}
-              className="dashboard-back-btn"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            
-            <div className="dashboard-logo">
-              <DollarSign size={24} style={{ color: themeColor }} strokeWidth={2.5} />
-            </div>
+            <ChevronLeft size={22} />
+          </button>
+          
+          <div className="dashboard-logo">
+            <DollarSign size={28} strokeWidth={2.5} />
+          </div>
 
-            <div className="dashboard-title-section">
-              <h1 className="dashboard-title">{t("Financial Self-Care")}</h1>
-              <p className="dashboard-subtitle">
-                {t("Build healthier financial habits through content, reflection, and guidance.")}
-              </p>
-            </div>
+          <div className="dashboard-title-section">
+            <h1 className="dashboard-title">{t("Financial Self-Care")}</h1>
+            <p className="dashboard-subtitle">
+              {t("Build healthier financial habits through expert content, personal reflections, and smart tool guidance.")}
+            </p>
+          </div>
 
-            <div className="flex-shrink-0">
-              <LanguageSelector />
-            </div>
-          </motion.div>
+          <div className="flex-shrink-0">
+            <LanguageSelector />
+          </div>
+        </motion.header>
 
-          {/* Learn */}
+        {/* Learn Section */}
+        <section className="dashboard-section">
           <motion.div
-            className="dashboard-section"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
           >
-            <h2 className="dashboard-section-title">{t("Learn")}</h2>
+            <h2 className="dashboard-section-title">
+              <TrendingUp size={20} className="text-brand-primary" />
+              {t("Learn")}
+            </h2>
             <div className="dashboard-grid">
-              {learnItems.map((item, i) => {
+              {learnItems.map((item) => {
                 const ItemIcon = item.icon;
                 return (
-                  <Link key={item.title} href={item.route} className="dashboard-card animate-fade-in" style={{ animationDelay: `${0.1 + i * 0.05}s` }}>
-                    <div className="dashboard-card-icon">
-                      <ItemIcon size={24} strokeWidth={2} />
-                    </div>
-                    <p className="dashboard-card-title">{t(item.title)}</p>
-                  </Link>
+                  <motion.div key={item.title} variants={itemVariants}>
+                    <Link href={item.route} className="dashboard-card">
+                      <div className="dashboard-card-icon">
+                        <ItemIcon size={22} strokeWidth={2.2} />
+                      </div>
+                      <p className="dashboard-card-title">{t(item.title)}</p>
+                    </Link>
+                  </motion.div>
                 );
               })}
             </div>
           </motion.div>
+        </section>
 
-          {/* Check-ins */}
+        {/* Check-ins Section */}
+        <section className="dashboard-section">
           <motion.div
-            className="dashboard-section"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
           >
-            <h2 className="dashboard-section-title">{t("Check-ins")}</h2>
+            <h2 className="dashboard-section-title">
+              <CalendarCheck size={20} className="text-brand-primary" />
+              {t("Check-ins")}
+            </h2>
             <div className="dashboard-grid">
-              {checkinItems.map((item, i) => {
+              {checkinItems.map((item) => {
                 const ItemIcon = item.icon;
                 return (
-                  <Link key={item.title} href={item.route} className="dashboard-card animate-fade-in" style={{ animationDelay: `${0.2 + i * 0.05}s` }}>
-                    <div className="dashboard-card-icon">
-                      <ItemIcon size={24} strokeWidth={2} />
-                    </div>
-                    <p className="dashboard-card-title">{t(item.title)}</p>
-                  </Link>
+                  <motion.div key={item.title} variants={itemVariants}>
+                    <Link href={item.route} className="dashboard-card">
+                      <div className="dashboard-card-icon">
+                        <ItemIcon size={22} strokeWidth={2.2} />
+                      </div>
+                      <p className="dashboard-card-title">{t(item.title)}</p>
+                    </Link>
+                  </motion.div>
                 );
               })}
             </div>
           </motion.div>
+        </section>
 
-          {/* Explore */}
+        {/* Explore Section */}
+        <section className="dashboard-section">
           <motion.div
-            className="dashboard-section"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
           >
-            <h2 className="dashboard-section-title">{t("Explore")}</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16 }}>
-              {exploreItems.map((item, i) => {
+            <h2 className="dashboard-section-title">
+              <Compass size={20} className="text-brand-primary" />
+              {t("Explore")}
+            </h2>
+            <div className="stack-column">
+              {exploreItems.map((item) => {
                 const ItemIcon = item.icon;
                 return (
-                  <Link key={item.title} href={item.route} className="dashboard-explore-card animate-slide-in" style={{ animationDelay: `${0.3 + i * 0.05}s` }}>
-                    <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-                      <div className="dashboard-explore-icon">
-                        <ItemIcon size={24} strokeWidth={2} />
+                  <motion.div key={item.title} variants={itemVariants}>
+                    <Link href={item.route} className="explore-card">
+                      <div className="explore-icon-wrapper">
+                        <ItemIcon size={28} strokeWidth={2} />
                       </div>
-                      <div className="dashboard-explore-content">
-                        <p className="dashboard-explore-title">{t(item.title)}</p>
-                        <p className="dashboard-explore-desc">{t(item.desc)}</p>
+                      <div className="explore-content">
+                        <h3 className="explore-title">{t(item.title)}</h3>
+                        <p className="explore-desc">{t(item.desc)}</p>
                       </div>
-                    </div>
-                    <ChevronRight size={18} className="text-[#CBD5E1]" />
-                  </Link>
+                      <ChevronRight size={20} className="text-faint" />
+                    </Link>
+                  </motion.div>
                 );
               })}
             </div>
           </motion.div>
-        </main>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }

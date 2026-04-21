@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Globe, ChevronDown, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const LANGUAGES = [
   { code: 'en', label: 'English', nativeName: 'English', flag: '🇺🇸' },
@@ -63,81 +64,80 @@ export function LanguageSelector() {
     <div ref={dropdownRef} style={{ position: 'relative' }}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
+        className="lang-selector-btn"
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 8,
-          padding: '6px 12px',
+          gap: 10,
+          padding: '8px 14px',
           background: 'white',
-          border: '1px solid var(--border-subtle)',
-          borderRadius: 'var(--radius-full)',
+          border: '1px solid var(--border-default)',
+          borderRadius: 'var(--radius-md)',
           cursor: 'pointer',
           boxShadow: 'var(--shadow-sm)',
-          transition: 'all 0.2s ease',
-          fontSize: 'var(--text-sm)',
-          fontWeight: 600,
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          fontSize: '0.8125rem',
+          fontWeight: 700,
           color: 'var(--text-primary)',
           whiteSpace: 'nowrap'
         }}
       >
         <Globe size={16} color="var(--brand-primary)" />
-        <span style={{ fontSize: 13 }}>{currentLang.nativeName}</span>
-        <ChevronDown size={14} style={{ opacity: 0.5, transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+        <span>{currentLang.nativeName}</span>
+        <ChevronDown size={14} style={{ opacity: 0.5, transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }} />
       </button>
 
-      {isOpen && (
-        <div style={{
-          position: 'absolute',
-          top: 'calc(100% + 8px)',
-          right: 0,
-          width: 220,
-          maxHeight: 350,
-          overflowY: 'auto',
-          background: 'white',
-          border: '1px solid var(--border-subtle)',
-          borderRadius: 'var(--radius-lg)',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
-          padding: 6,
-          zIndex: 1000,
-          animation: 'fadeInScale 0.2s ease',
-          scrollbarWidth: 'thin',
-          scrollbarColor: 'var(--border-subtle) transparent'
-        }}>
-          {LANGUAGES.map((l) => (
-            <button
-              key={l.code}
-              onClick={() => changeLanguage(l.code)}
-              style={{
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '8px 12px',
-                border: 'none',
-                background: i18n.language === l.code ? 'var(--brand-primary-glow)' : 'transparent',
-                borderRadius: 'var(--radius-md)',
-                cursor: 'pointer',
-                textAlign: 'left',
-                fontSize: 13,
-                fontWeight: i18n.language === l.code ? 700 : 500,
-                color: i18n.language === l.code ? 'var(--brand-primary)' : 'var(--text-secondary)',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              <span style={{ fontSize: 16 }}>{l.flag}</span>
-              <span style={{ flex: 1 }}>{l.nativeName}</span>
-              {i18n.language === l.code && <Check size={14} />}
-            </button>
-          ))}
-        </div>
-      )}
-
-      <style jsx global>{`
-        @keyframes fadeInScale {
-          from { opacity: 0; transform: translateY(-10px) scale(0.95); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-      `}</style>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            style={{
+              position: 'absolute',
+              top: 'calc(100% + 12px)',
+              right: 0,
+              width: 220,
+              maxHeight: 380,
+              overflowY: 'auto',
+              background: 'white',
+              border: '1px solid var(--border-default)',
+              borderRadius: 'var(--radius-lg)',
+              boxShadow: 'var(--shadow-lg)',
+              padding: 6,
+              zIndex: 1000,
+            }}
+          >
+            {LANGUAGES.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => changeLanguage(l.code)}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  padding: '10px 14px',
+                  border: 'none',
+                  background: i18n.language === l.code ? 'var(--brand-primary-glow)' : 'transparent',
+                  borderRadius: 'var(--radius-md)',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  fontSize: '0.8125rem',
+                  fontWeight: i18n.language === l.code ? 700 : 500,
+                  color: i18n.language === l.code ? 'var(--brand-primary)' : 'var(--text-secondary)',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span style={{ fontSize: 18 }}>{l.flag}</span>
+                <span style={{ flex: 1 }}>{l.nativeName}</span>
+                {i18n.language === l.code && <Check size={16} />}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

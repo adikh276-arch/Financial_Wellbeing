@@ -1,11 +1,10 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* ============================================================
    FINANCIAL WELLNESS — PREMIUM DESIGN SYSTEM v4
    Inspired by CRED, Linear, Notion — Clean Fintech Aesthetic
    ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
   /* Brand Colors - Sophisticated Blue & Teal */
@@ -341,6 +340,22 @@ h1, h2, h3, h4 {
 /* Remove old 'striking' animations */
 .animate-fade-in, .animate-slide-in {
   animation: none !important;
+}
+
+/* Subtle Hover Effects */
+.tap-active:active {
+  transform: scale(0.97);
+}
+
+/* Smooth Pulse for Highlights */
+@keyframes soft-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.2); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.pulse-highlight {
+  animation: soft-pulse 2s infinite;
 }
 
 /* ============================================================

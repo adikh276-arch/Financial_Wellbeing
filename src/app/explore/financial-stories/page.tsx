@@ -86,7 +86,7 @@ export default function FinancialStories() {
                     <div style={{ flex: 1, minWidth: '280px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', flexWrap: 'wrap', marginBottom: 'var(--space-4)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <div style={{ width: 32, height: 32, borderRadius: 'full', background: 'var(--bg-base)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--bg-base)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <User size={16} className="text-muted" />
                           </div>
                           <span className="heading-sm" style={{ color: 'var(--text-primary)' }}>{t(story.name)}</span>
@@ -125,16 +125,17 @@ export default function FinancialStories() {
                       <div style={{ position: 'relative' }}>
                         <Quote size={32} style={{ position: 'absolute', top: -10, left: -40, opacity: 0.05, color: story.color }} />
                         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.9375rem', fontWeight: 500, fontStyle: 'italic' }}>
-                          "{t(story.story)}"
+                          &ldquo;{t(story.story)}&rdquo;
                         </p>
                       </div>
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </main>
-      </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </main>
+    </div>
   );
 }

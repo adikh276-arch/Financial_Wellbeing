@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams, useParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { LanguageSelector } from '../LanguageSelector';
 
 interface PageHeaderProps {
@@ -31,20 +31,16 @@ export function PageHeader({
   showLanguage = true,
 }: PageHeaderProps) {
   const { t } = useTranslation();
-  const { slug } = useParams();
   const searchParams = useSearchParams();
   const label = backLabel || t('back');
 
   const query = searchParams.toString();
   const suffix = query ? `?${query}` : '';
 
-  // Ensure backHref is prefixed with slug if it's just "/"
-  const finalBackHref = backHref === "/" ? `/${slug}${suffix}` : `${backHref}${suffix}`;
-
   return (
     <div className="page-header-bar">
       <div className="page-header-inner">
-        <Link href={finalBackHref} className="back-btn" aria-label={label}>
+        <Link href={`${backHref}${suffix}`} className="back-btn" aria-label={label}>
           <ChevronLeft size={18} />
         </Link>
 

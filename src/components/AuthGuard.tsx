@@ -35,11 +35,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
       const fullPath = pathname + window.location.search;
       localStorage.setItem(REDIRECT_KEY, fullPath);
       
-      // Extract slug from pathname
-      const pathParts = pathname.split('/').filter(Boolean);
-      const currentSlug = pathParts[0] || 'financial_wellbeing';
-      
-      const authUrl = `https://web.mantracare.com/app/financial_wellbeing?redirect_url=${window.location.origin}/${currentSlug}`;
+      const authUrl = `https://web.mantracare.com/app/financial_wellbeing?redirect_url=${window.location.origin}/financial_wellbeing`;
       console.log("Unauthenticated. Capturing path and redirecting to Auth Portal:", fullPath);
       window.location.href = authUrl;
       return;

@@ -28,7 +28,6 @@ jobs:
         tags: |
           bunker.mantracare.com/lovable/financial_wellbeing:1.1
           bunker.mantracare.com/lovable/financial_wellbeing:latest
-          bunker.mantracare.com/lovable/Financial_Wellbeing:1.1
           bunker.mantracare.com/lovable/financial-wellness:1.1
         cache-from: type=gha
         cache-to: type=gha,mode=max

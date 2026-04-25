@@ -119,7 +119,7 @@ export default function FinancialHealthScore() {
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Financial Health Score')}
         backHref="/"

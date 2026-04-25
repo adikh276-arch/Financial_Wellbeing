@@ -111,7 +111,7 @@ export default function GoalPlanner() {
   }).length;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Goal Planner')} 
         backHref="/"

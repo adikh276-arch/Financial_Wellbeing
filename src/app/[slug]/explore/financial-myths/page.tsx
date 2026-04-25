@@ -26,7 +26,7 @@ const VERDICT_CONFIG = {
 export default function FinancialMyths() {
   const { t } = useTranslation();
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <div className="topbar">
         <div style={{ width: 44, height: 44, borderRadius: '12px', background: 'var(--brand-danger)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(225,112,85,0.3)' }}>
           <AlertCircle size={20} color="white" />

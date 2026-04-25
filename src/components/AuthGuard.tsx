@@ -35,7 +35,11 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
       const fullPath = pathname + window.location.search;
       localStorage.setItem(REDIRECT_KEY, fullPath);
       
-      const authUrl = `https://web.mantracare.com/app/financial_wellbeing?redirect_url=${window.location.origin}/financial_wellbeing`;
+      // Extract slug from pathname
+      const pathParts = pathname.split('/').filter(Boolean);
+      const currentSlug = pathParts[0] || 'financial_wellbeing';
+      
+      const authUrl = `https://web.mantracare.com/app/financial_wellbeing?redirect_url=${window.location.origin}/${currentSlug}`;
       console.log("Unauthenticated. Capturing path and redirecting to Auth Portal:", fullPath);
       window.location.href = authUrl;
       return;
@@ -90,7 +94,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
 
   if (!isAuthorized) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-base)' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-page)' }}>
         <p style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>Authenticating...</p>
       </div>
     );

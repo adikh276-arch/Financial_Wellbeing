@@ -85,7 +85,7 @@ export default function MoneyStressQuiz() {
   const progress = step > 0 && step <= QUESTIONS.length ? ((step - 1) / QUESTIONS.length) * 100 : 0;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Money Stress Quiz')}
         backHref="/"

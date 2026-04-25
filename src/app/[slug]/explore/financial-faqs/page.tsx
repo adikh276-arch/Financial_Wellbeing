@@ -22,7 +22,7 @@ export default function FinancialFAQs() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <div className="topbar">
          <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,177,177,0.3)' }}>
             <MessageCircle size={20} color="white" />

@@ -68,7 +68,7 @@ export default function InvestmentReadiness() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Investment Readiness')}
         backHref="/"

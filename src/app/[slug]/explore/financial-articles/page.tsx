@@ -54,7 +54,7 @@ Generated on: ${new Date().toLocaleDateString()}
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <div className="topbar">
         <div style={{ width: 44, height: 44, borderRadius: '12px', background: 'var(--brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-brand)' }}>
           <BookOpen size={20} color="white" />

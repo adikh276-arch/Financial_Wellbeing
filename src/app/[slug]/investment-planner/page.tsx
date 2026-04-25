@@ -129,7 +129,7 @@ export default function InvestmentPlanner() {
   const totalInvested = form.amount + form.monthly * form.period * 12;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
         {true && (

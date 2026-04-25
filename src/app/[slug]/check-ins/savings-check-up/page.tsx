@@ -66,7 +66,7 @@ export default function SavingsCheckup() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Savings Check-up')}
         backHref="/"

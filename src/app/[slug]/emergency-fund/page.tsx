@@ -106,7 +106,7 @@ export default function EmergencyFund() {
   const status = getStatusLabel();
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t("Emergency Fund Builder")}
         backHref="/"

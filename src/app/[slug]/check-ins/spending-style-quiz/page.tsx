@@ -115,7 +115,7 @@ export default function SpendingStyleQuiz() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Spending Style Quiz')}
         backHref="/"

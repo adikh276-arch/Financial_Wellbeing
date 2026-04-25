@@ -140,7 +140,7 @@ export default function LoanEMIPlanner() {
   const interestPercent = result ? ((result.interest / result.total) * 100).toFixed(1) : 0;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       {/* Navigation removed as per requirement */}
 
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-16)' }}>

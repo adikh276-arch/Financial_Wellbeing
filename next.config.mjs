@@ -2,7 +2,6 @@
 const nextConfig = {
   output: "standalone",
   basePath: "/financial_wellbeing",
-  assetPrefix: "/financial_wellbeing",
   images: {
     unoptimized: true,
   },

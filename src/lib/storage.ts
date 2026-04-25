@@ -1,5 +1,5 @@
 // ============================================================
-// LOCAL STORAGE UTILITY — Financial Wellness
+// LOCAL STORAGE UTILITY — Financial Wellbeing
 // ============================================================
 
 export const storage = {

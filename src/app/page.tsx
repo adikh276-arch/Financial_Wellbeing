@@ -88,7 +88,7 @@ const exploreItems = [
 ];
 
 /* ─── Component ─── */
-export default function FinancialWellnessDashboard() {
+export default function FinancialWellbeingDashboard() {
   const router = useRouter();
   const { t } = useTranslation();
 

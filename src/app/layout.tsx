@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   keywords: 'financial wellness, budget planner, investment planner, EMI calculator, goal planner',
   icons: {
     icon: [
-      { url: '/financial_wellbeing/favicon.png' },
+      { url: '/favicon.png' },
     ],
     apple: [
-      { url: '/financial_wellbeing/favicon.png' },
+      { url: '/favicon.png' },
     ],
   },
 };

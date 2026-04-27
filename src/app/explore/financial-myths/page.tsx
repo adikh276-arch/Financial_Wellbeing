@@ -84,9 +84,10 @@ export default function FinancialMyths() {
                   </div>
                 </div>
               </div>
-          })}
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 }

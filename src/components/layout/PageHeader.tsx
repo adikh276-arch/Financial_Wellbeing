@@ -5,7 +5,6 @@ import { ChevronLeft } from 'lucide-react';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
-import { LanguageSelector } from '../LanguageSelector';
 
 interface PageHeaderProps {
   title: string;
@@ -16,7 +15,6 @@ interface PageHeaderProps {
   rightSlot?: ReactNode;
   steps?: string[];
   currentStep?: number;
-  showLanguage?: boolean;
 }
 
 export function PageHeader({
@@ -28,7 +26,6 @@ export function PageHeader({
   rightSlot,
   steps,
   currentStep = 0,
-  showLanguage = true,
 }: PageHeaderProps) {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
@@ -69,7 +66,6 @@ export function PageHeader({
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
           {rightSlot}
-          {showLanguage && <LanguageSelector />}
         </div>
       </div>
 

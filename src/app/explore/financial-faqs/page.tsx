@@ -5,8 +5,9 @@ import {
   HelpCircle, ChevronDown, ChevronUp, Search, 
   Wallet, Shield, TrendingUp, CreditCard, Brain, Zap, Clock, BookOpen, MessageCircle
 } from 'lucide-react';
-import { LanguageSelector } from '@/components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 const FAQS = [
   { q: "How much emergency fund is ideal?", a: "A standard recommendation is 3-6 months of essential living expenses. If your income is volatile or you work in a niche industry, consider 9-12 months for extreme security.", icon: Shield },
@@ -22,42 +23,70 @@ export default function FinancialFAQs() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
-      <div className="topbar">
-         <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,177,177,0.3)' }}>
-            <MessageCircle size={20} color="white" />
-         </div>
-         <h1 className="heading-md">{t("Common Questions")}</h1>
-      </div>
+    <div className="page-wrapper">
+      <PageHeader 
+        title="Financial FAQs"
+        subtitle="Answers to common money questions"
+        backHref="/explore"
+        accentColor="var(--brand-accent)"
+      />
 
-      <div className="page-wrapper">
-        <div style={{ marginBottom: 'var(--space-8)' }}>
-           <h2 className="display-sm" style={{ marginBottom: 4 }}>{t("Expert Clarity")}</h2>
-           <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>{t("Answers to the most frequent financial inquiries from our community.")}</p>
-        </div>
-
-        <div className="stack-4">
+      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
+        <div className="stack-column" style={{ gap: '12px' }}>
           {FAQS.map((faq, i) => (
-             <div key={i} className="card" style={{ border: openIdx === i ? '1px solid var(--brand-accent)' : '1px solid var(--border-subtle)', overflow: 'hidden' }}>
+             <div 
+               key={i} 
+               className="action-card" 
+               style={{ 
+                 overflow: 'hidden', 
+                 padding: 0,
+                 border: openIdx === i ? '1px solid var(--brand-accent)' : '1px solid var(--border-subtle)',
+                 transition: 'all 0.3s ease'
+               }}
+             >
                 <button 
                   onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                  style={{ width: '100%', padding: 'var(--space-5) var(--space-6)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: openIdx === i ? 'var(--bg-card-hover)' : 'white', border: 'none', cursor: 'pointer', textAlign: 'left' }}
+                  style={{ 
+                    width: '100%', 
+                    padding: '24px', 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center', 
+                    background: openIdx === i ? 'var(--bg-base)' : 'transparent',
+                    transition: 'background 0.3s ease'
+                  }}
                 >
-                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                      <faq.icon size={18} color="var(--brand-accent)" />
-                      <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>{faq.q}</span>
+                   <div className="flex items-center gap-4">
+                      <div className="card-icon-box" style={{ 
+                        width: '40px', height: '40px', marginBottom: 0, 
+                        background: openIdx === i ? 'var(--brand-accent)' : 'var(--bg-base)',
+                        color: openIdx === i ? 'white' : 'var(--brand-accent)'
+                      }}>
+                        <faq.icon size={20} />
+                      </div>
+                      <span style={{ fontWeight: 800, fontSize: '16px', color: 'var(--text-primary)' }}>{t(faq.q)}</span>
                    </div>
-                   {openIdx === i ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                   {openIdx === i ? <ChevronUp size={20} className="text-muted" /> : <ChevronDown size={20} className="text-muted" />}
                 </button>
-                {openIdx === i && (
-                  <div style={{ padding: 'var(--space-5) var(--space-6)', background: 'white', borderTop: '1px solid var(--border-subtle)', animation: 'fadeIn 0.25s ease' }}>
-                     <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7 }}>{faq.a}</p>
-                  </div>
-                )}
+                
+                <AnimatePresence>
+                  {openIdx === i && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div style={{ padding: '0 24px 24px 80px', color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '15px', fontWeight: 500 }}>
+                         {t(faq.a)}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
              </div>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 }

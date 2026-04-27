@@ -1,7 +1,6 @@
 'use client';
 import { useTranslation } from 'react-i18next';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { LanguageSelector } from '@/components/LanguageSelector';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Lightbulb, HelpCircle, BookOpen, MessageSquare, FileText, ChevronLeft, ChevronRight, Sparkles, Compass } from 'lucide-react';
@@ -88,9 +87,6 @@ export default function ExploreHub() {
             </p>
           </div>
 
-          <div className="flex-shrink-0">
-            <LanguageSelector />
-          </div>
         </motion.header>
 
         {/* Feature Banner */}
@@ -136,29 +132,19 @@ export default function ExploreHub() {
             const Icon = section.icon;
             return (
               <motion.div key={section.href} variants={itemVariants}>
-                <Link href={`${section.href}${suffix}`} style={{ textDecoration: 'none' }}>
-                  <div className="explore-card">
-                    <div className="explore-icon-wrapper">
-                      <Icon size={28} strokeWidth={2.2} />
+                <Link href={`${section.href}${suffix}`}>
+                  <div className="action-card" style={{ padding: '24px', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
+                    <div className="card-icon-box" style={{ marginBottom: 0, width: '56px', height: '56px' }}>
+                      <Icon size={28} />
                     </div>
-                    <div className="explore-content">
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-                        <h3 className="explore-title">{t(section.label)}</h3>
-                        <span style={{ 
-                          fontSize: '0.6875rem', 
-                          fontWeight: 800, 
-                          color: 'var(--brand-primary)', 
-                          background: 'var(--brand-primary-glow)',
-                          padding: '2px 8px',
-                          borderRadius: 'var(--radius-full)',
-                          textTransform: 'uppercase'
-                        }}>
-                          {t(section.count)}
-                        </span>
+                    <div style={{ flex: 1 }}>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h3 style={{ fontSize: '18px', fontWeight: 800 }}>{t(section.label)}</h3>
+                        <span className="badge-pill">{t(section.count)}</span>
                       </div>
-                      <p className="explore-desc">{t(section.desc)}</p>
+                      <p className="card-desc">{t(section.desc)}</p>
                     </div>
-                    <ChevronRight size={20} className="text-faint" />
+                    <ChevronRight size={20} className="text-muted" />
                   </div>
                 </Link>
               </motion.div>

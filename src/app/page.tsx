@@ -26,7 +26,6 @@ import {
   Zap,
 } from 'lucide-react';
 import Link from 'next/link';
-import { LanguageSelector } from '@/components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 
 /* ─── Animation Variants ─── */
@@ -122,9 +121,6 @@ export default function FinancialWellbeingDashboard() {
             </p>
           </div>
 
-          <div style={{ flexShrink: 0 }}>
-            <LanguageSelector />
-          </div>
         </motion.header>
 
         {/* ─── Learn Section ─── */}

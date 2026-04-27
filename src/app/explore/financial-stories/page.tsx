@@ -1,9 +1,8 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Trophy, Target, TrendingUp, Rocket, Gem, Zap, ChevronLeft, MapPin, Quote, User } from 'lucide-react';
-import { LanguageSelector } from '@/components/LanguageSelector';
+import { Trophy, Target, TrendingUp, Rocket, Gem, Zap, MapPin, Quote, User } from 'lucide-react';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 const STORIES = [
   { id: 'sarah', name: 'Sarah, 29', city: 'London', income: '6,000', achievement: 'Achieved Debt-Free Status', story: "I used to feel overwhelmed by my student loans. The systematic approach I learned here helped me clear £15k in just 18 months. Now I'm finally building my emergency fund!", color: '#2563EB', icon: Trophy },
@@ -29,102 +28,64 @@ const itemVariants = {
 
 export default function FinancialStories() {
   const { t } = useTranslation();
-  const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
-      <main className="dashboard-wrapper">
-        {/* Header */}
-        <motion.header 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="dashboard-header"
-        >
-          <button onClick={() => router.back()} className="back-btn" aria-label="Go back">
-            <ChevronLeft size={22} />
-          </button>
-          
-          <div className="dashboard-logo">
-            <Trophy size={28} strokeWidth={2.5} />
-          </div>
+    <div className="page-wrapper">
+      <PageHeader 
+        title="Financial Stories"
+        subtitle="Real experiences from people like you"
+        backHref="/explore"
+        accentColor="var(--brand-primary)"
+      />
 
-          <div className="dashboard-title-section">
-            <h1 className="dashboard-title">{t("Real Stories")}</h1>
-            <p className="dashboard-subtitle">
-              {t("Authentic journeys of financial transformation and mastery.")}
-            </p>
-          </div>
-
-          <div className="flex-shrink-0">
-            <LanguageSelector />
-          </div>
-        </motion.header>
-
-        {/* Stories List */}
+      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
         <motion.div 
           className="stack-column"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          style={{ gap: 'var(--space-6)' }}
+          style={{ gap: '20px' }}
         >
           {STORIES.map((story) => {
             const Icon = story.icon;
             return (
               <motion.div key={story.id} variants={itemVariants}>
-                <div className="card-base" style={{ padding: 'var(--space-8)', borderLeft: `6px solid ${story.color}` }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-8)', flexWrap: 'wrap' }}>
-                    <div style={{
-                      width: 64, height: 64, borderRadius: 'var(--radius-lg)',
-                      background: `${story.color}10`,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: story.color, flexShrink: 0
+                <div className="action-card" style={{ padding: '32px', borderLeft: `6px solid ${story.color}` }}>
+                  <div className="flex items-start gap-8 flex-wrap">
+                    <div className="card-icon-box" style={{ 
+                      width: 64, height: 64, 
+                      background: `${story.color}10`, 
+                      color: story.color, 
+                      marginBottom: 0,
+                      borderRadius: '16px'
                     }}>
-                      <Icon size={32} strokeWidth={2.2} />
+                      <Icon size={32} />
                     </div>
 
                     <div style={{ flex: 1, minWidth: '280px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', flexWrap: 'wrap', marginBottom: 'var(--space-4)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <div className="flex items-center gap-4 flex-wrap mb-4">
+                        <div className="flex items-center gap-2">
                           <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--bg-base)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <User size={16} className="text-muted" />
                           </div>
-                          <span className="heading-sm" style={{ color: 'var(--text-primary)' }}>{t(story.name)}</span>
+                          <span style={{ fontWeight: 800, fontSize: '18px' }}>{t(story.name)}</span>
                         </div>
-                        <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontSize: '14px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
                           <MapPin size={14} /> {t(story.city)}
                         </span>
-                        <span style={{ 
-                          fontSize: '0.75rem', 
-                          fontWeight: 700, 
-                          color: story.color, 
-                          background: `${story.color}10`,
-                          padding: '4px 10px',
-                          borderRadius: 'var(--radius-full)',
-                        }}>
+                        <span className="badge-pill" style={{ background: `${story.color}10`, color: story.color }}>
                           {t('Income: ${{income}} / mo', { income: story.income })}
                         </span>
                       </div>
 
-                      <div style={{ 
-                        padding: '12px 16px', 
-                        background: 'var(--bg-base)', 
-                        border: '1px solid var(--border-subtle)', 
-                        borderRadius: 'var(--radius-md)', 
-                        marginBottom: 'var(--space-6)', 
-                        display: 'inline-flex', 
-                        alignItems: 'center', 
-                        gap: 10 
-                      }}>
+                      <div className="badge-pill" style={{ marginBottom: '20px', display: 'inline-flex', gap: 10, background: 'var(--bg-base)', border: '1px solid var(--border-subtle)', borderRadius: '8px' }}>
                         <Trophy size={16} color={story.color} />
-                        <div style={{ fontWeight: 800, color: story.color, fontSize: '0.8125rem', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-                          {t(story.achievement)}
-                        </div>
+                        <span style={{ fontWeight: 800, color: story.color }}>{t(story.achievement)}</span>
                       </div>
 
                       <div style={{ position: 'relative' }}>
                         <Quote size={32} style={{ position: 'absolute', top: -10, left: -40, opacity: 0.05, color: story.color }} />
-                        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.9375rem', fontWeight: 500, fontStyle: 'italic' }}>
+                        <p style={{ color: 'var(--text-primary)', lineHeight: 1.8, fontSize: '16px', fontWeight: 500, fontStyle: 'italic' }}>
                           &ldquo;{t(story.story)}&rdquo;
                         </p>
                       </div>

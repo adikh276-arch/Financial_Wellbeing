@@ -4,7 +4,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CheckSquare, Heart, Activity, TrendingUp, ChevronRight, ChevronLeft, Star, ActivityIcon, ClipboardCheck } from 'lucide-react';
-import { LanguageSelector } from '@/components/LanguageSelector';
 
 const checkIns = [
   {
@@ -93,9 +92,6 @@ export default function CheckInsHub() {
             </p>
           </div>
 
-          <div className="flex-shrink-0">
-            <LanguageSelector />
-          </div>
         </motion.header>
 
         {/* Hero Banner */}

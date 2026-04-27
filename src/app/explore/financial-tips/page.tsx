@@ -8,7 +8,7 @@ import {
   Sparkles, Compass, Lightbulb, ChevronLeft
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { LanguageSelector } from '@/components/LanguageSelector';
+import { PageHeader } from '@/components/layout/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const CATEGORY_META: Record<string, { color: string; bg: string }> = {
@@ -57,33 +57,15 @@ export default function FinancialTips() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
-      <main className="dashboard-wrapper">
-        <motion.header 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="dashboard-header"
-        >
-          <button onClick={() => router.back()} className="back-btn" aria-label="Go back">
-            <ChevronLeft size={22} />
-          </button>
-          
-          <div className="dashboard-logo" style={{ color: '#F59E0B' }}>
-            <Lightbulb size={28} strokeWidth={2.5} />
-          </div>
+    <div className="page-wrapper">
+      <PageHeader 
+        title="Financial Tips"
+        subtitle="Quick ideas to improve your money habits"
+        backHref="/explore"
+        accentColor="#F59E0B"
+      />
 
-          <div className="dashboard-title-section">
-            <h1 className="dashboard-title">{t("Strategic Tips")}</h1>
-            <p className="dashboard-subtitle">
-              {t("High-impact tactical moves to optimize your financial trajectory.")}
-            </p>
-          </div>
-
-          <div className="flex-shrink-0">
-            <LanguageSelector />
-          </div>
-        </motion.header>
-
+      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
         <div className="chip-row" style={{ marginBottom: 'var(--space-8)' }}>
           {categories.map(cat => (
             <button 
@@ -102,6 +84,7 @@ export default function FinancialTips() {
           initial="hidden"
           animate="visible"
           key={filter}
+          style={{ gap: '16px' }}
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((tip, i) => {
@@ -110,44 +93,34 @@ export default function FinancialTips() {
               
               return (
                 <motion.div 
-                  key={i} 
+                  key={tip.tip} 
                   variants={itemVariants}
                   layout
                   initial="hidden"
                   animate="visible"
                   exit={{ opacity: 0, scale: 0.95 }}
                 >
-                  <div className="card-base" style={{ padding: 'var(--space-6)' }}>
-                    <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', gap: 10, marginBottom: 10, alignItems: 'center' }}>
-                          <span style={{ 
-                            fontSize: '0.6875rem', 
-                            fontWeight: 800, 
-                            color: meta.color, 
-                            background: meta.bg,
-                            padding: '2px 8px',
-                            borderRadius: 'var(--radius-full)',
-                            textTransform: 'uppercase'
-                          }}>
-                            {t(tip.category)}
-                          </span>
-                          <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                            {t(tip.label)}
-                          </span>
-                        </div>
-                        <p style={{ fontSize: '1rem', color: 'var(--text-primary)', lineHeight: 1.6, fontWeight: 500 }}>
-                          {t(tip.tip)}
-                        </p>
+                  <div className="action-card" style={{ padding: '24px', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
+                    <div style={{ flex: 1 }}>
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="badge-pill" style={{ background: meta.bg, color: meta.color }}>
+                          {t(tip.category)}
+                        </span>
+                        <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                          {t(tip.label)}
+                        </span>
                       </div>
-                      <button 
-                        onClick={() => handleCopy(tip.tip)} 
-                        className="back-btn" 
-                        style={{ width: 36, height: 36, flexShrink: 0 }}
-                      >
-                        {isCopied ? <CheckIcon size={14} color="var(--brand-success)" /> : <Copy size={14} />}
-                      </button>
+                      <p style={{ fontSize: '16px', color: 'var(--text-primary)', lineHeight: 1.6, fontWeight: 500 }}>
+                        {t(tip.tip)}
+                      </p>
                     </div>
+                    <button 
+                      onClick={() => handleCopy(tip.tip)} 
+                      className="back-btn" 
+                      style={{ width: 44, height: 44, flexShrink: 0, background: 'var(--bg-base)' }}
+                    >
+                      {isCopied ? <CheckIcon size={18} color="var(--brand-success)" /> : <Copy size={18} />}
+                    </button>
                   </div>
                 </motion.div>
               );

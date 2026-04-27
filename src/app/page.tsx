@@ -24,6 +24,7 @@ import {
   AlertCircle,
   BookOpen,
   Zap,
+  History,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
@@ -153,7 +154,7 @@ export default function FinancialWellbeingDashboard() {
           </motion.div>
         </section>
 
-        {/* ─── Check-ins Section ─── */}
+        {/* ─── Check-ins & History Section ─── */}
         <section className="dashboard-section">
           <motion.div
             initial="hidden"
@@ -161,10 +162,17 @@ export default function FinancialWellbeingDashboard() {
             viewport={{ once: true, margin: '-60px' }}
             variants={containerVariants}
           >
-            <motion.h2 className="dashboard-section-title" variants={itemVariants}>
-              <Zap size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
-              {t('Check-ins')}
-            </motion.h2>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
+              <motion.h2 className="dashboard-section-title" variants={itemVariants} style={{ marginBottom: 0 }}>
+                <Zap size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
+                {t('Check-ins')}
+              </motion.h2>
+              <motion.div variants={itemVariants}>
+                <Link href="/history" className="btn btn-ghost btn-sm" style={{ gap: 6, fontSize: 12 }}>
+                  <History size={14} /> {t('View History')}
+                </Link>
+              </motion.div>
+            </div>
             <div className="dashboard-grid">
               {checkinItems.map((item) => {
                 const Icon = item.icon;

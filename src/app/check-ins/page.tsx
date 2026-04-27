@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CheckSquare, Heart, Activity, TrendingUp, ChevronRight, ChevronLeft, Star, ActivityIcon, ClipboardCheck } from 'lucide-react';
+import { CheckSquare, Heart, Activity, TrendingUp, ChevronRight, ChevronLeft, Star, ActivityIcon, ClipboardCheck, History } from 'lucide-react';
 
 const checkIns = [
   {
@@ -91,6 +91,10 @@ export default function CheckInsHub() {
               {t("Personalized diagnostics to reveal your financial strengths and opportunities.")}
             </p>
           </div>
+
+          <Link href="/history" className="btn btn-ghost btn-sm" style={{ gap: 6, fontSize: 12, marginLeft: 'auto' }}>
+            <History size={14} /> {t('History')}
+          </Link>
 
         </motion.header>
 

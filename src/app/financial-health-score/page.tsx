@@ -123,6 +123,11 @@ export default function FinancialHealthScore() {
       <PageHeader 
         title={t('Financial Health Score')}
         backHref="/"
+        historyKey="health_score"
+        onRestore={(restored) => {
+          // Score results are usually just a snapshot, we show the results step
+          setStep(totalQuestions);
+        }}
         rightSlot={step === totalQuestions ? (
           <div style={{ display: 'flex', gap: 8 }}>
             <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>

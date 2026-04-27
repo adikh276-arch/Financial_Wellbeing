@@ -137,6 +137,11 @@ export default function InvestmentPlanner() {
             title={t('Investment Planner')}
             backHref="/"
             accentColor="#2563EB"
+            historyKey="investment_form"
+            onRestore={(restored) => {
+              setForm(restored);
+              setStep(2);
+            }}
             rightSlot={step === 2 ? (
               <div style={{ display: 'flex', gap: 8 }}>
                 <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>

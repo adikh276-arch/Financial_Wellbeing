@@ -78,6 +78,12 @@
   --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.04);
   --shadow-lg: 0 10px 20px -3px rgba(0,0,0,0.08), 0 4px 8px -4px rgba(0,0,0,0.04);
   --shadow-premium: 0 20px 40px -8px rgba(37,99,235,0.12), 0 8px 16px -4px rgba(0,0,0,0.04);
+  --shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.03);
+  --shadow-card-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
+
+  /* ─── Gradients ─── */
+  --gradient-brand: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+  --gradient-surface: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,252,1) 100%);
 }
 
 /* ============================================================
@@ -241,92 +247,222 @@ button { cursor: pointer; font-family: var(--font-body); }
 .dashboard-card {
   background: var(--bg-card);
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6) var(--space-4);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-3);
   text-decoration: none;
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  text-align: center;
+  box-shadow: var(--shadow-card);
 }
 
 .dashboard-card:hover {
   border-color: var(--brand-primary-light);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+  background: var(--bg-card);
 }
 
 .dashboard-card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-xl);
   background: var(--brand-primary-bg);
   color: var(--brand-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(37,99,235,0.08);
 }
 
 .dashboard-card:hover .dashboard-card-icon {
   background: var(--brand-primary);
   color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(37,99,235,0.2);
 }
 
 .dashboard-card-title {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-primary);
   line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 /* ─── Explore Card ─── */
 .explore-card {
   background: var(--bg-card);
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
   display: flex;
   align-items: center;
   gap: var(--space-5);
   text-decoration: none;
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-card);
 }
 
 .explore-card:hover {
-  border-color: var(--border-brand);
-  background: var(--bg-card-hover);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--brand-primary-light);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
 }
 
 .explore-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xl);
   background: var(--brand-primary-bg);
   color: var(--brand-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.explore-card:hover .explore-icon-wrapper {
+  background: var(--brand-primary);
+  color: #fff;
+  transform: rotate(-5deg) scale(1.05);
 }
 
 .explore-content { flex: 1; min-width: 0; }
 
 .explore-title {
-  font-size: var(--text-base);
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .explore-desc {
   font-size: var(--text-sm);
   color: var(--text-muted);
   line-height: 1.45;
+}
+
+/* ─── Action Card (High Polish) ─── */
+.action-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-premium);
+  border-color: var(--brand-primary-light);
+}
+
+.action-card:hover::before {
+  opacity: 1;
+}
+
+.card-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xl);
+  background: var(--brand-primary-bg);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  transition: all 0.2s ease;
+}
+
+.action-card:hover .card-icon-box {
+  background: var(--brand-primary);
+  color: white;
+}
+
+.card-title {
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.card-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--bg-neutral);
+  color: var(--text-muted);
+}
+
+/* ─── Chips & Filters ─── */
+.chip-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.chip-row::-webkit-scrollbar { display: none; }
+
+.chip {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.chip.active {
+  background: var(--brand-primary);
+  color: white;
+  border-color: var(--brand-primary);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+}
+
+.chip:hover:not(.active) {
+  background: var(--bg-card-hover);
+  border-color: var(--text-faint);
 }
 
 /* ============================================================

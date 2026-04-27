@@ -111,6 +111,8 @@ export default function EmergencyFund() {
         title={t("Emergency Fund Builder")}
         backHref="/"
         accentColor="#e84393"
+        historyKey="emergency_fund"
+        onRestore={(restored) => setData(restored)}
         rightSlot={(
            <div style={{ display: 'flex', gap: 8 }}>
               <button className="btn btn-primary btn-sm" onClick={handleSave}>

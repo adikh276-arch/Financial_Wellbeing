@@ -6,6 +6,10 @@ import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
 
+import { HistoryModal } from '@/components/HistoryModal';
+import { useState } from 'react';
+import { History as HistoryIcon } from 'lucide-react';
+
 interface PageHeaderProps {
   title: string;
   subtitle?: string;
@@ -15,6 +19,8 @@ interface PageHeaderProps {
   rightSlot?: ReactNode;
   steps?: string[];
   currentStep?: number;
+  historyKey?: string;
+  onRestore?: (data: any, timestamp: string) => void;
 }
 
 export function PageHeader({
@@ -26,7 +32,10 @@ export function PageHeader({
   rightSlot,
   steps,
   currentStep = 0,
+  historyKey,
+  onRestore,
 }: PageHeaderProps) {
+  const [showHistory, setShowHistory] = useState(false);
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   const label = backLabel || t('back');
@@ -65,8 +74,25 @@ export function PageHeader({
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+          {historyKey && (
+            <button 
+              onClick={() => setShowHistory(true)} 
+              className="btn-icon"
+              style={{ background: 'var(--bg-neutral)', borderRadius: 12 }}
+            >
+              <HistoryIcon size={18} />
+            </button>
+          )}
           {rightSlot}
         </div>
+
+        {historyKey && showHistory && (
+          <HistoryModal 
+            storageKey={historyKey}
+            onClose={() => setShowHistory(false)}
+            onRestore={(data, ts) => onRestore?.(data, ts)}
+          />
+        )}
       </div>
 
       {steps && (

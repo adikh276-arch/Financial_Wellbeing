@@ -186,6 +186,17 @@ export default function BudgetPlanner() {
             steps={step >= 0 ? STEPS : undefined}
             currentStep={step >= 0 ? step : undefined}
             accentColor="#00A884"
+            historyKey="budget"
+            onRestore={(restored) => {
+              if (restored.form) setForm(restored.form);
+              else setForm(restored);
+              setStep(2); // Jump to results
+            }}
+            rightSlot={step === 2 ? (
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
+              </div>
+            ) : null}
           />
         )}
 

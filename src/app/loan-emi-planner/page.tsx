@@ -148,6 +148,12 @@ export default function LoanEMIPlanner() {
           <PageHeader 
             title={t('Loan & EMI Planner')}
             backHref="/"
+            historyKey="loan"
+            onRestore={(restored) => {
+              setForm(restored);
+              setResult(restored);
+              setStep(1);
+            }}
             rightSlot={step === 1 ? (
               <div style={{ display: 'flex', gap: 8 }}>
                 <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>

@@ -55,7 +55,7 @@ export function HistoryModal({ storageKey, onClose, onRestore }: HistoryModalPro
               {history.map((entry) => (
                 <button 
                   key={entry.id} 
-                  onClick={() => { onRestore(entry.data, entry.timestamp); onClose(); }} 
+                  onClick={() => { onRestore(entry.data || entry, entry.timestamp || entry.date); onClose(); }} 
                   className="card-tap" 
                   style={{ 
                     width: '100%', textAlign: 'left', padding: 'var(--space-4)',
@@ -65,7 +65,7 @@ export function HistoryModal({ storageKey, onClose, onRestore }: HistoryModalPro
                 >
                   <div>
                     <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>
-                      {new Date(entry.timestamp).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}
+                      {new Date(entry.timestamp || entry.date).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}
                     </p>
                     <p style={{ fontSize: 11, color: 'var(--text-faint)', marginTop: 2 }}>{t("Restore this entry")}</p>
                   </div>

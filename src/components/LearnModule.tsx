@@ -34,7 +34,7 @@ export function LearnModule({
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-base)' }}>
-      <PageHeader title={t(title)} backHref="/learn" />
+      <PageHeader title={t(title)} backHref="/" />
       <div style={{ padding: 'var(--space-8) var(--space-4) var(--space-20)' }}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
           

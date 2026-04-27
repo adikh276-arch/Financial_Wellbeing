@@ -7,8 +7,6 @@ import { Home, BookOpen, Wrench, HeartPulse, Compass } from 'lucide-react';
 
 const nav = [
   { label: 'Home', href: '/', icon: Home },
-  { label: 'Tools', href: '/tools', icon: Wrench },
-  { label: 'Learn', href: '/learn', icon: BookOpen },
   { label: 'Check-ins', href: '/check-ins', icon: HeartPulse },
   { label: 'Explore', href: '/explore', icon: Compass },
 ];

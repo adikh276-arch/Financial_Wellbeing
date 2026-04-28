@@ -34,25 +34,25 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 8 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 300, damping: 28 },
+    transition: { type: 'spring', stiffness: 120, damping: 20 },
   },
 };
 
 const headerVariants = {
-  hidden: { opacity: 0, y: -16 },
+  hidden: { opacity: 0, y: -20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 260, damping: 24 },
+    transition: { type: 'spring', stiffness: 100, damping: 20 },
   },
 };
 

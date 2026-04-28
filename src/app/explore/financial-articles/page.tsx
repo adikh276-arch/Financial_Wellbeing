@@ -31,11 +31,11 @@ export default function FinancialArticles() {
       <PageHeader 
         title="Financial Articles"
         subtitle="In-depth reads on financial wellbeing"
-        backHref="/explore"
+        backHref="/"
         accentColor="var(--brand-primary)"
       />
 
-      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
+      <main className="inner-content">
         <div className="chip-row" style={{ marginBottom: 'var(--space-8)' }}>
           {categories.map(cat => (
             <button key={cat} className={`chip ${activeCategory === cat ? 'active' : ''}`} onClick={() => setActiveCategory(cat)}>

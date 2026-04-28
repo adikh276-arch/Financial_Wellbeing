@@ -42,11 +42,11 @@ export default function FinancialMyths() {
       <PageHeader 
         title="Money Myths"
         subtitle="Common misconceptions about money"
-        backHref="/explore"
+        backHref="/"
         accentColor="#EF4444"
       />
 
-      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
+      <main className="inner-content">
         <div className="stack-column" style={{ gap: '20px' }}>
           {MYTHS.map((m, i) => (
             <motion.div 

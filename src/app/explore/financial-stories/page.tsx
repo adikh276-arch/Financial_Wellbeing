@@ -34,11 +34,11 @@ export default function FinancialStories() {
       <PageHeader 
         title="Financial Stories"
         subtitle="Real experiences from people like you"
-        backHref="/explore"
+        backHref="/"
         accentColor="var(--brand-primary)"
       />
 
-      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
+      <main className="inner-content">
         <motion.div 
           className="stack-column"
           variants={containerVariants}

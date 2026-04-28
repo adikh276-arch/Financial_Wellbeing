@@ -27,11 +27,11 @@ export default function FinancialFAQs() {
       <PageHeader 
         title="Financial FAQs"
         subtitle="Answers to common money questions"
-        backHref="/explore"
+        backHref="/"
         accentColor="var(--brand-accent)"
       />
 
-      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
+      <main className="inner-content">
         <div className="stack-column" style={{ gap: '12px' }}>
           {FAQS.map((faq, i) => (
              <div 

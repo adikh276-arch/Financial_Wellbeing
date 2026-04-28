@@ -61,11 +61,11 @@ export default function FinancialTips() {
       <PageHeader 
         title="Financial Tips"
         subtitle="Quick ideas to improve your money habits"
-        backHref="/explore"
+        backHref="/"
         accentColor="#F59E0B"
       />
 
-      <main className="container-max" style={{ paddingTop: 'var(--space-8)' }}>
+      <main className="inner-content">
         <div className="chip-row" style={{ marginBottom: 'var(--space-8)' }}>
           {categories.map(cat => (
             <button 

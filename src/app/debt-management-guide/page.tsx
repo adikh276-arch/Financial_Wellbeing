@@ -220,7 +220,7 @@ export default function DebtManagementPage() {
         )}
 
         {/* ── Step 2: Action Plan ── */}
-        {step === 2 && info && (
+        {step === 2 && info && !completed && (
           <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
               <div style={{

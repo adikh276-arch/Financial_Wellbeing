@@ -263,7 +263,7 @@ export default function SavingsGoalPage() {
         )}
 
         {/* ── Step 2: Strategy ── */}
-        {step === 2 && (
+        {step === 2 && !completed && (
           <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>

@@ -1,164 +1,292 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CreditCard, ShieldCheck, TrendingDown, LayoutList, CheckCircle2, ChevronRight, Zap } from 'lucide-react';
+import { useState } from 'react';
+import {
+  CreditCard, ArrowRight, RotateCcw, Check, CheckCircle,
+  TrendingDown, LayoutList, Zap, BookOpen, ChevronRight
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { PremiumLayout } from '@/components/shared/PremiumLayout';
-import { PremiumIntro } from '@/components/shared/PremiumIntro';
-import { PremiumComplete } from '@/components/shared/PremiumComplete';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { handleExternalExit } from '@/lib/navigation';
 
-type Strategy = 'snowball' | 'avalanche';
+const STEPS = ['Learn', 'Choose', 'Action'];
+const ACCENT = '#3B82F6';
+
+type Strategy = 'snowball' | 'avalanche' | null;
+
+const STRATEGY_INFO = {
+  snowball: {
+    title: 'Debt Snowball',
+    tag: 'Psychological Win',
+    icon: <LayoutList size={22} color={ACCENT} />,
+    desc: 'Pay the minimum on all debts. Put all extra money onto the smallest debt first. When it is paid off, roll that payment to the next smallest. The momentum keeps you motivated.',
+    steps: [
+      'List all debts from smallest to largest balance',
+      'Make minimum payments on everything except the smallest',
+      'Attack the smallest debt with every extra dollar you have',
+      'Once paid, roll that full payment to the next debt on the list',
+    ],
+  },
+  avalanche: {
+    title: 'Debt Avalanche',
+    tag: 'Mathematically Best',
+    icon: <Zap size={22} color={ACCENT} />,
+    desc: 'Pay the minimum on all debts. Put all extra money onto the debt with the highest interest rate first. This saves the most money over time.',
+    steps: [
+      'List all debts from highest to lowest interest rate',
+      'Make minimum payments on everything except the highest rate',
+      'Attack the highest-interest debt with every extra dollar',
+      'Once paid, redirect that payment to the next highest rate debt',
+    ],
+  },
+};
 
 export default function DebtManagementPage() {
   const { t } = useTranslation();
-  const [step, setStep] = useState(1);
-  const [strategy, setStrategy] = useState<Strategy | null>(null);
+  const [step, setStep] = useState(-1);
+  const [strategy, setStrategy] = useState<Strategy>(null);
   const [completed, setCompleted] = useState(false);
 
-  const handleRestart = () => {
+  const handleReset = () => {
     setCompleted(false);
-    setStep(1);
+    setStep(-1);
     setStrategy(null);
   };
 
+  const info = strategy ? STRATEGY_INFO[strategy] : null;
+
   return (
-    <PremiumLayout 
-      title={t('Debt Management')} 
-      subtitle={t('Financial Freedom')}
-      onReset={step > 1 ? handleRestart : undefined}
-      icon={<CreditCard size={24} />}
-    >
-      <AnimatePresence mode="wait">
-        {completed ? (
-          <PremiumComplete
-            title={t('Pathway to Freedom')}
-            message={t('You now have a proven mathematical strategy to eliminate your debt. Consistency is your greatest ally.')}
-            onRestart={handleRestart}
-            icon={<ShieldCheck size={64} className="text-blue-600" />}
-          />
-        ) : (
-          <motion.div
-            key={step}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="w-full"
-          >
-            {step === 1 && (
-              <PremiumIntro
-                title={t('Take Control of Your Debt')}
-                description={t("Debt doesn't have to be a burden forever. Learn the smartest ways to pay it off and reclaim your peace of mind.")}
-                onStart={() => setStep(2)}
-                icon={<TrendingDown size={40} />}
-                benefits={[
-                  t('Save thousands in interest payments'),
-                  t('Build a realistic repayment timeline'),
-                  t('Boost your credit score long-term')
-                ]}
-                duration="8-10 minutes"
-              />
-            )}
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
-            {step === 2 && (
-              <div className="max-w-lg mx-auto py-12 space-y-8">
-                <div className="text-center space-y-2">
-                  <h2 className="text-3xl font-black text-slate-900">{t('Choose Your Strategy')}</h2>
-                  <p className="text-slate-500 font-medium">{t('Select the method that fits your personality.')}</p>
-                </div>
+        <PageHeader
+          title={t('Debt Management Guide')}
+          subtitle="ACTIVITY"
+          onBackClick={handleExternalExit}
+          steps={step >= 0 && !completed ? STEPS : undefined}
+          currentStep={step >= 0 ? step : undefined}
+          accentColor={ACCENT}
+        />
 
-                <div className="grid grid-cols-1 gap-4">
-                  {[
-                    { 
-                      id: 'snowball', 
-                      title: t('Debt Snowball'), 
-                      desc: t('Pay smallest debts first to gain momentum.'), 
-                      icon: <LayoutList size={24} />,
-                      tag: t('Psychological Win'),
-                      color: 'indigo'
-                    },
-                    { 
-                      id: 'avalanche', 
-                      title: t('Debt Avalanche'), 
-                      desc: t('Pay highest interest rates first to save money.'), 
-                      icon: <Zap size={24} />,
-                      tag: t('Mathematical Best'),
-                      color: 'blue'
-                    }
-                  ].map((item) => (
-                    <motion.button
-                      key={item.id}
-                      whileHover={{ scale: 1.02, y: -2 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => {
-                        setStrategy(item.id as Strategy);
-                        setStep(3);
-                      }}
-                      className="group p-8 bg-white rounded-3xl border-2 border-slate-100 hover:border-blue-600/30 text-left transition-all shadow-sm hover:shadow-xl hover:shadow-blue-600/5 flex items-center justify-between cursor-pointer"
-                    >
-                      <div className="flex gap-6 items-center">
-                        <div className={`w-14 h-14 rounded-2xl bg-slate-50 text-slate-400 group-hover:bg-blue-600/10 group-hover:text-blue-600 flex items-center justify-center transition-colors`}>
-                          {item.icon}
-                        </div>
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-3">
-                            <h3 className="font-black text-xl text-slate-900">{item.title}</h3>
-                            <span className="text-[9px] font-black uppercase tracking-widest px-2 py-1 bg-slate-100 text-slate-500 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">{item.tag}</span>
-                          </div>
-                          <p className="text-slate-500 font-medium text-sm">{item.desc}</p>
-                        </div>
-                      </div>
-                      <ChevronRight size={20} className="text-slate-300 group-hover:text-blue-600 transition-colors" />
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            )}
+        {/* ── Intro ── */}
+        {step === -1 && !completed && (
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
+            <div style={{
+              width: 80, height: 80, borderRadius: 24, background: `${ACCENT}15`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              margin: '0 auto var(--space-6)',
+            }}>
+              <CreditCard size={40} color={ACCENT} />
+            </div>
+            <p className="label-caps" style={{ color: ACCENT, marginBottom: 8 }}>DEBT-FREE PATHWAY</p>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>
+              {t('Take Control of Your Debt')}
+            </h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 400, margin: '0 auto var(--space-8)' }}>
+              {t("Debt doesn't have to be a burden forever. Learn the smartest ways to pay it off and reclaim your peace of mind.")}
+            </p>
 
-            {step === 3 && strategy && (
-              <div className="max-w-lg mx-auto py-12 space-y-10 pb-32">
-                <div className="text-center space-y-2">
-                  <div className="w-20 h-20 bg-blue-600/10 rounded-full flex items-center justify-center text-blue-600 mx-auto mb-6">
-                    {strategy === 'snowball' ? <LayoutList size={32} /> : <Zap size={32} />}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', maxWidth: 400, margin: '0 auto var(--space-10)', textAlign: 'left' }}>
+              {[
+                { icon: <BookOpen size={16} color={ACCENT} />, text: t('Learn to differentiate good vs. high-cost debt') },
+                { icon: <LayoutList size={16} color={ACCENT} />, text: t('Choose a proven mathematical repayment strategy') },
+                { icon: <CheckCircle size={16} color="#00A884" />, text: t('Build a step-by-step commitment action plan') },
+              ].map((item, i) => (
+                <div key={i} style={{
+                  display: 'flex', alignItems: 'center', gap: 'var(--space-3)',
+                  background: 'white', border: '1px solid var(--border-subtle)',
+                  borderRadius: 'var(--radius-lg)', padding: 'var(--space-3) var(--space-4)',
+                  boxShadow: 'var(--shadow-xs)',
+                }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 8, background: `${ACCENT}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    {item.icon}
                   </div>
-                  <h2 className="text-3xl font-black text-slate-900">{strategy === 'snowball' ? t('Snowball Action Plan') : t('Avalanche Action Plan')}</h2>
-                  <p className="text-slate-500 font-medium leading-relaxed">
-                    {strategy === 'snowball' 
-                      ? t('List your debts by size. Pay the minimum on all except the smallest. When that is gone, roll the payment into the next one.')
-                      : t('List your debts by interest rate. Pay the minimum on all except the one with the highest rate. This minimizes total cost.')}
-                  </p>
+                  <span style={{ fontWeight: 600, fontSize: 'var(--text-sm)', color: 'var(--text-primary)' }}>{item.text}</span>
                 </div>
+              ))}
+            </div>
 
-                <div className="space-y-4">
-                  {[t('Step 1: Stop taking on new debt'), t('Step 2: List every single debt item'), t('Step 3: Set up automatic minimum payments')].map((stepText, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm flex items-center gap-5"
-                    >
-                      <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-black shrink-0">
-                        {i + 1}
-                      </div>
-                      <p className="font-bold text-slate-700">{stepText}</p>
-                    </motion.div>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
+              {t('Get Started')} <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* ── Step 0: Learn ── */}
+        {step === 0 && (
+          <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
+              <div style={{
+                width: 56, height: 56, borderRadius: 16, background: `${ACCENT}15`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                margin: '0 auto var(--space-4)',
+              }}>
+                <BookOpen size={26} color={ACCENT} />
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
+                {t('Understanding Debt')}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
+                {t('Not all debt is bad. Know the difference.')}
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
+              {[
+                {
+                  label: t('Good Debt'), color: '#00A884', bg: '#00A88415',
+                  items: [t('Student loans for career growth'), t('Home mortgage builds equity'), t('Business loans for income generation')],
+                },
+                {
+                  label: t('High-Cost Debt'), color: '#E74C3C', bg: '#E74C3C15',
+                  items: [t('Credit card interest (18–45%)'), t('Personal loans for lifestyle'), t('Buy-now-pay-later traps')],
+                },
+              ].map(cat => (
+                <div key={cat.label} style={{
+                  background: 'white', border: `1px solid ${cat.color}30`,
+                  borderRadius: 'var(--radius-xl)', padding: 'var(--space-4)',
+                  boxShadow: 'var(--shadow-xs)',
+                }}>
+                  <p style={{ fontWeight: 700, fontSize: 'var(--text-sm)', color: cat.color, marginBottom: 'var(--space-3)', textTransform: 'uppercase', fontSize: 11, letterSpacing: '0.06em' }}>
+                    {cat.label}
+                  </p>
+                  {cat.items.map((item, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: i < cat.items.length - 1 ? 8 : 0 }}>
+                      <div style={{ width: 6, height: 6, borderRadius: '50%', background: cat.color, flexShrink: 0 }} />
+                      <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontWeight: 500 }}>{item}</span>
+                    </div>
                   ))}
                 </div>
+              ))}
+            </div>
 
-                <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/60 backdrop-blur-md z-20 flex justify-center border-t border-slate-100/50">
-                  <button
-                    onClick={() => setCompleted(true)}
-                    className="w-full max-w-lg py-5 rounded-2xl bg-blue-600 text-white font-black text-lg shadow-2xl shadow-blue-600/20 hover:bg-blue-700 transition-all cursor-pointer"
-                  >
-                    {t('I Commit to This Plan')}
-                  </button>
-                </div>
-              </div>
-            )}
-          </motion.div>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ width: '100%' }}>
+              {t('Choose My Strategy')} <ArrowRight size={18} />
+            </button>
+          </div>
         )}
-      </AnimatePresence>
-    </PremiumLayout>
+
+        {/* ── Step 1: Choose ── */}
+        {step === 1 && (
+          <div style={{ animation: 'slideInRight 0.35s ease both', paddingTop: 'var(--space-8)' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
+                {t('Choose Your Strategy')}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
+                {t('Pick the method that fits your personality and situation.')}
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
+              {(Object.keys(STRATEGY_INFO) as Strategy[]).filter(Boolean).map(key => {
+                const s = STRATEGY_INFO[key!];
+                const selected = strategy === key;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setStrategy(key)}
+                    style={{
+                      width: '100%', background: 'white', textAlign: 'left', cursor: 'pointer',
+                      border: selected ? `2px solid ${ACCENT}` : '1px solid var(--border-subtle)',
+                      borderRadius: 'var(--radius-xl)', padding: 'var(--space-5)',
+                      boxShadow: selected ? `0 0 0 3px ${ACCENT}20` : 'var(--shadow-xs)',
+                      transition: 'all 0.2s ease',
+                      display: 'flex', alignItems: 'center', gap: 'var(--space-4)',
+                    }}
+                  >
+                    <div style={{
+                      width: 48, height: 48, borderRadius: 14, flexShrink: 0,
+                      background: selected ? `${ACCENT}15` : 'var(--bg-base)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>{s.icon}</div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                        <p style={{ fontWeight: 700, fontSize: 'var(--text-sm)', color: 'var(--text-primary)' }}>{s.title}</p>
+                        <span style={{ fontSize: 10, fontWeight: 700, color: ACCENT, background: `${ACCENT}15`, padding: '2px 8px', borderRadius: 99, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{s.tag}</span>
+                      </div>
+                      <p style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.4 }}>{s.desc.substring(0, 80)}...</p>
+                    </div>
+                    <ChevronRight size={18} color={selected ? ACCENT : 'var(--text-faint)'} style={{ flexShrink: 0 }} />
+                  </button>
+                );
+              })}
+            </div>
+
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(2)} disabled={!strategy} style={{ width: '100%' }}>
+              {t('Build My Action Plan')} <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* ── Step 2: Action Plan ── */}
+        {step === 2 && info && (
+          <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
+              <div style={{
+                width: 56, height: 56, borderRadius: 16, background: `${ACCENT}15`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                margin: '0 auto var(--space-4)',
+              }}>{info.icon}</div>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
+                {info.title} {t('Plan')}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6, lineHeight: 1.5, maxWidth: 380, margin: '8px auto 0' }}>
+                {info.desc}
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
+              {info.steps.map((stepText, i) => (
+                <div key={i} style={{
+                  background: 'white', border: '1px solid var(--border-subtle)',
+                  borderRadius: 'var(--radius-xl)', padding: 'var(--space-4)',
+                  display: 'flex', gap: 'var(--space-4)', boxShadow: 'var(--shadow-xs)',
+                }}>
+                  <div style={{
+                    width: 32, height: 32, borderRadius: '50%', background: ACCENT,
+                    color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 13, flexShrink: 0,
+                  }}>{i + 1}</div>
+                  <p style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: 'var(--text-sm)', lineHeight: 1.5, alignSelf: 'center' }}>{stepText}</p>
+                </div>
+              ))}
+            </div>
+
+            <button className="btn btn-primary btn-lg" onClick={() => setCompleted(true)} style={{ width: '100%' }}>
+              {t('I Commit to This Plan')} <Check size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* ── Completed ── */}
+        {completed && (
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
+            <div style={{
+              width: 80, height: 80, borderRadius: '50%',
+              background: 'linear-gradient(135deg, #3B82F6, #6366F1)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              margin: '0 auto var(--space-6)',
+              boxShadow: '0 12px 32px rgba(59,130,246,0.3)',
+            }}>
+              <CheckCircle size={44} color="white" />
+            </div>
+            <p className="label-caps" style={{ color: ACCENT, marginBottom: 8 }}>ACTIVITY COMPLETE</p>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Pathway to Freedom! 🎯')}</h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 380, margin: '0 auto var(--space-10)' }}>
+              {t('You now have a proven strategy to eliminate your debt. Consistency is your greatest ally.')}
+            </p>
+            <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button className="btn btn-secondary btn-lg" onClick={handleReset}>
+                <RotateCcw size={16} /> {t('Start Over')}
+              </button>
+              <button className="btn btn-primary btn-lg" onClick={handleExternalExit}>
+                {t('Back to Dashboard')} <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

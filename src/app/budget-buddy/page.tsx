@@ -1,152 +1,265 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { PiggyBank, Target, Wallet, ListChecks, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import {
+  PiggyBank, ArrowRight, RotateCcw, Check, CheckCircle,
+  Wallet, Target, TrendingUp, Clock, ListChecks
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { PremiumLayout } from '@/components/shared/PremiumLayout';
-import { PremiumIntro } from '@/components/shared/PremiumIntro';
-import { PremiumComplete } from '@/components/shared/PremiumComplete';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { handleExternalExit } from '@/lib/navigation';
+import { storage, fmt } from '@/lib/storage';
+
+const STEPS = ['Income', 'Budget', 'Plan'];
+const ACCENT = '#3B82F6';
 
 export default function BudgetBuddyPage() {
   const { t } = useTranslation();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(-1);
   const [income, setIncome] = useState('');
   const [completed, setCompleted] = useState(false);
-  const [values, setValues] = useState({ needs: 0, wants: 0, savings: 0 });
 
-  const calculateBudget = () => {
-    const amount = Number(income.replace(/,/g, '')) || 0;
-    setValues({
-      needs: Math.round(amount * 0.5),
-      wants: Math.round(amount * 0.3),
-      savings: Math.round(amount * 0.2),
-    });
-    setStep(3);
-  };
+  const amount = Number(income.replace(/,/g, '')) || 0;
+  const needs = Math.round(amount * 0.5);
+  const wants = Math.round(amount * 0.3);
+  const savings = Math.round(amount * 0.2);
 
-  const handleRestart = () => {
+  const handleReset = () => {
     setCompleted(false);
-    setStep(1);
+    setStep(-1);
     setIncome('');
-    setValues({ needs: 0, wants: 0, savings: 0 });
   };
 
   return (
-    <PremiumLayout 
-      title={t('Budget Buddy')} 
-      subtitle={t('Financial Planning')}
-      onReset={step > 1 ? handleRestart : undefined}
-      icon={<PiggyBank size={24} />}
-    >
-      <AnimatePresence mode="wait">
-        {completed ? (
-          <PremiumComplete
-            title={t('Budget Created!')}
-            message={t('You now have a clear roadmap for your monthly spending. Stick to the 50/30/20 rule to build long-term wealth.')}
-            onRestart={handleRestart}
-            icon={<CheckCircle2 size={64} />}
-          />
-        ) : (
-          <motion.div
-            key={step}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="w-full"
-          >
-            {step === 1 && (
-              <PremiumIntro
-                title={t('Own Your Money, Own Your Life')}
-                description={t("A budget isn't about restriction — it's about freedom. Let's build yours in under 10 minutes.")}
-                onStart={() => setStep(2)}
-                icon={<PiggyBank size={40} />}
-                benefits={[
-                  t('Identify where your money goes'),
-                  t('Prioritize your future savings'),
-                  t('Stop overspending on impulse')
-                ]}
-                duration="5-7 minutes"
-              />
-            )}
+    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
-            {step === 2 && (
-              <div className="max-w-md mx-auto py-12 space-y-8">
-                <div className="text-center space-y-2">
-                  <h2 className="text-3xl font-black text-slate-900">{t('Monthly Income')}</h2>
-                  <p className="text-slate-500 font-medium">{t('Enter your take-home pay after tax.')}</p>
-                </div>
+        <PageHeader
+          title={t('Budget Buddy')}
+          subtitle="ACTIVITY"
+          onBackClick={handleExternalExit}
+          steps={step >= 0 && !completed ? STEPS : undefined}
+          currentStep={step >= 0 ? step : undefined}
+          accentColor={ACCENT}
+        />
 
-                <div className="relative group">
-                  <span className="absolute left-6 top-1/2 -translate-y-1/2 text-2xl font-bold text-slate-400">$</span>
-                  <input
-                    type="text"
-                    value={income}
-                    onChange={(e) => setIncome(e.target.value.replace(/[^0-9,]/g, ''))}
-                    placeholder="0.00"
-                    className="w-full pl-12 pr-6 py-6 rounded-3xl bg-white border-2 border-slate-100 text-3xl font-black text-slate-900 focus:border-blue-600 focus:ring-4 focus:ring-blue-600/5 outline-none transition-all shadow-sm"
-                  />
-                </div>
+        {/* ── Intro ── */}
+        {step === -1 && !completed && (
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
+            <div style={{
+              width: 80, height: 80, borderRadius: 24, background: `${ACCENT}15`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              margin: '0 auto var(--space-6)',
+            }}>
+              <PiggyBank size={40} color={ACCENT} />
+            </div>
+            <p className="label-caps" style={{ color: ACCENT, marginBottom: 8 }}>NEW ACTIVITY</p>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>
+              {t('Own Your Money, Own Your Life')}
+            </h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 400, margin: '0 auto var(--space-8)' }}>
+              {t("A budget isn't about restriction — it's about freedom. Let's build yours in under 10 minutes.")}
+            </p>
 
-                <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/60 backdrop-blur-md z-20 flex justify-center border-t border-slate-100/50">
-                  <button
-                    onClick={calculateBudget}
-                    disabled={!income}
-                    className="w-full max-w-lg py-5 rounded-2xl bg-slate-900 text-white font-black text-lg shadow-2xl shadow-slate-900/20 hover:bg-slate-800 disabled:opacity-50 transition-all cursor-pointer"
-                  >
-                    {t('Calculate My Budget')}
-                  </button>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-6)', marginBottom: 'var(--space-10)', flexWrap: 'wrap' }}>
+              {[
+                { icon: <Clock size={16} color={ACCENT} />, label: 'TIME', val: '7 mins' },
+                { icon: <ListChecks size={16} color={ACCENT} />, label: 'STEPS', val: '4 total' },
+                { icon: <TrendingUp size={16} color={ACCENT} />, label: 'IMPACT', val: 'High' },
+              ].map(item => (
+                <div key={item.label} style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: 44, height: 44, borderRadius: 12, background: `${ACCENT}10`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    margin: '0 auto var(--space-2)',
+                  }}>{item.icon}</div>
+                  <p className="label-caps" style={{ color: 'var(--text-faint)', marginBottom: 2 }}>{item.label}</p>
+                  <p style={{ fontWeight: 800, fontSize: 'var(--text-sm)', color: 'var(--text-primary)' }}>{item.val}</p>
                 </div>
-              </div>
-            )}
+              ))}
+            </div>
 
-            {step === 3 && (
-              <div className="max-w-md mx-auto py-12 space-y-8 pb-32">
-                <div className="text-center space-y-2">
-                  <h2 className="text-3xl font-black text-slate-900">{t('Your 50/30/20 Plan')}</h2>
-                  <p className="text-slate-500 font-medium">{t('Based on your monthly income of')} <span className="text-slate-900 font-bold">${income}</span></p>
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    { label: t('Needs (50%)'), val: values.needs, color: 'blue', desc: t('Rent, Food, Bills') },
-                    { label: t('Wants (30%)'), val: values.wants, color: 'indigo', desc: t('Hobby, Dining, Fun') },
-                    { label: t('Savings (20%)'), val: values.savings, color: 'emerald', desc: t('Debt, Emergency, Stocks') },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm flex items-center justify-between group hover:shadow-md transition-all"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-2xl bg-${item.color}-600/10 text-${item.color}-600 flex items-center justify-center shrink-0`}>
-                          {item.color === 'blue' ? <Wallet size={20} /> : item.color === 'indigo' ? <Target size={20} /> : <PiggyBank size={20} />}
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold text-slate-900">{item.label}</p>
-                          <p className="text-xs text-slate-400 font-medium">{item.desc}</p>
-                        </div>
-                      </div>
-                      <p className="text-xl font-black text-slate-900">${item.val.toLocaleString()}</p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/60 backdrop-blur-md z-20 flex justify-center border-t border-slate-100/50">
-                  <button
-                    onClick={() => setCompleted(true)}
-                    className="w-full max-w-lg py-5 rounded-2xl bg-blue-600 text-white font-black text-lg shadow-2xl shadow-blue-600/20 hover:bg-blue-700 transition-all cursor-pointer"
-                  >
-                    {t('Finalize My Plan')}
-                  </button>
-                </div>
-              </div>
-            )}
-          </motion.div>
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
+              {t('Get Started')} <ArrowRight size={18} />
+            </button>
+          </div>
         )}
-      </AnimatePresence>
-    </PremiumLayout>
+
+        {/* ── Step 0: Income ── */}
+        {step === 0 && (
+          <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
+              <div style={{
+                width: 56, height: 56, borderRadius: 16, background: `${ACCENT}15`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                margin: '0 auto var(--space-4)',
+              }}>
+                <Wallet size={26} color={ACCENT} />
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
+                {t("What's your monthly income?")}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
+                {t('Enter your take-home pay after tax')}
+              </p>
+            </div>
+
+            <div style={{
+              background: 'white', border: '1px solid var(--border-subtle)',
+              borderRadius: 'var(--radius-xl)', padding: 'var(--space-5)', marginBottom: 'var(--space-6)',
+              boxShadow: 'var(--shadow-sm)',
+            }}>
+              <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 8 }}>
+                {t('Monthly Income')}
+              </label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontSize: 'var(--text-2xl)', fontWeight: 700, color: 'var(--text-muted)' }}>$</span>
+                <input
+                  type="text"
+                  value={income}
+                  onChange={e => setIncome(e.target.value.replace(/[^0-9,]/g, ''))}
+                  placeholder="0"
+                  autoFocus
+                  style={{
+                    border: 'none', outline: 'none', background: 'transparent',
+                    fontSize: 'var(--text-3xl)', fontWeight: 900, color: 'var(--text-primary)',
+                    width: '100%', fontFamily: 'var(--font-display)',
+                  }}
+                />
+              </div>
+              {amount > 0 && (
+                <p style={{ fontSize: 12, fontWeight: 700, color: ACCENT, marginTop: 8 }}>
+                  ✓ {fmt.currency(amount, true)} per month
+                </p>
+              )}
+            </div>
+
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={() => setStep(1)}
+              disabled={!amount}
+              style={{ width: '100%' }}
+            >
+              {t('Calculate My Budget')} <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* ── Step 1: Budget Breakdown ── */}
+        {step === 1 && (
+          <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
+                {t('Your 50/30/20 Plan')}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
+                {t('Based on')} <strong style={{ color: 'var(--text-primary)' }}>{fmt.currency(amount, true)}</strong> {t('monthly income')}
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
+              {[
+                { label: t('Needs (50%)'), desc: t('Rent, Food, Bills'), val: needs, color: '#2563EB', icon: <Wallet size={20} color="#2563EB" /> },
+                { label: t('Wants (30%)'), desc: t('Dining, Fun, Hobbies'), val: wants, color: '#F39C12', icon: <Target size={20} color="#F39C12" /> },
+                { label: t('Savings (20%)'), desc: t('Emergency, Investments'), val: savings, color: '#00A884', icon: <PiggyBank size={20} color="#00A884" /> },
+              ].map(item => (
+                <div key={item.label} style={{
+                  background: 'white', border: '1px solid var(--border-subtle)',
+                  borderRadius: 'var(--radius-xl)', padding: 'var(--space-4)',
+                  display: 'flex', alignItems: 'center', gap: 'var(--space-4)',
+                  boxShadow: 'var(--shadow-xs)',
+                }}>
+                  <div style={{
+                    width: 44, height: 44, borderRadius: 12,
+                    background: `${item.color}15`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                  }}>{item.icon}</div>
+                  <div style={{ flex: 1 }}>
+                    <p style={{ fontWeight: 700, fontSize: 'var(--text-sm)', color: 'var(--text-primary)', marginBottom: 2 }}>{item.label}</p>
+                    <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{item.desc}</p>
+                  </div>
+                  <p style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'var(--text-lg)', color: item.color }}>
+                    {fmt.currency(item.val, true)}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <button className="btn btn-primary btn-lg" onClick={() => setStep(2)} style={{ width: '100%' }}>
+              {t('See My Action Plan')} <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* ── Step 2: Tips ── */}
+        {step === 2 && (
+          <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
+                {t('Your Budget Action Plan')}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
+                {t('3 steps to make your budget work')}
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
+              {[
+                { num: '01', title: t('Track Every Rupee'), desc: t('Use a budgeting app or spreadsheet to log your spending daily.') },
+                { num: '02', title: t('Automate Savings'), desc: t('Set up an auto-debit for your savings on payday. Pay yourself first.') },
+                { num: '03', title: t('Review Monthly'), desc: t('Every month-end, compare actual spending vs your 50/30/20 targets.') },
+              ].map(item => (
+                <div key={item.num} style={{
+                  background: 'white', border: '1px solid var(--border-subtle)',
+                  borderRadius: 'var(--radius-xl)', padding: 'var(--space-5)',
+                  display: 'flex', gap: 'var(--space-4)', boxShadow: 'var(--shadow-xs)',
+                }}>
+                  <div style={{
+                    fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 900,
+                    color: `${ACCENT}30`, lineHeight: 1, flexShrink: 0, minWidth: 40,
+                  }}>{item.num}</div>
+                  <div>
+                    <p style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 'var(--text-sm)', marginBottom: 4 }}>{item.title}</p>
+                    <p style={{ color: 'var(--text-muted)', fontSize: 12, lineHeight: 1.5 }}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button className="btn btn-primary btn-lg" onClick={() => setCompleted(true)} style={{ width: '100%' }}>
+              {t('Complete Activity')} <Check size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* ── Completed ── */}
+        {completed && (
+          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
+            <div style={{
+              width: 80, height: 80, borderRadius: '50%',
+              background: 'linear-gradient(135deg, #00A884, #00D2D3)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              margin: '0 auto var(--space-6)',
+              boxShadow: '0 12px 32px rgba(0,168,132,0.3)',
+            }}>
+              <CheckCircle size={44} color="white" />
+            </div>
+            <p className="label-caps" style={{ color: '#00A884', marginBottom: 8 }}>ACTIVITY COMPLETE</p>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Budget Built! 🎉')}</h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 380, margin: '0 auto var(--space-10)' }}>
+              {t("You've taken a crucial step toward financial freedom. Stick to your plan and review it every month.")}
+            </p>
+            <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button className="btn btn-secondary btn-lg" onClick={handleReset}>
+                <RotateCcw size={16} /> {t('Start Over')}
+              </button>
+              <button className="btn btn-primary btn-lg" onClick={handleExternalExit}>
+                {t('Back to Dashboard')} <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

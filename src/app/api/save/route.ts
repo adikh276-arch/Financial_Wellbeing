@@ -17,6 +17,9 @@ const KEY_TO_TABLE: Record<string, string> = {
   'money_stress_history': 'financial_wellbeing.quiz_results',
   'savings_checkup_history': 'financial_wellbeing.quiz_results',
   'investment_readiness_history': 'financial_wellbeing.quiz_results',
+  'budget_buddy_history': 'financial_wellbeing.budget_buddy_history',
+  'debt_management_history': 'financial_wellbeing.debt_management_history',
+  'savings_goal_history': 'financial_wellbeing.savings_goal_history',
 };
 
 export async function POST(request: Request) {

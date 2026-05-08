@@ -10,6 +10,7 @@ import {
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { differenceInMonths, parseISO, format } from 'date-fns';
+import { handleExternalExit } from '@/lib/navigation';
 
 const CATEGORIES = [
   { id: 'Vacation', icon: Plane, label: "Vacation" },
@@ -114,7 +115,7 @@ export default function GoalPlanner() {
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Goal Planner')} 
-        backHref="/"
+        onBackClick={handleExternalExit}
         accentColor="#FDCB6E"
         rightSlot={saved ? (
           <div style={{ background: 'var(--brand-success-glow)', color: 'var(--brand-success)', padding: '6px 16px', borderRadius: 99, fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 }}>

@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+import { handleExternalExit } from '@/lib/navigation';
 
 /* ─── Animation Variants ─── */
 const containerVariants = {
@@ -104,7 +105,7 @@ export default function FinancialWellbeingDashboard() {
           className="dashboard-header"
         >
           <button
-            onClick={() => router.back()}
+            onClick={handleExternalExit}
             className="back-btn"
             aria-label="Go back"
           >

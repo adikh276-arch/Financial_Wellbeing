@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import ClientOnly from '@/components/ClientOnly';
+import { handleExternalExit } from '@/lib/navigation';
 
 const LOAN_TYPES = ['Personal Loan', 'Home Loan', 'Auto Loan', 'Education Loan', 'Business Loan'];
 
@@ -144,24 +145,22 @@ export default function LoanEMIPlanner() {
       {/* Navigation removed as per requirement */}
 
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-16)' }}>
-        {(step === 1 || step === 0) && (
-          <PageHeader 
-            title={t('Loan & EMI Planner')}
-            backHref="/"
-            historyKey="loan"
-            onRestore={(restored) => {
-              setForm(restored);
-              setResult(restored);
-              setStep(1);
-            }}
-            rightSlot={step === 1 ? (
-              <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
-                <button onClick={() => { setStep(0); setResult(null); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
-              </div>
-            ) : null}
-          />
-        )}
+        <PageHeader 
+          title={t('Loan & EMI Planner')}
+          onBackClick={handleExternalExit}
+          historyKey="loan"
+          onRestore={(restored) => {
+            setForm(restored);
+            setResult(restored);
+            setStep(1);
+          }}
+          rightSlot={step === 1 ? (
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
+              <button onClick={() => { setStep(0); setResult(null); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
+            </div>
+          ) : null}
+        />
         {step >= 0 && (
           <div style={{ display: 'flex', gap: 4, marginBottom: 'var(--space-6)' }}>
             <div style={{ flex: 1, height: 3, borderRadius: 2, background: '#0984e3' }} />

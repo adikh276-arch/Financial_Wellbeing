@@ -10,6 +10,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { storage, fmt } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { handleExternalExit } from '@/lib/navigation';
 
 interface EFData {
   monthlyExpenses: number;
@@ -109,7 +110,7 @@ export default function EmergencyFund() {
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t("Emergency Fund Builder")}
-        backHref="/"
+        onBackClick={handleExternalExit}
         accentColor="#e84393"
         historyKey="emergency_fund"
         onRestore={(restored) => setData(restored)}

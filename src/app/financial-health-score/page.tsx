@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { storage } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { handleExternalExit } from '@/lib/navigation';
 
 /* Questions */
 const QUESTIONS = [
@@ -122,7 +123,7 @@ export default function FinancialHealthScore() {
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t('Financial Health Score')}
-        backHref="/"
+        onBackClick={handleExternalExit}
         historyKey="health_score"
         onRestore={(restored) => {
           // Score results are usually just a snapshot, we show the results step

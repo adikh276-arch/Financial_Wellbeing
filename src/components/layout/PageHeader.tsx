@@ -13,7 +13,7 @@ import { History as HistoryIcon } from 'lucide-react';
 interface PageHeaderProps {
   title: string;
   subtitle?: string;
-  backHref: string;
+  backHref?: string;
   backLabel?: string;
   accentColor?: string;
   rightSlot?: ReactNode;
@@ -21,6 +21,7 @@ interface PageHeaderProps {
   currentStep?: number;
   historyKey?: string;
   onRestore?: (data: any, timestamp: string) => void;
+  onBackClick?: () => void;
 }
 
 export function PageHeader({
@@ -34,6 +35,7 @@ export function PageHeader({
   currentStep = 0,
   historyKey,
   onRestore,
+  onBackClick,
 }: PageHeaderProps) {
   const [showHistory, setShowHistory] = useState(false);
   const { t } = useTranslation();
@@ -46,9 +48,15 @@ export function PageHeader({
   return (
     <div className="page-header-bar">
       <div className="page-header-inner">
-        <Link href={`${backHref}${suffix}`} className="back-btn" aria-label={label}>
-          <ChevronLeft size={18} />
-        </Link>
+        {onBackClick ? (
+          <button onClick={onBackClick} className="back-btn" aria-label={label} style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <ChevronLeft size={18} />
+          </button>
+        ) : (
+          <Link href={`${backHref || '/'}${suffix}`} className="back-btn" aria-label={label}>
+            <ChevronLeft size={18} />
+          </Link>
+        )}
 
         <div style={{ flex: 1, minWidth: 0 }}>
           {subtitle && (

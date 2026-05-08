@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, Info, Target, Calendar, Wallet, Gem, Car, Plane, Home, Heart, GraduationCap, Trophy, PlusCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Info, Target, Calendar, Wallet, Gem, Car, Plane, Home, Heart, GraduationCap, Trophy, PlusCircle, ShieldCheck, TrendingUp, Zap } from "lucide-react";
 import { useAutoSave } from "@/lib/hooks";
 
 // --- Types ---
@@ -50,7 +50,6 @@ const STEPS = [
   'Review'
 ];
 
-import { ShieldCheck, TrendingUp } from "lucide-react";
 
 const fmt = (n: number) => new Intl.NumberFormat('en-IN').format(n);
 
@@ -71,7 +70,7 @@ export default function SavingsGoalPage() {
 
   const goBack = () => {
     if (step === 1) {
-      window.location.href = '/';
+      window.location.href = '/financial_wellbeing';
       return;
     }
     setStep(s => s - 1);
@@ -137,7 +136,7 @@ export default function SavingsGoalPage() {
                   {t('Set Another Goal')}
                 </button>
                 <button
-                  onClick={() => window.location.href = '/'}
+                  onClick={() => window.location.href = '/financial_wellbeing'}
                   className="btn btn-secondary btn-lg btn-full"
                 >
                   {t('Back to Dashboard')}

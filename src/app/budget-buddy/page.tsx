@@ -34,7 +34,7 @@ export default function BudgetBuddyPage() {
   const goTo = (n: number) => setStep(n);
   const handleBack = () => {
     if (step === 1) {
-      window.location.href = '/';
+      window.location.href = '/financial_wellbeing';
       return;
     }
     setStep(s => s - 1);
@@ -105,7 +105,7 @@ export default function BudgetBuddyPage() {
                   {t('Plan Another Budget')}
                 </button>
                 <button
-                  onClick={() => window.location.href = '/'}
+                  onClick={() => window.location.href = '/financial_wellbeing'}
                   className="btn btn-secondary btn-lg btn-full"
                 >
                   {t('Back to Dashboard')}

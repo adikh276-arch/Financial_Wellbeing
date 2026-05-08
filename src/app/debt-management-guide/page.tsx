@@ -32,7 +32,7 @@ export default function DebtManagementPage() {
   const goNext = () => setScreen((s) => Math.min(4, s + 1));
   const goBack = () => {
     if (screen === 1) {
-      window.location.href = '/';
+      window.location.href = '/financial_wellbeing';
       return;
     }
     setScreen((s) => s - 1);
@@ -97,7 +97,7 @@ export default function DebtManagementPage() {
                   {t('Review Strategy')}
                 </button>
                 <button
-                  onClick={() => window.location.href = '/'}
+                  onClick={() => window.location.href = '/financial_wellbeing'}
                   className="btn btn-secondary btn-lg btn-full"
                 >
                   {t('Back to Dashboard')}

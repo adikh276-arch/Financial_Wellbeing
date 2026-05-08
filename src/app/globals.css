@@ -1,4 +1,32 @@
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@theme {
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-light: var(--brand-primary-light);
+  --color-brand-primary-dark: var(--brand-primary-dark);
+  --color-brand-primary-bg: var(--brand-primary-bg);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-success: var(--brand-success);
+  --color-brand-success-bg: rgba(16, 185, 129, 0.1);
+  --color-brand-danger: var(--brand-danger);
+  
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  
+  --color-bg-page: var(--bg-page);
+  --color-bg-card: var(--bg-card);
+  --color-bg-base: var(--bg-base);
+  
+  --shadow-premium: var(--shadow-premium);
+  --shadow-soft: var(--shadow-md);
+  
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: 32px;
+}
 
 /* ============================================================
    THERAPY FRONTEND DESIGN - GLOBAL SYSTEM

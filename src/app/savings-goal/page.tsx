@@ -54,6 +54,9 @@ export default function SavingsGoalPage() {
     setSavingStrategy('');
   };
 
+  const selectedCategory = CATEGORIES.find(c => c.id === category);
+  const selectedStrategy = STRATEGIES.find(s => s.id === savingStrategy);
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
@@ -113,7 +116,7 @@ export default function SavingsGoalPage() {
         )}
 
         {/* ── Step 0: Goal ── */}
-        {step === 0 && (
+        {step === 0 && !completed && (
           <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
@@ -176,7 +179,7 @@ export default function SavingsGoalPage() {
         )}
 
         {/* ── Step 1: Target ── */}
-        {step === 1 && (
+        {step === 1 && !completed && (
           <div style={{ animation: 'slideInRight 0.35s ease both', paddingTop: 'var(--space-8)' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
@@ -313,29 +316,107 @@ export default function SavingsGoalPage() {
           </div>
         )}
 
-        {/* ── Completed ── */}
+        {/* ── Completed: Goal Review ── */}
         {completed && (
-          <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
-            <div style={{
-              width: 80, height: 80, borderRadius: '50%',
-              background: `linear-gradient(135deg, ${ACCENT}, #F97316)`,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto var(--space-6)',
-              boxShadow: `0 12px 32px ${ACCENT}50`,
-            }}>
-              <CheckCircle size={44} color="white" />
+          <div style={{ animation: 'fadeInUp 0.5s ease both', paddingTop: 'var(--space-8)' }}>
+
+            {/* Success header */}
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
+              <div style={{
+                width: 80, height: 80, borderRadius: '50%',
+                background: `linear-gradient(135deg, ${ACCENT}, #F97316)`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                margin: '0 auto var(--space-4)',
+                boxShadow: `0 12px 32px ${ACCENT}40`,
+              }}>
+                <CheckCircle size={44} color="white" />
+              </div>
+              <p className="label-caps" style={{ color: ACCENT, marginBottom: 6 }}>GOAL LOCKED IN 🔒</p>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 900, color: 'var(--text-primary)' }}>
+                {goalName} 🌟
+              </h1>
+              <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
+                {t("Here's your complete savings plan. Review it below.")}
+              </p>
             </div>
-            <p className="label-caps" style={{ color: ACCENT, marginBottom: 8 }}>GOAL LOCKED IN</p>
-            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{goalName} 🌟</h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 380, margin: '0 auto var(--space-6)' }}>
-              {t('Your goal is set. Save')} <strong style={{ color: 'var(--text-primary)' }}>{fmt.currency(monthly, true)}/month</strong> {t('for')} <strong style={{ color: 'var(--text-primary)' }}>{targetMonths} months</strong> {t('to reach')} <strong style={{ color: ACCENT }}>{fmt.currency(amount, true)}</strong>.
-            </p>
-            <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button className="btn btn-secondary btn-lg" onClick={handleReset}>
-                <RotateCcw size={16} /> {t('New Goal')}
+
+            {/* Goal Summary Card */}
+            <div style={{
+              background: 'white', border: `1px solid ${ACCENT}30`,
+              borderRadius: 'var(--radius-xl)', overflow: 'hidden',
+              boxShadow: 'var(--shadow-sm)', marginBottom: 'var(--space-4)',
+            }}>
+              {/* Card header with category */}
+              <div style={{
+                background: `linear-gradient(135deg, ${ACCENT}15, ${ACCENT}05)`,
+                padding: 'var(--space-4) var(--space-5)',
+                borderBottom: `1px solid ${ACCENT}20`,
+                display: 'flex', alignItems: 'center', gap: 'var(--space-3)',
+              }}>
+                <span style={{ fontSize: 36 }}>{selectedCategory?.icon || '🎯'}</span>
+                <div>
+                  <p style={{ fontWeight: 800, fontSize: 'var(--text-base)', color: 'var(--text-primary)' }}>{goalName}</p>
+                  <p style={{ fontSize: 11, fontWeight: 700, color: ACCENT, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                    {selectedCategory?.label || 'Goal'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Stats grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--border-subtle)' }}>
+                {[
+                  { label: 'TARGET AMOUNT', val: fmt.currency(amount, true), icon: '🎯', highlight: false },
+                  { label: 'TIMELINE', val: `${targetMonths} months`, icon: '📅', highlight: false },
+                  { label: 'SAVE PER MONTH', val: `${fmt.currency(monthly, true)}/mo`, icon: '💰', highlight: true },
+                  { label: 'STRATEGY', val: selectedStrategy?.label || '', icon: '⚡', highlight: false },
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    background: item.highlight ? `${ACCENT}08` : 'white',
+                    padding: 'var(--space-4)',
+                  }}>
+                    <p style={{ fontSize: 10, color: 'var(--text-faint)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 6 }}>
+                      {item.icon} {item.label}
+                    </p>
+                    <p style={{
+                      fontFamily: 'var(--font-display)', fontWeight: 900,
+                      fontSize: item.highlight ? 'var(--text-xl)' : 'var(--text-base)',
+                      color: item.highlight ? ACCENT : 'var(--text-primary)',
+                      lineHeight: 1.1,
+                    }}>
+                      {item.val}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pro tip */}
+            <div style={{
+              background: 'white', border: '1px solid var(--border-subtle)',
+              borderRadius: 'var(--radius-xl)', padding: 'var(--space-4)',
+              marginBottom: 'var(--space-8)', display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)',
+              boxShadow: 'var(--shadow-xs)',
+            }}>
+              <span style={{ fontSize: 20, flexShrink: 0, marginTop: 2 }}>💡</span>
+              <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Pro Tip: </strong>
+                Set a standing instruction to auto-transfer{' '}
+                <strong style={{ color: ACCENT }}>{fmt.currency(monthly, true)}</strong>{' '}
+                on payday into a dedicated savings account. Automating it means you never miss a month!
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              <button
+                className="btn btn-lg"
+                onClick={handleExternalExit}
+                style={{ width: '100%', background: ACCENT, color: 'white', border: 'none', boxShadow: `0 8px 20px ${ACCENT}40` }}
+              >
+                {t('Back to Dashboard')} <ArrowRight size={18} />
               </button>
-              <button className="btn btn-lg" onClick={handleExternalExit} style={{ background: ACCENT, color: 'white', border: 'none', boxShadow: `0 8px 20px ${ACCENT}40` }}>
-                {t('Back to Dashboard')} <ArrowRight size={16} />
+              <button className="btn btn-secondary btn-lg" onClick={handleReset} style={{ width: '100%' }}>
+                <RotateCcw size={16} /> {t('Set Another Goal')}
               </button>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { ScreenShell } from "./ScreenShell";
 import { PrimaryButton } from "./PrimaryButton";
 import { ExerciseState, STRATEGIES } from "./types";
-import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   state: ExerciseState;
@@ -10,13 +10,8 @@ type Props = {
   onBack: () => void;
 };
 
-const badgeClasses: Record<string, string> = {
-  green: "bg-success-soft text-success",
-  blue: "bg-[hsl(var(--info-soft))] text-[hsl(var(--info-fg))]",
-  gold: "bg-gold-soft text-gold-foreground",
-};
-
 export const Screen4Plan = ({ state, setState, onNext, onBack }: Props) => {
+  const { t } = useTranslation();
   const canNext = !!state.strategyId;
 
   return (
@@ -27,64 +22,70 @@ export const Screen4Plan = ({ state, setState, onNext, onBack }: Props) => {
       onBack={onBack}
       cta={
         <PrimaryButton onClick={onNext} disabled={!canNext}>
-          Lock In My Plan! →
+          {t('Lock In My Plan!')} →
         </PrimaryButton>
       }
     >
-      <span className="inline-block rounded-full bg-gold-soft px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gold-foreground">
-        Step 3 of 3 · Your Plan
+      <span className="label-caps" style={{ color: 'var(--brand-primary)', background: 'var(--brand-primary-bg)', padding: '4px 12px', borderRadius: '999px' }}>
+        {t('Step 3 of 3 · Your Plan')}
       </span>
-      <h2 className="mt-3 text-xl font-bold text-navy">How Will You Save? 🏦</h2>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Pick a savings method that works for you
+      <h2 className="heading-lg text-primary mt-4">
+        {t('How Will You Save?')} 🏦
+      </h2>
+      <p className="text-sm text-secondary mt-1">
+        {t('Pick a savings method that works for you')}
       </p>
 
-      <div className="mt-5 space-y-3">
+      <div className="mt-6 space-y-4">
         {STRATEGIES.map((s) => {
           const selected = state.strategyId === s.id;
           return (
             <button
               key={s.id}
               onClick={() => setState({ ...state, strategyId: s.id })}
-              className={cn(
-                "block w-full rounded-2xl border-2 p-4 text-left transition",
-                selected
-                  ? "border-success bg-success-soft shadow-soft"
-                  : "border-border bg-card hover:border-success/40",
-              )}
+              className="card w-full p-5 text-left transition-all duration-200"
+              style={{ 
+                borderColor: selected ? 'var(--brand-success)' : 'var(--border-subtle)',
+                background: selected ? 'var(--brand-success-bg)' : 'white',
+                boxShadow: selected ? 'var(--shadow-sm)' : 'none'
+              }}
             >
-              <div className="flex items-start justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">{s.emoji}</span>
-                  <h3 className="text-sm font-bold text-navy">{s.title}</h3>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{s.emoji}</span>
+                  <h3 className="text-sm font-bold text-primary">{t(s.title)}</h3>
                 </div>
                 <span
-                  className={cn(
-                    "flex-none rounded-full px-2 py-0.5 text-[10px] font-bold",
-                    badgeClasses[s.badgeTone],
-                  )}
+                  className="label-caps"
+                  style={{ 
+                    fontSize: '9px',
+                    color: selected ? 'var(--brand-success)' : 'var(--text-secondary)',
+                    background: 'white',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    border: '1px solid currentColor'
+                  }}
                 >
-                  {s.badge}
+                  {t(s.badge)}
                 </span>
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-navy/75">
-                {s.description}
+              <p className="mt-3 text-xs leading-relaxed text-secondary">
+                {t(s.description)}
               </p>
-              <div className="mt-2.5 rounded-lg bg-muted px-3 py-2 text-[11px] leading-relaxed text-navy/80">
-                <span className="font-semibold">How it works: </span>
-                {s.how}
+              <div className="mt-3 rounded-xl bg-slate-50 border border-subtle px-4 py-3 text-[11px] leading-relaxed text-primary">
+                <span className="font-bold">{t('How it works')}: </span>
+                {t(s.how)}
               </div>
-              <p className="mt-2 text-[11px] font-medium text-navy">
-                💡 {s.tip}
+              <p className="mt-3 text-[11px] font-bold text-primary">
+                💡 {t(s.tip)}
               </p>
             </button>
           );
         })}
       </div>
 
-      <div className="mt-4 rounded-2xl border border-[hsl(var(--gold)/0.3)] bg-[hsl(var(--warn-soft))] p-3.5 text-xs leading-relaxed text-navy">
-        💡 The best savings method is the one you'll actually stick to. Start
-        small — you can always increase later!
+      <div className="card mt-6 p-4 text-xs leading-relaxed text-primary" style={{ background: 'var(--brand-primary-bg)', border: '1px solid var(--border-brand)' }}>
+        💡 {t('The best savings method is the one you\'ll actually stick to. Start small — you can always increase later!')}
       </div>
     </ScreenShell>
   );

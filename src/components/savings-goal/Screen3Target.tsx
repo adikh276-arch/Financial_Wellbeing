@@ -7,6 +7,7 @@ import {
   monthsBetween,
   parseAmount,
 } from "./types";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   state: ExerciseState;
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export const Screen3Target = ({ state, setState, onNext, onBack }: Props) => {
+  const { t } = useTranslation();
   const amount = parseAmount(state.targetAmount);
   const months = monthsBetween(state.targetMonth, state.targetYear);
   const ready =
@@ -42,26 +44,26 @@ export const Screen3Target = ({ state, setState, onNext, onBack }: Props) => {
       onBack={onBack}
       cta={
         <PrimaryButton onClick={onNext} disabled={!ready}>
-          Next →
+          {t('Next')} →
         </PrimaryButton>
       }
     >
-      <span className="inline-block rounded-full bg-gold-soft px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gold-foreground">
-        Step 2 of 3 · Your Numbers
+      <span className="label-caps" style={{ color: 'var(--brand-primary)', background: 'var(--brand-primary-bg)', padding: '4px 12px', borderRadius: '999px' }}>
+        {t('Step 2 of 3 · Your Numbers')}
       </span>
-      <h2 className="mt-3 text-xl font-bold text-navy">How Much Do You Need? 💰</h2>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Enter your savings target and timeline
+      <h2 className="heading-lg text-primary mt-4">{t('How Much Do You Need?')} 💰</h2>
+      <p className="text-sm text-secondary mt-1">
+        {t('Enter your savings target and timeline')}
       </p>
 
-      <div className="mt-5">
-        <label className="mb-1.5 block text-xs font-semibold text-navy">
-          How much do you want to save?
+      <div className="mt-6">
+        <label className="mb-2 block text-xs font-bold text-primary">
+          {t('How much do you want to save?')}
         </label>
-        <div className="relative">
-          <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-semibold text-muted-foreground">
+        <div className="flex items-stretch rounded-2xl border border-default overflow-hidden">
+          <div className="flex items-center justify-center px-4 font-bold text-lg" style={{ background: 'var(--brand-primary-bg)', color: 'var(--brand-primary)' }}>
             ₹
-          </span>
+          </div>
           <input
             inputMode="numeric"
             value={
@@ -73,26 +75,27 @@ export const Screen3Target = ({ state, setState, onNext, onBack }: Props) => {
               setState({ ...state, targetAmount: e.target.value })
             }
             placeholder="1,00,000"
-            className="w-full rounded-xl border-2 border-border bg-card py-2.5 pl-7 pr-3.5 text-sm font-medium text-navy outline-none transition focus:border-success"
+            className="form-input"
+            style={{ border: 'none', borderRadius: 0, padding: '12px 16px', fontWeight: 700 }}
           />
         </div>
       </div>
 
-      <div className="mt-4">
-        <label className="mb-1.5 block text-xs font-semibold text-navy">
-          By when do you want to reach this goal?
+      <div className="mt-6">
+        <label className="mb-2 block text-xs font-bold text-primary">
+          {t('By when do you want to reach this goal?')}
         </label>
-        <div className="grid grid-cols-2 gap-2.5">
+        <div className="grid grid-cols-2 gap-3">
           <select
             value={state.targetMonth}
             onChange={(e) =>
               setState({ ...state, targetMonth: e.target.value })
             }
-            className="rounded-xl border-2 border-border bg-card px-3 py-2.5 text-sm text-navy outline-none transition focus:border-success"
+            className="form-input"
           >
-            <option value="">Month</option>
+            <option value="">{t('Month')}</option>
             {MONTHS.map((m, i) => (
-              <option key={m} value={i}>{m}</option>
+              <option key={m} value={i}>{t(m)}</option>
             ))}
           </select>
           <select
@@ -100,9 +103,9 @@ export const Screen3Target = ({ state, setState, onNext, onBack }: Props) => {
             onChange={(e) =>
               setState({ ...state, targetYear: e.target.value })
             }
-            className="rounded-xl border-2 border-border bg-card px-3 py-2.5 text-sm text-navy outline-none transition focus:border-success"
+            className="form-input"
           >
-            <option value="">Year</option>
+            <option value="">{t('Year')}</option>
             {years.map((y) => (
               <option key={y} value={y}>{y}</option>
             ))}
@@ -111,27 +114,28 @@ export const Screen3Target = ({ state, setState, onNext, onBack }: Props) => {
       </div>
 
       {ready && (
-        <div className="mt-5 animate-fade-in rounded-2xl border-2 border-success/30 bg-success-soft p-4">
-          <div className="space-y-2 text-sm">
+        <div className="mt-8 animate-fadeIn rounded-2xl p-5 border" style={{ background: 'var(--brand-success-bg)', borderColor: 'var(--brand-success)' }}>
+          <div className="space-y-3 text-sm text-primary">
             <div className="flex items-center justify-between">
-              <span className="text-navy/70">📅 Months remaining</span>
-              <span className="font-bold text-navy">{months}</span>
+              <span className="opacity-70">{t('📅 Months remaining')}</span>
+              <span className="font-bold">{months}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-navy/70">💾 You need to save</span>
-              <span className="font-bold text-navy">
-                ₹{formatINR(monthly)} / month
+              <span className="opacity-70">{t('💾 You need to save')}</span>
+              <span className="font-bold">
+                ₹{formatINR(monthly)} / {t('month')}
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-navy/70">☕ That's just</span>
-              <span className="font-bold text-navy">
-                ₹{formatINR(daily)} / day
+              <span className="opacity-70">{t('☕ That\'s just')}</span>
+              <span className="font-bold">
+                ₹{formatINR(daily)} / {t('day')}
               </span>
             </div>
           </div>
-          <p className="mt-3 border-t border-success/20 pt-3 text-xs font-medium text-navy">
-            {motivation}
+          <div className="separator" style={{ margin: '12px 0' }} />
+          <p className="text-xs font-bold" style={{ color: 'var(--brand-success)' }}>
+            {t(motivation)}
           </p>
         </div>
       )}

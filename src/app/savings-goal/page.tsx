@@ -112,7 +112,7 @@ export default function SavingsGoalPage() {
               key="completed"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative overflow-hidden rounded-[2.5rem] bg-white p-12 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100"
+              className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-16 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100"
             >
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 to-orange-500" />
               <div className="w-28 h-28 mx-auto rounded-[2rem] bg-amber-50 flex items-center justify-center text-6xl mb-8 shadow-sm border border-amber-100/50">
@@ -154,7 +154,7 @@ function IntroScreen({ onNext }: { onNext: () => void }) {
   const { t } = useTranslation();
   return (
     <div className="stack-8">
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-10 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-16 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100">
         <div className="absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-50/50 blur-3xl pointer-events-none" />
         
         <div className="relative z-10">
@@ -282,7 +282,7 @@ function NumbersScreen({ state, setState, onNext }: { state: ExerciseState, setS
         <p className="text-slate-500">{t('How much and by when? Be realistic but ambitious.')}</p>
       </div>
 
-      <div className="rounded-[2.5rem] bg-white p-10 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100 stack-8">
+      <div className="rounded-[2.5rem] bg-white p-8 md:p-16 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100 stack-8">
          <div className="stack-3">
            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">{t('GOAL NAME')}</label>
            <input 
@@ -402,7 +402,7 @@ function ReviewScreen({ state, onComplete }: { state: ExerciseState, onComplete:
 
   return (
     <div className="stack-8">
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-10 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-16 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100">
         <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
           <Target size={180} className="text-amber-500" />
         </div>

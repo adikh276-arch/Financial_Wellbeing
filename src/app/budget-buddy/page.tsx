@@ -80,10 +80,12 @@ export default function BudgetBuddyPage() {
           ) : (
             <motion.div
               key="completed"
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-16 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="w-full max-w-[640px] mx-auto"
             >
+              <div className="relative rounded-[2.5rem] bg-white p-10 md:p-16 text-center shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100">
+
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-indigo-600" />
               <div className="w-28 h-28 mx-auto rounded-[2rem] bg-emerald-50 flex items-center justify-center text-6xl mb-8 shadow-sm border border-emerald-100/50">
                 🥳
@@ -111,8 +113,9 @@ export default function BudgetBuddyPage() {
                   {t('Back to Dashboard')}
                 </button>
               </div>
-            </motion.div>
-          )}
+            </div>
+          </motion.div>
+        )}
         </AnimatePresence>
       </div>
     </main>
@@ -124,8 +127,8 @@ export default function BudgetBuddyPage() {
 function IntroScreen({ onNext }: { onNext: () => void }) {
   const { t } = useTranslation();
   return (
-    <div className="stack-8">
-      <div className="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white px-6 py-12 md:p-16 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100">
+    <div className="w-full max-w-[640px] mx-auto">
+      <div className="relative rounded-[2.5rem] bg-white p-10 md:p-16 text-center shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100">
         {/* Background Accent */}
         <div className="absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-50/50 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-48 w-48 -translate-x-1/2 translate-y-1/2 rounded-full bg-indigo-50/30 blur-3xl pointer-events-none" />

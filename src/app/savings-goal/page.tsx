@@ -154,7 +154,7 @@ function IntroScreen({ onNext }: { onNext: () => void }) {
   const { t } = useTranslation();
   return (
     <div className="stack-8">
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 md:p-16 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100">
+      <div className="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white px-6 py-12 md:p-16 text-center shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] border border-slate-100">
         <div className="absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-50/50 blur-3xl pointer-events-none" />
         
         <div className="relative z-10">
@@ -175,7 +175,7 @@ function IntroScreen({ onNext }: { onNext: () => void }) {
             {t("A goal without a plan is just a wish. Let's turn your aspirations into a concrete savings roadmap today.")}
           </p>
           
-          <div className="grid grid-cols-2 gap-4 mb-10 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-left">
              {[
                { icon: <Gem size={18} />, title: 'Crystal Clear', desc: 'Define exactly what you want and why.', color: 'amber' },
                { icon: <Calendar size={18} />, title: 'Time Bound', desc: 'Pick a deadline that motivates you.', color: 'blue' },

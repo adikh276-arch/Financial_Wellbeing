@@ -470,18 +470,6 @@ button { cursor: pointer; font-family: var(--font-body); }
   color: var(--text-primary);
 }
 
-/* ============================================================
-   INNER PAGE LAYOUT
-   ============================================================ */
-.inner-page {
-  min-height: 100vh;
-}
-
-.inner-content {
-  max-width: 800px; /* Therapy guidelines for reading */
-  margin: 0 auto;
-  padding: var(--space-8) var(--space-4) var(--space-16);
-}
 
 /* ─── Sticky PageHeader ─── */
 .page-header-bar {
@@ -723,7 +711,9 @@ button { cursor: pointer; font-family: var(--font-body); }
 .stack-2 { display: flex; flex-direction: column; gap: var(--space-2); }
 .stack-3 { display: flex; flex-direction: column; gap: var(--space-3); }
 .stack-4 { display: flex; flex-direction: column; gap: var(--space-4); }
+.stack-5 { display: flex; flex-direction: column; gap: var(--space-5); }
 .stack-6 { display: flex; flex-direction: column; gap: var(--space-6); }
+.stack-8 { display: flex; flex-direction: column; gap: var(--space-8); }
 
 /* ============================================================
    ANIMATIONS
@@ -780,4 +770,27 @@ button { cursor: pointer; font-family: var(--font-body); }
 .app-shell {
   min-height: 100vh;
   /* Body handles the soft gradient background now */
+}
+
+/* ─── Layout Wrappers ─── */
+.inner-page {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  display: flex;
+  flex-direction: column;
+}
+
+.inner-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 80px; /* Top, Horizontal, Bottom padding */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure motion divs don't break layout */
+.inner-content > div {
+  width: 100%;
 }

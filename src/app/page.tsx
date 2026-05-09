@@ -111,11 +111,10 @@ export default function FinancialWellbeingDashboard() {
             onClick={() => {
               if (typeof window !== 'undefined') {
                 if (window.parent !== window) {
-                  // Send to specific origin AND wildcard to ensure delivery
-                  window.parent.postMessage({ action: 'exit' }, 'https://web.mantracare.com');
-                  window.parent.postMessage({ action: 'exit' }, '*');
+                  window.parent.postMessage({ action: 'exit', path: '/finance' }, 'https://web.mantracare.com');
+                  window.parent.postMessage({ action: 'exit', path: '/finance' }, '*');
                 } else {
-                  window.location.href = 'https://web.mantracare.com';
+                  window.location.href = 'https://web.mantracare.com/finance';
                 }
               }
             }}

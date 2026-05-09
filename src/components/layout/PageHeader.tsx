@@ -1,13 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from 'next/navigation';
-
+import { useSearchParams, useRouter } from 'next/navigation';
 import { HistoryModal } from '@/components/HistoryModal';
-import { useState } from 'react';
 import { History as HistoryIcon } from 'lucide-react';
 
 interface PageHeaderProps {
@@ -40,23 +37,35 @@ export function PageHeader({
   const [showHistory, setShowHistory] = useState(false);
   const { t } = useTranslation();
   const searchParams = useSearchParams();
+  const router = useRouter();
   const label = backLabel || t('back');
 
-  const query = searchParams.toString();
-  const suffix = query ? `?${query}` : '';
+  const handleBack = () => {
+    if (onBackClick) {
+      onBackClick();
+      return;
+    }
+
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('token'); // Strip token to prevent AuthGuard redirect loops
+    const query = params.toString();
+    const suffix = query ? `?${query}` : '';
+    const target = `${backHref || '/'}${suffix}`;
+    
+    router.replace(target);
+  };
 
   return (
     <div className="page-header-bar">
       <div className="page-header-inner">
-        {onBackClick ? (
-          <button onClick={onBackClick} className="back-btn" aria-label={label} style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <ChevronLeft size={18} />
-          </button>
-        ) : (
-          <Link href={`${backHref || '/'}${suffix}`} replace className="back-btn" aria-label={label}>
-            <ChevronLeft size={18} />
-          </Link>
-        )}
+        <button 
+          onClick={handleBack} 
+          className="back-btn" 
+          aria-label={label} 
+          style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <ChevronLeft size={18} />
+        </button>
 
         <div style={{ flex: 1, minWidth: 0 }}>
           {subtitle && (

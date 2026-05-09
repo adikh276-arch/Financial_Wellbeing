@@ -108,9 +108,16 @@ export default function FinancialWellbeingDashboard() {
           className="dashboard-header"
         >
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              handleExternalExit();
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                if (window.parent !== window) {
+                  // Send to specific origin AND wildcard to ensure delivery
+                  window.parent.postMessage({ action: 'exit' }, 'https://web.mantracare.com');
+                  window.parent.postMessage({ action: 'exit' }, '*');
+                } else {
+                  window.location.href = 'https://web.mantracare.com';
+                }
+              }
             }}
             className="back-btn"
             aria-label="Go back"

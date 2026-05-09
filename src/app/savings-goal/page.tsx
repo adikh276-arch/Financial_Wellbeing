@@ -411,7 +411,10 @@ export default function SavingsGoalPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button
                 className="btn btn-lg"
-                onClick={() => router.replace('/')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.replace('/');
+                }}
                 style={{ width: '100%', background: ACCENT, color: 'white', border: 'none', boxShadow: `0 8px 20px ${ACCENT}40` }}
               >
                 {t('Back to Dashboard')} <ArrowRight size={18} />

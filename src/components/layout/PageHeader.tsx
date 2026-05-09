@@ -40,19 +40,23 @@ export function PageHeader({
   const router = useRouter();
   const label = backLabel || t('back');
 
-  const handleBack = () => {
+  const handleBack = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     if (onBackClick) {
       onBackClick();
       return;
     }
 
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete('token'); // Strip token to prevent AuthGuard redirect loops
+    // Use window.location for more reliable navigation in iframe/Next.js edge cases
+    const params = new URLSearchParams(window.location.search);
+    params.delete('token'); 
     const query = params.toString();
     const suffix = query ? `?${query}` : '';
     const target = `${backHref || '/'}${suffix}`;
     
-    router.replace(target);
+    window.location.replace(target);
   };
 
   return (

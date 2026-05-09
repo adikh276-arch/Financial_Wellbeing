@@ -108,7 +108,10 @@ export default function FinancialWellbeingDashboard() {
           className="dashboard-header"
         >
           <button
-            onClick={handleExternalExit}
+            onClick={(e) => {
+              e.preventDefault();
+              handleExternalExit();
+            }}
             className="back-btn"
             aria-label="Go back"
           >

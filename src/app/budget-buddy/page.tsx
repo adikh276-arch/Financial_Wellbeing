@@ -6,14 +6,15 @@ import {
   Wallet, Target, TrendingUp, Clock, ListChecks
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
-import { handleExternalExit } from '@/lib/navigation';
 import { storage, fmt } from '@/lib/storage';
 
 const STEPS = ['Income', 'Budget', 'Plan'];
 const ACCENT = '#3B82F6';
 
 export default function BudgetBuddyPage() {
+  const router = useRouter();
   const { t } = useTranslation();
   const [step, setStep] = useState(-1);
   const [income, setIncome] = useState('');
@@ -37,7 +38,7 @@ export default function BudgetBuddyPage() {
         <PageHeader
           title={t('Budget Buddy')}
           subtitle="ACTIVITY"
-          onBackClick={handleExternalExit}
+          backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
           accentColor={ACCENT}
@@ -253,7 +254,7 @@ export default function BudgetBuddyPage() {
               <button className="btn btn-secondary btn-lg" onClick={handleReset}>
                 <RotateCcw size={16} /> {t('Start Over')}
               </button>
-              <button className="btn btn-primary btn-lg" onClick={handleExternalExit}>
+              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/')}>
                 {t('Back to Dashboard')} <ArrowRight size={16} />
               </button>
             </div>

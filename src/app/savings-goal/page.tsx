@@ -6,8 +6,8 @@ import {
   Gem, Calendar, TrendingUp, Rocket, Wallet, Star
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
-import { handleExternalExit } from '@/lib/navigation';
 import { fmt } from '@/lib/storage';
 
 const STEPS = ['Goal', 'Target', 'Strategy'];
@@ -31,6 +31,7 @@ const STRATEGIES = [
 ];
 
 export default function SavingsGoalPage() {
+  const router = useRouter();
   const { t } = useTranslation();
   const [step, setStep] = useState(-1);
   const [category, setCategory] = useState('');
@@ -64,7 +65,7 @@ export default function SavingsGoalPage() {
         <PageHeader
           title={t('Savings Goal Setter')}
           subtitle="ACTIVITY"
-          onBackClick={handleExternalExit}
+          backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
           accentColor={ACCENT}
@@ -410,7 +411,7 @@ export default function SavingsGoalPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button
                 className="btn btn-lg"
-                onClick={handleExternalExit}
+                onClick={() => router.replace('/')}
                 style={{ width: '100%', background: ACCENT, color: 'white', border: 'none', boxShadow: `0 8px 20px ${ACCENT}40` }}
               >
                 {t('Back to Dashboard')} <ArrowRight size={18} />

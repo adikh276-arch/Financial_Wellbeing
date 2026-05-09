@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import ClientOnly from '@/components/ClientOnly';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
-import { handleExternalExit } from '@/lib/navigation';
+
 
 type Field =
   'income' | 'otherIncome' |
@@ -183,7 +183,7 @@ export default function BudgetPlanner() {
         {true && (
           <PageHeader 
             title={t('Budget Planner')}
-            onBackClick={handleExternalExit}
+            backHref="/"
             steps={step >= 0 ? STEPS : undefined}
             currentStep={step >= 0 ? step : undefined}
             accentColor="#00A884"

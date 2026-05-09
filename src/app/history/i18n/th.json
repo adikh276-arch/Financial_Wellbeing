@@ -1,0 +1,19 @@
+{
+  "Are you sure you want to clear all history? This cannot be undone.": "คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติทั้งหมด? สิ่งนี้ไม่สามารถยกเลิกได้",
+  "Deficit": "การขาดดุล",
+  "Emergency Fund Target": "เป้าหมายกองทุนฉุกเฉิน",
+  "Entries": "ผลงาน",
+  "Financial Health Score": "คะแนนสุขภาพทางการเงิน",
+  "Financial History": "ประวัติการเงิน",
+  "Funded": "ได้รับทุน",
+  "Monthly Budget Flow": "การไหลของงบประมาณรายเดือน",
+  "No Activity Yet": "ยังไม่มีกิจกรรม",
+  "Recent Activities": "กิจกรรมล่าสุด",
+  "Return to Dashboard": "กลับไปที่แดชบอร์ด",
+  "Savings Check-up": "การตรวจการออม",
+  "Spending Style": "รูปแบบการใช้จ่าย",
+  "Surplus": "ส่วนเกิน",
+  "Wealth Projection": "การคาดการณ์ความมั่งคั่ง",
+  "Your activity data is stored locally and synced with our secure cloud to ensure you never lose your progress across sessions.": "ข้อมูลกิจกรรมของคุณจะถูกจัดเก็บไว้ในเครื่องและซิงค์กับระบบคลาวด์ที่ปลอดภัยของเราเพื่อให้แน่ใจว่าคุณจะไม่สูญเสียความคืบหน้าในเซสชันต่างๆ",
+  "Your financial assessments and planning history will appear here once you start using the tools.": "การประเมินทางการเงินและประวัติการวางแผนของคุณจะปรากฏที่นี่เมื่อคุณเริ่มใช้เครื่องมือ"
+}

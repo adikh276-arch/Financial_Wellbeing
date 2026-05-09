@@ -53,7 +53,7 @@ export function PageHeader({
             <ChevronLeft size={18} />
           </button>
         ) : (
-          <Link href={`${backHref || '/'}${suffix}`} className="back-btn" aria-label={label}>
+          <Link href={`${backHref || '/'}${suffix}`} replace className="back-btn" aria-label={label}>
             <ChevronLeft size={18} />
           </Link>
         )}

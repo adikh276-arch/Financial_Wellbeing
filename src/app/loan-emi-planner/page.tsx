@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import ClientOnly from '@/components/ClientOnly';
-import { handleExternalExit } from '@/lib/navigation';
+
 
 const LOAN_TYPES = ['Personal Loan', 'Home Loan', 'Auto Loan', 'Education Loan', 'Business Loan'];
 
@@ -147,7 +147,7 @@ export default function LoanEMIPlanner() {
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-16)' }}>
         <PageHeader 
           title={t('Loan & EMI Planner')}
-          onBackClick={handleExternalExit}
+          backHref="/"
           historyKey="loan"
           onRestore={(restored) => {
             setForm(restored);

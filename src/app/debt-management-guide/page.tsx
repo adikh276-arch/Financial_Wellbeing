@@ -6,8 +6,8 @@ import {
   TrendingDown, LayoutList, Zap, BookOpen, ChevronRight
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
-import { handleExternalExit } from '@/lib/navigation';
 
 const STEPS = ['Learn', 'Choose', 'Action'];
 const ACCENT = '#3B82F6';
@@ -42,6 +42,7 @@ const STRATEGY_INFO = {
 };
 
 export default function DebtManagementPage() {
+  const router = useRouter();
   const { t } = useTranslation();
   const [step, setStep] = useState(-1);
   const [strategy, setStrategy] = useState<Strategy>(null);
@@ -62,7 +63,7 @@ export default function DebtManagementPage() {
         <PageHeader
           title={t('Debt Management Guide')}
           subtitle="ACTIVITY"
-          onBackClick={handleExternalExit}
+          backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
           accentColor={ACCENT}
@@ -280,7 +281,7 @@ export default function DebtManagementPage() {
               <button className="btn btn-secondary btn-lg" onClick={handleReset}>
                 <RotateCcw size={16} /> {t('Start Over')}
               </button>
-              <button className="btn btn-primary btn-lg" onClick={handleExternalExit}>
+              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/')}>
                 {t('Back to Dashboard')} <ArrowRight size={16} />
               </button>
             </div>

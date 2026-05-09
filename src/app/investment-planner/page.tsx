@@ -11,7 +11,7 @@ import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
-import { handleExternalExit } from '@/lib/navigation';
+
 
 interface FormData {
   amount: number; period: number;
@@ -136,7 +136,7 @@ export default function InvestmentPlanner() {
         {true && (
           <PageHeader 
             title={t('Investment Planner')}
-            onBackClick={handleExternalExit}
+            backHref="/"
             accentColor="#2563EB"
             historyKey="investment_form"
             onRestore={(restored) => {

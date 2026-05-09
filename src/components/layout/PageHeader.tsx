@@ -1,10 +1,11 @@
 'use client';
 
 import { ChevronLeft } from 'lucide-react';
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams, useRouter } from 'next/navigation';
+
 import { HistoryModal } from '@/components/HistoryModal';
+import { useState } from 'react';
 import { History as HistoryIcon } from 'lucide-react';
 
 interface PageHeaderProps {
@@ -36,36 +37,24 @@ export function PageHeader({
 }: PageHeaderProps) {
   const [showHistory, setShowHistory] = useState(false);
   const { t } = useTranslation();
-  const searchParams = useSearchParams();
-  const router = useRouter();
   const label = backLabel || t('back');
 
-  const handleBack = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (onBackClick) {
-      onBackClick();
-      return;
+  // Always use window.history.back() to properly pop the history stack.
+  // Using Link replace or router.replace creates duplicate entries causing
+  // the double-click issue. onBackClick overrides for custom exits (e.g. dashboard).
+  const handleBack = onBackClick ?? (() => {
+    if (typeof window !== 'undefined') {
+      window.history.back();
     }
-
-    // Use window.location for more reliable navigation in iframe/Next.js edge cases
-    const params = new URLSearchParams(window.location.search);
-    params.delete('token'); 
-    const query = params.toString();
-    const suffix = query ? `?${query}` : '';
-    const target = `${backHref || '/'}${suffix}`;
-    
-    window.location.replace(target);
-  };
+  });
 
   return (
     <div className="page-header-bar">
       <div className="page-header-inner">
-        <button 
-          onClick={handleBack} 
-          className="back-btn" 
-          aria-label={label} 
+        <button
+          onClick={handleBack}
+          className="back-btn"
+          aria-label={label}
           style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
           <ChevronLeft size={18} />

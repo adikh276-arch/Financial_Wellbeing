@@ -17,8 +17,8 @@ export default function DebtManagement() {
           icon: Scale, 
           heading: t("Good Debt vs Bad Debt"), 
           content: [
-            { title: t("Good Debt (Builds Wealth)"), description: 'Home loans (appreciating asset, tax benefits), education loans (investment in yourself), business loans (generates income).' }, 
-            { title: t("Bad Debt (Depletes Wealth)"), description: 'Credit cards at 18%+ interest, personal loans for consumption, payday loans with predatory rates.' }
+            { title: t("Good Debt (Builds Wealth)"), description: t('Home loans (appreciating asset, tax benefits), education loans (investment in yourself), business loans (generates income).') }, 
+            { title: t("Bad Debt (Depletes Wealth)"), description: t('Credit cards at 18%+ interest, personal loans for consumption, payday loans with predatory rates.') }
           ], 
           variant: 'cards' 
         },
@@ -31,9 +31,9 @@ export default function DebtManagement() {
           icon: Target, 
           heading: t("Repayment Strategies"), 
           content: [
-            { title: t("Snowball Method"), description: 'Pay minimum on all debts. Attack the smallest balance first. Psychological wins keep you motivated.' }, 
-            { title: t("Avalanche Method"), description: 'Pay minimum on all debts. Attack the highest interest rate first. Saves the most money mathematically.' }, 
-            { title: t("Hybrid Method"), description: 'Mix of both: one quick snowball win for motivation, then switch to avalanche for the rest.' }
+            { title: t("Snowball Method"), description: t('Pay minimum on all debts. Attack the smallest balance first. Psychological wins keep you motivated.') }, 
+            { title: t("Avalanche Method"), description: t('Pay minimum on all debts. Attack the highest interest rate first. Saves the most money mathematically.') }, 
+            { title: t("Hybrid Method"), description: t('Mix of both: one quick snowball win for motivation, then switch to avalanche for the rest.') }
           ] 
         },
         { 

@@ -18,18 +18,18 @@ export default function UnderstandIncomeExpenses() {
           icon: Wallet, 
           heading: t("Types of Income"), 
           content: [
-            { title: t("Salary (Primary)"), description: 'Fixed monthly income. Use net take-home, not gross - taxes and deductions come first.' }, 
-            { title: t("Variable Income"), description: 'Freelance, bonuses, commissions. Budget conservatively: use average +Ã¹ 80% to avoid over-spending.' }, 
-            { title: t("Passive Income"), description: 'Rental income, dividends, interest. Bonus income - don\'t rely on it, plan with it.' }
+            { title: t("Salary (Primary)"), description: t('Fixed monthly income. Use net take-home, not gross - taxes and deductions come first.') }, 
+            { title: t("Variable Income"), description: t('Freelance, bonuses, commissions. Budget conservatively: use average +Ã¹ 80% to avoid over-spending.') }, 
+            { title: t("Passive Income"), description: t('Rental income, dividends, interest. Bonus income - don\\'t rely on it, plan with it.') }
           ] 
         },
         { 
           icon: BarChart4, 
           heading: t("Expense Categories"), 
           content: [
-            { title: t("Fixed Expenses"), description: 'Rent, insurance, EMIs, phone, internet. Constant every month. To optimize: negotiate, refinance, switch providers.' }, 
-            { title: t("Variable Expenses"), description: 'Groceries, fuel, dining, entertainment. Change monthly. Track for 3 months to find the average.' }, 
-            { title: t("Irregular Expenses"), description: 'Car maintenance, gifts, medical check-ups. Happen periodically. Divide annual cost by 12 and set aside monthly.' }
+            { title: t("Fixed Expenses"), description: t('Rent, insurance, EMIs, phone, internet. Constant every month. To optimize: negotiate, refinance, switch providers.') }, 
+            { title: t("Variable Expenses"), description: t('Groceries, fuel, dining, entertainment. Change monthly. Track for 3 months to find the average.') }, 
+            { title: t("Irregular Expenses"), description: t('Car maintenance, gifts, medical check-ups. Happen periodically. Divide annual cost by 12 and set aside monthly.') }
           ], 
           variant: 'cards' 
         },

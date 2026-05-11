@@ -1,3 +1,5 @@
+import i18n from './i18n';
+
 // ============================================================
 // LOCAL STORAGE UTILITY — Financial Wellbeing
 // ============================================================
@@ -73,16 +75,20 @@ export const storage = {
 // ─── Format helpers ───────────────────────────────────────────
 export const fmt = {
   currency: (n: number, compact = false) => {
+    const lng = i18n.language || 'en';
     if (compact && n >= 1_000_000) {
       return `${(n / 1_000_000).toFixed(2)}M`;
     }
     if (compact && n >= 1_000) {
       return `${(n / 1_000).toFixed(1)}K`;
     }
-    return new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(n);
+    return new Intl.NumberFormat(lng, { maximumFractionDigits: 0 }).format(n);
   },
   percent: (n: number, decimals = 1) => `${n.toFixed(decimals)}%`,
-  number: (n: number) => new Intl.NumberFormat('en-US').format(Math.round(n)),
+  number: (n: number) => {
+    const lng = i18n.language || 'en';
+    return new Intl.NumberFormat(lng).format(Math.round(n));
+  },
 };
 
 // ─── Financial calculations ───────────────────────────────────

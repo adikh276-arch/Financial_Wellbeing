@@ -23,19 +23,19 @@ export default function Rule503020() {
           icon: Home, 
           heading: t("The Three Buckets"), 
           content: [
-            { title: t("50% - Needs"), description: 'Housing, utilities, groceries, transport, insurance, minimum debt payments. Cannot live without these.' }, 
-            { title: t("30% - Wants"), description: 'Entertainment, hobbies, dining out, shopping, subscriptions, travel. Enrich life but aren\'t survival.' }, 
-            { title: t("20% - Savings & Debt"), description: 'Emergency fund, investments, extra debt payments, retirement savings. Your future security.' }
+            { title: t("50% - Needs"), description: t('Housing, utilities, groceries, transport, insurance, minimum debt payments. Cannot live without these.') }, 
+            { title: t("30% - Wants"), description: t('Entertainment, hobbies, dining out, shopping, subscriptions, travel. Enrich life but aren\\'t survival.') }, 
+            { title: t("20% - Savings & Debt"), description: t('Emergency fund, investments, extra debt payments, retirement savings. Your future security.') }
           ] 
         },
         { 
           icon: Repeat, 
           heading: t("When to Adjust the Ratio"), 
           content: [
-            { title: t("High Cost of Living Area"), description: '60% Needs / 20% Wants / 20% Savings - focus on increasing income to rebalance' }, 
-            { title: t("Heavy Debt Situation"), description: '50% Needs / 20% Wants / 30% Debt Repayment - then redirect after clearing' }, 
-            { title: t("Wealth Acceleration Mode"), description: '50% Needs / 20% Wants / 30% Savings - compress wants to build wealth faster' }, 
-            { title: t("Near Retirement"), description: '50% Needs / 15% Wants / 35% Savings - maximise before the finish line' }
+            { title: t("High Cost of Living Area"), description: t('60% Needs / 20% Wants / 20% Savings - focus on increasing income to rebalance') }, 
+            { title: t("Heavy Debt Situation"), description: t('50% Needs / 20% Wants / 30% Debt Repayment - then redirect after clearing') }, 
+            { title: t("Wealth Acceleration Mode"), description: t('50% Needs / 20% Wants / 30% Savings - compress wants to build wealth faster') }, 
+            { title: t("Near Retirement"), description: t('50% Needs / 15% Wants / 35% Savings - maximise before the finish line') }
           ], 
           variant: 'cards' 
         },

@@ -29,72 +29,44 @@ if (!moduleName) {
   process.exit(1);
 }
 
+const isShared = moduleName === 'shared';
 const modulePath = path.join(__dirname, `../src/app/${moduleName}`);
 
-if (!fs.existsSync(modulePath)) {
+if (!isShared && !fs.existsSync(modulePath)) {
   console.error(`Module path does not exist: ${modulePath}`);
   process.exit(1);
 }
 
-const i18nDir = path.join(modulePath, 'i18n');
+const i18nDir = isShared
+  ? path.join(__dirname, '../src/locales')
+  : path.join(modulePath, 'i18n');
+
 if (!fs.existsSync(i18nDir)) {
   fs.mkdirSync(i18nDir, { recursive: true });
 }
 
 if (action === 'extract' || !action) {
   console.log(`Extracting strings for module: ${moduleName}`);
-  
-  const compDir = path.join(__dirname, `../src/components/${moduleName}`);
-  const hasComp = fs.existsSync(compDir);
-  const inputArr = [`'src/app/${moduleName}/**/*.{js,jsx,ts,tsx}'`];
-  
-  if (moduleName === 'dashboard') {
-      inputArr.push(`'src/app/page.tsx'`);
-  }
-  
-  if (hasComp) {
-      inputArr.push(`'src/components/${moduleName}/**/*.{js,jsx,ts,tsx}'`);
-  }
-
-  const configContent = `
-    module.exports = {
-      locales: ['en'],
-      output: 'src/app/${moduleName}/i18n/$LOCALE.json',
-      input: [
-        ${inputArr.join(',\n        ')}
-      ],
-      sort: true,
-      createOldCatalogs: false,
-      keySeparator: false,
-      defaultValue: function(locale, namespace, key, value) {
-        return value || key;
-      },
-      lexers: {
-        ts: [{
-          lexer: 'JavascriptLexer',
-          functions: ['t', 'i18n.t']
-        }],
-        tsx: [{
-          lexer: 'JsxLexer',
-          functions: ['t', 'i18n.t']
-        }],
-        default: [{
-          lexer: 'JavascriptLexer',
-          functions: ['t', 'i18n.t']
-        }]
-      }
-    };
-  `;
-  const configPath = path.join(__dirname, `../parser.config.${moduleName}.js`);
-  fs.writeFileSync(configPath, configContent);
-  
+  const configPath = path.join(__dirname, `../i18next-parser.config.mjs`);
+  const config = `
+export default {
+  locales: ['en'],
+  output: '${i18nDir.replace(/\\/g, '/')}/$LOCALE.json',
+  input: [
+    '${(isShared ? 'src/components' : `src/app/${moduleName}`).replace(/\\/g, '/')}/**/*.{ts,tsx}',
+    ${!isShared ? `'src/components/${moduleName}/**/*.{ts,tsx}'` : ''}
+  ],
+  sort: true,
+  useKeysAsDefaultValue: true,
+  keySeparator: false,
+  nsSeparator: false,
+};
+`;
+  fs.writeFileSync(configPath, config);
   try {
-    execSync(`npx i18next-parser --config parser.config.${moduleName}.js`, { stdio: 'inherit', cwd: path.join(__dirname, '..') });
-    console.log('Extraction complete!');
+    execSync(`npx i18next-parser --config i18next-parser.config.mjs`, { stdio: 'inherit' });
   } finally {
-    if (fs.existsSync(configPath)) {
-      // fs.unlinkSync(configPath);
-    }
+    // fs.unlinkSync(configPath);
   }
 }
 
@@ -145,18 +117,21 @@ async function translateStrings(strings, targetLang) {
         const key = entry[0];
         translated[key] = translations[index].translations[0].text;
       });
-    } catch (e) {
-      console.error(`Failed to translate to ${targetLang}`, e.response?.data || e.message);
-      throw e;
+      // Delay to avoid rate limits
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    } catch (err) {
+      console.error(`Failed to translate to ${targetLang}`, err.response?.data || err.message);
+      throw err;
     }
   }
-
   return translated;
 }
 
 if (action === 'translate' || !action) {
   console.log(`Translating strings for module: ${moduleName}`);
-  const enPath = path.join(i18nDir, 'en.json');
+  const enPath = isShared
+    ? path.join(i18nDir, 'en/common.json')
+    : path.join(i18nDir, 'en.json');
   if (!fs.existsSync(enPath)) {
     console.error(`No en.json found for module ${moduleName}. Run extract first.`);
     process.exit(1);
@@ -165,27 +140,36 @@ if (action === 'translate' || !action) {
   const enStrings = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 
   for (const lang of supportedLngs) {
-    const langPath = path.join(i18nDir, `${lang}.json`);
+    const langPath = isShared
+      ? path.join(i18nDir, `${lang}/common.json`)
+      : path.join(i18nDir, `${lang}.json`);
+    
+    if (isShared && !fs.existsSync(path.dirname(langPath))) {
+        fs.mkdirSync(path.dirname(langPath), { recursive: true });
+    }
     let currentStrings = {};
     if (fs.existsSync(langPath)) {
       currentStrings = JSON.parse(fs.readFileSync(langPath, 'utf8'));
     }
 
-    const missing = {};
+    const missingStrings = {};
     for (const [key, val] of Object.entries(enStrings)) {
       if (!currentStrings[key]) {
-        missing[key] = val;
+        missingStrings[key] = val;
       }
     }
 
-    if (Object.keys(missing).length > 0) {
-      console.log(`Translating ${Object.keys(missing).length} keys for ${lang}...`);
-      const newTranslations = await translateStrings(missing, lang).catch(e => {
-          console.error("Translation error, stopping for " + lang);
-          return {};
-      });
-      const merged = { ...currentStrings, ...newTranslations };
-      fs.writeFileSync(langPath, JSON.stringify(merged, null, 2));
+    const missingKeys = Object.keys(missingStrings);
+    if (missingKeys.length > 0) {
+      console.log(`Translating ${missingKeys.length} keys for ${lang}...`);
+      try {
+        const translatedStrings = await translateStrings(missingStrings, lang);
+        const finalStrings = { ...currentStrings, ...translatedStrings };
+        fs.writeFileSync(langPath, JSON.stringify(finalStrings, null, 2));
+      } catch (err) {
+        console.error(`Translation error, stopping for ${lang}`);
+        break;
+      }
     } else {
       console.log(`[${lang}] up to date.`);
     }

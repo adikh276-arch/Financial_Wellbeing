@@ -18,11 +18,11 @@ export default function PlanForYourFuture() {
           icon: Calendar, 
           heading: t("Life Stage Planning Map"), 
           content: [
-            { title: t("20s - Foundation"), description: 'Build emergency fund, start SIP, avoid consumer debt, get health insurance. Time is your superpower.' }, 
-            { title: t("30s - Building"), description: 'Increase investments, plan major purchases, start retirement savings seriously.' }, 
-            { title: t("40s - Acceleration"), description: 'Maximum earning years. Aggressive investments, children\'s education planning, refinance debt.' }, 
-            { title: t("50s - Peak"), description: 'Shift to lower-risk investments, finalize retirement number, maximize tax planning.' }, 
-            { title: t("60s+ - Harvesting"), description: 'Income-generating investments, live off retirement savings, plan healthcare and legacy.' }
+            { title: t("20s - Foundation"), description: t('Build emergency fund, start SIP, avoid consumer debt, get health insurance. Time is your superpower.') }, 
+            { title: t("30s - Building"), description: t('Increase investments, plan major purchases, start retirement savings seriously.') }, 
+            { title: t("40s - Acceleration"), description: t('Maximum earning years. Aggressive investments, children\\'s education planning, refinance debt.') }, 
+            { title: t("50s - Peak"), description: t('Shift to lower-risk investments, finalize retirement number, maximize tax planning.') }, 
+            { title: t("60s+ - Harvesting"), description: t('Income-generating investments, live off retirement savings, plan healthcare and legacy.') }
           ] 
         },
         { 
@@ -49,9 +49,9 @@ export default function PlanForYourFuture() {
           icon: ShieldCheck, 
           heading: t("Insurance: The Foundation"), 
           content: [
-            { title: t("Life Insurance"), description: 'Term insurance: targeted to replace annual income for dependents.' }, 
-            { title: t("Health Insurance"), description: 'Non-negotiable for everyone. One hospitalization without it can be a financial disaster.' }, 
-            { title: t("Disability Insurance"), description: 'Often overlooked. Covers 60% of income if unable to work due to accident or illness.' }
+            { title: t("Life Insurance"), description: t('Term insurance: targeted to replace annual income for dependents.') }, 
+            { title: t("Health Insurance"), description: t('Non-negotiable for everyone. One hospitalization without it can be a financial disaster.') }, 
+            { title: t("Disability Insurance"), description: t('Often overlooked. Covers 60% of income if unable to work due to accident or illness.') }
           ], 
           variant: 'cards' 
         },

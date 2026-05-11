@@ -18,12 +18,12 @@ export default function YourMoneyPriorities() {
           icon: Gem, 
           heading: t("6 Common Money Priority Types"), 
           content: [
-            { title: t("Security & Safety"), description: 'Emergency fund, insurance, stable income, debt repayment. Risk-averse, plan-oriented people.' }, 
-            { title: t("Family & Relationships"), description: 'Children\'s education, supporting parents, family vacations, homeownership. Family-first personalities.' }, 
-            { title: t("Freedom & Independence"), description: 'Early retirement, passive income, wealth building, side business. Ambitious, growth-oriented.' }, 
-            { title: t("Adventure & Experience"), description: 'Travel, new experiences, learning, wellness. Experience-driven, present-focused people.' }, 
-            { title: t("Impact & Giving"), description: 'Charitable giving, helping others, community causes. Purpose-driven, generous individuals.' }, 
-            { title: t("Comfort & Lifestyle"), description: 'Quality of life, status items, convenience, entertainment. Present-focused, pleasure-seeking.' }
+            { title: t("Security & Safety"), description: t('Emergency fund, insurance, stable income, debt repayment. Risk-averse, plan-oriented people.') }, 
+            { title: t("Family & Relationships"), description: t('Children\\'s education, supporting parents, family vacations, homeownership. Family-first personalities.') }, 
+            { title: t("Freedom & Independence"), description: t('Early retirement, passive income, wealth building, side business. Ambitious, growth-oriented.') }, 
+            { title: t("Adventure & Experience"), description: t('Travel, new experiences, learning, wellness. Experience-driven, present-focused people.') }, 
+            { title: t("Impact & Giving"), description: t('Charitable giving, helping others, community causes. Purpose-driven, generous individuals.') }, 
+            { title: t("Comfort & Lifestyle"), description: t('Quality of life, status items, convenience, entertainment. Present-focused, pleasure-seeking.') }
           ], 
           variant: 'cards' 
         },

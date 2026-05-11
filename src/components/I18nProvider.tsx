@@ -9,7 +9,8 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const handleLangChange = (lng: string) => {
-      document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+      const isRTL = ['ar', 'he', 'ur'].includes(lng);
+      document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
       document.documentElement.lang = lng;
     };
     

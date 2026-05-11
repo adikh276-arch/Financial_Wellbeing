@@ -49,9 +49,9 @@ export default function MindfulSpending() {
           icon: Target, 
           heading: t("The Value vs Price Principle"), 
           content: [
-            { title: t("Price"), description: 'What you pay for something - the number on the price tag.' }, 
-            { title: t("Value"), description: 'What you actually get in return - utility, joy, frequency of use, longevity.' }, 
-            { title: t("Mindful Choice"), description: 'Consider cost per use. A budget tool used daily for 2 years is much better value than a luxury item that stays in the box. Buy by value, not price.' }
+            { title: t("Price"), description: t('What you pay for something - the number on the price tag.') }, 
+            { title: t("Value"), description: t('What you actually get in return - utility, joy, frequency of use, longevity.') }, 
+            { title: t("Mindful Choice"), description: t('Consider cost per use. A budget tool used daily for 2 years is much better value than a luxury item that stays in the box. Buy by value, not price.') }
           ] 
         },
         { 

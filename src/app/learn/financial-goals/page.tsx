@@ -18,19 +18,19 @@ export default function FinancialGoals() {
           icon: Clock, 
           heading: t("Types of Financial Goals"), 
           content: [
-            { title: t("Short-term (< 1 year)"), description: 'Emergency fund, vacation, gadget, small repairs. Fast wins that build momentum.' }, 
-            { title: t("Medium-term (1-5 years)"), description: 'Vehicle purchase, celebrations, home renovation, education, business startup.' }, 
-            { title: t("Long-term (5+ years)"), description: 'Home purchase, retirement planning, children\'s education, wealth creation.' }
+            { title: t("Short-term (< 1 year)"), description: t('Emergency fund, vacation, gadget, small repairs. Fast wins that build momentum.') }, 
+            { title: t("Medium-term (1-5 years)"), description: t('Vehicle purchase, celebrations, home renovation, education, business startup.') }, 
+            { title: t("Long-term (5+ years)"), description: t('Home purchase, retirement planning, children\\'s education, wealth creation.') }
           ] 
         },
         { 
           icon: Target, 
           heading: t("The SMART Framework"), 
           content: [
-            { title: t("Specific"), description: 'Not "save money" ¥Ã† "Save 5,000 for home down payment by year-end"' }, 
-            { title: t("Measurable"), description: 'Include exact amount. Track progress monthly. Update status to stay accountable.' }, 
-            { title: t("Achievable"), description: 'Consider current income. Be ambitious but realistic - stretch without breaking.' }, 
-            { title: t("Time-bound"), description: 'Specific deadline creates urgency and helps you calculate exactly how much to save monthly.' }
+            { title: t("Specific"), description: t('Not ')save money" ¥Ã† "Save 5,000 for home down payment by year-end"' }, 
+            { title: t("Measurable"), description: t('Include exact amount. Track progress monthly. Update status to stay accountable.') }, 
+            { title: t("Achievable"), description: t('Consider current income. Be ambitious but realistic - stretch without breaking.') }, 
+            { title: t("Time-bound"), description: t('Specific deadline creates urgency and helps you calculate exactly how much to save monthly.') }
           ], 
           variant: 'cards' 
         },

@@ -33,10 +33,10 @@ export default function SavingHabits() {
           icon: Brain, 
           heading: t("Pay Yourself First"), 
           content: [
-            { title: t("Automate on Payday"), description: 'Set an automatic transfer the same day your salary arrives. Out of sight, out of mind.' }, 
-            { title: t("Start with 10%"), description: 'Begin with 10% of income. Increase by 1% every 3 months until you hit 20%.' }, 
-            { title: t("Separate Account"), description: 'Keep savings in a separate account so you\'re not tempted to spend it.' }, 
-            { title: t("Link to Purpose"), description: 'Label savings with a goal (e.g., "Europe Trip 2026") to stay motivated.' }
+            { title: t("Automate on Payday"), description: t('Set an automatic transfer the same day your salary arrives. Out of sight, out of mind.') }, 
+            { title: t("Start with 10%"), description: t('Begin with 10% of income. Increase by 1% every 3 months until you hit 20%.') }, 
+            { title: t("Separate Account"), description: t('Keep savings in a separate account so you\\'re not tempted to spend it.') }, 
+            { title: t("Link to Purpose"), description: t('Label savings with a goal (e.g., ')Europe Trip 2026") to stay motivated.' }
           ], 
           variant: 'cards' 
         },
@@ -49,9 +49,9 @@ export default function SavingHabits() {
           icon: Sparkles, 
           heading: t("Three Stages of Saving"), 
           content: [
-            { title: t("Stage 1: Emergency Fund (Month 1-6)"), description: 'Build 3-6 months of expenses in a liquid savings account. Goal: financial safety.' }, 
-            { title: t("Stage 2: Goal Savings (Month 6-18)"), description: 'Open dedicated accounts for specific goals. Make your dreams tangible and trackable.' }, 
-            { title: t("Stage 3: Wealth Building (Year 2+)"), description: 'Start systematic investments. Let compound returns do the heavy lifting over decades.' }
+            { title: t("Stage 1: Emergency Fund (Month 1-6)"), description: t('Build 3-6 months of expenses in a liquid savings account. Goal: financial safety.') }, 
+            { title: t("Stage 2: Goal Savings (Month 6-18)"), description: t('Open dedicated accounts for specific goals. Make your dreams tangible and trackable.') }, 
+            { title: t("Stage 3: Wealth Building (Year 2+)"), description: t('Start systematic investments. Let compound returns do the heavy lifting over decades.') }
           ] 
         },
         { 

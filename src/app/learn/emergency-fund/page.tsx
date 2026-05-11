@@ -18,10 +18,10 @@ export default function EmergencyFundLearn() {
           icon: Shield, 
           heading: t("What Counts as an Emergency?"), 
           content: [
-            { title: t("GÂ£Ã´ Medical emergency"), description: 'Surgery, hospitalization, or unexpected health crisis' }, 
-            { title: t("GÂ£Ã´ Job loss"), description: 'Unexpected unemployment while you search for new work' }, 
-            { title: t("GÂ£Ã´ Major repairs"), description: 'Home foundation, car breakdown, plumbing failure' }, 
-            { title: t("GÂ£Ã¹ NOT an emergency"), description: 'Vacation, sale shopping, wanting a new gadget or upgrade' }
+            { title: t("GÂ£Ã´ Medical emergency"), description: t('Surgery, hospitalization, or unexpected health crisis') }, 
+            { title: t("GÂ£Ã´ Job loss"), description: t('Unexpected unemployment while you search for new work') }, 
+            { title: t("GÂ£Ã´ Major repairs"), description: t('Home foundation, car breakdown, plumbing failure') }, 
+            { title: t("GÂ£Ã¹ NOT an emergency"), description: t('Vacation, sale shopping, wanting a new gadget or upgrade') }
           ], 
           variant: 'cards' 
         },
@@ -29,9 +29,9 @@ export default function EmergencyFundLearn() {
           icon: Target, 
           heading: t("How Much to Save"), 
           content: [
-            { title: t("Minimum (3 months)"), description: 'Basic safety net. Covers most medical emergencies and short-term job gaps.' }, 
-            { title: t("Recommended (6 months)"), description: 'The sweet spot. Covers job loss, major repairs, and family emergencies with breathing room.' }, 
-            { title: t("Conservative (12 months)"), description: 'For freelancers, entrepreneurs, or variable income earners. Peace of mind at maximum.' }
+            { title: t("Minimum (3 months)"), description: t('Basic safety net. Covers most medical emergencies and short-term job gaps.') }, 
+            { title: t("Recommended (6 months)"), description: t('The sweet spot. Covers job loss, major repairs, and family emergencies with breathing room.') }, 
+            { title: t("Conservative (12 months)"), description: t('For freelancers, entrepreneurs, or variable income earners. Peace of mind at maximum.') }
           ] 
         },
         { 

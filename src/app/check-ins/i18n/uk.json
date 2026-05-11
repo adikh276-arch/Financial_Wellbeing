@@ -146,8 +146,6 @@
   "ELEVATED": "ПІДНЯТИЙ",
   "TURBULENT": "ТУРБУЛЕНТНИЙ",
   "CRITICAL": "КРИТИЧНО",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Порада: t(')}</strong> {t(')Заповніть усі 4 перевірки, щоб отримати повний звіт про свій фінансовий стан.",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "У вас є резервний фонд?",
   "What percentage of your income do you save?": "Який відсоток вашого доходу ви відкладаєте?",
   "How consistent are your savings?": "Наскільки стабільні ваші заощадження?",

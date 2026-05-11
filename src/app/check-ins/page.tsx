@@ -196,7 +196,7 @@ export default function CheckInsHub() {
             <Star size={20} color="var(--brand-primary)" />
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            <strong style={{ color: 'var(--text-primary)' }}>{t("Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.")}
+            <strong style={{ color: 'var(--text-primary)' }}>{t("Pro tip:")}</strong> {t("Complete all 4 check-ins for a comprehensive report of your financial wellbeing.")}
           </p>
         </motion.div>
       </main>

@@ -17,20 +17,20 @@ export default function YourMoneyPriorities() {
         { 
           icon: Gem, 
           heading: t("6 Common Money Priority Types"), 
-          content: [
+          content:[
             { title: t("Security & Safety"), description: t('Emergency fund, insurance, stable income, debt repayment. Risk-averse, plan-oriented people.') }, 
-            { title: t("Family & Relationships"), description: t('Children\'s education, supporting parents, family vacations, homeownership. Family-first personalities.') }, 
-            { title: t("Freedom & Independence"), description: t('Early retirement, passive income, wealth building, side business. Ambitious, growth-oriented.') }, 
-            { title: t("Adventure & Experience"), description: t('Travel, new experiences, learning, wellness. Experience-driven, present-focused people.') }, 
-            { title: t("Impact & Giving"), description: t('Charitable giving, helping others, community causes. Purpose-driven, generous individuals.') }, 
-            { title: t("Comfort & Lifestyle"), description: t('Quality of life, status items, convenience, entertainment. Present-focused, pleasure-seeking.') }
+            { title: t("Family & Relationships"), description: t('Children\'s education, supporting parents, family vacations, homeownership. Family-first personalities.t(') }, 
+            { title: t("Freedom & Independence"), description: t(')Early retirement, passive income, wealth building, side business. Ambitious, growth-oriented.t(') }, 
+            { title: t("Adventure & Experience"), description: t(')Travel, new experiences, learning, wellness. Experience-driven, present-focused people.t(') }, 
+            { title: t("Impact & Giving"), description: t(')Charitable giving, helping others, community causes. Purpose-driven, generous individuals.t(') }, 
+            { title: t("Comfort & Lifestyle"), description: t(')Quality of life, status items, convenience, entertainment. Present-focused, pleasure-seeking.') }
           ], 
           variant: 'cards' 
         },
         { 
           icon: Target, 
           heading: t("The Values-Alignment Check"), 
-          content: [
+          content:[
             t("Write down your top 3 priorities (not society's, yours)"),
             
             t('Review last 3 months of spending - categorize each purchase by priority it serves'),
@@ -61,11 +61,11 @@ export default function YourMoneyPriorities() {
         { number: '05', text: t("Make one reallocation: cut one low-priority expense, funding a high-priority one") }
       ]}
       keyTakeaways={[
-        'Your priorities are unique - not inherited from society', 
-        'Money is a tool to live your values, not an end in itself', 
-        'Alignment = fulfillment and peace; misalignment = stress', 
-        'Give yourself permission to enjoy your top priorities', 
-        'Ruthlessly cut spending on things that don\'t matter to you'
+        t('Your priorities are unique - not inherited from society'), 
+        t('Money is a tool to live your values, not an end in itself'), 
+        t('Alignment = fulfillment and peace; misalignment = stress'), 
+        t('Give yourself permission to enjoy your top priorities'), 
+        t('Ruthlessly cut spending on things that don\')t matter to you'
       ]}
       nextSteps={[
         { label: t("Budget Planner"), href: '/budget-planner' }, 

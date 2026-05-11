@@ -25,8 +25,8 @@ export default function FinancialFAQs() {
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title="Financial FAQs"
-        subtitle="Answers to common money questions"
+        title={t('Financial FAQs')}
+        subtitle={t('Answers to common money questions')}
         backHref="/"
         accentColor="var(--brand-accent)"
       />

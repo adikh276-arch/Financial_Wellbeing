@@ -37,7 +37,7 @@ export default function BudgetBuddyPage() {
 
         <PageHeader
           title={t('Budget Buddy')}
-          subtitle="ACTIVITY"
+          subtitle={t('ACTIVITY')}
           backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
@@ -64,9 +64,9 @@ export default function BudgetBuddyPage() {
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-6)', marginBottom: 'var(--space-10)', flexWrap: 'wrap' }}>
               {[
-                { icon: <Clock size={16} color={ACCENT} />, label: 'TIME', val: '7 mins' },
-                { icon: <ListChecks size={16} color={ACCENT} />, label: 'STEPS', val: '4 total' },
-                { icon: <TrendingUp size={16} color={ACCENT} />, label: 'IMPACT', val: 'High' },
+                { icon: <Clock size={16} color={ACCENT} />, label: t('TIME'), val: t('7 mins') },
+                { icon: <ListChecks size={16} color={ACCENT} />, label: t('STEPS'), val: t('4 total') },
+                { icon: <TrendingUp size={16} color={ACCENT} />, label: t('IMPACT'), val: t('High') },
               ].map(item => (
                 <div key={item.label} style={{ textAlign: 'center' }}>
                   <div style={{

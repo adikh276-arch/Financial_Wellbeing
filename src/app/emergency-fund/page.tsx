@@ -27,16 +27,16 @@ interface EFHistory {
 }
 
 const SCENARIOS = [
-  { icon: HeartPulse, label: "Medical Emergency", months: 2, desc: "Covers typical urgent medical crises" },
-  { icon: Briefcase, label: "Income Security", months: 6, desc: "Safety net for potential job loss" },
-  { icon: Home, label: "Asset Repair", months: 1, desc: "Coverage for major home/car repairs" },
-  { icon: Users, label: "Family Support", months: 3, desc: "Funds for unexpected family needs" },
+  { icon: HeartPulse, label: t('Medical Emergency'), months: 2, desc: t('Covers typical urgent medical crises') },
+  { icon: Briefcase, label: t('Income Security'), months: 6, desc: t('Safety net for potential job loss') },
+  { icon: Home, label: t('Asset Repair'), months: 1, desc: t('Coverage for major home/car repairs') },
+  { icon: Users, label: t('Family Support'), months: 3, desc: t('Funds for unexpected family needs') },
 ];
 
 const WHERE_TIPS = [
-  { icon: Wallet, label: "High-Yield Savings", rate: '3-5%', pros: 'Fully liquid, instant access', cons: 'Lower relative returns' },
-  { icon: BarChart4, label: "Fixed Deposits", rate: '6-8%', pros: 'Guaranteed, FDIC-insured', cons: 'Time-locked capital' },
-  { icon: TrendingUp, label: "Money Market Funds", rate: '4-6%', pros: 'Better than savings', cons: 'T+1 withdrawal time' },
+  { icon: Wallet, label: t('High-Yield Savings'), rate: '3-5%', pros: 'Fully liquid, instant access', cons: 'Lower relative returns' },
+  { icon: BarChart4, label: t('Fixed Deposits'), rate: '6-8%', pros: 'Guaranteed, FDIC-insured', cons: 'Time-locked capital' },
+  { icon: TrendingUp, label: t('Money Market Funds'), rate: '4-6%', pros: 'Better than savings', cons: 'T+1 withdrawal time' },
 ];
 
 export default function EmergencyFund() {

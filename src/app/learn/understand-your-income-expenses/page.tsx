@@ -17,7 +17,7 @@ export default function UnderstandIncomeExpenses() {
         { 
           icon: Wallet, 
           heading: t("Types of Income"), 
-          content: [
+          content:[
             { title: t("Salary (Primary)"), description: t('Fixed monthly income. Use net take-home, not gross - taxes and deductions come first.') }, 
             { title: t("Variable Income"), description: t('Freelance, bonuses, commissions. Budget conservatively: use average +Ã¹ 80% to avoid over-spending.') }, 
             { title: t("Passive Income"), description: t('Rental income, dividends, interest. Bonus income - don\'t rely on it, plan with it.') }
@@ -26,7 +26,7 @@ export default function UnderstandIncomeExpenses() {
         { 
           icon: BarChart4, 
           heading: t("Expense Categories"), 
-          content: [
+          content:[
             { title: t("Fixed Expenses"), description: t('Rent, insurance, EMIs, phone, internet. Constant every month. To optimize: negotiate, refinance, switch providers.') }, 
             { title: t("Variable Expenses"), description: t('Groceries, fuel, dining, entertainment. Change monthly. Track for 3 months to find the average.') }, 
             { title: t("Irregular Expenses"), description: t('Car maintenance, gifts, medical check-ups. Happen periodically. Divide annual cost by 12 and set aside monthly.') }
@@ -36,7 +36,7 @@ export default function UnderstandIncomeExpenses() {
         { 
           icon: Zap, 
           heading: t("Common Expense Surprises"), 
-          content: [
+          content:[
             t('Food & Groceries: Most people underestimate by 20-30%. Track for 1 month to see reality.'),
             
             t('Subscriptions: Average person has 5-7 active items. Often forgotten in budgets.'),
@@ -62,11 +62,11 @@ export default function UnderstandIncomeExpenses() {
         { number: '05', text: t("List irregular expenses and divide annual amount by 12 to budget monthly") }
       ]}
       keyTakeaways={[
-        'True income = net take-home, not gross salary', 
-        'Track for at least 1 month to discover reality (not assumptions)', 
-        'Irregular expenses must be distributed monthly or they\'ll shock you', 
-        'Subscriptions are the biggest silent leak for most people', 
-        'Small optimizations in fixed costs compound to massive savings'
+        t('True income = net take-home, not gross salary'), 
+        t('Track for at least 1 month to discover reality (not assumptions)'), 
+        t('Irregular expenses must be distributed monthly or they\')ll shock yout(', 
+        ')Subscriptions are the biggest silent leak for most peoplet(', 
+        ')Small optimizations in fixed costs compound to massive savings'
       ]}
       nextSteps={[
         { label: t("Budget Planner"), href: '/budget-planner' }, 

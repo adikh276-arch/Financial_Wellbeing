@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'Financial Wellbeing — Master Your Money',
     template: '%s | Financial Wellbeing'
   },
-  description: 'A premium financial wellbeing platform with tools, education, and insights to transform your financial health.',
+  description: t('A premium financial wellbeing platform with tools, education, and insights to transform your financial health.'),
   keywords: 'financial wellbeing, budget planner, investment planner, EMI calculator, goal planner',
   icons: {
     icon: [

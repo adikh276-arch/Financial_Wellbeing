@@ -17,7 +17,7 @@ export default function InvestingBasics() {
         { 
           icon: TrendingUp, 
           heading: t("Asset Classes Explained"), 
-          content: [
+          content:[
             { title: t("Stocks"), description: t('Ownership in companies. Highest growth potential (12-18% avg) but highest short-term volatility.') }, 
             { title: t("Mutual Funds"), description: t('Professional manager invests your money with others. Diversified, accessible with small monthly amounts.') }, 
             { title: t("Bonds & FDs"), description: t('Loans to governments or banks. Lower risk (5-8%), guaranteed returns, best for safety-first investors.') }, 
@@ -38,7 +38,7 @@ export default function InvestingBasics() {
         { 
           icon: Sparkles, 
           heading: t("Beginner Investment Plan"), 
-          content: [
+          content:[
             { title: t("Months 1-3: Learn & Plan"), description: t('Understand your risk tolerance, define goals and timelines, research 2-3 mutual funds.') }, 
             { title: t("Months 4-6: Start Small"), description: t('Open a demat account. Start systematic investments with small monthly amounts.') }, 
             { title: t("Months 7+: Grow & Automate"), description: t('Increase investment as income grows. Let compound returns work. Rebalance annually.') }
@@ -47,18 +47,18 @@ export default function InvestingBasics() {
         { 
           icon: AlertCircle, 
           heading: t("Common Investing Mistakes"), 
-          content: [
+          content:[
             t('Starting too late - time is your most valuable asset'),
             
             t('Being too conservative - inflation quietly destroys savings'),
             
-            t('Trying to time the market - even experts can\'t do this consistently'),
+            t('Trying to time the market - even experts can\'t do this consistentlyt('),
             
-            t('No diversification - putting all money in one stock or sector'),
+            t(')No diversification - putting all money in one stock or sectort('),
             
-            t('Panic selling in downturns - most people buy high, sell low'),
+            t(')Panic selling in downturns - most people buy high, sell lowt('),
             
-            t('Chasing last year\'s top performers - past returns don\'t predict future')
+            t(')Chasing last year\t('s top performers - past returns don\')t predict future')
           ] 
         },
       ]}
@@ -70,12 +70,12 @@ export default function InvestingBasics() {
         { number: '05', text: t("Start your first investment with a small monthly amount") }
       ]}
       keyTakeaways={[
-        'Investing is for everyone, not just the rich', 
-        'Start early, even with tiny amounts - time beats timing', 
-        'SIP removes the burden of timing the market', 
-        'Diversification is your safety net - don\'t skip it', 
-        'Stay invested through downturns; market crashes are recoveries in disguise', 
-        'Review quarterly but ignore daily market noise'
+        t('Investing is for everyone, not just the rich'), 
+        t('Start early, even with tiny amounts - time beats timing'), 
+        t('SIP removes the burden of timing the market'), 
+        t('Diversification is your safety net - don\')t skip itt(', 
+        ')Stay invested through downturns; market crashes are recoveries in disguiset(', 
+        ')Review quarterly but ignore daily market noise'
       ]}
       nextSteps={[
         { label: t("Investment Planner"), href: '/investment-planner' }, 

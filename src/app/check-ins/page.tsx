@@ -8,8 +8,8 @@ import { CheckSquare, Heart, Activity, TrendingUp, ChevronRight, ChevronLeft, St
 const checkIns = [
   {
     href: '/check-ins/spending-style-quiz',
-    label: "Spending Style Quiz",
-    desc: "Decode your money personality & behavioral archetype",
+    label: t('Spending Style Quiz'),
+    desc: t('Decode your money personality & behavioral archetype'),
     icon: CheckSquare,
     tag: 'Behavior',
     time: '5 min',
@@ -17,8 +17,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/savings-check-up',
-    label: "Savings Check-up",
-    desc: "Benchmark your emergency fund, savings rate and habits",
+    label: t('Savings Check-up'),
+    desc: t('Benchmark your emergency fund, savings rate and habits'),
     icon: Heart,
     tag: 'Savings',
     time: '4 min',
@@ -26,8 +26,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/money-stress-quiz',
-    label: "Money Stress Quiz",
-    desc: "Measure your financial anxiety level and get relief tactics",
+    label: t('Money Stress Quiz'),
+    desc: t('Measure your financial anxiety level and get relief tactics'),
     icon: Activity,
     tag: 'Wellness',
     time: '6 min',
@@ -35,8 +35,8 @@ const checkIns = [
   },
   {
     href: '/check-ins/investment-readiness',
-    label: "Investment Readiness",
-    desc: "Are your foundations strong enough to start investing?",
+    label: t('Investment Readiness'),
+    desc: t('Are your foundations strong enough to start investing?'),
     icon: TrendingUp,
     tag: 'Investing',
     time: '5 min',
@@ -77,7 +77,7 @@ export default function CheckInsHub() {
           animate={{ opacity: 1, y: 0 }}
           className="dashboard-header"
         >
-          <button onClick={() => router.back()} className="back-btn" aria-label="Go back">
+          <button onClick={() => router.back()} className="back-btn" aria-label={t('Go back')}>
             <ChevronLeft size={22} />
           </button>
           
@@ -196,7 +196,7 @@ export default function CheckInsHub() {
             <Star size={20} color="var(--brand-primary)" />
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            <strong style={{ color: 'var(--text-primary)' }}>{t("Pro tip:")}</strong> {t("Complete all 4 check-ins for a comprehensive report of your financial wellbeing.")}
+            <strong style={{ color: 'var(--text-primary)' }}>{t("Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.")}
           </p>
         </motion.div>
       </main>

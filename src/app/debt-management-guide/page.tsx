@@ -16,10 +16,10 @@ type Strategy = 'snowball' | 'avalanche' | null;
 
 const STRATEGY_INFO = {
   snowball: {
-    title: 'Debt Snowball',
+    title: t('Debt Snowball'),
     tag: 'Psychological Win',
     icon: <LayoutList size={22} color={ACCENT} />,
-    desc: 'Pay the minimum on all debts. Put all extra money onto the smallest debt first. When it is paid off, roll that payment to the next smallest. The momentum keeps you motivated.',
+    desc: t('Pay the minimum on all debts. Put all extra money onto the smallest debt first. When it is paid off, roll that payment to the next smallest. The momentum keeps you motivated.'),
     steps: [
       'List all debts from smallest to largest balance',
       'Make minimum payments on everything except the smallest',
@@ -28,10 +28,10 @@ const STRATEGY_INFO = {
     ],
   },
   avalanche: {
-    title: 'Debt Avalanche',
+    title: t('Debt Avalanche'),
     tag: 'Mathematically Best',
     icon: <Zap size={22} color={ACCENT} />,
-    desc: 'Pay the minimum on all debts. Put all extra money onto the debt with the highest interest rate first. This saves the most money over time.',
+    desc: t('Pay the minimum on all debts. Put all extra money onto the debt with the highest interest rate first. This saves the most money over time.'),
     steps: [
       'List all debts from highest to lowest interest rate',
       'Make minimum payments on everything except the highest rate',
@@ -62,7 +62,7 @@ export default function DebtManagementPage() {
 
         <PageHeader
           title={t('Debt Management Guide')}
-          subtitle="ACTIVITY"
+          subtitle={t('ACTIVITY')}
           backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
@@ -136,11 +136,11 @@ export default function DebtManagementPage() {
               {[
                 {
                   label: t('Good Debt'), color: '#00A884', bg: '#00A88415',
-                  items: [t('Student loans for career growth'), t('Home mortgage builds equity'), t('Business loans for income generation')],
+                  items:[t('Student loans for career growth'), t('Home mortgage builds equity'), t('Business loans for income generation')],
                 },
                 {
                   label: t('High-Cost Debt'), color: '#E74C3C', bg: '#E74C3C15',
-                  items: [t('Credit card interest (18–45%)'), t('Personal loans for lifestyle'), t('Buy-now-pay-later traps')],
+                  items:[t('Credit card interest (18–45%)'), t('Personal loans for lifestyle'), t('Buy-now-pay-later traps')],
                 },
               ].map(cat => (
                 <div key={cat.label} style={{

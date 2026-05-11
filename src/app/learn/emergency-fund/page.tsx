@@ -17,7 +17,7 @@ export default function EmergencyFundLearn() {
         { 
           icon: Shield, 
           heading: t("What Counts as an Emergency?"), 
-          content: [
+          content:[
             { title: t("GÂ£Ã´ Medical emergency"), description: t('Surgery, hospitalization, or unexpected health crisis') }, 
             { title: t("GÂ£Ã´ Job loss"), description: t('Unexpected unemployment while you search for new work') }, 
             { title: t("GÂ£Ã´ Major repairs"), description: t('Home foundation, car breakdown, plumbing failure') }, 
@@ -28,7 +28,7 @@ export default function EmergencyFundLearn() {
         { 
           icon: Target, 
           heading: t("How Much to Save"), 
-          content: [
+          content:[
             { title: t("Minimum (3 months)"), description: t('Basic safety net. Covers most medical emergencies and short-term job gaps.') }, 
             { title: t("Recommended (6 months)"), description: t('The sweet spot. Covers job loss, major repairs, and family emergencies with breathing room.') }, 
             { title: t("Conservative (12 months)"), description: t('For freelancers, entrepreneurs, or variable income earners. Peace of mind at maximum.') }
@@ -53,11 +53,11 @@ export default function EmergencyFundLearn() {
         { number: '05', text: t("Set up a monthly auto-transfer, even if it's just a small amount to start") }
       ]}
       keyTakeaways={[
-        'Emergency fund is the foundation of ALL financial planning', 
-        '6 months is the recommended target - start with 3', 
-        'Keep it completely separate from your spending account', 
-        'Never use it for non-emergencies, even tempting ones', 
-        'Update your target every 6 months as expenses change'
+        t('Emergency fund is the foundation of ALL financial planning'), 
+        t('6 months is the recommended target - start with 3'), 
+        t('Keep it completely separate from your spending account'), 
+        t('Never use it for non-emergencies, even tempting ones'), 
+        t('Update your target every 6 months as expenses change')
       ]}
       nextSteps={[
         { label: t("Emergency Fund Tool"), href: '/emergency-fund' }, 

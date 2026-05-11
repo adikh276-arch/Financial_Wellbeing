@@ -16,7 +16,7 @@ export default function DebtManagement() {
         { 
           icon: Scale, 
           heading: t("Good Debt vs Bad Debt"), 
-          content: [
+          content:[
             { title: t("Good Debt (Builds Wealth)"), description: t('Home loans (appreciating asset, tax benefits), education loans (investment in yourself), business loans (generates income).') }, 
             { title: t("Bad Debt (Depletes Wealth)"), description: t('Credit cards at 18%+ interest, personal loans for consumption, payday loans with predatory rates.') }
           ], 
@@ -30,7 +30,7 @@ export default function DebtManagement() {
         { 
           icon: Target, 
           heading: t("Repayment Strategies"), 
-          content: [
+          content:[
             { title: t("Snowball Method"), description: t('Pay minimum on all debts. Attack the smallest balance first. Psychological wins keep you motivated.') }, 
             { title: t("Avalanche Method"), description: t('Pay minimum on all debts. Attack the highest interest rate first. Saves the most money mathematically.') }, 
             { title: t("Hybrid Method"), description: t('Mix of both: one quick snowball win for motivation, then switch to avalanche for the rest.') }
@@ -44,16 +44,16 @@ export default function DebtManagement() {
         { 
           icon: CheckCircle, 
           heading: t("Practical Tips"), 
-          content: [
+          content:[
             t('Call your creditor and negotiate a lower interest rate (often works!)'),
             
             t('Automate debt payments so you never miss one'),
             
             t('Accelerate repayment with windfalls: bonus, tax refunds, gifts'),
             
-            t('Don\'t stop saving completely while repaying debt (maintain buffer)'),
+            t('Don\'t stop saving completely while repaying debt (maintain buffer)t('),
             
-            t('Track debt payoff visually - the progress is incredibly motivating')
+            t(')Track debt payoff visually - the progress is incredibly motivating')
           ] 
         },
       ]}
@@ -65,11 +65,11 @@ export default function DebtManagement() {
         { number: '05', text: t("Use the Loan & EMI Planner to see impact of extra payments") }
       ]}
       keyTakeaways={[
-        'Not all debt is bad - strategy and interest rate matter', 
-        'Minimum payments keep you trapped for years', 
-        'Automate to ensure you never miss a payment', 
-        'Balance: repay debt and build savings simultaneously', 
-        'Every extra rupee toward debt saves multiples in interest'
+        t('Not all debt is bad - strategy and interest rate matter'), 
+        t('Minimum payments keep you trapped for years'), 
+        t('Automate to ensure you never miss a payment'), 
+        t('Balance: repay debt and build savings simultaneously'), 
+        t('Every extra rupee toward debt saves multiples in interest')
       ]}
       nextSteps={[
         { label: t("Loan & EMI Planner"), href: '/loan-emi-planner' }, 

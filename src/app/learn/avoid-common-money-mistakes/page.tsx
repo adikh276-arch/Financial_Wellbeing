@@ -17,7 +17,7 @@ export default function AvoidMoneyMistakes() {
         { 
           icon: AlertCircle, 
           heading: t("The Big 12 Money Mistakes"), 
-          content: [
+          content=[
             { title: t("1. No Emergency Fund"), description: t('Any unexpected expense becomes a debt crisis. Build 6 months of essential expenses as your first priority.') },
             { title: t("2. Lifestyle Creep"), description: t('Income doubles, expenses double. When you get a raise: 50% to savings, 50% to lifestyle. Never spend 100%.') },
             { title: t("3. Minimum Debt Payments"), description: t('Credit card debt at 18% with minimum payments can take 8 years and double in total cost due to interest. Pay 3x minimum to escape the trap.') },
@@ -41,11 +41,11 @@ export default function AvoidMoneyMistakes() {
         { number: '05', text: t("Return to this list quarterly - new stages of life bring new mistakes to avoid") }
       ]}
       keyTakeaways={[
-        'Common mistakes are avoidable with awareness and systems', 
-        'Time is your most valuable financial asset - don\'t waste it', 
-        'Small consistent changes compound into massive results', 
-        'Focus on what you can control: savings rate, habits, awareness', 
-        'Tracking your money is the single most impactful first step'
+        t('Common mistakes are avoidable with awareness and systems'), 
+        t('Time is your most valuable financial asset - don\')t waste itt(', 
+        ')Small consistent changes compound into massive resultst(', 
+        ')Focus on what you can control: savings rate, habits, awarenesst(', 
+        ')Tracking your money is the single most impactful first step'
       ]}
       nextSteps={[
         { label: t("Financial Health Score"), href: '/financial-health-score' }, 

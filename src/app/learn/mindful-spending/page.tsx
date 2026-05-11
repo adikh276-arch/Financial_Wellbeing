@@ -27,7 +27,7 @@ export default function MindfulSpending() {
         { 
           icon: HelpCircle, 
           heading: t("8 Questions to Ask Before Buying"), 
-          content: [
+          content:[
             t('Do I need this or want this? (Be honest)'),
             
             t('Does this align with my stated values and priorities?'),
@@ -48,7 +48,7 @@ export default function MindfulSpending() {
         { 
           icon: Target, 
           heading: t("The Value vs Price Principle"), 
-          content: [
+          content:[
             { title: t("Price"), description: t('What you pay for something - the number on the price tag.') }, 
             { title: t("Value"), description: t('What you actually get in return - utility, joy, frequency of use, longevity.') }, 
             { title: t("Mindful Choice"), description: t('Consider cost per use. A budget tool used daily for 2 years is much better value than a luxury item that stays in the box. Buy by value, not price.') }
@@ -57,7 +57,7 @@ export default function MindfulSpending() {
         { 
           icon: ListChecks, 
           heading: t("Building Your Want List"), 
-          content: [
+          content:[
             t('Create a running list (physical or digital) of everything you want to buy'),
             
             t('Add items when tempted - writing it down removes urgency'),
@@ -78,11 +78,11 @@ export default function MindfulSpending() {
         { number: '05', text: t("Track impulse purchases for 14 days - awareness is the first step to change") }
       ]}
       keyTakeaways={[
-        'Mindful = intentional, not deprived or restricted', 
-        'The 30-day rule eliminates 80%+ of impulse buys', 
-        'Understanding your triggers is the key to control', 
-        'Align spending with your real values, not societal pressure', 
-        'Small daily decisions compound into massive life differences'
+        t('Mindful = intentional, not deprived or restricted'), 
+        t('The 30-day rule eliminates 80%+ of impulse buys'), 
+        t('Understanding your triggers is the key to control'), 
+        t('Align spending with your real values, not societal pressure'), 
+        t('Small daily decisions compound into massive life differences')
       ]}
       nextSteps={[
         { label: t("Spending Style Quiz"), href: '/check-ins/spending-style-quiz' }, 

@@ -32,8 +32,8 @@ export default function FinancialStories() {
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title="Financial Stories"
-        subtitle="Real experiences from people like you"
+        title={t('Financial Stories')}
+        subtitle={t('Real experiences from people like you')}
         backHref="/"
         accentColor="var(--brand-primary)"
       />

@@ -17,7 +17,7 @@ export default function SavingHabits() {
         { 
           icon: Zap, 
           heading: t("Why Saving Matters"), 
-          content: [
+          content=[
             t('Builds financial security and reduces anxiety'),
             t('Creates options and opportunities at every life stage'),
             t('Protects against emergencies without going into debt'),
@@ -28,11 +28,11 @@ export default function SavingHabits() {
         { 
           icon: Brain, 
           heading: t("Pay Yourself First"), 
-          content: [
+          content:[
             { title: t("Automate on Payday"), description: t('Set an automatic transfer the same day your salary arrives. Out of sight, out of mind.') }, 
             { title: t("Start with 10%"), description: t('Begin with 10% of income. Increase by 1% every 3 months until you hit 20%.') }, 
-            { title: t("Separate Account"), description: t('Keep savings in a separate account so you\'re not tempted to spend it.') }, 
-            { title: t("Link to Purpose"), description: t('Label savings with a goal (e.g., "Europe Trip 2026") to stay motivated.') }
+            { title: t("Separate Account"), description: t('Keep savings in a separate account so you\'re not tempted to spend it.t(') }, 
+            { title: t("Link to Purpose"), description: t(')Label savings with a goal (e.g., t('Europe Trip 2026')) to stay motivated.') }
           ], 
           variant: 'cards' 
         },
@@ -44,7 +44,7 @@ export default function SavingHabits() {
         { 
           icon: Sparkles, 
           heading: t("Three Stages of Saving"), 
-          content: [
+          content:[
             { title: t("Stage 1: Emergency Fund (Month 1-6)"), description: t('Build 3-6 months of expenses in a liquid savings account. Goal: financial safety.') }, 
             { title: t("Stage 2: Goal Savings (Month 6-18)"), description: t('Open dedicated accounts for specific goals. Make your dreams tangible and trackable.') }, 
             { title: t("Stage 3: Wealth Building (Year 2+)"), description: t('Start systematic investments. Let compound returns do the heavy lifting over decades.') }
@@ -53,12 +53,12 @@ export default function SavingHabits() {
         { 
           icon: AlertCircle, 
           heading: t("Common Mistakes"), 
-          content: [
+          content:[
             t('Waiting for the "right amount" - start with small sums where possible'),
             t('Putting savings in low-return accounts'),
-            t('Not having a purpose - you\'ll spend it without a goal'),
-            t('Dipping into emergency fund for non-emergencies'),
-            t('Comparing your savings to others (everyone starts somewhere)')
+            t('Not having a purpose - you\'ll spend it without a goalt('),
+            t(')Dipping into emergency fund for non-emergenciest('),
+            t(')Comparing your savings to others (everyone starts somewhere)')
           ] 
         },
       ]}
@@ -70,11 +70,11 @@ export default function SavingHabits() {
         { number: '05', text: t("Use the Emergency Fund tool to set your first savings target") },
       ]}
       keyTakeaways={[
-        'Saving is a habit - automate it so it requires no willpower', 
-        'Start with whatever you can, grow from there', 
-        'Time and consistency beat large amounts every time', 
-        'Connect savings to a purpose, your "why"', 
-        'The best savings plan is one you\'ll stick with'
+        t('Saving is a habit - automate it so it requires no willpower'), 
+        t('Start with whatever you can, grow from there'), 
+        t('Time and consistency beat large amounts every time'), 
+        t('Connect savings to a purpose, your "why"'), 
+        t('The best savings plan is one you\')ll stick with'
       ]}
       nextSteps={[
         { label: t("Emergency Fund Tool"), href: '/emergency-fund' }, 

@@ -14,20 +14,20 @@ const STEPS = ['Goal', 'Target', 'Strategy'];
 const ACCENT = '#F59E0B';
 
 const CATEGORIES = [
-  { id: 'travel', label: 'Travel', icon: '✈️' },
-  { id: 'education', label: 'Education', icon: '📚' },
-  { id: 'home', label: 'Home', icon: '🏠' },
-  { id: 'emergency', label: 'Emergency Fund', icon: '🛡️' },
-  { id: 'vehicle', label: 'Vehicle', icon: '🚗' },
-  { id: 'wedding', label: 'Wedding', icon: '💍' },
-  { id: 'retirement', label: 'Retirement', icon: '🌅' },
-  { id: 'other', label: 'Other', icon: '🎯' },
+  { id: 'travel', label: t('Travel'), icon: '✈️' },
+  { id: 'education', label: t('Education'), icon: '📚' },
+  { id: 'home', label: t('Home'), icon: '🏠' },
+  { id: 'emergency', label: t('Emergency Fund'), icon: '🛡️' },
+  { id: 'vehicle', label: t('Vehicle'), icon: '🚗' },
+  { id: 'wedding', label: t('Wedding'), icon: '💍' },
+  { id: 'retirement', label: t('Retirement'), icon: '🌅' },
+  { id: 'other', label: t('Other'), icon: '🎯' },
 ];
 
 const STRATEGIES = [
-  { id: 'auto', label: 'Auto-Debit', desc: 'Set and forget — auto-transfer on payday', icon: <Wallet size={18} color={ACCENT} /> },
-  { id: 'cut', label: 'Cut & Save', desc: 'Reduce one expense category and redirect it', icon: <TrendingUp size={18} color={ACCENT} /> },
-  { id: 'income', label: 'Extra Income', desc: 'Freelancing, side gig, or selling items', icon: <Star size={18} color={ACCENT} /> },
+  { id: 'auto', label: t('Auto-Debit'), desc: t('Set and forget — auto-transfer on payday'), icon: <Wallet size={18} color={ACCENT} /> },
+  { id: 'cut', label: t('Cut & Save'), desc: t('Reduce one expense category and redirect it'), icon: <TrendingUp size={18} color={ACCENT} /> },
+  { id: 'income', label: t('Extra Income'), desc: t('Freelancing, side gig, or selling items'), icon: <Star size={18} color={ACCENT} /> },
 ];
 
 export default function SavingsGoalPage() {
@@ -64,7 +64,7 @@ export default function SavingsGoalPage() {
 
         <PageHeader
           title={t('Savings Goal Setter')}
-          subtitle="ACTIVITY"
+          subtitle={t('ACTIVITY')}
           backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
@@ -366,10 +366,10 @@ export default function SavingsGoalPage() {
               {/* Stats grid */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--border-subtle)' }}>
                 {[
-                  { label: 'TARGET AMOUNT', val: fmt.currency(amount, true), icon: '🎯', highlight: false },
-                  { label: 'TIMELINE', val: `${targetMonths} months`, icon: '📅', highlight: false },
-                  { label: 'SAVE PER MONTH', val: `${fmt.currency(monthly, true)}/mo`, icon: '💰', highlight: true },
-                  { label: 'STRATEGY', val: selectedStrategy?.label || '', icon: '⚡', highlight: false },
+                  { label: t('TARGET AMOUNT'), val: fmt.currency(amount, true), icon: '🎯', highlight: false },
+                  { label: t('TIMELINE'), val: `${targetMonths} months`, icon: '📅', highlight: false },
+                  { label: t('SAVE PER MONTH'), val: `${fmt.currency(monthly, true)}/mo`, icon: '💰', highlight: true },
+                  { label: t('STRATEGY'), val: selectedStrategy?.label || '', icon: '⚡', highlight: false },
                 ].map((item, i) => (
                   <div key={i} style={{
                     background: item.highlight ? `${ACCENT}08` : 'white',

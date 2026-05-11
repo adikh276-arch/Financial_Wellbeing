@@ -138,7 +138,7 @@ export default function ActivityHistory() {
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
         title={t("Financial History")}
-        subtitle="Activities"
+        subtitle={t('Activities')}
         backHref="/"
         rightSlot={entries.length > 0 && (
           <button onClick={clearHistory} className="btn-icon" style={{ color: 'var(--brand-danger)', background: 'rgba(231,76,60,0.1)' }}>

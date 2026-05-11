@@ -17,18 +17,18 @@ export default function PlanForYourFuture() {
         { 
           icon: Calendar, 
           heading: t("Life Stage Planning Map"), 
-          content: [
+          content:[
             { title: t("20s - Foundation"), description: t('Build emergency fund, start SIP, avoid consumer debt, get health insurance. Time is your superpower.') }, 
             { title: t("30s - Building"), description: t('Increase investments, plan major purchases, start retirement savings seriously.') }, 
-            { title: t("40s - Acceleration"), description: t('Maximum earning years. Aggressive investments, children\'s education planning, refinance debt.') }, 
-            { title: t("50s - Peak"), description: t('Shift to lower-risk investments, finalize retirement number, maximize tax planning.') }, 
-            { title: t("60s+ - Harvesting"), description: t('Income-generating investments, live off retirement savings, plan healthcare and legacy.') }
+            { title: t("40s - Acceleration"), description: t('Maximum earning years. Aggressive investments, children\'s education planning, refinance debt.t(') }, 
+            { title: t("50s - Peak"), description: t(')Shift to lower-risk investments, finalize retirement number, maximize tax planning.t(') }, 
+            { title: t("60s+ - Harvesting"), description: t(')Income-generating investments, live off retirement savings, plan healthcare and legacy.') }
           ] 
         },
         { 
           icon: Target, 
           heading: t("Financial Milestones to Hit"), 
-          content: [
+          content:[
             t('By 25: Emergency fund started, no consumer debt, first SIP active'),
             
             t('By 30: 6-month emergency fund, retirement investing at 10% of income'),
@@ -48,7 +48,7 @@ export default function PlanForYourFuture() {
         { 
           icon: ShieldCheck, 
           heading: t("Insurance: The Foundation"), 
-          content: [
+          content:[
             { title: t("Life Insurance"), description: t('Term insurance: targeted to replace annual income for dependents.') }, 
             { title: t("Health Insurance"), description: t('Non-negotiable for everyone. One hospitalization without it can be a financial disaster.') }, 
             { title: t("Disability Insurance"), description: t('Often overlooked. Covers 60% of income if unable to work due to accident or illness.') }
@@ -64,11 +64,11 @@ export default function PlanForYourFuture() {
         { number: '05', text: t("Create a simple written 5-year financial plan - even 1 page matters") }
       ]}
       keyTakeaways={[
-        'Every decade of delay = 3x more savings needed for retirement', 
-        'Start early, even imperfectly - time is your ultimate advantage', 
-        'Insurance is foundation, not optional', 
-        'Written plan is 42% more likely to be achieved vs mental note', 
-        'Automate investments to remove emotion from the equation'
+        t('Every decade of delay = 3x more savings needed for retirement'), 
+        t('Start early, even imperfectly - time is your ultimate advantage'), 
+        t('Insurance is foundation, not optional'), 
+        t('Written plan is 42% more likely to be achieved vs mental note'), 
+        t('Automate investments to remove emotion from the equation')
       ]}
       nextSteps={[
         { label: t("Financial Health Score"), href: '/financial-health-score' }, 

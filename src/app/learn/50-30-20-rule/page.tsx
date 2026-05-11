@@ -22,16 +22,16 @@ export default function Rule503020() {
         { 
           icon: Home, 
           heading: t("The Three Buckets"), 
-          content: [
+          content:[
             { title: t("50% - Needs"), description: t('Housing, utilities, groceries, transport, insurance, minimum debt payments. Cannot live without these.') }, 
-            { title: t("30% - Wants"), description: t('Entertainment, hobbies, dining out, shopping, subscriptions, travel. Enrich life but aren\'t survival.') }, 
-            { title: t("20% - Savings & Debt"), description: t('Emergency fund, investments, extra debt payments, retirement savings. Your future security.') }
+            { title: t("30% - Wants"), description: t('Entertainment, hobbies, dining out, shopping, subscriptions, travel. Enrich life but aren\'t survival.t(') }, 
+            { title: t("20% - Savings & Debt"), description: t(')Emergency fund, investments, extra debt payments, retirement savings. Your future security.') }
           ] 
         },
         { 
           icon: Repeat, 
           heading: t("When to Adjust the Ratio"), 
-          content: [
+          content:[
             { title: t("High Cost of Living Area"), description: t('60% Needs / 20% Wants / 20% Savings - focus on increasing income to rebalance') }, 
             { title: t("Heavy Debt Situation"), description: t('50% Needs / 20% Wants / 30% Debt Repayment - then redirect after clearing') }, 
             { title: t("Wealth Acceleration Mode"), description: t('50% Needs / 20% Wants / 30% Savings - compress wants to build wealth faster') }, 
@@ -42,7 +42,7 @@ export default function Rule503020() {
         { 
           icon: BarChart4, 
           heading: t("Real Calculation Examples"), 
-          content: [
+          content:[
             t('Income 1000: Needs 500 | Wants 300 | Savings 200'),
             t('Income 2000: Needs 1000 | Wants 600 | Savings 400'),
             t('Income 5000: Needs 2500 | Wants 1500 | Savings 1000')
@@ -62,11 +62,11 @@ export default function Rule503020() {
         { number: '05', text: t("Use Budget Planner to implement and track this framework") }
       ]}
       keyTakeaways={[
-        '50/30/20 is a starting framework - adjust for your life', 
-        'Most people overspend on wants without realizing it', 
-        'Even 18% savings beats 0% savings - be flexible', 
-        'Tracking is what reveals where money actually goes', 
-        'Small tweaks compound to massive shifts over time'
+        t('50/30/20 is a starting framework - adjust for your life'), 
+        t('Most people overspend on wants without realizing it'), 
+        t('Even 18% savings beats 0% savings - be flexible'), 
+        t('Tracking is what reveals where money actually goes'), 
+        t('Small tweaks compound to massive shifts over time')
       ]}
       nextSteps={[
         { label: t("Budget Planner Tool"), href: `/budget-planner${suffix}` }, 

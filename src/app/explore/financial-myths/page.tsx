@@ -40,8 +40,8 @@ export default function FinancialMyths() {
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title="Money Myths"
-        subtitle="Common misconceptions about money"
+        title={t('Money Myths')}
+        subtitle={t('Common misconceptions about money')}
         backHref="/"
         accentColor="#EF4444"
       />

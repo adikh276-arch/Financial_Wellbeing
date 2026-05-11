@@ -17,7 +17,7 @@ export default function FinancialGoals() {
         { 
           icon: Clock, 
           heading: t("Types of Financial Goals"), 
-          content: [
+          content:[
             { title: t("Short-term (< 1 year)"), description: t('Emergency fund, vacation, gadget, small repairs. Fast wins that build momentum.') }, 
             { title: t("Medium-term (1-5 years)"), description: t('Vehicle purchase, celebrations, home renovation, education, business startup.') }, 
             { title: t("Long-term (5+ years)"), description: t('Home purchase, retirement planning, children\'s education, wealth creation.') }
@@ -26,7 +26,7 @@ export default function FinancialGoals() {
         { 
           icon: Target, 
           heading: t("The SMART Framework"), 
-          content: [
+          content:[
             { title: t("Specific"), description: t('Not "save money" - but "Save 5,000 for home down payment by year-end"') }, 
             { title: t("Measurable"), description: t('Include exact amount. Track progress monthly. Update status to stay accountable.') }, 
             { title: t("Achievable"), description: t('Consider current income. Be ambitious but realistic - stretch without breaking.') }, 
@@ -37,7 +37,7 @@ export default function FinancialGoals() {
         { 
           icon: ListChecks, 
           heading: t("Goal Priority Framework"), 
-          content: [
+          content:[
             t('High Priority: Emergency fund, debt repayment, retirement - these are non-negotiable foundations'),
             t("Medium Priority: Home purchase, children's education, major life events"),
             t('Low Priority: Luxury items, entertainment upgrades, nice-to-haves'),
@@ -58,11 +58,11 @@ export default function FinancialGoals() {
         { number: '05', text: t("Use the Goal Planner to track them with progress bars") }
       ]}
       keyTakeaways={[
-        'Goals transform money from abstract to purposeful', 
-        'SMART framework makes goals actually achievable', 
-        'Prioritize ruthlessly - focus on fewer, better goals', 
-        'Track progress monthly (what you measure, you improve)', 
-        'Celebrate every milestone - it fuels motivation'
+        t('Goals transform money from abstract to purposeful'), 
+        t('SMART framework makes goals actually achievable'), 
+        t('Prioritize ruthlessly - focus on fewer, better goals'), 
+        t('Track progress monthly (what you measure, you improve)'), 
+        t('Celebrate every milestone - it fuels motivation')
       ]}
       nextSteps={[
         { label: t("Goal Planner Tool"), href: '/goal-planner' }, 

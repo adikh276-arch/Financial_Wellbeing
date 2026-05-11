@@ -24,5 +24,11 @@
   "Target": "ターゲット",
   "Wealth Projection": "富の予測",
   " Risk Profile": "リスクプロファイル",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "保存",
+  "Stable, lower-risk. capital preservation.": "安定していてリスクも低い。資本保全。",
+  "BALANCED": "バランス",
+  "Balanced. Mix of growth and stability.": "バランスが取れている。成長と安定の混合。",
+  "EXPANSION": "拡張",
+  "High-growth. Suited for long horizons.": "成長が激しいです。長い視野に向いています。"
 }

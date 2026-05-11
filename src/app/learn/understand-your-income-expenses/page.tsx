@@ -64,9 +64,9 @@ export default function UnderstandIncomeExpenses() {
       keyTakeaways={[
         t('True income = net take-home, not gross salary'), 
         t('Track for at least 1 month to discover reality (not assumptions)'), 
-        t('Irregular expenses must be distributed monthly or they\')ll shock yout(', 
-        ')Subscriptions are the biggest silent leak for most peoplet(', 
-        ')Small optimizations in fixed costs compound to massive savings'
+        t("Irregular expenses must be distributed monthly or they'll shock you"), 
+        t('Subscriptions are the biggest silent leak for most people'), 
+        t('Small optimizations in fixed costs compound to massive savings')
       ]}
       nextSteps={[
         { label: t("Budget Planner"), href: '/budget-planner' }, 

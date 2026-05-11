@@ -39,5 +39,6 @@
   "T+1 withdrawal time": "เวลาถอนเงิน T+1",
   "TARGET RESERVE CAPITAL": "ทุนสํารองเป้าหมาย",
   "Time-locked capital": "เงินทุนที่ถูกล็อคเวลา",
-  "VULNERABLE": "เปราะบาง"
+  "VULNERABLE": "เปราะบาง",
+  "Emergency Fund": "กองทุนฉุกเฉิน"
 }

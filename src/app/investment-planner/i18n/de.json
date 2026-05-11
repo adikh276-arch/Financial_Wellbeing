@@ -24,5 +24,11 @@
   "Target": "Ziel",
   "Wealth Projection": "Vermögensprognose",
   " Risk Profile": " Risikoprofil",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "ERHALTUNG",
+  "Stable, lower-risk. capital preservation.": "Stabil, geringeres Risiko. Kapitalbewahrung.",
+  "BALANCED": "AUSGEWOGEN",
+  "Balanced. Mix of growth and stability.": "Ausgewogen. Mischung aus Wachstum und Stabilität.",
+  "EXPANSION": "ERWEITERUNG",
+  "High-growth. Suited for long horizons.": "Hochwachstum. Geeignet für lange Horizonte."
 }

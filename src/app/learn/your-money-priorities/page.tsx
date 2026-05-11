@@ -65,7 +65,7 @@ export default function YourMoneyPriorities() {
         t('Money is a tool to live your values, not an end in itself'), 
         t('Alignment = fulfillment and peace; misalignment = stress'), 
         t('Give yourself permission to enjoy your top priorities'), 
-        t('Ruthlessly cut spending on things that don\')t matter to you'
+        t("Ruthlessly cut spending on things that don't matter to you")
       ]}
       nextSteps={[
         { label: t("Budget Planner"), href: '/budget-planner' }, 

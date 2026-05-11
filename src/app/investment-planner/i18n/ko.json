@@ -24,5 +24,11 @@
   "Target": "목표",
   "Wealth Projection": "부의 예측",
   " Risk Profile": " 위험 프로필",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "보존",
+  "Stable, lower-risk. capital preservation.": "안정적이고 위험이 낮은 상태입니다. 자본 보존.",
+  "BALANCED": "균형 잡힌",
+  "Balanced. Mix of growth and stability.": "균형 잡힌 상태였다. 성장과 안정성의 혼합.",
+  "EXPANSION": "확장",
+  "High-growth. Suited for long horizons.": "고성장. 긴 지평선에 적합합니다."
 }

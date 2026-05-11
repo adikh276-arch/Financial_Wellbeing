@@ -42,10 +42,10 @@ export default function AvoidMoneyMistakes() {
       ]}
       keyTakeaways={[
         t('Common mistakes are avoidable with awareness and systems'), 
-        t('Time is your most valuable financial asset - don\')t waste itt(', 
-        ')Small consistent changes compound into massive resultst(', 
-        ')Focus on what you can control: savings rate, habits, awarenesst(', 
-        ')Tracking your money is the single most impactful first step'
+        t("Time is your most valuable financial asset - don't waste it"), 
+        t('Small consistent changes compound into massive results'), 
+        t('Focus on what you can control: savings rate, habits, awareness'), 
+        t('Tracking your money is the single most impactful first step')
       ]}
       nextSteps={[
         { label: t("Financial Health Score"), href: '/financial-health-score' }, 

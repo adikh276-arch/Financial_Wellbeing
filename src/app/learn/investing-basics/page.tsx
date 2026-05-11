@@ -58,7 +58,7 @@ export default function InvestingBasics() {
             
             t(')Panic selling in downturns - most people buy high, sell lowt('),
             
-            t(')Chasing last year\t('s top performers - past returns don\')t predict future')
+            t("Chasing last year's top performers - past returns don't predict future")
           ] 
         },
       ]}
@@ -73,9 +73,9 @@ export default function InvestingBasics() {
         t('Investing is for everyone, not just the rich'), 
         t('Start early, even with tiny amounts - time beats timing'), 
         t('SIP removes the burden of timing the market'), 
-        t('Diversification is your safety net - don\')t skip itt(', 
-        ')Stay invested through downturns; market crashes are recoveries in disguiset(', 
-        ')Review quarterly but ignore daily market noise'
+        t("Diversification is your safety net - don't skip it"), 
+        t('Stay invested through downturns; market crashes are recoveries in disguise'), 
+        t('Review quarterly but ignore daily market noise')
       ]}
       nextSteps={[
         { label: t("Investment Planner"), href: '/investment-planner' }, 

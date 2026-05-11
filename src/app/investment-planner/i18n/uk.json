@@ -24,5 +24,11 @@
   "Target": "Ціль",
   "Wealth Projection": "Проєкція багатства",
   " Risk Profile": " Профіль ризику",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "ЗБЕРЕЖЕННЯ",
+  "Stable, lower-risk. capital preservation.": "Стабільний, менш ризикований. Збереження капіталу.",
+  "BALANCED": "ЗБАЛАНСОВАНИЙ",
+  "Balanced. Mix of growth and stability.": "Збалансовано. Поєднання зростання та стабільності.",
+  "EXPANSION": "РОЗШИРЕННЯ",
+  "High-growth. Suited for long horizons.": "Високорослий. Придатний для довгих горизонтів."
 }

@@ -24,5 +24,11 @@
   "Target": "Mål",
   "Wealth Projection": "Förmögenhetsprognos",
   " Risk Profile": " Riskprofil",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "BEVARANDE",
+  "Stable, lower-risk. capital preservation.": "Stabil, mindre risk. kapitalbevarande.",
+  "BALANCED": "BALANSERAT",
+  "Balanced. Mix of growth and stability.": "Balanserad. En blandning av tillväxt och stabilitet.",
+  "EXPANSION": "EXPANSION",
+  "High-growth. Suited for long horizons.": "Högväxt. Lämpade för långa horisonter."
 }

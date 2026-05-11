@@ -24,5 +24,11 @@
   "Target": "מטרה",
   "Wealth Projection": "תחזית עושר",
   " Risk Profile": " פרופיל סיכון",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "שימור",
+  "Stable, lower-risk. capital preservation.": "יציב, בסיכון נמוך יותר. שימור הון.",
+  "BALANCED": "מאוזן",
+  "Balanced. Mix of growth and stability.": "מאוזן. שילוב של צמיחה ויציבות.",
+  "EXPANSION": "הרחבה",
+  "High-growth. Suited for long horizons.": "צמיחה גבוהה. מתאים לאופקים ארוכים."
 }

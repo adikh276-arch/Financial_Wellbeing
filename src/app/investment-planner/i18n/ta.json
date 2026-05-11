@@ -24,5 +24,11 @@
   "Target": "இலக்கு",
   "Wealth Projection": "செல்வ கணிப்பு",
   " Risk Profile": " ஆபத்து சுயவிவரம்",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "பாதுகாப்பு",
+  "Stable, lower-risk. capital preservation.": "நிலையான, குறைந்த ஆபத்து. மூலதன பாதுகாப்பு.",
+  "BALANCED": "சமநிலை",
+  "Balanced. Mix of growth and stability.": "சமநிலையான. வளர்ச்சி மற்றும் ஸ்திரத்தன்மையின் கலவை.",
+  "EXPANSION": "விரிவாக்கம்",
+  "High-growth. Suited for long horizons.": "உயர் வளர்ச்சி. நீண்ட எல்லைகளுக்கு ஏற்றது."
 }

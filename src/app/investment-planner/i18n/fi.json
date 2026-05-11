@@ -24,5 +24,11 @@
   "Target": "Kohde",
   "Wealth Projection": "Varallisuusennuste",
   " Risk Profile": " Riskiprofiili",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "SÄILYTTÄMINEN",
+  "Stable, lower-risk. capital preservation.": "Vakaa, vähäriskistä. Pääoman säilyttäminen.",
+  "BALANCED": "TASAPAINOINEN",
+  "Balanced. Mix of growth and stability.": "Tasapainoinen. Kasvun ja vakauden yhdistelmä.",
+  "EXPANSION": "LAAJENTUMINEN",
+  "High-growth. Suited for long horizons.": "Korkeakasvuinen. Sopivat pitkiin horisontteihin."
 }

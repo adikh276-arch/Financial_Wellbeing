@@ -24,5 +24,11 @@
   "Target": "Doel",
   "Wealth Projection": "Vermogensprojectie",
   " Risk Profile": " Risicoprofiel",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "BEHOUD",
+  "Stable, lower-risk. capital preservation.": "Stabiel, minder risico. Kapitaalbewaring.",
+  "BALANCED": "IN BALANS",
+  "Balanced. Mix of growth and stability.": "In balans. Mix van groei en stabiliteit.",
+  "EXPANSION": "UITBREIDING",
+  "High-growth. Suited for long horizons.": "Hoge groei. Geschikt voor lange horizonten."
 }

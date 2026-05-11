@@ -34,5 +34,14 @@
   "TOTAL SAVED": "PELASTETTU KOKONAISMÄÄRÄ",
   "TOTAL TARGET": "KOKONAISTAVOITE",
   "Update Strategy": "Päivitysstrategia",
-  "T": "T"
+  "T": "T",
+  "Vacation": "Loma",
+  "Home": "Koti",
+  "Education": "Koulutus",
+  "Car": "Auto",
+  "Wedding": "Häät",
+  "Emergency Fund": "Hätärahasto",
+  "Retirement": "Eläkkeelle jääminen",
+  "Investment": "Sijoitukset",
+  "Other": "Muut"
 }

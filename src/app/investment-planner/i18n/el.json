@@ -24,5 +24,11 @@
   "Target": "Στόχος",
   "Wealth Projection": "Προβολή πλούτου",
   " Risk Profile": " Προφίλ κινδύνου",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "ΔΙΑΤΗΡΗΣΗ",
+  "Stable, lower-risk. capital preservation.": "Σταθερό, χαμηλότερου κινδύνου. διατήρηση του κεφαλαίου.",
+  "BALANCED": "ΙΣΟΡΡΟΠΗΜΕΝΟΣ",
+  "Balanced. Mix of growth and stability.": "Ισορροπημένη. Μείγμα ανάπτυξης και σταθερότητας.",
+  "EXPANSION": "ΕΠΕΚΤΑΣΗ",
+  "High-growth. Suited for long horizons.": "Υψηλή ανάπτυξη. Κατάλληλο για μεγάλους ορίζοντες."
 }

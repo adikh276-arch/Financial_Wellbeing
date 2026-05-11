@@ -24,5 +24,11 @@
   "Target": "Hedef",
   "Wealth Projection": "Servet Projeksiyonu",
   " Risk Profile": " Risk Profili",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "KORUMA",
+  "Stable, lower-risk. capital preservation.": "Stabil, daha düşük riskli. Başkent koruma.",
+  "BALANCED": "DENGELI",
+  "Balanced. Mix of growth and stability.": "Dengeli. Büyüme ve istikrarın karışımı.",
+  "EXPANSION": "GENIŞLEME",
+  "High-growth. Suited for long horizons.": "Yüksek büyüme. Uzun ufuklar için uygun."
 }

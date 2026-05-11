@@ -24,5 +24,11 @@
   "Target": "Țintă",
   "Wealth Projection": "Proiecția averii",
   " Risk Profile": " Profil de risc",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "CONSERVARE",
+  "Stable, lower-risk. capital preservation.": "Stabil, cu risc mai scăzut. Conservarea capitalului.",
+  "BALANCED": "ECHILIBRAT",
+  "Balanced. Mix of growth and stability.": "Echilibrat. Un amestec de creștere și stabilitate.",
+  "EXPANSION": "EXTINDERE",
+  "High-growth. Suited for long horizons.": "Cu creștere mare. Potrivită pentru orizonturi lungi."
 }

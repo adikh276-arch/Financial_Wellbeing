@@ -24,5 +24,11 @@
   "Target": "Cél",
   "Wealth Projection": "Vagyonprojekt",
   " Risk Profile": " Kockázati profil",
-  "invest_history": "invest_history"
+  "invest_history": "invest_history",
+  "PRESERVATION": "MEGŐRZÉS",
+  "Stable, lower-risk. capital preservation.": "Stabil, alacsonyabb kockázatú. Tőkemegőrzés.",
+  "BALANCED": "KIEGYENSÚLYOZOTT",
+  "Balanced. Mix of growth and stability.": "Kiegyensúlyozott. Növekedés és stabilitás keveréke.",
+  "EXPANSION": "BŐVÍTÉS",
+  "High-growth. Suited for long horizons.": "Magas növekedés. Hosszú távokhoz alkalmas."
 }

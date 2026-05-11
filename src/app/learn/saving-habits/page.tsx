@@ -31,8 +31,8 @@ export default function SavingHabits() {
           content:[
             { title: t("Automate on Payday"), description: t('Set an automatic transfer the same day your salary arrives. Out of sight, out of mind.') }, 
             { title: t("Start with 10%"), description: t('Begin with 10% of income. Increase by 1% every 3 months until you hit 20%.') }, 
-            { title: t("Separate Account"), description: t('Keep savings in a separate account so you\'re not tempted to spend it.t(') }, 
-            { title: t("Link to Purpose"), description: t(')Label savings with a goal (e.g., t('Europe Trip 2026')) to stay motivated.') }
+            { title: t("Separate Account"), description: t("Keep savings in a separate account so you're not tempted to spend it.") }, 
+            { title: t("Link to Purpose"), description: t("Label savings with a goal (e.g., Europe Trip 2026) to stay motivated.") }
           ], 
           variant: 'cards' 
         },

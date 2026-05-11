@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "지출 계좌와 완전히 분리하세요",
   "Never use it for non-emergencies, even tempting ones": "비상급 상황, 심지어 유혹적인 상황에도 절대 사용하지 마세요",
   "Update your target every 6 months as expenses change": "지출 변동에 따라 6개월마다 목표를 업데이트하세요",
-  "Calculate monthly savings needed: Target / Months = Your number": "필요한 월별 저축 계산: 목표 / 월 = 당신의 숫자",
   "Home purchase, retirement planning, children's education, wealth creation.": "주택 구매, 은퇴 계획, 자녀 교육, 부의 창출.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "\"돈을 절약한다\"가 아니라 \"연말까지 주택 계약금 5,000달러를 저축하세요\"",
   "Goals transform money from abstract to purposeful": "목표는 돈을 추상적인 것에서 목적 있는 것으로 변화시킵니다",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "돈은 자신의 가치를 실천하는 도구이지 그 자체의 목적이 아닙니다",
   "Alignment = fulfillment and peace; misalignment = stress": "정렬 = 성취와 평화; 정렬 불일치 = 응력",
   "Give yourself permission to enjoy your top priorities": "최우선 과제를 즐기는 것을 스스로에게 허락해 주세요",
-  "Ruthlessly cut spending on things that don't matter to you": "중요하지 않은 것에 대한 지출을 무자비하게 줄이세요"
+  "Ruthlessly cut spending on things that don't matter to you": "중요하지 않은 것에 대한 지출을 무자비하게 줄이세요",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

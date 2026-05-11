@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "உங்கள் செலவினக் கணக்கிலிருந்து முற்றிலும் தனித்தனியாக வைத்திருங்கள்",
   "Never use it for non-emergencies, even tempting ones": "அவசரநிலைகள் அல்லாத, கவர்ச்சிகரமானவற்றுக்கு கூட இதைப் பயன்படுத்த வேண்டாம்",
   "Update your target every 6 months as expenses change": "செலவுகள் மாறும்போது ஒவ்வொரு 6 மாதங்களுக்கும் உங்கள் இலக்கை புதுப்பிக்கவும்",
-  "Calculate monthly savings needed: Target / Months = Your number": "தேவையான மாதாந்திர சேமிப்பைக் கணக்கிடுங்கள்: இலக்கு / மாதங்கள் = உங்கள் எண்",
   "Home purchase, retirement planning, children's education, wealth creation.": "வீடு வாங்குதல், ஓய்வூதிய திட்டமிடல், குழந்தைகளின் கல்வி, செல்வத்தை உருவாக்குதல்.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "\"பணத்தை சேமிக்கவும்\" அல்ல - ஆனால் \"ஆண்டு இறுதிக்குள் வீட்டு முன்பணம் செலுத்துவதற்கு 5,000 ஐ சேமிக்கவும்\"",
   "Goals transform money from abstract to purposeful": "இலக்குகள் பணத்தை சுருக்கத்திலிருந்து நோக்கம் கொண்டதாக மாற்றுகின்றன",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "பணம் என்பது உங்கள் மதிப்புகளை வாழ்வதற்கான ஒரு கருவி, தன்னளவில் ஒரு முடிவு அல்ல",
   "Alignment = fulfillment and peace; misalignment = stress": "சீரமைப்பு = நிறைவு மற்றும் அமைதி; தவறான சீரமைப்பு = மன அழுத்தம்",
   "Give yourself permission to enjoy your top priorities": "உங்கள் முதன்மை முன்னுரிமைகளை அனுபவிக்க உங்களுக்கு அனுமதி கொடுங்கள்.",
-  "Ruthlessly cut spending on things that don't matter to you": "உங்களுக்கு முக்கியமில்லாத விஷயங்களுக்கான செலவினங்களை இரக்கமின்றி குறைக்கவும்"
+  "Ruthlessly cut spending on things that don't matter to you": "உங்களுக்கு முக்கியமில்லாத விஷயங்களுக்கான செலவினங்களை இரக்கமின்றி குறைக்கவும்",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

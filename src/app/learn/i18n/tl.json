@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Panatilihin itong ganap na hiwalay mula sa iyong account sa paggastos",
   "Never use it for non-emergencies, even tempting ones": "Huwag kailanman gamitin ito para sa mga hindi pang-emergency, kahit na para sa mga nakatutukso",
   "Update your target every 6 months as expenses change": "I-update ang iyong target tuwing 6 na buwan habang nagbabago ang mga gastusin",
-  "Calculate monthly savings needed: Target / Months = Your number": "Kalkulahin ang buwanang pagtitipid na kinakailangan: Target / Buwan = Ang iyong numero",
   "Home purchase, retirement planning, children's education, wealth creation.": "Pagbili ng bahay, pagpaplano ng pagreretiro, edukasyon ng mga bata, paglikha ng kayamanan.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Hindi \"makatipid ng pera\" kundi \"mag-ipon ng 5,000 para sa down payment sa bahay sa pagtatapos ng taon\"",
   "Goals transform money from abstract to purposeful": "Ang mga layunin ay nagbabago ng pera mula sa abstract patungo sa layunin",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Ang pera ay isang kasangkapan upang mabuhay ang iyong mga halaga, hindi isang layunin sa sarili nito",
   "Alignment = fulfillment and peace; misalignment = stress": "Pagkakahanay = katuparan at kapayapaan; Maling pagkakahanay = stress",
   "Give yourself permission to enjoy your top priorities": "Bigyan ang iyong sarili ng pahintulot na tamasahin ang iyong mga pangunahing priyoridad",
-  "Ruthlessly cut spending on things that don't matter to you": "Huwag mag-atubiling gumastos sa mga bagay na hindi mahalaga sa iyo"
+  "Ruthlessly cut spending on things that don't matter to you": "Huwag mag-atubiling gumastos sa mga bagay na hindi mahalaga sa iyo",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

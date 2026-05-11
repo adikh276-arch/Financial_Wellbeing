@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "Beräkna procentandel av utgifterna för varje prioritet",
   "Calculate 10% of your monthly income - that's your savings target": "Beräkna 10 % av din månadsinkomst – det är ditt sparmål",
   "Calculate monthly savings needed for each goal": "Beräkna de månatliga besparingarna som behövs för varje mål",
-  "Calculate monthly savings needed: Target / Months = Your number": "Beräkna nödvändiga månatliga besparingar: Mål / Månader = Ditt antal",
+  "Calculate monthly savings needed: Target / Months = Your number": "Beräkna nödvändiga månadsbesparingar: Mål / Månader = Ditt tal",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "Beräkna ungefärliga pensionsbehov: Aktuella utgifter +12 + 30 år +3 (inflation)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "Beräkna den verkliga nettovinsten (efter skatt, PF, försäkringsavdrag)",
   "Calculate your current spending percentages": "Beräkna dina nuvarande utgiftsprocentuella",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Håll det helt separat från ditt utgiftskonto",
   "Never use it for non-emergencies, even tempting ones": "Använd den aldrig för icke-akuta situationer, inte ens för frestande sådana",
   "Update your target every 6 months as expenses change": "Uppdatera ditt mål var sjätte månad när utgifterna ändras",
-  "Calculate monthly savings needed: Target / Months = Your number": "Beräkna nödvändiga månadsbesparingar: Mål / Månader = Ditt tal",
   "Home purchase, retirement planning, children's education, wealth creation.": "Bostadsköp, pensionsplanering, barns utbildning, förmögenhetsskapande.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Inte \"spara pengar\" – utan \"spara 5 000 till kontantinsats till årets slut\"",
   "Goals transform money from abstract to purposeful": "Mål förvandlar pengar från abstrakt till meningsfulla",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Pengar är ett verktyg för att leva dina värderingar, inte ett mål i sig",
   "Alignment = fulfillment and peace; misalignment = stress": "Inriktning = uppfyllelse och frid; Feljustering = spänning",
   "Give yourself permission to enjoy your top priorities": "Ge dig själv tillåtelse att njuta av dina högsta prioriteringar",
-  "Ruthlessly cut spending on things that don't matter to you": "Skär skoningslöst ner på utgifter för saker som inte betyder något för dig"
+  "Ruthlessly cut spending on things that don't matter to you": "Skär skoningslöst ner på utgifter för saker som inte betyder något för dig",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

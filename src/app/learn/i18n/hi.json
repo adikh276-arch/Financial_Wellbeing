@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "प्रत्येक प्राथमिकता पर खर्च के % की गणना करें",
   "Calculate 10% of your monthly income - that's your savings target": "अपनी मासिक आय का 10% गणना करें - यह आपका बचत लक्ष्य है",
   "Calculate monthly savings needed for each goal": "प्रत्येक लक्ष्य के लिए आवश्यक मासिक बचत की गणना करें",
-  "Calculate monthly savings needed: Target / Months = Your number": "आवश्यक मासिक बचत की गणना करें: लक्ष्य / महीने = आपकी संख्या",
+  "Calculate monthly savings needed: Target / Months = Your number": "आवश्यक मासिक बचत की गणना करें: लक्ष्य/महीने = आपकी संख्या",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "किसी न किसी सेवानिवृत्ति की जरूरतों की गणना करें: वर्तमान व्यय * 12 * 30 वर्ष * 3 (मुद्रास्फीति)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "वास्तविक शुद्ध आय की गणना करें (करों, पीएफ, बीमा कटौती के बाद)",
   "Calculate your current spending percentages": "अपने वर्तमान खर्च प्रतिशत की गणना करें",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "इसे अपने खर्च खाते से पूरी तरह से अलग रखें",
   "Never use it for non-emergencies, even tempting ones": "इसे कभी भी गैर-आपात स्थिति के लिए उपयोग न करें, यहां तक कि आकर्षक लोगों के लिए भी",
   "Update your target every 6 months as expenses change": "खर्च बदलने के साथ हर 6 महीने में अपना लक्ष्य अपडेट करें",
-  "Calculate monthly savings needed: Target / Months = Your number": "आवश्यक मासिक बचत की गणना करें: लक्ष्य/महीने = आपकी संख्या",
   "Home purchase, retirement planning, children's education, wealth creation.": "घर खरीद, सेवानिवृत्ति योजना, बच्चों की शिक्षा, धन सृजन।",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "\"पैसे बचाएं\" नहीं - बल्कि \"साल के अंत तक घर के डाउन पेमेंट के लिए 5,000 बचाएं\"",
   "Goals transform money from abstract to purposeful": "लक्ष्य पैसे को अमूर्त से उद्देश्यपूर्ण में बदल देते हैं",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "पैसा आपके मूल्यों को जीने का एक उपकरण है, न कि अपने आप में एक अंत",
   "Alignment = fulfillment and peace; misalignment = stress": "संरेखण = पूर्ति और शांति; गलत संरेखण = तनाव",
   "Give yourself permission to enjoy your top priorities": "अपने आप को अपनी सर्वोच्च प्राथमिकताओं का आनंद लेने की अनुमति दें",
-  "Ruthlessly cut spending on things that don't matter to you": "उन चीजों पर खर्च में बेरहमी से कटौती करें जो आपके लिए मायने नहीं रखती"
+  "Ruthlessly cut spending on things that don't matter to you": "उन चीजों पर खर्च में बेरहमी से कटौती करें जो आपके लिए मायने नहीं रखती",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

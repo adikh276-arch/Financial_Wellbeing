@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Κρατήστε το εντελώς ξεχωριστό από τον λογαριασμό δαπανών σας",
   "Never use it for non-emergencies, even tempting ones": "Μην το χρησιμοποιείτε ποτέ για μη επείγουσες καταστάσεις, ακόμη και δελεαστικές",
   "Update your target every 6 months as expenses change": "Ενημερώστε τον στόχο σας κάθε 6 μήνες καθώς αλλάζουν τα έξοδα",
-  "Calculate monthly savings needed: Target / Months = Your number": "Υπολογίστε τη μηνιαία εξοικονόμηση που απαιτείται: Στόχος / Μήνες = Ο αριθμός σας",
   "Home purchase, retirement planning, children's education, wealth creation.": "Αγορά σπιτιού, συνταξιοδοτικός προγραμματισμός, εκπαίδευση παιδιών, δημιουργία πλούτου.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Όχι \"εξοικονομήστε χρήματα\" - αλλά \"Εξοικονομήστε 5.000 για προκαταβολή κατοικίας μέχρι το τέλος του έτους\"",
   "Goals transform money from abstract to purposeful": "Οι στόχοι μετατρέπουν τα χρήματα από αφηρημένα σε σκόπιμα",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Τα χρήματα είναι ένα εργαλείο για να ζεις τις αξίες σου, όχι αυτοσκοπός",
   "Alignment = fulfillment and peace; misalignment = stress": "Ευθυγράμμιση = εκπλήρωση και ειρήνη. κακή ευθυγράμμιση = άγχος",
   "Give yourself permission to enjoy your top priorities": "Δώστε στον εαυτό σας την άδεια να απολαύσει τις κορυφαίες προτεραιότητές σας",
-  "Ruthlessly cut spending on things that don't matter to you": "Μειώστε ανελέητα τις δαπάνες σε πράγματα που δεν έχουν σημασία για εσάς"
+  "Ruthlessly cut spending on things that don't matter to you": "Μειώστε ανελέητα τις δαπάνες σε πράγματα που δεν έχουν σημασία για εσάς",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "Oblicz procent wydatków na każdy priorytet",
   "Calculate 10% of your monthly income - that's your savings target": "Oblicz 10% swojego miesięcznego dochodu – to jest Twój cel oszczędnościowy",
   "Calculate monthly savings needed for each goal": "Oblicz miesięczne oszczędności potrzebne dla każdego celu",
-  "Calculate monthly savings needed: Target / Months = Your number": "Oblicz miesięczne oszczędności: Docelowe / Miesiące = Twój numer",
+  "Calculate monthly savings needed: Target / Months = Your number": "Oblicz miesięczne oszczędności: Cel / Miesiące = Twój numer",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "Oblicz ogólne potrzeby emerytalne: Bieżące wydatki +Ù 12 * 30 lat * 3 (inflacja)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "Oblicz prawdziwy dochód netto (po opodatkowaniu, PF, odliczenia ubezpieczeniowe)",
   "Calculate your current spending percentages": "Oblicz swoje obecne procenty wydatków",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Trzymaj go całkowicie oddzielnie od konta wydatków",
   "Never use it for non-emergencies, even tempting ones": "Nigdy nie używaj go do sytuacji nieawaryjnych, nawet kuszących",
   "Update your target every 6 months as expenses change": "Aktualizuj swój cel co 6 miesięcy, gdy wydatki się zmieniają",
-  "Calculate monthly savings needed: Target / Months = Your number": "Oblicz miesięczne oszczędności: Cel / Miesiące = Twój numer",
   "Home purchase, retirement planning, children's education, wealth creation.": "Kupno domu, planowanie emerytury, edukacja dzieci, tworzenie majątku.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Nie \"oszczędzaj pieniądze\" – ale \"oszczędzaj 5 000 na wkład własny do końca roku\"",
   "Goals transform money from abstract to purposeful": "Cele zmieniają pieniądze z abstrakcyjnych w celowe",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Pieniądze to narzędzie do realizacji swoich wartości, a nie cel sam w sobie",
   "Alignment = fulfillment and peace; misalignment = stress": "Alignment = spełnienie i pokój; Niewyrównanie = naprężenie",
   "Give yourself permission to enjoy your top priorities": "Pozwól sobie cieszyć się swoimi najważniejszymi priorytetami",
-  "Ruthlessly cut spending on things that don't matter to you": "Bezwzględnie ogranicz wydatki na rzeczy, które cię nie obważają"
+  "Ruthlessly cut spending on things that don't matter to you": "Bezwzględnie ogranicz wydatki na rzeczy, które cię nie obważają",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

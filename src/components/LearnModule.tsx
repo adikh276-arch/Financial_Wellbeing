@@ -41,7 +41,7 @@ const itemVariants = {
 export function LearnModule({
   title, subtitle, readTime, category, introduction, sections, actionSteps, keyTakeaways, nextSteps
 }: LearnModuleProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   const searchParams = useSearchParams();
   const query = searchParams.toString();
   const suffix = query ? `?${query}` : '';

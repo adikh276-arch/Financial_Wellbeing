@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "এটি আপনার ব্যয়ের অ্যাকাউন্ট থেকে সম্পূর্ণ আলাদা রাখুন",
   "Never use it for non-emergencies, even tempting ones": "এটি কখনই অ-জরুরি অবস্থার জন্যও ব্যবহার করবেন না, এমনকি লোভনীয়গুলিও",
   "Update your target every 6 months as expenses change": "খরচ পরিবর্তন হওয়ার সাথে সাথে প্রতি 6 মাসে আপনার লক্ষ্য আপডেট করুন",
-  "Calculate monthly savings needed: Target / Months = Your number": "প্রয়োজনীয় মাসিক সঞ্চয় গণনা করুন: লক্ষ্য / মাস = আপনার সংখ্যা",
   "Home purchase, retirement planning, children's education, wealth creation.": "বাড়ি কেনা, অবসর পরিকল্পনা, সন্তানদের শিক্ষা, সম্পদ সৃষ্টি।",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "\"অর্থ সঞ্চয় করুন\" নয় - তবে \"বছরের শেষের দিকে হোম ডাউন পেমেন্টের জন্য 5,000 সংরক্ষণ করুন\"",
   "Goals transform money from abstract to purposeful": "লক্ষ্যগুলি অর্থকে বিমূর্ত থেকে উদ্দেশ্যমূলকভাবে রূপান্তরিত করে",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "অর্থ আপনার মূল্যবোধ বাঁচার একটি হাতিয়ার, নিজেই শেষ নয়",
   "Alignment = fulfillment and peace; misalignment = stress": "প্রান্তিককরণ = পরিপূর্ণতা এবং শান্তি; মিসঅ্যালাইনমেন্ট = স্ট্রেস",
   "Give yourself permission to enjoy your top priorities": "আপনার শীর্ষ অগ্রাধিকারগুলি উপভোগ করার জন্য নিজেকে অনুমতি দিন",
-  "Ruthlessly cut spending on things that don't matter to you": "নির্মমভাবে এমন জিনিসগুলিতে ব্যয় হ্রাস করুন যা আপনার কাছে গুরুত্বপূর্ণ নয়"
+  "Ruthlessly cut spending on things that don't matter to you": "নির্মমভাবে এমন জিনিসগুলিতে ব্যয় হ্রাস করুন যা আপনার কাছে গুরুত্বপূর্ণ নয়",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "Calculează procentul cheltuielilor pentru fiecare prioritate",
   "Calculate 10% of your monthly income - that's your savings target": "Calculează 10% din venitul tău lunar – acesta este ținta ta de economii",
   "Calculate monthly savings needed for each goal": "Calculează economiile lunare necesare pentru fiecare obiectiv",
-  "Calculate monthly savings needed: Target / Months = Your number": "Calculați economiile lunare necesare: Țintă / Luni = Numărul dumneavoastră",
+  "Calculate monthly savings needed: Target / Months = Your number": "Calculează economiile lunare necesare: Țintă / Luni = Numărul tău",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "Calculați nevoile aproximative de pensionare: Cheltuieli curente +12 + 30 ani + 3 (inflație)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "Calculează venitul net real (după impozite, PF, deduceri de asigurare)",
   "Calculate your current spending percentages": "Calculează-ți procentele actuale de cheltuieli",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Păstrează-l complet separat de contul tău de cheltuieli",
   "Never use it for non-emergencies, even tempting ones": "Nu o folosi niciodată pentru situații non-urgente, chiar și pentru cele tentante",
   "Update your target every 6 months as expenses change": "Actualizează-ți ținta la fiecare 6 luni pe măsură ce cheltuielile se schimbă",
-  "Calculate monthly savings needed: Target / Months = Your number": "Calculează economiile lunare necesare: Țintă / Luni = Numărul tău",
   "Home purchase, retirement planning, children's education, wealth creation.": "Cumpărarea unei case, planificarea pensionării, educația copiilor, crearea de avere.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Nu \"economisește bani\" – ci \"Economisește 5.000 pentru avansul până la sfârșitul anului\"",
   "Goals transform money from abstract to purposeful": "Obiectivele transformă banii din abstracti în intenționați",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Banii sunt un instrument pentru a-ți trăi valorile, nu un scop în sine",
   "Alignment = fulfillment and peace; misalignment = stress": "Aliniere = împlinire și pace; Nealiniere = tensiune",
   "Give yourself permission to enjoy your top priorities": "Dă-ți permisiunea să te bucuri de prioritățile tale principale",
-  "Ruthlessly cut spending on things that don't matter to you": "Taie cheltuielile fără milă pentru lucruri care nu contează pentru tine"
+  "Ruthlessly cut spending on things that don't matter to you": "Taie cheltuielile fără milă pentru lucruri care nu contează pentru tine",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

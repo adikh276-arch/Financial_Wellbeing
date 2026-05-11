@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "Розрахуйте відсоток витрат на кожен пріоритет",
   "Calculate 10% of your monthly income - that's your savings target": "Розрахуйте 10% свого місячного доходу — це ваша цільова заощадження",
   "Calculate monthly savings needed for each goal": "Розрахуйте щомісячні заощадження, необхідні для кожної цілі.",
-  "Calculate monthly savings needed: Target / Months = Your number": "Розрахуйте потрібні щомісячні заощадження: Ціль + Місяці = Ваше число",
+  "Calculate monthly savings needed: Target / Months = Your number": "Розрахуйте потрібні щомісячні заощадження: Target / Months = Ваше число",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "Розрахуйте приблизні потреби у пенсії: поточні витрати * 12 * 30 років * 3 (інфляція)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "Розрахуйте справжній чистий дохід (після оподаткування, PF, страхових відрахувань)",
   "Calculate your current spending percentages": "Розрахуйте свої поточні відсотки витрат",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Тримайте його повністю окремо від вашого рахунку витрат",
   "Never use it for non-emergencies, even tempting ones": "Ніколи не використовуйте його у неекстрених випадках, навіть у спокусливих",
   "Update your target every 6 months as expenses change": "Оновлюйте свою цільову ціль кожні 6 місяців, коли витрати змінюються",
-  "Calculate monthly savings needed: Target / Months = Your number": "Розрахуйте потрібні щомісячні заощадження: Target / Months = Ваше число",
   "Home purchase, retirement planning, children's education, wealth creation.": "Купівля житла, планування пенсії, освіта дітей, створення багатства.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Не «заощаджуйте гроші», а «Збережіть 5 000 на початковий внесок до кінця року»",
   "Goals transform money from abstract to purposeful": "Цілі перетворюють гроші з абстрактних на цілеспрямовані",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Гроші — це інструмент для життя власними цінностями, а не мета сама по собі",
   "Alignment = fulfillment and peace; misalignment = stress": "Узгодження = задоволення і мир; Зміщення = напруження",
   "Give yourself permission to enjoy your top priorities": "Дозвольте собі насолоджуватися своїми головними пріоритетами",
-  "Ruthlessly cut spending on things that don't matter to you": "Безжально скорочуйте витрати на речі, які для вас не важливі"
+  "Ruthlessly cut spending on things that don't matter to you": "Безжально скорочуйте витрати на речі, які для вас не важливі",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

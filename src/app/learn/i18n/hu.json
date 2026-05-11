@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Tartsd teljesen külön a költési számládtól",
   "Never use it for non-emergencies, even tempting ones": "Soha ne használd nem vészhelyzetekhez, még csábító esetekhez sem.",
   "Update your target every 6 months as expenses change": "Frissítsd a célodat 6 havonta a költségek változásával",
-  "Calculate monthly savings needed: Target / Months = Your number": "Számold ki a havi megtakarításokat: Cél / Hónapok = A számod",
   "Home purchase, retirement planning, children's education, wealth creation.": "Lakásvásárlás, nyugdíjtervezés, gyermekoktatás, vagyonteremtés.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Nem \"spórolj pénzt\" – hanem \"Félretess 5 000 dollárt az év végére az otthoni önlegre\"",
   "Goals transform money from abstract to purposeful": "A célok a pénzt absztraktból céltudatossá változtatják",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "A pénz eszköz az értékeidre való élethez, nem önmagában cél",
   "Alignment = fulfillment and peace; misalignment = stress": "Összehangolás = beteljesülés és béke; Tilláció = feszültség",
   "Give yourself permission to enjoy your top priorities": "Adj magadnak engedélyt, hogy élvezd a legfontosabb prioritásaidat",
-  "Ruthlessly cut spending on things that don't matter to you": "Könyörtelenül csökkented a költést olyan dolgokra, amik nem számítanak neked"
+  "Ruthlessly cut spending on things that don't matter to you": "Könyörtelenül csökkented a költést olyan dolgokra, amik nem számítanak neked",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

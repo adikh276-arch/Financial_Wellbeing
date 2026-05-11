@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "שמור על זה נפרד לחלוטין מחשבון ההוצאות שלך",
   "Never use it for non-emergencies, even tempting ones": "לעולם אל תשתמש בו למקרים לא דחופים, אפילו לא למקרים מפתים",
   "Update your target every 6 months as expenses change": "עדכן את היעד שלך כל 6 חודשים ככל שההוצאות משתנות",
-  "Calculate monthly savings needed: Target / Months = Your number": "חשב חיסכון חודשי נדרש: יעד / חודשים = המספר שלך",
   "Home purchase, retirement planning, children's education, wealth creation.": "רכישת בית, תכנון פרישה, חינוך ילדים, יצירת עושר.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "לא \"לחסוך כסף\" - אלא \"לחסוך 5,000 למקדמה לבית עד סוף השנה\"",
   "Goals transform money from abstract to purposeful": "מטרות הופכות כסף ממופשט למטרה",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "כסף הוא כלי לחיות את הערכים שלך, לא מטרה בפני עצמה",
   "Alignment = fulfillment and peace; misalignment = stress": "יישור = סיפוק ושלווה; אי-יישור = מתח",
   "Give yourself permission to enjoy your top priorities": "תן לעצמך רשות ליהנות מהעדיפויות העליונות שלך",
-  "Ruthlessly cut spending on things that don't matter to you": "קיצוץ באכזריות בהוצאות על דברים שלא חשובים לך"
+  "Ruthlessly cut spending on things that don't matter to you": "קיצוץ באכזריות בהוצאות על דברים שלא חשובים לך",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "احتفظ به منفصلا تماما عن حساب إنفاقك",
   "Never use it for non-emergencies, even tempting ones": "لا تستخدمه أبدا في حالات الطوارئ، حتى لو كانت مغرية",
   "Update your target every 6 months as expenses change": "قم بتحديث هدفك كل 6 أشهر مع تغير النفقات",
-  "Calculate monthly savings needed: Target / Months = Your number": "احسب المدخرات الشهرية المطلوبة: الهدف / الأشهر = رقمك",
   "Home purchase, retirement planning, children's education, wealth creation.": "شراء المنزل، التخطيط للتقاعد، تعليم الأطفال، خلق الثروة.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "ليس \"توفير المال\" - بل \"ادخار 5,000 لدفعة أولى للمنزل بحلول نهاية العام\"",
   "Goals transform money from abstract to purposeful": "الأهداف تحول المال من مجرد إلى هادف",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "المال أداة لتعيش قيمك، وليس غاية بحد ذاتها",
   "Alignment = fulfillment and peace; misalignment = stress": "التوافق = الإشباع والسلام؛ عدم المحاذاة = الإجهاد",
   "Give yourself permission to enjoy your top priorities": "امنح نفسك الإذن للاستمتاع بأولوياتك القصوى",
-  "Ruthlessly cut spending on things that don't matter to you": "قلص الإنفاق بلا رحمة على الأشياء التي لا تهمك"
+  "Ruthlessly cut spending on things that don't matter to you": "قلص الإنفاق بلا رحمة على الأشياء التي لا تهمك",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

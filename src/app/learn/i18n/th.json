@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "แยกออกจากบัญชีผู้ใช้ของคุณโดยสิ้นเชิง",
   "Never use it for non-emergencies, even tempting ones": "ห้ามใช้ในกรณีที่ไม่ฉุกเฉิน แม้กระทั่งกรณีที่ล่อลวง",
   "Update your target every 6 months as expenses change": "อัพเดทเป้าหมายทุก 6 เดือนเมื่อค่าใช้จ่ายเปลี่ยนแปลง",
-  "Calculate monthly savings needed: Target / Months = Your number": "คํานวณเงินออมรายเดือนที่ต้องการ: เป้าหมาย / เดือน = ตัวเลขของคุณ",
   "Home purchase, retirement planning, children's education, wealth creation.": "การซื้อบ้าน การวางแผนเกษียณอายุ การศึกษาของบุตรหลาน การสร้างความมั่งคั่ง",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "ไม่ใช่ \"ประหยัดเงิน\" แต่ \"ประหยัดเงินดาวน์บ้าน 5,000 ภายในสิ้นปี\"",
   "Goals transform money from abstract to purposeful": "เป้าหมายเปลี่ยนเงินจากนามธรรมเป็นจุดมุ่งหมาย",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "เงินเป็นเครื่องมือในการดําเนินชีวิตตามค่านิยมของคุณ ไม่ใช่จุดจบในตัวเอง",
   "Alignment = fulfillment and peace; misalignment = stress": "การจัดตําแหน่ง = การเติมเต็มและความสงบสุข การเยื้องศูนย์ = ความเครียด",
   "Give yourself permission to enjoy your top priorities": "ให้สิทธิ์ตัวเองในการเพลิดเพลินกับสิ่งสําคัญที่สุดของคุณ",
-  "Ruthlessly cut spending on things that don't matter to you": "ลดการใช้จ่ายอย่างไร้ความปราณีในสิ่งที่ไม่สําคัญสําหรับคุณ"
+  "Ruthlessly cut spending on things that don't matter to you": "ลดการใช้จ่ายอย่างไร้ความปราณีในสิ่งที่ไม่สําคัญสําหรับคุณ",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

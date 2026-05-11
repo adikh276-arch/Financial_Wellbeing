@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "Hitung % pengeluaran untuk setiap prioritas",
   "Calculate 10% of your monthly income - that's your savings target": "Hitung 10% dari penghasilan bulanan Anda - itulah target tabungan Anda",
   "Calculate monthly savings needed for each goal": "Hitung tabungan bulanan yang dibutuhkan untuk setiap tujuan",
-  "Calculate monthly savings needed: Target / Months = Your number": "Hitung tabungan bulanan yang dibutuhkan: Target / Bulan = Nomor Anda",
+  "Calculate monthly savings needed: Target / Months = Your number": "Hitung tabungan bulanan yang dibutuhkan: Target / Bulan = Jumlah Anda",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "Hitung kebutuhan pensiun kasar: Pengeluaran lancar * 12 * 30 tahun * 3 (inflasi)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "Hitung laba bersih sebenarnya (setelah pajak, PF, pengurangan asuransi)",
   "Calculate your current spending percentages": "Hitung persentase pengeluaran Anda saat ini",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Jauhkan sepenuhnya dari akun pengeluaran Anda",
   "Never use it for non-emergencies, even tempting ones": "Jangan pernah menggunakannya untuk non-darurat, bahkan yang menggoda",
   "Update your target every 6 months as expenses change": "Perbarui target Anda setiap 6 bulan saat pengeluaran berubah",
-  "Calculate monthly savings needed: Target / Months = Your number": "Hitung tabungan bulanan yang dibutuhkan: Target / Bulan = Jumlah Anda",
   "Home purchase, retirement planning, children's education, wealth creation.": "Pembelian rumah, perencanaan pensiun, pendidikan anak, penciptaan kekayaan.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Bukan \"menghemat uang\" - tetapi \"Simpan 5.000 untuk uang muka rumah pada akhir tahun\"",
   "Goals transform money from abstract to purposeful": "Tujuan mengubah uang dari abstrak menjadi terarah",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Uang adalah alat untuk menghidupi nilai-nilai Anda, bukan tujuan itu sendiri",
   "Alignment = fulfillment and peace; misalignment = stress": "Keselarasan = kepuasan dan kedamaian; ketidaksejajaran = stres",
   "Give yourself permission to enjoy your top priorities": "Beri diri Anda izin untuk menikmati prioritas utama Anda",
-  "Ruthlessly cut spending on things that don't matter to you": "Dengan kejam memotong pengeluaran untuk hal-hal yang tidak penting bagi Anda"
+  "Ruthlessly cut spending on things that don't matter to you": "Dengan kejam memotong pengeluaran untuk hal-hal yang tidak penting bagi Anda",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

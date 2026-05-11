@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "Her öncelikte harcama %'sini hesaplayın",
   "Calculate 10% of your monthly income - that's your savings target": "Aylık gelirinizin %10'unu hesaplayın - bu sizin birikim hedefinizdir",
   "Calculate monthly savings needed for each goal": "Her hedef için gereken aylık tasarrufları hesaplayın",
-  "Calculate monthly savings needed: Target / Months = Your number": "Aylık tasarrufları hesaplayın: Hedef / Aylar = Sayınız",
+  "Calculate monthly savings needed: Target / Months = Your number": "Gerekli aylık tasarrufları hesaplayın: Hedef / Aylar = Numaranız",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "Yaklaşık emeklilik ihtiyaçlarını hesaplayın: Mevcut giderler * 12 * 30 yıl * 3 (enflasyon)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "Gerçek net geliri hesaplayın (vergiler, PF, sigorta indirimleri sonrası)",
   "Calculate your current spending percentages": "Mevcut harcama yüzdelerinizi hesaplayın",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Harcama hesabınızdan tamamen ayrı tutun",
   "Never use it for non-emergencies, even tempting ones": "Acil olmayan durumlar için, hatta cazip durumlar için bile asla kullanma",
   "Update your target every 6 months as expenses change": "Giderler değiştikçe hedefinizi her 6 ayda bir güncelleyin",
-  "Calculate monthly savings needed: Target / Months = Your number": "Gerekli aylık tasarrufları hesaplayın: Hedef / Aylar = Numaranız",
   "Home purchase, retirement planning, children's education, wealth creation.": "Ev alımı, emeklilik planlaması, çocuk eğitimi, servet yaratımı.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "\"Para biriktirmek\" değil - \"Yıl sonuna kadar ev peşinatı için 5.000 tasarruf et\"",
   "Goals transform money from abstract to purposeful": "Hedefler, parayı soyut değil amaçlı dönüştürür",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Para, değerlerinizi yaşamak için bir araçtır, başlı başına bir amaç değildir",
   "Alignment = fulfillment and peace; misalignment = stress": "Uyum = tatmin ve barış; Hizalanma Yanlış = Stres",
   "Give yourself permission to enjoy your top priorities": "Önceliklerinizin tadını çıkarmanız için kendinize izin verin",
-  "Ruthlessly cut spending on things that don't matter to you": "Sizin için önemli olmayan şeylere harcamaları acımasızca kesin"
+  "Ruthlessly cut spending on things that don't matter to you": "Sizin için önemli olmayan şeylere harcamaları acımasızca kesin",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

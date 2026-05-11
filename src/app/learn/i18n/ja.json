@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "各優先事項に対する支出の割合を計算してください",
   "Calculate 10% of your monthly income - that's your savings target": "月収の10%を計算してください。それが貯蓄の目標です",
   "Calculate monthly savings needed for each goal": "各目標に必要な月々の貯蓄を計算しましょう",
-  "Calculate monthly savings needed: Target / Months = Your number": "毎月必要な節約額を計算してください:目標/月数=あなたの数字です。",
+  "Calculate monthly savings needed: Target / Months = Your number": "必要な月々の貯蓄を計算してください:目標 / 月数 = あなたの数字",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "おおよその退職ニーズを計算する:現在の支出 +12 * 30年 * 3(インフレ)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "税引き、PF、保険控除後の真の純所得を計算してください。",
   "Calculate your current spending percentages": "現在の支出割合を計算してください",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "支出口座とは完全に分けて保管してください",
   "Never use it for non-emergencies, even tempting ones": "緊急でない時、たとえ誘惑のためでも使わないでください",
   "Update your target every 6 months as expenses change": "支出が変わるたびに目標を6ヶ月ごとに更新してください",
-  "Calculate monthly savings needed: Target / Months = Your number": "必要な月々の貯蓄を計算してください:目標 / 月数 = あなたの数字",
   "Home purchase, retirement planning, children's education, wealth creation.": "住宅購入、退職計画、子どもの教育、資産創造などです。",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "「節約」ではなく、「年末までに住宅の頭金として5,000ドル貯めましょう」です。",
   "Goals transform money from abstract to purposeful": "目標はお金を抽象的なものから目的のあるものへと変えます",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "お金は価値観を生きるための道具であり、それ自体が目的ではありません",
   "Alignment = fulfillment and peace; misalignment = stress": "アライメント=充実と平和;ずれ=応力",
   "Give yourself permission to enjoy your top priorities": "自分の最優先事項を楽しむ許可を与えてください",
-  "Ruthlessly cut spending on things that don't matter to you": "自分にとって重要でないものへの支出を容赦なく削減しましょう"
+  "Ruthlessly cut spending on things that don't matter to you": "自分にとって重要でないものへの支出を容赦なく削減しましょう",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

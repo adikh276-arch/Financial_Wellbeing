@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Mantenha isso completamente separado da sua conta de gastos",
   "Never use it for non-emergencies, even tempting ones": "Nunca use para situações que não sejam emergências, mesmo para situações tentadoras",
   "Update your target every 6 months as expenses change": "Atualize sua meta a cada 6 meses conforme as despesas mudam",
-  "Calculate monthly savings needed: Target / Months = Your number": "Calcule a economia mensal necessária: Meta / Meses = Seu número",
   "Home purchase, retirement planning, children's education, wealth creation.": "Compra de casa, planejamento de aposentadoria, educação dos filhos, criação de riqueza.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Não \"economizar dinheiro\" - mas \"Economizar 5.000 para a entrada da casa até o final do ano\"",
   "Goals transform money from abstract to purposeful": "Metas transformam dinheiro de abstrato para intencional",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Dinheiro é uma ferramenta para viver seus valores, não um fim em si mesmo",
   "Alignment = fulfillment and peace; misalignment = stress": "Alinhamento = realização e paz; Desalinhamento = tensão",
   "Give yourself permission to enjoy your top priorities": "Dê a si mesmo permissão para aproveitar suas prioridades principais",
-  "Ruthlessly cut spending on things that don't matter to you": "Corte gastos de forma implacável com coisas que não importam para você"
+  "Ruthlessly cut spending on things that don't matter to you": "Corte gastos de forma implacável com coisas que não importam para você",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

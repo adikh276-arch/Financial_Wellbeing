@@ -65,7 +65,7 @@
   "Calculate % of spending on each priority": "Spočítejte % výdajů na každou prioritu",
   "Calculate 10% of your monthly income - that's your savings target": "Spočítejte 10 % svého měsíčního příjmu – to je váš cíl spoření",
   "Calculate monthly savings needed for each goal": "Spočítejte měsíční úspory potřebné pro každý cíl",
-  "Calculate monthly savings needed: Target / Months = Your number": "Spočítejte potřebné měsíční úspory: Cílové / měsíce = Vaše číslo",
+  "Calculate monthly savings needed: Target / Months = Your number": "Spočítejte potřebná měsíční úspora: Cíl / Měsíce = Vaše číslo",
   "Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)": "Spočítejte hrubé potřeby důchodu: Aktuální výdaje +12 +Ù 30 let +3 (inflace)",
   "Calculate true net income (after taxes, PF, insurance deductions)": "Spočítejte skutečný čistý příjem (po zdanění, PF, odpočty na pojištění)",
   "Calculate your current spending percentages": "Spočítejte si aktuální procenta výdajů",
@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "Mějte to úplně odděleně od svého výdajového účtu",
   "Never use it for non-emergencies, even tempting ones": "Nikdy ho nepoužívejte na neakutní situace, ani na lákavé",
   "Update your target every 6 months as expenses change": "Aktualizujte svůj cíl každých 6 měsíců, jak se mění výdaje",
-  "Calculate monthly savings needed: Target / Months = Your number": "Spočítejte potřebná měsíční úspora: Cíl / Měsíce = Vaše číslo",
   "Home purchase, retirement planning, children's education, wealth creation.": "Koupě domu, plánování důchodu, vzdělávání dětí, tvorba bohatství.",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "Ne \"ušetřit peníze\" – ale \"ušetřit 5 000 na akontaci na bydlení do konce roku\"",
   "Goals transform money from abstract to purposeful": "Cíle mění peníze z abstraktních na účelové",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "Peníze jsou nástroj, jak žít své hodnoty, ne cílem samy o sobě",
   "Alignment = fulfillment and peace; misalignment = stress": "Sladění = naplnění a mír; Nesoulad = napětí",
   "Give yourself permission to enjoy your top priorities": "Dovolte si užívat své nejvyšší priority",
-  "Ruthlessly cut spending on things that don't matter to you": "Bezohledně omezte výdaje na věci, které vám nevadí"
+  "Ruthlessly cut spending on things that don't matter to you": "Bezohledně omezte výdaje na věci, které vám nevadí",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

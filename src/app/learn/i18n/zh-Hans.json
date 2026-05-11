@@ -445,7 +445,6 @@
   "Keep it completely separate from your spending account": "把它和你的消费账户完全分开",
   "Never use it for non-emergencies, even tempting ones": "绝不要用它来应对非紧急情况，即使是诱人的",
   "Update your target every 6 months as expenses change": "根据支出变化，每6个月更新你的目标",
-  "Calculate monthly savings needed: Target / Months = Your number": "计算每月所需节省：目标 / 月份 = 您的数字",
   "Home purchase, retirement planning, children's education, wealth creation.": "购房、退休规划、子女教育、财富创造。",
   "Not \"save money\" - but \"Save 5,000 for home down payment by year-end\"": "不是“省钱”——而是“年底前攒5000美元买房首付”",
   "Goals transform money from abstract to purposeful": "目标将金钱从抽象转化为有目的的",
@@ -487,5 +486,10 @@
   "Money is a tool to live your values, not an end in itself": "金钱是践行你价值观的工具，而非目的本身",
   "Alignment = fulfillment and peace; misalignment = stress": "对齐=满足与和平;错位=应力",
   "Give yourself permission to enjoy your top priorities": "允许自己享受你的首要任务",
-  "Ruthlessly cut spending on things that don't matter to you": "无情地削减对你无关紧要的开支"
+  "Ruthlessly cut spending on things that don't matter to you": "无情地削减对你无关紧要的开支",
+  "Action Steps": "Action Steps",
+  "Key Takeaways": "Key Takeaways",
+  "What to explore next": "What to explore next",
+  "End of module": "End of module",
+  "read": "read"
 }

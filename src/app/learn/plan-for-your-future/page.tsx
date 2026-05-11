@@ -20,7 +20,7 @@ export default function PlanForYourFuture() {
           content: [
             { title: t("20s - Foundation"), description: t('Build emergency fund, start SIP, avoid consumer debt, get health insurance. Time is your superpower.') }, 
             { title: t("30s - Building"), description: t('Increase investments, plan major purchases, start retirement savings seriously.') }, 
-            { title: t("40s - Acceleration"), description: t('Maximum earning years. Aggressive investments, children\\'s education planning, refinance debt.') }, 
+            { title: t("40s - Acceleration"), description: t('Maximum earning years. Aggressive investments, children\'s education planning, refinance debt.') }, 
             { title: t("50s - Peak"), description: t('Shift to lower-risk investments, finalize retirement number, maximize tax planning.') }, 
             { title: t("60s+ - Harvesting"), description: t('Income-generating investments, live off retirement savings, plan healthcare and legacy.') }
           ] 

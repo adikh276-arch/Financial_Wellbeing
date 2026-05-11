@@ -20,7 +20,7 @@ export default function FinancialGoals() {
           content: [
             { title: t("Short-term (< 1 year)"), description: t('Emergency fund, vacation, gadget, small repairs. Fast wins that build momentum.') }, 
             { title: t("Medium-term (1-5 years)"), description: t('Vehicle purchase, celebrations, home renovation, education, business startup.') }, 
-            { title: t("Long-term (5+ years)"), description: t('Home purchase, retirement planning, children\\'s education, wealth creation.') }
+            { title: t("Long-term (5+ years)"), description: t('Home purchase, retirement planning, children\'s education, wealth creation.') }
           ] 
         },
         { 

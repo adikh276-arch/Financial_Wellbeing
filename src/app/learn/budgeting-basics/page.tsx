@@ -35,7 +35,7 @@ export default function BudgetingBasics() {
           heading: t("Key Concept: The 50/30/20 Rule"),
           content: [
             { title: t("50% Needs"), description: t('Housing, food, transportation, insurance - things you cannot live without') },
-            { title: t("30% Wants"), description: t('Entertainment, dining out, hobbies - things that enrich life but aren\\'t essential') },
+            { title: t("30% Wants"), description: t('Entertainment, dining out, hobbies - things that enrich life but aren\'t essential') },
             { title: t("20% Savings & Debt"), description: t('Emergency fund, investments, extra debt repayment - your future self') },
           ],
           variant: 'cards',

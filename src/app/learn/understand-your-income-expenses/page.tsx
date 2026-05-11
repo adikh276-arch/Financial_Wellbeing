@@ -20,7 +20,7 @@ export default function UnderstandIncomeExpenses() {
           content: [
             { title: t("Salary (Primary)"), description: t('Fixed monthly income. Use net take-home, not gross - taxes and deductions come first.') }, 
             { title: t("Variable Income"), description: t('Freelance, bonuses, commissions. Budget conservatively: use average +Ã¹ 80% to avoid over-spending.') }, 
-            { title: t("Passive Income"), description: t('Rental income, dividends, interest. Bonus income - don\\'t rely on it, plan with it.') }
+            { title: t("Passive Income"), description: t('Rental income, dividends, interest. Bonus income - don\'t rely on it, plan with it.') }
           ] 
         },
         { 

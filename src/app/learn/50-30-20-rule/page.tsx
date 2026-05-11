@@ -24,7 +24,7 @@ export default function Rule503020() {
           heading: t("The Three Buckets"), 
           content: [
             { title: t("50% - Needs"), description: t('Housing, utilities, groceries, transport, insurance, minimum debt payments. Cannot live without these.') }, 
-            { title: t("30% - Wants"), description: t('Entertainment, hobbies, dining out, shopping, subscriptions, travel. Enrich life but aren\\'t survival.') }, 
+            { title: t("30% - Wants"), description: t('Entertainment, hobbies, dining out, shopping, subscriptions, travel. Enrich life but aren\'t survival.') }, 
             { title: t("20% - Savings & Debt"), description: t('Emergency fund, investments, extra debt payments, retirement savings. Your future security.') }
           ] 
         },

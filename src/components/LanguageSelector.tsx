@@ -8,40 +8,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const LANGUAGES = [
   { code: 'en', label: 'English', nativeName: 'English', flag: '🇺🇸' },
-  { code: 'es', label: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },
+  { code: 'ar', label: 'Arabic', nativeName: 'العربية', flag: '🇦🇪' },
+  { code: 'bn', label: 'Bengali', nativeName: 'বাংলা', flag: '🇧🇩' },
+  { code: 'zh', label: 'Chinese', nativeName: '中文', flag: '🇨🇳' },
+  { code: 'nl', label: 'Dutch', nativeName: 'Nederlands', flag: '🇳🇱' },
   { code: 'fr', label: 'French', nativeName: 'Français', flag: '🇫🇷' },
   { code: 'de', label: 'German', nativeName: 'Deutsch', flag: '🇩🇪' },
-  { code: 'pt', label: 'Portuguese', nativeName: 'Português', flag: '🇵🇹' },
-  { code: 'ru', label: 'Russian', nativeName: 'Русский', flag: '🇷🇺' },
-  { code: 'zh-Hans', label: 'Chinese (Simplified)', nativeName: '简体中文', flag: '🇨🇳' },
-  { code: 'zh-Hant', label: 'Chinese (Traditional)', nativeName: '繁體中文', flag: '🇭🇰' },
+  { code: 'hi', label: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳' },
+  { code: 'id', label: 'Indonesian', nativeName: 'Bahasa Indonesia', flag: '🇮🇩' },
+  { code: 'it', label: 'Italiano', nativeName: 'Italiano', flag: '🇮🇹' },
   { code: 'ja', label: 'Japanese', nativeName: '日本語', flag: '🇯🇵' },
   { code: 'ko', label: 'Korean', nativeName: '한국어', flag: '🇰🇷' },
-  { code: 'ar', label: 'Arabic', nativeName: 'العربية', flag: '🇦🇪' },
-  { code: 'hi', label: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳' },
-  { code: 'bn', label: 'Bengali', nativeName: 'বাংলা', flag: '🇧🇩' },
-  { code: 'id', label: 'Indonesian', nativeName: 'Bahasa Indonesia', flag: '🇮🇩' },
+  { code: 'pl', label: 'Polish', nativeName: 'Polski', flag: '🇵🇱' },
+  { code: 'pt', label: 'Portuguese', nativeName: 'Português', flag: '🇵🇹' },
+  { code: 'ru', label: 'Russian', nativeName: 'Русский', flag: '🇷🇺' },
+  { code: 'es', label: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },
+  { code: 'tl', label: 'Tagalog', nativeName: 'Tagalog', flag: '🇵🇭' },
+  { code: 'th', label: 'Thai', nativeName: 'ไทย', flag: '🇹🇭' },
   { code: 'tr', label: 'Turkish', nativeName: 'Türkçe', flag: '🇹🇷' },
   { code: 'vi', label: 'Vietnamese', nativeName: 'Tiếng Việt', flag: '🇻🇳' },
-  { code: 'it', label: 'Italiano', nativeName: 'Italiano', flag: '🇮🇹' },
-  { code: 'pl', label: 'Polish', nativeName: 'Polski', flag: '🇵🇱' },
-  { code: 'th', label: 'Thai', nativeName: 'ไทย', flag: '🇹🇭' },
-  { code: 'tl', label: 'Tagalog', nativeName: 'Tagalog', flag: '🇵🇭' },
-  { code: 'nl', label: 'Dutch', nativeName: 'Nederlands', flag: '🇳🇱' },
-  { code: 'sv', label: 'Swedish', nativeName: 'Svenska', flag: '🇸🇪' },
-  { code: 'no', label: 'Norwegian', nativeName: 'Norsk', flag: '🇳🇴' },
-  { code: 'da', label: 'Danish', nativeName: 'Dansk', flag: '🇩🇰' },
-  { code: 'fi', label: 'Finnish', nativeName: 'Suomi', flag: '🇫🇮' },
-  { code: 'cs', label: 'Czech', nativeName: 'Čeština', flag: '🇨🇿' },
-  { code: 'el', label: 'Greek', nativeName: 'Ελληνικά', flag: '🇬🇷' },
-  { code: 'ro', label: 'Romanian', nativeName: 'Română', flag: '🇷🇴' },
-  { code: 'hu', label: 'Hungarian', nativeName: 'Magyar', flag: '🇭🇺' },
-  { code: 'uk', label: 'Ukrainian', nativeName: 'Українська', flag: '🇺🇦' },
-  { code: 'he', label: 'Hebrew', nativeName: 'עברית', flag: '🇮🇱' },
-  { code: 'ms', label: 'Malay', nativeName: 'Bahasa Melayu', flag: '🇲🇾' },
-  { code: 'ta', label: 'Tamil', nativeName: 'தமிழ்', flag: '🇮🇳' },
-  { code: 'te', label: 'Telugu', nativeName: 'తెలుగు', flag: '🇮🇳' },
-  { code: 'ur', label: 'Urdu', nativeName: 'اردو', flag: '🇵🇰' }
 ];
 
 export function LanguageSelector() {
@@ -69,7 +54,7 @@ export function LanguageSelector() {
     
     // Update URL parameter
     const params = new URLSearchParams(searchParams.toString());
-    params.set('lang', code);
+    params.set('lng', code);
     router.push(`${pathname}?${params.toString()}`);
     
     setIsOpen(false);

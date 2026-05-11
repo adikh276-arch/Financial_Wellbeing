@@ -34,53 +34,50 @@ const LANGUAGES = [
   { code: 'vi', label: 'Tiếng Việt' },
 ];
 
-// For extraction
-const t = (s: string) => s;
-
 const navSections = [
   {
-    label: t('Overview'),
+    label: 'Overview',
     items: [
-      { href: '/', label: t('Dashboard'), icon: Sparkles },
+      { href: '/', label: 'Dashboard', icon: Sparkles },
     ]
   },
   {
-    label: t('Quick Tools'),
+    label: 'Quick Tools',
     items: [
-      { href: '/investment-planner', label: t('Investment Planner'), icon: TrendingUp },
-      { href: '/loan-emi-planner', label: t('Loan & EMI Planner'), icon: Calculator },
-      { href: '/goal-planner', label: t('Goal Planner'), icon: Target },
-      { href: '/budget-planner', label: t('Budget Planner'), icon: PieChart },
-      { href: '/emergency-fund', label: t('Emergency Fund'), icon: Shield },
-      { href: '/financial-health-score', label: t('Health Score'), icon: Activity },
+      { href: '/investment-planner', label: 'Investment Planner', icon: TrendingUp },
+      { href: '/loan-emi-planner', label: 'Loan & EMI Planner', icon: Calculator },
+      { href: '/goal-planner', label: 'Goal Planner', icon: Target },
+      { href: '/budget-planner', label: 'Budget Planner', icon: PieChart },
+      { href: '/emergency-fund', label: 'Emergency Fund', icon: Shield },
+      { href: '/financial-health-score', label: 'Health Score', icon: Activity },
     ]
   },
   {
-    label: t('Learn'),
+    label: 'Learn',
     items: [
-      { href: '/learn/budgeting-basics', label: t('Budgeting Basics'), icon: BookOpen },
-      { href: '/learn/saving-habits', label: t('Saving Habits'), icon: Zap },
-      { href: '/learn/investing-basics', label: t('Investing Basics'), icon: BarChart2 },
-      { href: '/learn/debt-management', label: t('Debt Management'), icon: AlertCircle },
+      { href: '/learn/budgeting-basics', label: 'Budgeting Basics', icon: BookOpen },
+      { href: '/learn/saving-habits', label: 'Saving Habits', icon: Zap },
+      { href: '/learn/investing-basics', label: 'Investing Basics', icon: BarChart2 },
+      { href: '/learn/debt-management', label: 'Debt Management', icon: AlertCircle },
     ]
   },
   {
-    label: t('Check-ins'),
+    label: 'Check-ins',
     items: [
-      { href: '/check-ins/spending-style-quiz', label: t('Spending Style'), icon: CheckSquare },
-      { href: '/check-ins/savings-check-up', label: t('Savings Check-up'), icon: Heart },
-      { href: '/check-ins/money-stress-quiz', label: t('Money Stress'), icon: Activity },
-      { href: '/check-ins/investment-readiness', label: t('Investment Ready'), icon: TrendingUp },
+      { href: '/check-ins/spending-style-quiz', label: 'Spending Style', icon: CheckSquare },
+      { href: '/check-ins/savings-check-up', label: 'Savings Check-up', icon: Heart },
+      { href: '/check-ins/money-stress-quiz', label: 'Money Stress', icon: Activity },
+      { href: '/check-ins/investment-readiness', label: 'Investment Ready', icon: TrendingUp },
     ]
   },
   {
-    label: t('Explore'),
+    label: 'Explore',
     items: [
-      { href: '/explore/financial-tips', label: t('Financial Tips'), icon: Zap },
-      { href: '/explore/financial-stories', label: t('Stories'), icon: MessageSquare },
-      { href: '/explore/financial-articles', label: t('Articles'), icon: FileText },
-      { href: '/explore/financial-faqs', label: t('FAQs'), icon: HelpCircle },
-      { href: '/explore/financial-myths', label: t('Myths Busted'), icon: AlertCircle },
+      { href: '/explore/financial-tips', label: 'Financial Tips', icon: Zap },
+      { href: '/explore/financial-stories', label: 'Stories', icon: MessageSquare },
+      { href: '/explore/financial-articles', label: 'Articles', icon: FileText },
+      { href: '/explore/financial-faqs', label: 'FAQs', icon: HelpCircle },
+      { href: '/explore/financial-myths', label: 'Myths Busted', icon: AlertCircle },
     ]
   },
 ];

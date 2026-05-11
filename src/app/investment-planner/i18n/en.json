@@ -1,3 +1,26 @@
 {
-  " Risk Profile": " Risk Profile"
+  " Risk Profile": " Risk Profile",
+  "invest_history": "invest_history",
+  "Investment Planner": "Investment Planner",
+  "Success": "Success",
+  "Save": "Save",
+  "Wealth Projection": "Wealth Projection",
+  "Model your financial future. Simulate asset growth across diverse risk profiles and optimize your portfolio allocation.": "Model your financial future. Simulate asset growth across diverse risk profiles and optimize your portfolio allocation.",
+  "Begin Analysis": "Begin Analysis",
+  "Recent Projections": "Recent Projections",
+  "Step 1: Capital Configuration": "Step 1: Capital Configuration",
+  "Determine your seed capital": "Determine your seed capital",
+  "Initial Lump Sum": "Initial Lump Sum",
+  "Monthly Contribution (SIP)": "Monthly Contribution (SIP)",
+  "Proceed to Strategy": "Proceed to Strategy",
+  "Step 2: Risk Profile": "Step 2: Risk Profile",
+  "Asset Allocation Strategy": "Asset Allocation Strategy",
+  "Target": "Target",
+  "CAGR": "CAGR",
+  "Investment Horizon": "Investment Horizon",
+  "Generate Portfolio": "Generate Portfolio",
+  "Invested": "Invested",
+  "Gains": "Gains",
+  "Institutional Allocation": "Institutional Allocation",
+  "New Assessment": "New Assessment"
 }

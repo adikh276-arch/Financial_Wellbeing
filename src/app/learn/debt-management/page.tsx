@@ -45,11 +45,15 @@ export default function DebtManagement() {
           icon: CheckCircle, 
           heading: t("Practical Tips"), 
           content: [
-            'Call your creditor and negotiate a lower interest rate (often works!)', 
-            'Automate debt payments so you never miss one', 
-            'Accelerate repayment with windfalls: bonus, tax refunds, gifts', 
-            'Don\'t stop saving completely while repaying debt (maintain buffer)', 
-            'Track debt payoff visually - the progress is incredibly motivating'
+            t('Call your creditor and negotiate a lower interest rate (often works!)'),
+            
+            t('Automate debt payments so you never miss one'),
+            
+            t('Accelerate repayment with windfalls: bonus, tax refunds, gifts'),
+            
+            t('Don\'t stop saving completely while repaying debt (maintain buffer)'),
+            
+            t('Track debt payoff visually - the progress is incredibly motivating')
           ] 
         },
       ]}

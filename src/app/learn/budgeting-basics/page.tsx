@@ -18,11 +18,16 @@ export default function BudgetingBasics() {
           icon: Lightbulb,
           heading: t("Why Budget?"),
           content: [
-            'Understand your spending patterns and identify leaks',
-            'Achieve financial goals faster with intentionality',
-            'Reduce financial stress by knowing your numbers',
-            'Build healthy money habits that compound over time',
-            'Plan for unexpected expenses before they surprise you',
+            t('Understand your spending patterns and identify leaks'),
+            
+            t('Achieve financial goals faster with intentionality'),
+            
+            t('Reduce financial stress by knowing your numbers'),
+            
+            t('Build healthy money habits that compound over time'),
+            
+            t('Plan for unexpected expenses before they surprise you'),
+            
           ],
         },
         {
@@ -39,11 +44,16 @@ export default function BudgetingBasics() {
           icon: AlertCircle,
           heading: t("Common Budgeting Mistakes"),
           content: [
-            'Being too rigid - life happens, build in flexibility',
-            'Not tracking expenses - can\'t improve what you don\'t measure',
-            'Forgetting annual/semi-annual expenses (insurance, maintenance)',
-            'Not building a buffer for unexpected costs',
-            'Cutting all wants - leads to burnout and failure',
+            t('Being too rigid - life happens, build in flexibility'),
+            
+            t('Not tracking expenses - can\'t improve what you don\'t measure'),
+            
+            t('Forgetting annual/semi-annual expenses (insurance, maintenance)'),
+            
+            t('Not building a buffer for unexpected costs'),
+            
+            t('Cutting all wants - leads to burnout and failure'),
+            
           ],
         },
         {
@@ -55,11 +65,16 @@ export default function BudgetingBasics() {
           icon: Wrench,
           heading: t("Practical Tips"),
           content: [
-            'Pay yourself first: Move savings on payday before spending',
-            'Build in a 5-10% miscellaneous buffer for surprise expenses',
-            'Review your budget monthly, adjust quarterly',
-            'Use our Budget Planner tool to automate tracking',
-            'Have a "buffer month" of saved expenses to stay ahead',
+            t('Pay yourself first: Move savings on payday before spending'),
+            
+            t('Build in a 5-10% miscellaneous buffer for surprise expenses'),
+            
+            t('Review your budget monthly, adjust quarterly'),
+            
+            t('Use our Budget Planner tool to automate tracking'),
+            
+            t('Have a "buffer month" of saved expenses to stay ahead'),
+            
           ],
         },
       ]}

@@ -31,11 +31,15 @@ export default function YourMoneyPriorities() {
           icon: Target, 
           heading: t("The Values-Alignment Check"), 
           content: [
-            'Write down your top 3 priorities (not society\'s, yours)', 
-            'Review last 3 months of spending - categorize each purchase by priority it serves', 
-            'Calculate what % of spending goes to each priority', 
-            'Compare your stated priorities to actual spending', 
-            'Identify the biggest mismatch and make one reallocation'
+            t("Write down your top 3 priorities (not society's, yours)"),
+            
+            t('Review last 3 months of spending - categorize each purchase by priority it serves'),
+            
+            t('Calculate what % of spending goes to each priority'),
+            
+            t('Compare your stated priorities to actual spending'),
+            
+            t('Identify the biggest mismatch and make one reallocation')
           ] 
         },
         { 

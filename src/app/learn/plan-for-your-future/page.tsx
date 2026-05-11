@@ -29,11 +29,15 @@ export default function PlanForYourFuture() {
           icon: Target, 
           heading: t("Financial Milestones to Hit"), 
           content: [
-            'By 25: Emergency fund started, no consumer debt, first SIP active', 
-            'By 30: 6-month emergency fund, retirement investing at 10% of income', 
-            'By 40: 3x annual salary invested, major assets acquired (home)', 
-            'By 50: 6x annual salary invested, retirement date set', 
-            'By 60: 8x annual salary invested, ready to transition'
+            t('By 25: Emergency fund started, no consumer debt, first SIP active'),
+            
+            t('By 30: 6-month emergency fund, retirement investing at 10% of income'),
+            
+            t('By 40: 3x annual salary invested, major assets acquired (home)'),
+            
+            t('By 50: 6x annual salary invested, retirement date set'),
+            
+            t('By 60: 8x annual salary invested, ready to transition'),
           ] 
         },
         { 

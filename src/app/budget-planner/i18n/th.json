@@ -26,5 +26,6 @@
   "Total Monthly Income": "รายได้รวมต่อเดือน",
   "Wants": "ต้องการ",
   "What's your income?": "รายได้ของคุณคืออะไร?",
-  " Expenses": " ค่าใช้จ่าย"
+  " Expenses": " ค่าใช้จ่าย",
+  "budget_history": "budget_history"
 }

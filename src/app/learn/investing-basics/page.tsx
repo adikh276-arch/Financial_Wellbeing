@@ -48,12 +48,17 @@ export default function InvestingBasics() {
           icon: AlertCircle, 
           heading: t("Common Investing Mistakes"), 
           content: [
-            'Starting too late - time is your most valuable asset', 
-            'Being too conservative - inflation quietly destroys savings', 
-            'Trying to time the market - even experts can\'t do this consistently', 
-            'No diversification - putting all money in one stock or sector', 
-            'Panic selling in downturns - most people buy high, sell low', 
-            'Chasing last year\'s top performers - past returns don\'t predict future'
+            t('Starting too late - time is your most valuable asset'),
+            
+            t('Being too conservative - inflation quietly destroys savings'),
+            
+            t('Trying to time the market - even experts can\'t do this consistently'),
+            
+            t('No diversification - putting all money in one stock or sector'),
+            
+            t('Panic selling in downturns - most people buy high, sell low'),
+            
+            t('Chasing last year\'s top performers - past returns don\'t predict future')
           ] 
         },
       ]}

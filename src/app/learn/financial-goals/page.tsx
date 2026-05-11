@@ -38,10 +38,13 @@ export default function FinancialGoals() {
           icon: ListChecks, 
           heading: t("Goal Priority Framework"), 
           content: [
-            'High Priority: Emergency fund, debt repayment, retirement - these are non-negotiable foundations', 
-            'Medium Priority: Home purchase, children\'s education, major life events', 
-            'Low Priority: Luxury items, entertainment upgrades, nice-to-haves', 
-            'Sequential goals work better than trying to fund everything simultaneously'
+            t('High Priority: Emergency fund, debt repayment, retirement - these are non-negotiable foundations'),
+            
+            t("Medium Priority: Home purchase, children's education, major life events"),
+            
+            t('Low Priority: Luxury items, entertainment upgrades, nice-to-haves'),
+            
+            t('Sequential goals work better than trying to fund everything simultaneously')
           ] 
         },
         { 

@@ -18,11 +18,15 @@ export default function SavingHabits() {
           icon: Zap, 
           heading: t("Why Saving Matters"), 
           content: [
-            'Builds financial security and reduces anxiety', 
-            'Creates options and opportunities at every life stage', 
-            'Protects against emergencies without going into debt', 
-            'Enables dream-chasing: vacation, home, business', 
-            'Time + consistent saving = life-changing wealth'
+            t('Builds financial security and reduces anxiety'),
+            
+            t('Creates options and opportunities at every life stage'),
+            
+            t('Protects against emergencies without going into debt'),
+            
+            t('Enables dream-chasing: vacation, home, business'),
+            
+            t('Time + consistent saving = life-changing wealth')
           ] 
         },
         { 
@@ -54,11 +58,15 @@ export default function SavingHabits() {
           icon: AlertCircle, 
           heading: t("Common Mistakes"), 
           content: [
-            'Waiting for the "right amount" - start with small sums where possible', 
-            'Putting savings in low-return accounts', 
-            'Not having a purpose - you\'ll spend it without a goal', 
-            'Dipping into emergency fund for non-emergencies', 
-            'Comparing your savings to others (everyone starts somewhere)'
+            t('Waiting for the "right amount" - start with small sums where possible'),
+            
+            t('Putting savings in low-return accounts'),
+            
+            t('Not having a purpose - you\'ll spend it without a goal'),
+            
+            t('Dipping into emergency fund for non-emergencies'),
+            
+            t('Comparing your savings to others (everyone starts somewhere)')
           ] 
         },
       ]}

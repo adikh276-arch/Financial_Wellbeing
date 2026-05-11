@@ -28,14 +28,21 @@ export default function MindfulSpending() {
           icon: HelpCircle, 
           heading: t("8 Questions to Ask Before Buying"), 
           content: [
-            'Do I need this or want this? (Be honest)', 
-            'Does this align with my stated values and priorities?', 
-            'Can I afford it without compromising financial goals?', 
-            'Will I use this regularly or is this a novelty purchase?', 
-            'Is this a trigger purchase - am I stressed, bored, or social-media influenced?', 
-            'Have I wanted this for at least 30 days?', 
-            'Is there a cheaper or free alternative?', 
-            'Will I regret this in one week?'
+            t('Do I need this or want this? (Be honest)'),
+            
+            t('Does this align with my stated values and priorities?'),
+            
+            t('Can I afford it without compromising financial goals?'),
+            
+            t('Will I use this regularly or is this a novelty purchase?'),
+            
+            t('Is this a trigger purchase - am I stressed, bored, or social-media influenced?'),
+            
+            t('Have I wanted this for at least 30 days?'),
+            
+            t('Is there a cheaper or free alternative?'),
+            
+            t('Will I regret this in one week?')
           ] 
         },
         { 
@@ -51,11 +58,15 @@ export default function MindfulSpending() {
           icon: ListChecks, 
           heading: t("Building Your Want List"), 
           content: [
-            'Create a running list (physical or digital) of everything you want to buy', 
-            'Add items when tempted - writing it down removes urgency', 
-            'Review on the 1st of every month', 
-            'Buy only items still on the list after 30 days', 
-            'Notice patterns: what keeps appearing? That\'s a real priority, not impulse'
+            t('Create a running list (physical or digital) of everything you want to buy'),
+            
+            t('Add items when tempted - writing it down removes urgency'),
+            
+            t('Review on the 1st of every month'),
+            
+            t('Buy only items still on the list after 30 days'),
+            
+            t("Notice patterns: what keeps appearing? That's a real priority, not impulse"),
           ] 
         },
       ]}

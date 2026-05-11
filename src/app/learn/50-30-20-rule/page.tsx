@@ -43,9 +43,9 @@ export default function Rule503020() {
           icon: BarChart4, 
           heading: t("Real Calculation Examples"), 
           content: [
-            'Income 1,000: Needs 500 | Wants 300 | Savings 200', 
-            'Income 2,000: Needs 1,000 | Wants 600 | Savings 400', 
-            'Income 5,000: Needs 2,500 | Wants 1,500 | Savings 1,000'
+            t('Income 1000: Needs 500 | Wants 300 | Savings 200'),
+            t('Income 2000: Needs 1000 | Wants 600 | Savings 400'),
+            t('Income 5000: Needs 2500 | Wants 1500 | Savings 1000')
           ] 
         },
         { 

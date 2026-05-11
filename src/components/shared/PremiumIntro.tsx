@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface PremiumIntroProps {
   title: string;
@@ -21,6 +22,7 @@ export const PremiumIntro: React.FC<PremiumIntroProps> = ({
   duration,
   children
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center py-12 pb-32 min-h-[80vh] selection:bg-blue-600/10">
       <div className="w-full max-w-lg space-y-12">
@@ -88,7 +90,7 @@ export const PremiumIntro: React.FC<PremiumIntroProps> = ({
             className="flex items-center justify-center gap-2.5 text-slate-400 text-[10px] font-black uppercase tracking-widest"
           >
             <Clock size={14} className="text-blue-600" strokeWidth={2.5} />
-            <span>Time to complete: <span className="text-slate-900">{duration}</span></span>
+            <span>{t("Time to complete:")} <span className="text-slate-900">{t(duration)}</span></span>
           </motion.div>
         )}
 
@@ -115,7 +117,7 @@ export const PremiumIntro: React.FC<PremiumIntroProps> = ({
           onClick={onStart}
           className="w-full max-w-lg py-5 rounded-2xl bg-slate-900 text-white font-black text-lg shadow-2xl shadow-slate-900/20 hover:bg-slate-800 transition-all flex items-center justify-center gap-3 cursor-pointer"
         >
-          Get Started
+          {t("Get Started")}
           <ArrowRight size={20} strokeWidth={3} />
         </motion.button>
       </div>

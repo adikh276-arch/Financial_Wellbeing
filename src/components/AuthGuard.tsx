@@ -2,12 +2,14 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const REDIRECT_KEY = "APP_REDIRECT_PATH";
 const USER_KEY = "financial_wellbeing_user_id";
 const TOKEN_KEY = "session_token";
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -91,7 +93,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   if (!isAuthorized) {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-page)' }}>
-        <p style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>Authenticating...</p>
+        <p style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>{t("Authenticating...")}</p>
       </div>
     );
   }

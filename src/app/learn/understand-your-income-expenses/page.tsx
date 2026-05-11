@@ -37,11 +37,15 @@ export default function UnderstandIncomeExpenses() {
           icon: Zap, 
           heading: t("Common Expense Surprises"), 
           content: [
-            'Food & Groceries: Most people underestimate by 20-30%. Track for 1 month to see reality.', 
-            'Subscriptions: Average person has 5-7 active items. Often forgotten in budgets.', 
-            'Personal Care: Wellness and grooming - often forgotten in budgets.', 
-            'Transportation: Fuel + maintenance + parking + tolls.', 
-            'Irregular Expenses: Medical, gifts, repairs. Periodic but unpredictable.'
+            t('Food & Groceries: Most people underestimate by 20-30%. Track for 1 month to see reality.'),
+            
+            t('Subscriptions: Average person has 5-7 active items. Often forgotten in budgets.'),
+            
+            t('Personal Care: Wellness and grooming - often forgotten in budgets.'),
+            
+            t('Transportation: Fuel + maintenance + parking + tolls.'),
+            
+            t('Irregular Expenses: Medical, gifts, repairs. Periodic but unpredictable.'),
           ] 
         },
         { 

@@ -70,9 +70,18 @@ if (action === 'extract' || !action) {
         return value || key;
       },
       lexers: {
-        ts: ['JavascriptLexer'],
-        tsx: ['JsxLexer'],
-        default: ['JavascriptLexer']
+        ts: [{
+          lexer: 'JavascriptLexer',
+          functions: ['t', 'i18n.t']
+        }],
+        tsx: [{
+          lexer: 'JsxLexer',
+          functions: ['t', 'i18n.t']
+        }],
+        default: [{
+          lexer: 'JavascriptLexer',
+          functions: ['t', 'i18n.t']
+        }]
       }
     };
   `;
@@ -84,7 +93,7 @@ if (action === 'extract' || !action) {
     console.log('Extraction complete!');
   } finally {
     if (fs.existsSync(configPath)) {
-      fs.unlinkSync(configPath);
+      // fs.unlinkSync(configPath);
     }
   }
 }

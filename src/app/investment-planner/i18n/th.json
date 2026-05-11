@@ -26,9 +26,6 @@
   " Risk Profile": " โปรไฟล์ความเสี่ยง",
   "invest_history": "invest_history",
   "PRESERVATION": "การเก็บรักษา",
-  "Stable, lower-risk. capital preservation.": "มีเสถียรภาพและมีความเสี่ยงต่ํา การรักษาทุน",
   "BALANCED": "สมดุล",
-  "Balanced. Mix of growth and stability.": "สมดุล การผสมผสานระหว่างการเจริญเติบโตและความมั่นคง",
-  "EXPANSION": "การขยายตัว",
-  "High-growth. Suited for long horizons.": "การเติบโตสูง เหมาะสําหรับขอบฟ้าที่ยาวไกล"
+  "EXPANSION": "การขยายตัว"
 }

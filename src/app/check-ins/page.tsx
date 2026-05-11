@@ -9,7 +9,7 @@ const checkIns = [
   {
     href: '/check-ins/spending-style-quiz',
     label: t('Spending Style Quiz'),
-    desc: 'Decode your money personality & behavioral archetype',
+    desc: "Decode your money personality & behavioral archetype",
     icon: CheckSquare,
     tag: 'Behavior',
     time: '5 min',
@@ -18,7 +18,7 @@ const checkIns = [
   {
     href: '/check-ins/savings-check-up',
     label: t('Savings Check-up'),
-    desc: 'Benchmark your emergency fund, savings rate and habits',
+    desc: "Benchmark your emergency fund, savings rate and habits",
     icon: Heart,
     tag: 'Savings',
     time: '4 min',
@@ -27,7 +27,7 @@ const checkIns = [
   {
     href: '/check-ins/money-stress-quiz',
     label: t('Money Stress Quiz'),
-    desc: 'Measure your financial anxiety level and get relief tactics',
+    desc: "Measure your financial anxiety level and get relief tactics",
     icon: Activity,
     tag: 'Wellness',
     time: '6 min',
@@ -36,7 +36,7 @@ const checkIns = [
   {
     href: '/check-ins/investment-readiness',
     label: t('Investment Readiness'),
-    desc: 'Are your foundations strong enough to start investing?',
+    desc: "Are your foundations strong enough to start investing?",
     icon: TrendingUp,
     tag: 'Investing',
     time: '5 min',
@@ -62,7 +62,7 @@ const itemVariants = {
 };
 
 export default function CheckInsHub() {
-  const { t } = useTranslation('check-ins';
+  const { t } = useTranslation('check-ins');
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.toString();
@@ -77,7 +77,7 @@ export default function CheckInsHub() {
           animate={{ opacity: 1, y: 0 }}
           className="dashboard-header"
         >
-          <button onClick={() => router.back()} className="back-btn" aria-label={'Go back'}>
+          <button onClick={() => router.back()} className="back-btn" aria-label="Go back">
             <ChevronLeft size={22} />
           </button>
           
@@ -93,7 +93,7 @@ export default function CheckInsHub() {
           </div>
 
           <Link href="/history" className="btn btn-ghost btn-sm" style={{ gap: 6, fontSize: 12, marginLeft: 'auto' }}>
-            <History size={14} /> {'History'}
+            <History size={14} /> {t('History')}
           </Link>
 
         </motion.header>
@@ -121,10 +121,10 @@ export default function CheckInsHub() {
             </div>
             <div>
               <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.8125rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                {'Assess Your Pulse'}
+                {t('Assess Your Pulse')}
               </p>
               <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: '2px 0 0' }}>
-                {'Know Your Money Profile'}
+                {t('Know Your Money Profile')}
               </h2>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function CheckInsHub() {
             <Star size={20} color="var(--brand-primary)" />
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            <strong style={{ color: 'var(--text-primary)' }}>{"Pro tip: t('}</strong> {')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.")}
+            <strong style={{ color: 'var(--text-primary)' }}>{t("Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.")}
           </p>
         </motion.div>
       </main>

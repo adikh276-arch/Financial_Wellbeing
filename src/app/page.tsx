@@ -91,7 +91,7 @@ const exploreItems = [
 /* ─── Component ─── */
 export default function FinancialWellbeingDashboard() {
   const router = useRouter();
-  const { t } = useTranslation('dashboard';
+  const { t } = useTranslation('dashboard');
 
   return (
     <div className="page-wrapper">
@@ -107,7 +107,7 @@ export default function FinancialWellbeingDashboard() {
           <button
             onClick={handleExternalExit}
             className="back-btn"
-            aria-label={'Go back'}
+            aria-label="Go back"
           >
             <ChevronLeft size={18} />
           </button>
@@ -117,9 +117,9 @@ export default function FinancialWellbeingDashboard() {
           </div>
 
           <div className="dashboard-title-section">
-            <h1 className="dashboard-title">{'Financial Self-Care'}</h1>
+            <h1 className="dashboard-title">{t('Financial Self-Care')}</h1>
             <p className="dashboard-subtitle">
-              {'Build healthier financial habits through expert content, personal reflections, and smart tool guidance.'}
+              {t('Build healthier financial habits through expert content, personal reflections, and smart tool guidance.')}
             </p>
           </div>
 
@@ -135,7 +135,7 @@ export default function FinancialWellbeingDashboard() {
           >
             <motion.h2 className="dashboard-section-title" variants={itemVariants}>
               <BookOpen size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
-              {'Learn'}
+              {t('Learn')}
             </motion.h2>
             <div className="dashboard-grid">
               {learnItems.map((item) => {
@@ -166,11 +166,11 @@ export default function FinancialWellbeingDashboard() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
               <motion.h2 className="dashboard-section-title" variants={itemVariants} style={{ marginBottom: 0 }}>
                 <Zap size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
-                {'Check-ins'}
+                {t('Check-ins')}
               </motion.h2>
               <motion.div variants={itemVariants}>
                 <Link href="/history" className="btn btn-ghost btn-sm" style={{ gap: 6, fontSize: 12 }}>
-                  <History size={14} /> {'View History'}
+                  <History size={14} /> {t('View History')}
                 </Link>
               </motion.div>
             </div>
@@ -202,7 +202,7 @@ export default function FinancialWellbeingDashboard() {
           >
             <motion.h2 className="dashboard-section-title" variants={itemVariants}>
               <Compass size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
-              {'Explore'}
+              {t('Explore')}
             </motion.h2>
             <div className="stack-column">
               {exploreItems.map((item) => {

@@ -25,7 +25,7 @@ interface HistoryEntry {
 }
 
 export default function ActivityHistory() {
-  const { t } = useTranslation('history';
+  const { t } = useTranslation('history');
   const router = useRouter();
   const [entries, setEntries] = useState<HistoryEntry[]>([]);
   const [loading, setLoading] = useState(true);
@@ -35,11 +35,11 @@ export default function ActivityHistory() {
       const all: HistoryEntry[] = [];
 
       // 1. Health Score
-      const health = storage.ge'health_score_history', []);
+      const health = storage.get('health_score_history', []);
       health.forEach((h: any, i: number) => all.push({
         id: `health-${i}`,
         type: 'health_score',
-        title: 'Financial Health Score',
+        title: t('Financial Health Score'),
         date: h.date,
         score: h.score,
         data: h,
@@ -48,13 +48,13 @@ export default function ActivityHistory() {
       }));
 
       // 2. Budget
-      const budget = storage.ge'budget_history', []);
+      const budget = storage.get('budget_history', []);
       budget.forEach((h: any, i: number) => all.push({
         id: `budget-${i}`,
         type: 'budget',
-        title: 'Monthly Budget Flow',
+        title: t('Monthly Budget Flow'),
         date: h.date,
-        label: h.surplus >= 0 ? 'Surplus' : 'Deficit',
+        label: h.surplus >= 0 ? t('Surplus') : t('Deficit'),
         score: h.surplus,
         data: h,
         icon: Wallet,
@@ -62,25 +62,25 @@ export default function ActivityHistory() {
       }));
 
       // 3. Emergency Fund
-      const ef = storage.ge'emergency_fund_history', []);
+      const ef = storage.get('emergency_fund_history', []);
       ef.forEach((h: any, i: number) => all.push({
         id: `ef-${i}`,
         type: 'emergency_fund',
-        title: 'Emergency Fund Target',
+        title: t('Emergency Fund Target'),
         date: h.date,
         score: h.currentSaved,
-        label: `${Math.round((h.currentSaved / h.target) * 100)}% ${'Funded'}`,
+        label: `${Math.round((h.currentSaved / h.target) * 100)}% ${t('Funded')}`,
         data: h,
         icon: Shield,
         color: '#e84393'
       }));
 
       // 4. Investment
-      const invest = storage.ge'invest_history', []);
+      const invest = storage.get('invest_history', []);
       invest.forEach((h: any, i: number) => all.push({
         id: `invest-${i}`,
         type: 'investment',
-        title: 'Wealth Projection',
+        title: t('Wealth Projection'),
         date: h.date,
         score: h.projectedAmount,
         label: t(h.riskLevel),
@@ -90,23 +90,23 @@ export default function ActivityHistory() {
       }));
 
       // 5. Quizzes
-      const styles = storage.ge'spending_style_history', []);
+      const styles = storage.get('spending_style_history', []);
       styles.forEach((h: any, i: number) => all.push({
         id: `style-${i}`,
         type: 'spending_style',
-        title: 'Spending Style',
+        title: t('Spending Style'),
         date: h.date,
-        label: t(h.label || 'Archetype',
+        label: t(h.label || 'Archetype'),
         data: h,
         icon: Heart,
         color: '#e84393'
       }));
 
-      const savings = storage.ge'savings_checkup_history', []);
+      const savings = storage.get('savings_checkup_history', []);
       savings.forEach((h: any, i: number) => all.push({
         id: `savings-${i}`,
         type: 'savings_checkup',
-        title: 'Savings Check-up',
+        title: t('Savings Check-up'),
         date: h.date,
         score: h.score,
         label: t(h.label),
@@ -125,7 +125,7 @@ export default function ActivityHistory() {
   }, [t]);
 
   const clearHistory = () => {
-    if (confirm('Are you sure you want to clear all history? This cannot be undone.')) {
+    if (confirm(t('Are you sure you want to clear all history? This cannot be undone.'))) {
       // Clear all history keys
       ['health_score_history', 'budget_history', 'emergency_fund_history', 'invest_history', 'spending_style_history', 'savings_checkup_history'].forEach(key => {
         storage.set(key, []);
@@ -137,8 +137,8 @@ export default function ActivityHistory() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
-        title={t("Financial History"}
-        subtitle={'Activities')}
+        title={t("Financial History")}
+        subtitle={t('Activities')}
         backHref="/"
         rightSlot={entries.length > 0 && (
           <button onClick={clearHistory} className="btn-icon" style={{ color: 'var(--brand-danger)', background: 'rgba(231,76,60,0.1)' }}>
@@ -158,9 +158,9 @@ export default function ActivityHistory() {
             <div style={{ width: 80, height: 80, borderRadius: 'var(--radius-3xl)', background: 'var(--bg-glass-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto var(--space-8)', color: 'var(--text-faint)' }}>
               <History size={40} strokeWidth={1.5} />
             </div>
-            <h2 className="heading-lg" style={{ color: 'var(--text-primary)', marginBottom: 8 }}>{'No Activity Yet'}</h2>
-            <p style={{ color: 'var(--text-secondary)', maxWidth: 300, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>{'Your financial assessments and planning history will appear here once you start using the tools.'}</p>
-            <button className="btn btn-primary" onClick={() => router.push('/'}>{'Return to Dashboard'}</button>
+            <h2 className="heading-lg" style={{ color: 'var(--text-primary)', marginBottom: 8 }}>{t('No Activity Yet')}</h2>
+            <p style={{ color: 'var(--text-secondary)', maxWidth: 300, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>{t('Your financial assessments and planning history will appear here once you start using the tools.')}</p>
+            <button className="btn btn-primary" onClick={() => router.push('/')}>{t('Return to Dashboard')}</button>
           </div>
         ) : (
           <motion.div 
@@ -169,8 +169,8 @@ export default function ActivityHistory() {
             className="stack-4"
           >
             <div style={{ marginBottom: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-               <label className="label-caps">{'Recent Activities'}</label>
-               <span style={{ fontSize: 11, color: 'var(--text-faint)', fontWeight: 700 }}>{entries.length} {'Entries'}</span>
+               <label className="label-caps">{t('Recent Activities')}</label>
+               <span style={{ fontSize: 11, color: 'var(--text-faint)', fontWeight: 700 }}>{entries.length} {t('Entries')}</span>
             </div>
 
             {entries.map((entry, idx) => (
@@ -198,7 +198,7 @@ export default function ActivityHistory() {
                   
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ fontSize: 13, fontWeight: 900, color: entry.color }}>
-                      {entry.type === 'budget' ? (entry.score >= 0 ? '+' : '' + fmt.currency(entry.score) : 
+                      {entry.type === 'budget' ? (entry.score >= 0 ? '+' : '') + fmt.currency(entry.score) : 
                        entry.type === 'investment' ? fmt.currency(entry.score, true) :
                        entry.type === 'health_score' ? `${entry.score}/100` :
                        entry.score ? fmt.number(entry.score) : ''}
@@ -218,7 +218,7 @@ export default function ActivityHistory() {
 
             <div style={{ marginTop: 'var(--space-12)', padding: 'var(--space-8)', background: 'var(--bg-glass-light)', borderRadius: 'var(--radius-2xl)', textAlign: 'center', border: '1px dotted var(--border-subtle)' }}>
                <Info size={24} color="var(--text-faint)" style={{ margin: '0 auto 12px' }} />
-               <p style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.6 }}>{'Your activity data is stored locally and synced with our secure cloud to ensure you never lose your progress across sessions.')}</p>
+               <p style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.6 }}>{t('Your activity data is stored locally and synced with our secure cloud to ensure you never lose your progress across sessions.')}</p>
             </div>
           </motion.div>
         )}

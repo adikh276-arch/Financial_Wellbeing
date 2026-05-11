@@ -12,16 +12,16 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
 const QUESTIONS = [
-  { id: 'q1', text: t('When you encounter an unsolicited discount or sale event:'), options:['Disregard entirely - utility over price always', 'Analytical review for potential high-value needs', 'Capitalize on the discount opportunity immediately'] },
-  { id: 'q2', text: t('Your primary methodology for monthly capital allocation:'), options:['Algorithmic - automated transfers on payday', 'Residual - saving whatever remains post-spend', 'Opportunistic - minimal structure, living for today'] },
-  { id: 'q3', text: t('Under high-stress environments, your fiscal reaction is:'), options:['Hyper-retention - increasing cash reserves for security', 'Moderate - consistent spending on small comforts', 'Disruptive - significant spend for immediate dopamine'] },
-  { id: 'q4', text: t('The act of transaction execution makes you feel:'), options:['Friction - spending feels like a responsibility shift', 'Neutral - a purely functional exchange of value', 'Vibrant - an immediate sense of reward or relief'] },
-  { id: 'q5', text: t('Your level of granular expense monitoring:'), options:['Continuous - real-time tracking in digital ledger', 'Periodic - rough mental estimates of major outflows', 'Non-existent - trusting intuition and balance checks'] },
-  { id: 'q6', text: t('Your strategic perspective on credit instruments:'), options:['Leverage - strictly functional, paid in full monthly', 'Convenience - a standard operational payment tool', 'Extension - a means to bridge current capital gaps'] },
-  { id: 'q7', text: t('Your approach to long-horizon financial modeling:'), options:['Detailed - comprehensive multi-year strategic plan', 'Conceptual - vague directional milestones', 'Reactive - primary focus on current liquidity needs'] },
-  { id: 'q8', text: t('Upon receiving a significant revenue increase:'), options:['Capitalize - immediately increase investment velocity', 'Hybrid - split between lifestyle and accumulation', 'Lifestyle - immediate upgrade to current environment'] },
-  { id: 'q9', text: t('How frequently do you execute impulse acquisitions?'), options:['Negligible - strictly following evaluation protocols', 'Occasional - mostly low-impact lifestyle spends', 'Chronic - immediate conversion from desire to spend'] },
-  { id: 'q10', text: t('Your current relationship with your financial state:'), options:['Sovereign - complete mastery of personal numbers', 'Functional - mostly optimized, occasional outliers', 'Turbulent - capital appears to dissipate rapidly'] },
+  { id: 'q1', text: t('When you encounter an unsolicited discount or sale event:'), options: ['Disregard entirely - utility over price always', 'Analytical review for potential high-value needs', 'Capitalize on the discount opportunity immediately'] },
+  { id: 'q2', text: t('Your primary methodology for monthly capital allocation:'), options: ['Algorithmic - automated transfers on payday', 'Residual - saving whatever remains post-spend', 'Opportunistic - minimal structure, living for today'] },
+  { id: 'q3', text: t('Under high-stress environments, your fiscal reaction is:'), options: ['Hyper-retention - increasing cash reserves for security', 'Moderate - consistent spending on small comforts', 'Disruptive - significant spend for immediate dopamine'] },
+  { id: 'q4', text: t('The act of transaction execution makes you feel:'), options: ['Friction - spending feels like a responsibility shift', 'Neutral - a purely functional exchange of value', 'Vibrant - an immediate sense of reward or relief'] },
+  { id: 'q5', text: t('Your level of granular expense monitoring:'), options: ['Continuous - real-time tracking in digital ledger', 'Periodic - rough mental estimates of major outflows', 'Non-existent - trusting intuition and balance checks'] },
+  { id: 'q6', text: t('Your strategic perspective on credit instruments:'), options: ['Leverage - strictly functional, paid in full monthly', 'Convenience - a standard operational payment tool', 'Extension - a means to bridge current capital gaps'] },
+  { id: 'q7', text: t('Your approach to long-horizon financial modeling:'), options: ['Detailed - comprehensive multi-year strategic plan', 'Conceptual - vague directional milestones', 'Reactive - primary focus on current liquidity needs'] },
+  { id: 'q8', text: t('Upon receiving a significant revenue increase:'), options: ['Capitalize - immediately increase investment velocity', 'Hybrid - split between lifestyle and accumulation', 'Lifestyle - immediate upgrade to current environment'] },
+  { id: 'q9', text: t('How frequently do you execute impulse acquisitions?'), options: ['Negligible - strictly following evaluation protocols', 'Occasional - mostly low-impact lifestyle spends', 'Chronic - immediate conversion from desire to spend'] },
+  { id: 'q10', text: t('Your current relationship with your financial state:'), options: ['Sovereign - complete mastery of personal numbers', 'Functional - mostly optimized, occasional outliers', 'Turbulent - capital appears to dissipate rapidly'] },
 ];
 
 const STYLES = [
@@ -32,9 +32,9 @@ const STYLES = [
     color: '#00A884',
     gradient: 'linear-gradient(135deg, #00A884 0%, #00d2d3 100%)',
     description: t('You prioritize fiscal security and long-term capital accumulation. You possess high self-regulation but may under-allocate to current lifestyle enjoyment.'),
-    strengths:['Exceptional capital retention', 'Robust emergency liquidity', 'Long-horizon strategic thinking'],
-    challenges:['Potential opportunity cost of enjoyment', 'Risk of hyper-frugality burnout', 'Emotional friction during necessary spends'],
-    recommendations:['Explicitly budget 20-30% for lifestyle capital', 'Quantify the ROI of experiences and joy', 'Automate "joy funds" to reduce spending guilt'],
+    strengths: ['Exceptional capital retention', 'Robust emergency liquidity', 'Long-horizon strategic thinking'],
+    challenges: ['Potential opportunity cost of enjoyment', 'Risk of hyper-frugality burnout', 'Emotional friction during necessary spends'],
+    recommendations: ['Explicitly budget 20-30% for lifestyle capital', 'Quantify the ROI of experiences and joy', 'Automate "joy funds" to reduce spending guilt'],
   },
   {
     id: 'balancer',
@@ -43,9 +43,9 @@ const STYLES = [
     color: 'var(--brand-primary)',
     gradient: 'linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)',
     description: t('You maintain a high-functioning equilibrium between current fulfillment and future security. An adaptable and pragmatic fiscal behavioral model.'),
-    strengths:['Sustainable lifestyle balance', 'High adaptability to market shifts', 'Low psychological stress regarding money'],
-    challenges:['May lack aggressive growth momentum', 'Savings velocity might be inconsistent', 'Risk of "middle ground" stagnation'],
-    recommendations:['Implement a strict 50/30/20 framework', 'Increase investment velocity during high-revenue cycles', 'Set ambitious 10-year terminal wealth targets'],
+    strengths: ['Sustainable lifestyle balance', 'High adaptability to market shifts', 'Low psychological stress regarding money'],
+    challenges: ['May lack aggressive growth momentum', 'Savings velocity might be inconsistent', 'Risk of "middle ground" stagnation'],
+    recommendations: ['Implement a strict 50/30/20 framework', 'Increase investment velocity during high-revenue cycles', 'Set ambitious 10-year terminal wealth targets'],
   },
   {
     id: 'spender',
@@ -54,14 +54,14 @@ const STYLES = [
     color: '#F39C12',
     gradient: 'linear-gradient(135deg, #F39C12 0%, #E67E22 100%)',
     description: t('You prioritize current environment optimization and experiences. You catalyze capital into immediate value but require rigorous systems for accumulation.'),
-    strengths:['Maximizes real-time lifestyle value', 'Highly generous and social capital', 'Risk-tolerant and growth-oriented'],
-    challenges:['Low structural accumulation baseline', 'Susceptible to impulse capital leaks', 'Higher probability of liquidity friction'],
-    recommendations:['Implement "Invisible Savings" - direct deposit to brokerage', 'Enforce a 48-hour cooling period for any non-essential >1% spend', 'Gamify the act of capital retention and tracking'],
+    strengths: ['Maximizes real-time lifestyle value', 'Highly generous and social capital', 'Risk-tolerant and growth-oriented'],
+    challenges: ['Low structural accumulation baseline', 'Susceptible to impulse capital leaks', 'Higher probability of liquidity friction'],
+    recommendations: ['Implement "Invisible Savings" - direct deposit to brokerage', 'Enforce a 48-hour cooling period for any non-essential >1% spend', 'Gamify the act of capital retention and tracking'],
   },
 ];
 
 export default function SpendingStyleQuiz() {
-  const { t } = useTranslation('check-ins';
+  const { t } = useTranslation('check-ins');
   const [step, setStep] = useState(0); 
   const [answers, setAnswers] = useState<number[]>([]);
   const [saved, setSaved] = useState(false);
@@ -70,14 +70,14 @@ export default function SpendingStyleQuiz() {
 
   useEffect(() => {
     // 1. Local
-    setHistory(storage.ge'spending_style_history', []));
-    setPrevResult(storage.ge'spending_style_result', null));
+    setHistory(storage.get('spending_style_history', []));
+    setPrevResult(storage.get('spending_style_result', null));
 
     // 2. Server
-    storage.fetch('spending_style_history'.then(remote => {
+    storage.fetch('spending_style_history').then(remote => {
       if (remote) {
         setHistory(remote);
-        storage.se'spending_style_history', remote);
+        storage.set('spending_style_history', remote);
       }
     });
   }, []);
@@ -104,8 +104,8 @@ export default function SpendingStyleQuiz() {
     const newHistory = [result, ...history.slice(0, 9)];
     
     setHistory(newHistory);
-    storage.se'spending_style_result', result);
-    storage.se'spending_style_history', newHistory);
+    storage.set('spending_style_result', result);
+    storage.set('spending_style_history', newHistory);
     
     // Remote Sync (Only sync snapshot)
     storage.sync('spending_style_history', result);
@@ -117,11 +117,11 @@ export default function SpendingStyleQuiz() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
-        title={'Spending Style Quiz'}
+        title={t('Spending Style Quiz')}
         backHref="/"
         rightSlot={step === 11 ? (
           <div style={{ display: 'flex', gap: 8 }}>
-            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved!' : 'Save'}</button>
+            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
             <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
           </div>
         ) : null}
@@ -130,7 +130,7 @@ export default function SpendingStyleQuiz() {
         {step > 0 && step <= 10 && (
           <div style={{ marginBottom: 'var(--space-10)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-              <span style={{ fontSize: 10, color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{'EVALUATION DEPTH'}</span>
+              <span style={{ fontSize: 10, color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t('EVALUATION DEPTH')}</span>
               <span style={{ fontSize: 10, color: 'var(--brand-primary)', fontWeight: 800 }}>{Math.round(progress)}% COMPLETE</span>
             </div>
             <div className="progress-bar" style={{ height: 6, background: 'var(--bg-neutral)' }}><div className="progress-fill" style={{ width: `${progress}%`, background: 'var(--gradient-brand)' }} /></div>
@@ -146,19 +146,19 @@ export default function SpendingStyleQuiz() {
             }}>
               <Brain size={40} strokeWidth={1.5} />
             </div>
-            <h1 className="display-sm" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>{'Decode Your Money DNA'}</h1>
+            <h1 className="display-sm" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>{t('Decode Your Money DNA')}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 540, margin: '0 auto var(--space-8)', lineHeight: 1.6 }}>
-              {'A specialized psychometric evaluation designed to identify your core behavioral spending archetypes and provide institutional-grade tactical interventions.'}
+              {t('A specialized psychometric evaluation designed to identify your core behavioral spending archetypes and provide institutional-grade tactical interventions.')}
             </p>
             {prevResult && (
               <div style={{ marginBottom: 'var(--space-10)', display: 'inline-flex', alignItems: 'center', gap: 12, padding: '10px 24px', background: 'var(--bg-card-hover)', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-subtle)' }}>
-                <span style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase' }}>{'LAST KNOWN ARCHETYPE:'}</span>
-                <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--brand-primary)' }}>{t(STYLES.find(s => s.id === prevResult.styleId)?.label || ''}</span>
+                <span style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase' }}>{t('LAST KNOWN ARCHETYPE:')}</span>
+                <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--brand-primary)' }}>{t(STYLES.find(s => s.id === prevResult.styleId)?.label || '')}</span>
               </div>
             )}
             <div style={{ display: 'block' }}>
               <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ padding: '16px 40px' }}>
-                {'Begin Analysis'} <ArrowRight size={18} />
+                {t('Begin Analysis')} <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function SpendingStyleQuiz() {
                 <div style={{ width: 16, height: 2, background: 'var(--brand-primary)', borderRadius: 2 }} />
                 DIMENSION {step} / 10
               </div>
-              <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-10)', lineHeight: 1.2, fontWeight: 800 }}>{t(currentQ?.text || ''}</h2>
+              <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-10)', lineHeight: 1.2, fontWeight: 800 }}>{t(currentQ?.text || '')}</h2>
               <div className="stack-4">
                 {currentQ?.options.map((opt, i) => (
                   <button key={i} onClick={() => handleAnswer(i)} className="card card-hover" style={{ 
@@ -196,7 +196,7 @@ export default function SpendingStyleQuiz() {
             </div>
             {step > 1 && (
               <button className="btn btn-ghost" style={{ marginTop: 'var(--space-6)', color: 'var(--text-muted)' }} onClick={() => { setStep(s => s - 1); setAnswers(a => a.slice(0, -1)); }}>
-                <ChevronLeft size={16} /> {'Re-evaluate previous dimension'}
+                <ChevronLeft size={16} /> {t('Re-evaluate previous dimension')}
               </button>
             )}
           </div>
@@ -221,7 +221,7 @@ export default function SpendingStyleQuiz() {
               }}>
                 <style.icon size={36} color="white" strokeWidth={2.5} />
               </div>
-              <div style={{ fontSize: 11, fontWeight: 800, color: 'rgba(255,255,255,0.8)', marginBottom: 8, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{'VERIFIED ARCHETYPE'}</div>
+              <div style={{ fontSize: 11, fontWeight: 800, color: 'rgba(255,255,255,0.8)', marginBottom: 8, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{t('VERIFIED ARCHETYPE')}</div>
               <div className="display-sm" style={{ marginBottom: 'var(--space-4)', fontWeight: 900 }}>{t(style.label)}</div>
               <p style={{ fontSize: 'var(--text-lg)', maxWidth: 600, margin: '0 auto', opacity: 0.95, lineHeight: 1.6, fontWeight: 500 }}>{t(style.description)}</p>
             </div>
@@ -229,7 +229,7 @@ export default function SpendingStyleQuiz() {
             <div className="responsive-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-6)', marginBottom: 'var(--space-8)' }}>
               <div className="card" style={{ borderTop: '4px solid #00A884', padding: 'var(--space-8)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#00A884', fontWeight: 800, fontSize: 11, textTransform: 'uppercase', marginBottom: 'var(--space-6)', letterSpacing: '0.05em' }}>
-                  <TrendingUp size={16} /> {'Strategic Assets'}
+                  <TrendingUp size={16} /> {t('Strategic Assets')}
                 </div>
                 <div className="stack-4">
                   {style.strengths.map((s, i) => (
@@ -244,7 +244,7 @@ export default function SpendingStyleQuiz() {
               </div>
               <div className="card" style={{ borderTop: '4px solid #E74C3C', padding: 'var(--space-8)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#E74C3C', fontWeight: 800, fontSize: 11, textTransform: 'uppercase', marginBottom: 'var(--space-6)', letterSpacing: '0.05em' }}>
-                  <AlertTriangle size={16} /> {'Operational Friction'}
+                  <AlertTriangle size={16} /> {t('Operational Friction')}
                 </div>
                 <div className="stack-4">
                   {style.challenges.map((c, i) => (
@@ -261,7 +261,7 @@ export default function SpendingStyleQuiz() {
 
             <div className="card" style={{ padding: 'var(--space-10)', border: '1px solid var(--border-brand)', background: 'var(--bg-glass-light)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--brand-primary)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase', marginBottom: 'var(--space-8)', letterSpacing: '0.1em' }}>
-                <Target size={22} /> {'Behavioral Optimization Strategy'}
+                <Target size={22} /> {t('Behavioral Optimization Strategy')}
               </div>
               <div className="stack-4">
                 {style.recommendations.map((r, i) => (
@@ -274,7 +274,7 @@ export default function SpendingStyleQuiz() {
             </div>
 
             <div style={{ marginTop: 'var(--space-12)', display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(0); setAnswers([]); }}>{'Recalibrate Profile')}</button>
+              <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(0); setAnswers([]); }}>{t('Recalibrate Profile')}</button>
             </div>
           </div>
         )}

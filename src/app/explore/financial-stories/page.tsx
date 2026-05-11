@@ -27,13 +27,13 @@ const itemVariants = {
 };
 
 export default function FinancialStories() {
-  const { t } = useTranslation('explore';
+  const { t } = useTranslation('explore');
 
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title={'Financial Stories'}
-        subtitle={'Real experiences from people like you'}
+        title={t('Financial Stories')}
+        subtitle={t('Real experiences from people like you')}
         backHref="/"
         accentColor="var(--brand-primary)"
       />
@@ -74,7 +74,7 @@ export default function FinancialStories() {
                           <MapPin size={14} /> {t(story.city)}
                         </span>
                         <span className="badge-pill" style={{ background: `${story.color}10`, color: story.color }}>
-                          {'Income: ${{income}} / mo', { income: story.income })}
+                          {t('Income: ${{income}} / mo', { income: story.income })}
                         </span>
                       </div>
 

@@ -27,10 +27,10 @@ interface EFHistory {
 }
 
 const SCENARIOS = [
-  { icon: HeartPulse, label: t('Medical Emergency'), months: 2, desc: 'Covers typical urgent medical crises' },
-  { icon: Briefcase, label: t('Income Security'), months: 6, desc: 'Safety net for potential job loss' },
-  { icon: Home, label: t('Asset Repair'), months: 1, desc: 'Coverage for major home/car repairs' },
-  { icon: Users, label: t('Family Support'), months: 3, desc: 'Funds for unexpected family needs' },
+  { icon: HeartPulse, label: t('Medical Emergency'), months: 2, desc: "Covers typical urgent medical crises" },
+  { icon: Briefcase, label: t('Income Security'), months: 6, desc: "Safety net for potential job loss" },
+  { icon: Home, label: t('Asset Repair'), months: 1, desc: "Coverage for major home/car repairs" },
+  { icon: Users, label: t('Family Support'), months: 3, desc: "Funds for unexpected family needs" },
 ];
 
 const WHERE_TIPS = [
@@ -40,7 +40,7 @@ const WHERE_TIPS = [
 ];
 
 export default function EmergencyFund() {
-  const { t } = useTranslation('emergency-fund';
+  const { t } = useTranslation('emergency-fund');
   const [data, setData] = useState<EFData>({ monthlyExpenses: 0, monthsCover: 6, currentSaved: 0 });
   const [history, setHistory] = useState<EFHistory[]>([]);
   const [saved, setSaved] = useState(false);
@@ -49,22 +49,22 @@ export default function EmergencyFund() {
   useEffect(() => {
     // 1. Initial local load
     const local = storage.get<EFData>('emergency_fund', { monthlyExpenses: 0, monthsCover: 6, currentSaved: 0 });
-    if (local && typeof local === 'object' setData(prev => ({ ...prev, ...local }));
+    if (local && typeof local === 'object') setData(prev => ({ ...prev, ...local }));
     
     const list = storage.get<EFHistory[]>('emergency_fund_history', []);
     setHistory(Array.isArray(list) ? list : []);
 
     // 2. Async server sync
-    storage.fetch('emergency_fund'.then(remote => {
-      if (remote && typeof remote === 'object' {
+    storage.fetch('emergency_fund').then(remote => {
+      if (remote && typeof remote === 'object') {
         setData(prev => ({ ...prev, ...remote }));
-        storage.se'emergency_fund', remote);
+        storage.set('emergency_fund', remote);
       }
     });
-    storage.fetch('emergency_fund_history'.then(remoteHistory => {
+    storage.fetch('emergency_fund_history').then(remoteHistory => {
       if (Array.isArray(remoteHistory)) {
         setHistory(remoteHistory);
-        storage.se'emergency_fund_history', remoteHistory);
+        storage.set('emergency_fund_history', remoteHistory);
       }
     });
   }, []);
@@ -76,7 +76,7 @@ export default function EmergencyFund() {
   const monthlyNeeded6 = remaining > 0 ? remaining / 6 : 0;
 
   const handleSave = () => {
-    storage.se'emergency_fund', data);
+    storage.set('emergency_fund', data);
     const newEntry: EFHistory = {
       date: new Date().toISOString(),
       ...data,
@@ -84,7 +84,7 @@ export default function EmergencyFund() {
     };
     const updatedHistory = [newEntry, ...history].slice(0, 10);
     setHistory(updatedHistory);
-    storage.se'emergency_fund_history', updatedHistory);
+    storage.set('emergency_fund_history', updatedHistory);
     storage.sync('emergency_fund', data);
     storage.sync('emergency_fund_history', newEntry); // Sync only the new entry
     setSaved(true);
@@ -97,11 +97,11 @@ export default function EmergencyFund() {
   }));
 
   const getStatusLabel = () => {
-    if (percent === 0) return { label: t("NOT STARTED", color: 'var(--brand-danger)' };
-    if (percent < 30) return { label: t("VULNERABLE", color: 'var(--brand-danger)' };
-    if (percent < 60) return { label: t("DEVELOPING", color: 'var(--brand-gold)' };
-    if (percent < 95) return { label: t("RESILIENT", color: 'var(--brand-accent)' };
-    return { label: t("MASTERED", color: 'var(--brand-success)' };
+    if (percent === 0) return { label: t("NOT STARTED"), color: 'var(--brand-danger)' };
+    if (percent < 30) return { label: t("VULNERABLE"), color: 'var(--brand-danger)' };
+    if (percent < 60) return { label: t("DEVELOPING"), color: 'var(--brand-gold)' };
+    if (percent < 95) return { label: t("RESILIENT"), color: 'var(--brand-accent)' };
+    return { label: t("MASTERED"), color: 'var(--brand-success)' };
   };
 
   const status = getStatusLabel();
@@ -109,7 +109,7 @@ export default function EmergencyFund() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <PageHeader 
-        title={t("Emergency Fund Builder"}
+        title={t("Emergency Fund Builder")}
         onBackClick={handleExternalExit}
         accentColor="#e84393"
         historyKey="emergency_fund"
@@ -117,7 +117,7 @@ export default function EmergencyFund() {
         rightSlot={(
            <div style={{ display: 'flex', gap: 8 }}>
               <button className="btn btn-primary btn-sm" onClick={handleSave}>
-                 {saved ? <Check size={14} /> : <Save size={14} />} {saved ? 'Saved' : 'Save'}
+                 {saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved') : t('Save')}
               </button>
            </div>
         )}
@@ -126,7 +126,7 @@ export default function EmergencyFund() {
 
         {showHistory && history.length > 0 && (
           <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-8)', animation: 'slideInDown 0.3s ease' }}>
-            <label className="label-caps">{'Financial History'}</label>
+            <label className="label-caps">{t('Financial History')}</label>
             <div className="stack-3" style={{ marginTop: 'var(--space-4)' }}>
               {history.map((h, i) => (
                 <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: i < history.length - 1 ? '1px solid var(--border-subtle)' : 'none' }}>
@@ -145,34 +145,34 @@ export default function EmergencyFund() {
               <div style={{ width: 40, height: 40, borderRadius: 12, background: 'var(--brand-primary-glow)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Wallet size={20} color="var(--brand-primary)" />
               </div>
-              <h2 className="heading-md">{'Expense Assessment'}</h2>
+              <h2 className="heading-md">{t('Expense Assessment')}</h2>
             </div>
 
             <div className="stack-6">
               <div className="form-group">
-                <label className="form-label">{'Monthly Essential Spend'}</label>
+                <label className="form-label">{t('Monthly Essential Spend')}</label>
                 <div className="input-group">
                   <span className="input-prefix"></span>
                   <input type="number" className="form-input" style={{ fontSize: 20, fontWeight: 800 }} placeholder="0.00" value={data.monthlyExpenses || ''} onChange={e => setData(d => ({ ...d, monthlyExpenses: Number(e.target.value) }))} />
                 </div>
-                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 8 }}>{'Fixed bills, rent, food, and necessary debt.'}</p>
+                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 8 }}>{t('Fixed bills, rent, food, and necessary debt.')}</p>
               </div>
 
               <div className="form-group">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                  <label className="form-label">{'Duration Multiplier'}</label>
+                  <label className="form-label">{t('Duration Multiplier')}</label>
                   <span style={{ fontSize: 16, fontWeight: 900, color: 'var(--brand-primary)' }}>{data.monthsCover} Months</span>
                 </div>
                 <input type="range" min={3} max={12} value={data.monthsCover} onChange={e => setData(d => ({ ...d, monthsCover: Number(e.target.value) }))} style={{ width: '100%', height: 6, borderRadius: 3, appearance: 'none', background: 'var(--border-subtle)', outline: 'none' }} className="accent-brand" />
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>{t("3M (Standard)"}</span>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>{t("12M (Ultimate)"}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>{t("3M (Standard)")}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: 'var(--text-muted)' }}>{t("12M (Ultimate)")}</span>
                 </div>
               </div>
 
               {target > 0 && (
                 <div style={{ padding: 'var(--space-6)', background: 'var(--bg-glass-light)', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border-brand)', textAlign: 'center' }}>
-                  <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: 4 }}>{'TARGET RESERVE CAPITAL')}</div>
+                  <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: 4 }}>{t('TARGET RESERVE CAPITAL')}</div>
                   <div style={{ fontSize: 32, fontWeight: 900, color: 'var(--brand-primary)', fontFamily: 'var(--font-display)' }}>{fmt.currency(target)}</div>
                 </div>
               )}
@@ -185,12 +185,12 @@ export default function EmergencyFund() {
               <div style={{ width: 40, height: 40, borderRadius: 12, background: 'rgba(0,168,132,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <TrendingUp size={20} color="#00A884" />
               </div>
-              <h2 className="heading-md">{'Funding Status'}</h2>
+              <h2 className="heading-md">{t('Funding Status')}</h2>
             </div>
 
             <div className="stack-6">
               <div className="form-group">
-                <label className="form-label">{'Current Reserve Balance'}</label>
+                <label className="form-label">{t('Current Reserve Balance')}</label>
                 <div className="input-group">
                   <input type="number" className="form-input" style={{ fontSize: 20, fontWeight: 800 }} placeholder="0.00" value={data.currentSaved || ''} onChange={e => setData(d => ({ ...d, currentSaved: Number(e.target.value) }))} />
                 </div>
@@ -204,7 +204,7 @@ export default function EmergencyFund() {
                         <div style={{ fontSize: 18, fontWeight: 800 }}>{Math.round(percent)}% Funded</div>
                      </div>
                      <div style={{ textAlign: 'right' }}>
-                        <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)' }}>{'GAP'}</div>
+                        <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)' }}>{t('GAP')}</div>
                         <div style={{ fontSize: 14, fontWeight: 800 }}>{fmt.currency(remaining)}</div>
                      </div>
                   </div>
@@ -218,7 +218,7 @@ export default function EmergencyFund() {
 
           {/* Section 3: Strategic Scenarios */}
           <div className="card" style={{ padding: 'var(--space-8)' }}>
-             <label className="label-caps" style={{ marginBottom: 'var(--space-6)' }}>{'Resilience Scenarios'}</label>
+             <label className="label-caps" style={{ marginBottom: 'var(--space-6)' }}>{t('Resilience Scenarios')}</label>
              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
                 {scenariosCovers.map(s => (
                   <div key={s.label} style={{ padding: 'var(--space-5)', borderRadius: 'var(--radius-xl)', background: s.covered ? '#00A88408' : '#e8439308', border: `1px solid ${s.covered ? '#00A88415' : '#e8439315'}` }}>
@@ -227,7 +227,7 @@ export default function EmergencyFund() {
                         {s.covered ? <Check size={14} color="#00A884" strokeWidth={3} /> : <XCircle size={14} color="#e84393" />}
                      </div>
                      <div style={{ fontSize: 13, fontWeight: 800, color: 'var(--text-primary)' }}>{t(s.label)}</div>
-                     <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-muted)' }}>{'{{count}} Mo Fund', { count: s.months })}</div>
+                     <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-muted)' }}>{t('{{count}} Mo Fund', { count: s.months })}</div>
                   </div>
                 ))}
              </div>
@@ -235,12 +235,12 @@ export default function EmergencyFund() {
 
           {/* Section 4: Where to put it */}
           <div>
-            <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>{'Deployment Channels'}</label>
+            <label className="label-caps" style={{ marginBottom: 'var(--space-4)' }}>{t('Deployment Channels')}</label>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-3)' }}>
               {WHERE_TIPS.map(tip => (
                 <div key={tip.label} className="card" style={{ padding: 'var(--space-5)' }}>
                   <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 4 }}>{t(tip.label)}</div>
-                  <div style={{ fontSize: 18, fontWeight: 900, color: 'var(--brand-success)', marginBottom: 8 }}>{tip.rate} {'Est.'}</div>
+                  <div style={{ fontSize: 18, fontWeight: 900, color: 'var(--brand-success)', marginBottom: 8 }}>{tip.rate} {t('Est.')}</div>
                   <div style={{ fontSize: 10, color: 'var(--text-muted)', lineHeight: 1.4 }}>{t(tip.pros)}</div>
                 </div>
               ))}

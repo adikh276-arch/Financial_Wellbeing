@@ -10,17 +10,17 @@ import { motion } from 'framer-motion';
 import { PageHeader } from '@/components/layout/PageHeader';
 
 const ARTICLES = [
-  { id: 1, title: 'The Complete Beginner\'s Guide to Mutual Funds', author: 'Financial Wellbeing Team', readTime: "12 min", category: t('Investing'), preview: "Mutual funds are a simple way to start investing professionally. Learn about systematic plans and risk-adjusted returns.", content: t('Detailed content about mutual funds...'), icon: TrendingUp, color: '#2563EB' },
-  { id: 2, title: 'How the 52-Week Money Challenge Can Transform Your Savings', author: 'Financial Wellbeing Team', readTime: "8 min", category: t('Savings'), preview: "Gamify your saving habit by increasing your weekly goal. By week 52, you will have a substantial emergency buffer.", content: t('Step by step guide for the 52-week challenge...'), icon: Zap, color: '#00B894' },
-  { id: 3, title: 'Understanding Your Credit Score: A Deep Dive', author: 'Financial Wellbeing Team', readTime: "10 min", category: t('Credit'), preview: "Learn how your score is calculated and the specific behaviors that can boost it or hurt it significantly.", content: t('Comprehensive report on credit scoring algorithms...'), icon: Activity, color: '#0984e3' },
-  { id: 4, title: 'Choosing Between Long-term Savings Vehicles', author: 'Financial Wellbeing Team', readTime: "14 min", category: t('Tax'), preview: "Comparison of various instruments for long-horizon capital growth and tax optimization.", content: t('In-depth analysis of pension funds vs ETFs...'), icon: Shield, color: '#FDCB6E' },
-  { id: 5, title: 'The Hidden Cost of Lifestyle Inflation', author: 'Financial Wellbeing Team', readTime: "7 min", category: t('Behavior'), preview: "Why raises often don't lead to more wealth. Learn how to maintain your savings rate during income shifts.", content: t('Psychological strategies to combat lifestyle creep...'), icon: Heart, color: '#fd79a8' },
-  { id: 6, title: 'Emergency Fund Math: How Much is Actually Enough?', author: 'Financial Wellbeing Team', readTime: "6 min", category: t('Savings'), preview: "A framework to calculate your custom safety net based on volatility and fixed obligations.", content: t('Detailed mathematical models for emergency funds...'), icon: Target, color: '#e84393' },
+  { id: 1, title: "The Complete Beginner's Guide to Mutual Funds", author: 'Financial Wellbeing Team', readTime: "12 min", category: t('Investing'), preview: "Mutual funds are a simple way to start investing professionally. Learn about systematic plans and risk-adjusted returns.", content: t('Detailed content about mutual funds...'), icon: TrendingUp, color: '#2563EB' },
+  { id: 2, title: "How the 52-Week Money Challenge Can Transform Your Savings", author: 'Financial Wellbeing Team', readTime: "8 min", category: t('Savings'), preview: "Gamify your saving habit by increasing your weekly goal. By week 52, you will have a substantial emergency buffer.", content: t('Step by step guide for the 52-week challenge...'), icon: Zap, color: '#00B894' },
+  { id: 3, title: "Understanding Your Credit Score: A Deep Dive", author: 'Financial Wellbeing Team', readTime: "10 min", category: t('Credit'), preview: "Learn how your score is calculated and the specific behaviors that can boost it or hurt it significantly.", content: t('Comprehensive report on credit scoring algorithms...'), icon: Activity, color: '#0984e3' },
+  { id: 4, title: "Choosing Between Long-term Savings Vehicles", author: 'Financial Wellbeing Team', readTime: "14 min", category: t('Tax'), preview: "Comparison of various instruments for long-horizon capital growth and tax optimization.", content: t('In-depth analysis of pension funds vs ETFs...'), icon: Shield, color: '#FDCB6E' },
+  { id: 5, title: "The Hidden Cost of Lifestyle Inflation", author: 'Financial Wellbeing Team', readTime: "7 min", category: t('Behavior'), preview: "Why raises often don't lead to more wealth. Learn how to maintain your savings rate during income shifts.", content: t('Psychological strategies to combat lifestyle creep...'), icon: Heart, color: '#fd79a8' },
+  { id: 6, title: "Emergency Fund Math: How Much is Actually Enough?", author: 'Financial Wellbeing Team', readTime: "6 min", category: t('Savings'), preview: "A framework to calculate your custom safety net based on volatility and fixed obligations.", content: t('Detailed mathematical models for emergency funds...'), icon: Target, color: '#e84393' },
 ];
 
 export default function FinancialArticles() {
-  const { t } = useTranslation('explore';
-  const [activeCategory, setActiveCategory] = useState('All';
+  const { t } = useTranslation('explore');
+  const [activeCategory, setActiveCategory] = useState('All');
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const categories = ['All', ...new Set(ARTICLES.map(a => a.category))];
@@ -29,8 +29,8 @@ export default function FinancialArticles() {
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title={'Financial Articles'}
-        subtitle={'In-depth reads on financial wellbeing'}
+        title={t('Financial Articles')}
+        subtitle={t('In-depth reads on financial wellbeing')}
         backHref="/"
         accentColor="var(--brand-primary)"
       />
@@ -85,7 +85,7 @@ export default function FinancialArticles() {
                          style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid var(--border-subtle)' }}
                        >
                           <p style={{ fontSize: '16px', color: 'var(--text-primary)', lineHeight: 1.8, fontWeight: 500 }}>
-                            {"The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.", { title: t(article.title) })}
+                            {t("The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.", { title: t(article.title) })}
                           </p>
                        </motion.div>
                      )}

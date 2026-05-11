@@ -13,26 +13,26 @@ import { fmt } from '@/lib/storage';
 const STEPS = ['Goal', 'Target', 'Strategy'];
 const ACCENT = '#F59E0B';
 
-const CATEGORIES = [
-  { id: 'travel', label: t('Travel'), icon: '✈️' },
-  { id: 'education', label: t('Education'), icon: '📚' },
-  { id: 'home', label: t('Home'), icon: '🏠' },
-  { id: 'emergency', label: t('Emergency Fund'), icon: '🛡️' },
-  { id: 'vehicle', label: t('Vehicle'), icon: '🚗' },
-  { id: 'wedding', label: t('Wedding'), icon: '💍' },
-  { id: 'retirement', label: t('Retirement'), icon: '🌅' },
-  { id: 'other', label: t('Other'), icon: '🎯' },
-];
-
-const STRATEGIES = [
-  { id: 'auto', label: t('Auto-Debit'), desc: 'Set and forget — auto-transfer on payday', icon: <Wallet size={18} color={ACCENT} /> },
-  { id: 'cut', label: t('Cut & Save'), desc: 'Reduce one expense category and redirect it', icon: <TrendingUp size={18} color={ACCENT} /> },
-  { id: 'income', label: t('Extra Income'), desc: 'Freelancing, side gig, or selling items', icon: <Star size={18} color={ACCENT} /> },
-];
-
 export default function SavingsGoalPage() {
   const router = useRouter();
   const { t } = useTranslation('savings-goal');
+
+  const CATEGORIES = [
+    { id: 'travel', label: 'Travel', icon: '✈️' },
+    { id: 'education', label: 'Education', icon: '📚' },
+    { id: 'home', label: 'Home', icon: '🏠' },
+    { id: 'emergency', label: 'Emergency Fund', icon: '🛡️' },
+    { id: 'vehicle', label: 'Vehicle', icon: '🚗' },
+    { id: 'wedding', label: 'Wedding', icon: '💍' },
+    { id: 'retirement', label: 'Retirement', icon: '🌅' },
+    { id: 'other', label: 'Other', icon: '🎯' },
+  ];
+
+  const STRATEGIES = [
+    { id: 'auto', label: 'Auto-Debit', desc: 'Set and forget — auto-transfer on payday', icon: <Wallet size={18} color={ACCENT} /> },
+    { id: 'cut', label: 'Cut & Save', desc: 'Reduce one expense category and redirect it', icon: <TrendingUp size={18} color={ACCENT} /> },
+    { id: 'income', label: 'Extra Income', desc: 'Freelancing, side gig, or selling items', icon: <Star size={18} color={ACCENT} /> },
+  ];
   const [step, setStep] = useState(-1);
   const [category, setCategory] = useState('');
   const [goalName, setGoalName] = useState('');

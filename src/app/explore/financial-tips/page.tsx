@@ -19,36 +19,23 @@ const CATEGORY_META: Record<string, { color: string; bg: string }> = {
   Behavior: { color: '#D97706', bg: 'rgba(217, 119, 6, 0.08)' },
 };
 
-const TIPS = [
-  { category: t('Savings'), tip: t('Automate your savings on payday. If you never see the money in your spending account, you won\'t miss it.'), label: t('Automatic First') },
-  { category: t('Savings'), tip: t('Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative.'), label: t('Starter Win') },
-  { category: t('Budgeting'), tip: t('The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade.'), label: t('Cooling Period') },
-  { category: t('Budgeting'), tip: t('Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth.'), label: t('Leak Audit') },
-  { category: t('Debt'), tip: t('Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid.'), label: t('Apex Strategy') },
-  { category: t('Investing'), tip: t('Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility.'), label: t('Consistency') },
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.05 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 20 } }
-};
-
 export default function FinancialTips() {
   const { t } = useTranslation('explore');
   const router = useRouter();
   const [filter, setFilter] = useState('All');
   const [copied, setCopied] = useState<string | null>(null);
 
+  const TIPS = [
+    { category: 'Savings', tip: 'Automate your savings on payday. If you never see the money in your spending account, you won\'t miss it.', label: 'Automatic First' },
+    { category: 'Savings', tip: 'Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative.', label: 'Starter Win' },
+    { category: 'Budgeting', tip: 'The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade.', label: 'Cooling Period' },
+    { category: 'Budgeting', tip: 'Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth.', label: 'Leak Audit' },
+    { category: 'Debt', tip: 'Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid.', label: 'Apex Strategy' },
+    { category: 'Investing', tip: 'Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility.', label: 'Consistency' },
+  ];
+
   const categories = ['All', ...Object.keys(CATEGORY_META)];
-  const filtered = filter === 'All' ? TIPS : TIPS.filter(t => t.category === filter);
+  const filtered = filter === 'All' ? TIPS : TIPS.filter(item => item.category === filter);
 
   const handleCopy = (tip: string) => {
     navigator.clipboard?.writeText(tip);

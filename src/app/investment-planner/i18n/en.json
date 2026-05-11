@@ -1,26 +1,3 @@
 {
-  "{{strategy}} Strategy": "{{strategy}} Strategy",
-  "Asset Allocation Strategy": "Asset Allocation Strategy",
-  "Begin Analysis": "Begin Analysis",
-  "CAGR": "CAGR",
-  "Determine your seed capital": "Determine your seed capital",
-  "Forecasted Wealth ({{period}}Y)": "Forecasted Wealth ({{period}}Y)",
-  "Gains": "Gains",
-  "Generate Portfolio": "Generate Portfolio",
-  "Initial Lump Sum": "Initial Lump Sum",
-  "Institutional Allocation": "Institutional Allocation",
-  "Invested": "Invested",
-  "Investment Horizon": "Investment Horizon",
-  "Investment Planner": "Investment Planner",
-  "Model your financial future. Simulate asset growth across diverse risk profiles and optimize your portfolio allocation.": "Model your financial future. Simulate asset growth across diverse risk profiles and optimize your portfolio allocation.",
-  "Monthly Contribution (SIP)": "Monthly Contribution (SIP)",
-  "New Assessment": "New Assessment",
-  "Proceed to Strategy": "Proceed to Strategy",
-  "Recent Projections": "Recent Projections",
-  "Save": "Save",
-  "Step 1: Capital Configuration": "Step 1: Capital Configuration",
-  "Step 2: Risk Profile": "Step 2: Risk Profile",
-  "Success": "Success",
-  "Target": "Target",
-  "Wealth Projection": "Wealth Projection"
+  " Risk Profile": " Risk Profile"
 }

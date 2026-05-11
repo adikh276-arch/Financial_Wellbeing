@@ -4,7 +4,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Scale, BarChart4, Target, Lightbulb, CheckCircle } from 'lucide-react';
 
 export default function DebtManagement() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Debt Management")}

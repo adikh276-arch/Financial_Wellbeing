@@ -25,7 +25,7 @@ interface HistoryEntry {
 }
 
 export default function ActivityHistory() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('history');
   const router = useRouter();
   const [entries, setEntries] = useState<HistoryEntry[]>([]);
   const [loading, setLoading] = useState(true);

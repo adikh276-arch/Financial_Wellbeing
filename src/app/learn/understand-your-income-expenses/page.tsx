@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Wallet, BarChart4, Zap, Search } from 'lucide-react';
 
 export default function UnderstandIncomeExpenses() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Understand Income & Expenses")}

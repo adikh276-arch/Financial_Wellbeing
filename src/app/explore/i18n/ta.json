@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "வருமானம்: ${{income}} / mo",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "நிதி ஆரோக்கியக் குழுவின் \"{{title}}\" க்கான முழு பகுப்பாய்வு ஆழமான அகாடமி தொகுதிகளுக்காக ஒதுக்கப்பட்டுள்ளது. மூலதன ஒதுக்கீட்டை மேம்படுத்துதல் மற்றும் நடத்தை உராய்வு புள்ளிகளைப் புரிந்துகொள்வது ஆகியவை முக்கிய எடுத்துக்கொள்ளுதல்களில் அடங்கும்.",
   "The Myth": "கட்டுக்கதை",
-  "The Reality": "உண்மை"
+  "The Reality": "உண்மை",
+  " ${{income}} / mo": " ${{income}} / MO"
 }

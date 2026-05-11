@@ -6,7 +6,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Home, Repeat, BarChart4, Lightbulb } from 'lucide-react';
 
 export default function Rule503020() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   const searchParams = useSearchParams();
   const query = searchParams.toString();
   const suffix = query ? `?${query}` : '';

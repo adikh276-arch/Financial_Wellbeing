@@ -91,7 +91,7 @@ const exploreItems = [
 /* ─── Component ─── */
 export default function FinancialWellbeingDashboard() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t } = useTranslation('dashboard');
 
   return (
     <div className="page-wrapper">

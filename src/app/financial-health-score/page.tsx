@@ -47,7 +47,7 @@ const SCORE_LABELS = [
 ];
 
 export default function FinancialHealthScore() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('financial-health-score');
   const [step, setStep] = useState(-1); 
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [saved, setSaved] = useState(false);

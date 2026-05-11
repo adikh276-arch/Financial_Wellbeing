@@ -43,7 +43,7 @@ const newGoalTemplate = (catOther: string): Omit<Goal, 'id' | 'createdAt'> => ({
 });
 
 export default function GoalPlanner() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('goal-planner');
   const [goals, setGoals] = useState<Goal[]>([]);
   const [step, setStep] = useState(-1);
   const [showForm, setShowForm] = useState(false);

@@ -62,7 +62,7 @@ const itemVariants = {
 };
 
 export default function CheckInsHub() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('check-ins');
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.toString();

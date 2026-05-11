@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "수입: ${{income}} / mo",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "재정 웰니스 팀의 \"{{title}}\"에 대한 전체 분석은 심층 아카데미 모듈에 한정되어 있습니다. 주요 교훈은 자본 배분 최적화와 행동적 마찰 지점 이해입니다.",
   "The Myth": "신화",
-  "The Reality": "현실"
+  "The Reality": "현실",
+  " ${{income}} / mo": " ${{income}} / mo"
 }

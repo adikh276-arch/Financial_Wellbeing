@@ -26,7 +26,7 @@ const READINESS_LEVELS = [
 ];
 
 export default function InvestmentReadiness() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('check-ins');
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [saved, setSaved] = useState(false);

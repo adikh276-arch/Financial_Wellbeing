@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "Kita: ${{income}} / mo",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "Ang buong pagsusuri para sa \"{{title}}\" ng Financial Wellness Team ay nakalaan para sa malalim na mga module ng akademya. Kasama sa mga pangunahing takeaways ang pag-optimize ng paglalaan ng kapital at pag-unawa sa mga punto ng alitan sa pag-uugali.",
   "The Myth": "Ang Mitolohiya",
-  "The Reality": "Ang Katotohanan"
+  "The Reality": "Ang Katotohanan",
+  " ${{income}} / mo": " ${{income}} / mo"
 }

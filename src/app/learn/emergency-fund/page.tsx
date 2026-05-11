@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Shield, Target, MapPin, AlertCircle } from 'lucide-react';
 
 export default function EmergencyFundLearn() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Emergency Fund")}

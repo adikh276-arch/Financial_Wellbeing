@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "ఆదాయం: ${{income}} / మో",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "ఫైనాన్షియల్ వెల్ నెస్ టీమ్ ద్వారా {{title}}\" కొరకు పూర్తి విశ్లేషణ లోతైన అకాడమీ మాడ్యూల్స్ కొరకు రిజర్వ్ చేయబడింది. మూలధన కేటాయింపును ఆప్టిమైజ్ చేయడం మరియు ప్రవర్తనా ఘర్షణ పాయింట్లను అర్థం చేసుకోవడం వంటి కీలక అంశాలు ఉన్నాయి.",
   "The Myth": "పురాణం",
-  "The Reality": "వాస్తవికత"
+  "The Reality": "వాస్తవికత",
+  " ${{income}} / mo": " ${{income}} / mo"
 }

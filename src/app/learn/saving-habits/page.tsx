@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Zap, Brain, TrendingUp, Sparkles, AlertCircle } from 'lucide-react';
 
 export default function SavingHabits() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Saving Habits")}

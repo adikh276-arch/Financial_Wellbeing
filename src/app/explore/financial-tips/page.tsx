@@ -42,7 +42,7 @@ const itemVariants = {
 };
 
 export default function FinancialTips() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('explore');
   const router = useRouter();
   const [filter, setFilter] = useState('All');
   const [copied, setCopied] = useState<string | null>(null);

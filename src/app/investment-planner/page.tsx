@@ -67,7 +67,7 @@ const PERIODS = [1, 3, 5, 10, 20];
 const STEPS = ['Capital', 'Strategy', 'Results'];
 
 export default function InvestmentPlanner() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('investment-planner');
   const searchParams = useSearchParams();
   const query = searchParams.toString();
   const suffix = query ? `?${query}` : '';

@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Lightbulb, PieChart, AlertCircle, Briefcase, Wrench } from 'lucide-react';
 
 export default function BudgetingBasics() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Budgeting Basics")}

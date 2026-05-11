@@ -19,7 +19,7 @@ const FAQS = [
 ];
 
 export default function FinancialFAQs() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('explore');
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (

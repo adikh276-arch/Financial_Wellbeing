@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { TrendingUp, Scale, Target, Sparkles, AlertCircle } from 'lucide-react';
 
 export default function InvestingBasics() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Investing Basics")}

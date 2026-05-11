@@ -43,7 +43,7 @@ const STRATEGY_INFO = {
 
 export default function DebtManagementPage() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t } = useTranslation('debt-management-guide');
   const [step, setStep] = useState(-1);
   const [strategy, setStrategy] = useState<Strategy>(null);
   const [completed, setCompleted] = useState(false);

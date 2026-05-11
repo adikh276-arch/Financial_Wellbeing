@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "Εισόδημα: ${{εισόδημα}} / μήνα",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "Η πλήρης ανάλυση για το \"{{title}}\" από την Ομάδα Οικονομικής Ευεξίας προορίζεται για σε βάθος ενότητες ακαδημίας. Τα βασικά συμπεράσματα περιλαμβάνουν τη βελτιστοποίηση της κατανομής κεφαλαίων και την κατανόηση των σημείων τριβής συμπεριφοράς.",
   "The Myth": "Ο μύθος",
-  "The Reality": "Η πραγματικότητα"
+  "The Reality": "Η πραγματικότητα",
+  " ${{income}} / mo": " ${{εισόδημα}} / μήνα"
 }

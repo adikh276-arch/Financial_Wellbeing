@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "Reddito: ${{reddito}} / mo",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "L'analisi completa di \"{{title}}\" del Team di Benessere Finanziario è riservata ai moduli approfonditi dell'accademia. I punti chiave includono l'ottimizzazione dell'allocazione del capitale e la comprensione dei punti di attrito comportamentali.",
   "The Myth": "Il Mito",
-  "The Reality": "La Realtà"
+  "The Reality": "La Realtà",
+  " ${{income}} / mo": " ${{reddito}} / mo"
 }

@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Clock, Target, ListChecks, Lightbulb } from 'lucide-react';
 
 export default function FinancialGoals() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Financial Goals")}

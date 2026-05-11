@@ -72,7 +72,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export default function LoanEMIPlanner() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('loan-emi-planner');
   const [step, setStep] = useState(-1);
   const [saved, setSaved] = useState(false);
   const [form, setForm] = useState<LoanForm>({ principal: 0, type: 'Personal Loan', rate: 12, tenureYears: 5, processingFee: 0 });

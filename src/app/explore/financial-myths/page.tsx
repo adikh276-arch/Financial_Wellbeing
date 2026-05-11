@@ -35,7 +35,7 @@ const MYTHS = [
 ];
 
 export default function FinancialMyths() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('explore');
 
   return (
     <div className="page-wrapper">

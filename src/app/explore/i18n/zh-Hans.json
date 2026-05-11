@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "收入：${{income}} / mo",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "财务健康团队对“{{title}}”的完整分析仅限于深入的学院模块。关键要点包括优化资本配置和理解行为摩擦点。",
   "The Myth": "神话",
-  "The Reality": "现实"
+  "The Reality": "现实",
+  " ${{income}} / mo": "${{income}} / mo"
 }

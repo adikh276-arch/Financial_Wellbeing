@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Calendar, Target, Sun, ShieldCheck } from 'lucide-react';
 
 export default function PlanForYourFuture() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Plan for Your Future")}

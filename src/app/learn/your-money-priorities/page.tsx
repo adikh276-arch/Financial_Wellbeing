@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Gem, Target, Lightbulb, Activity } from 'lucide-react';
 
 export default function YourMoneyPriorities() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Your Money Priorities")}

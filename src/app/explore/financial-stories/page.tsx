@@ -27,7 +27,7 @@ const itemVariants = {
 };
 
 export default function FinancialStories() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('explore');
 
   return (
     <div className="page-wrapper">

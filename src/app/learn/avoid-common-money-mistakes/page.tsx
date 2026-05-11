@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { AlertCircle } from 'lucide-react';
 
 export default function AvoidMoneyMistakes() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Avoid Common Money Mistakes")}

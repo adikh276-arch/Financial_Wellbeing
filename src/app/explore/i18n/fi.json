@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "Tulot: ${{tulo}} / kuukausi",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "Financial Wellness Teamin täydellinen analyysi \"{{title}}\":stä on varattu syvällisille akatemiamoduuleille. Keskeisiä oivalluksia ovat pääoman allokoinnin optimointi ja käyttäytymiseen liittyvien kitkapisteiden ymmärtäminen.",
   "The Myth": "Myytti",
-  "The Reality": "Todellisuus"
+  "The Reality": "Todellisuus",
+  " ${{income}} / mo": " ${{tulo}} / mo"
 }

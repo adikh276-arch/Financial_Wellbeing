@@ -15,7 +15,7 @@ const ACCENT = '#3B82F6';
 
 export default function BudgetBuddyPage() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t } = useTranslation('budget-buddy');
   const [step, setStep] = useState(-1);
   const [income, setIncome] = useState('');
   const [completed, setCompleted] = useState(false);

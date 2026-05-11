@@ -32,7 +32,7 @@ const STRATEGIES = [
 
 export default function SavingsGoalPage() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t } = useTranslation('savings-goal');
   const [step, setStep] = useState(-1);
   const [category, setCategory] = useState('');
   const [goalName, setGoalName] = useState('');

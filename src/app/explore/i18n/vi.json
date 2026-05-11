@@ -2,5 +2,6 @@
   "Income: ${{income}} / mo": "Thu nhập: ${{income}} / tháng",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "Phân tích đầy đủ cho \"{{title}}\" của Nhóm Sức khỏe Tài chính được dành cho các mô-đun học thuật chuyên sâu. Bài học chính bao gồm tối ưu hóa phân bổ vốn và hiểu các điểm ma sát hành vi.",
   "The Myth": "Huyền thoại",
-  "The Reality": "Thực tế"
+  "The Reality": "Thực tế",
+  " ${{income}} / mo": " ${{thu nhập}} / tháng"
 }

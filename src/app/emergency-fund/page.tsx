@@ -40,7 +40,7 @@ const WHERE_TIPS = [
 ];
 
 export default function EmergencyFund() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('emergency-fund');
   const [data, setData] = useState<EFData>({ monthlyExpenses: 0, monthsCover: 6, currentSaved: 0 });
   const [history, setHistory] = useState<EFHistory[]>([]);
   const [saved, setSaved] = useState(false);

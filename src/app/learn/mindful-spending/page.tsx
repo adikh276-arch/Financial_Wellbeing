@@ -5,7 +5,7 @@ import { LearnModule } from '@/components/LearnModule';
 import { Brain, Timer, HelpCircle, Target, ListChecks } from 'lucide-react';
 
 export default function MindfulSpending() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('learn');
   return (
     <LearnModule
       title={t("Mindful Spending")}

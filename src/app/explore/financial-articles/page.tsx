@@ -19,7 +19,7 @@ const ARTICLES = [
 ];
 
 export default function FinancialArticles() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('explore');
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedId, setSelectedId] = useState<number | null>(null);
 

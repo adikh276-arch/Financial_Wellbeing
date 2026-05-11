@@ -61,7 +61,7 @@ const SAVE_FIELDS: { key: Field; label: string; icon: any }[] = [
 const STEPS = ['Income', 'Expenses', 'Savings & Results'];
 
 export default function BudgetPlanner() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('budget-planner');
   const [step, setStep] = useState(-1);
   const [form, setForm] = useState<Record<Field, number>>(DEFAULT);
   const [saved, setSaved] = useState(false);

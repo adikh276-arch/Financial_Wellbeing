@@ -19,13 +19,9 @@ export default function SavingHabits() {
           heading: t("Why Saving Matters"), 
           content: [
             t('Builds financial security and reduces anxiety'),
-            
             t('Creates options and opportunities at every life stage'),
-            
             t('Protects against emergencies without going into debt'),
-            
             t('Enables dream-chasing: vacation, home, business'),
-            
             t('Time + consistent saving = life-changing wealth')
           ] 
         },
@@ -36,7 +32,7 @@ export default function SavingHabits() {
             { title: t("Automate on Payday"), description: t('Set an automatic transfer the same day your salary arrives. Out of sight, out of mind.') }, 
             { title: t("Start with 10%"), description: t('Begin with 10% of income. Increase by 1% every 3 months until you hit 20%.') }, 
             { title: t("Separate Account"), description: t('Keep savings in a separate account so you\'re not tempted to spend it.') }, 
-            { title: t("Link to Purpose"), description: t('Label savings with a goal (e.g., ')Europe Trip 2026") to stay motivated.' }
+            { title: t("Link to Purpose"), description: t('Label savings with a goal (e.g., "Europe Trip 2026") to stay motivated.') }
           ], 
           variant: 'cards' 
         },
@@ -59,13 +55,9 @@ export default function SavingHabits() {
           heading: t("Common Mistakes"), 
           content: [
             t('Waiting for the "right amount" - start with small sums where possible'),
-            
             t('Putting savings in low-return accounts'),
-            
             t('Not having a purpose - you\'ll spend it without a goal'),
-            
             t('Dipping into emergency fund for non-emergencies'),
-            
             t('Comparing your savings to others (everyone starts somewhere)')
           ] 
         },

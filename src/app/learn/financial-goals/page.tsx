@@ -27,7 +27,7 @@ export default function FinancialGoals() {
           icon: Target, 
           heading: t("The SMART Framework"), 
           content: [
-            { title: t("Specific"), description: t('Not ')save money" ¥Ã† "Save 5,000 for home down payment by year-end"' }, 
+            { title: t("Specific"), description: t('Not "save money" - but "Save 5,000 for home down payment by year-end"') }, 
             { title: t("Measurable"), description: t('Include exact amount. Track progress monthly. Update status to stay accountable.') }, 
             { title: t("Achievable"), description: t('Consider current income. Be ambitious but realistic - stretch without breaking.') }, 
             { title: t("Time-bound"), description: t('Specific deadline creates urgency and helps you calculate exactly how much to save monthly.') }
@@ -39,11 +39,8 @@ export default function FinancialGoals() {
           heading: t("Goal Priority Framework"), 
           content: [
             t('High Priority: Emergency fund, debt repayment, retirement - these are non-negotiable foundations'),
-            
             t("Medium Priority: Home purchase, children's education, major life events"),
-            
             t('Low Priority: Luxury items, entertainment upgrades, nice-to-haves'),
-            
             t('Sequential goals work better than trying to fund everything simultaneously')
           ] 
         },
@@ -57,7 +54,7 @@ export default function FinancialGoals() {
         { number: '01', text: t("List 5-10 things you want in the next 10 years (dream freely!)") }, 
         { number: '02', text: t("Apply the SMART framework to each goal") }, 
         { number: '03', text: t("Prioritize: pick your top 2-3 to focus on now") }, 
-        { number: '04', text: t("Calculate monthly savings needed: Target ++ Months = Your number") }, 
+        { number: '04', text: t("Calculate monthly savings needed: Target / Months = Your number") }, 
         { number: '05', text: t("Use the Goal Planner to track them with progress bars") }
       ]}
       keyTakeaways={[

@@ -19,6 +19,21 @@ const CATEGORY_META: Record<string, { color: string; bg: string }> = {
   Behavior: { color: '#D97706', bg: 'rgba(217, 119, 6, 0.08)' },
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 }
+};
+
 export default function FinancialTips() {
   const { t } = useTranslation('explore');
   const router = useRouter();

@@ -25,7 +25,7 @@ export default function DebtManagement() {
         { 
           icon: BarChart4, 
           heading: t("Debt-to-Income Ratio"), 
-          content: t("Your DTI = Total monthly debt payments ++ Monthly income. Keep it below 36%. Above 50% is financial danger zone. Example: If income is 5,000 units, debt payments should be under 1,800/month.") 
+          content: t("Your DTI = Total monthly debt payments / Monthly income. Keep it below 36%. Above 50% is financial danger zone. Example: If income is 5,000 units, debt payments should be under 1,800/month.") 
         },
         { 
           icon: Target, 

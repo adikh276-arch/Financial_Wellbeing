@@ -50,7 +50,7 @@ export default function YourMoneyPriorities() {
         { 
           icon: Activity, 
           heading: t("Guilt-Free Spending Framework"), 
-          content: t("If a purchase aligns with your top 3 priorities ¥Ã† spend guilt-free. If it doesn't ¥Ã† question it honestly. This removes both deprivation AND impulsive spending. You can travel generously if travel is priority #1, while cutting status purchases guilt-free because status isn't your priority.") 
+          content: t("If a purchase aligns with your top 3 priorities — spend guilt-free. If it doesn't — question it honestly. This removes both deprivation AND impulsive spending. You can travel generously if travel is priority #1, while cutting status purchases guilt-free because status isn't your priority.") 
         },
       ]}
       actionSteps={[

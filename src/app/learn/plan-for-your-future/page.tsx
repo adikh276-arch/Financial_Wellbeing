@@ -57,7 +57,7 @@ export default function PlanForYourFuture() {
         },
       ]}
       actionSteps={[
-        { number: '01', text: t("Calculate rough retirement needs: Current expenses +Ã¹ 12 +Ã¹ 30 years +Ã¹ 3 (inflation)") }, 
+        { number: '01', text: t("Calculate rough retirement needs: Current expenses * 12 * 30 years * 3 (inflation)") }, 
         { number: '02', text: t("Check insurance gaps: are you covered for health and life?") }, 
         { number: '03', text: t("List major goals with target amounts and dates") }, 
         { number: '04', text: t("Calculate monthly savings needed for each goal") }, 

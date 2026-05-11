@@ -12,7 +12,7 @@ export default function BudgetingBasics() {
       subtitle={t("Your financial foundation")}
       readTime={t("5 min")}
       category={t("Budgeting")}
-      introduction={t("Budgeting is not about restriction'it's about freedom. By knowing where your money goes, you can make intentional choices and build the life you want.")}
+      introduction={t("Budgeting is not about restriction — it's about freedom. By knowing where your money goes, you can make intentional choices and build the life you want.")}
       sections={[
         {
           icon: Lightbulb,

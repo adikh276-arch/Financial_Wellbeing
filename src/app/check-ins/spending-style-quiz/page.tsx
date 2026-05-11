@@ -132,7 +132,7 @@ export default function SpendingStyleQuiz() {
           <div style={{ marginBottom: 'var(--space-10)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
               <span style={{ fontSize: 10, color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t('EVALUATION DEPTH')}</span>
-              <span style={{ fontSize: 10, color: 'var(--brand-primary)', fontWeight: 800 }}>{Math.round(progress)}% COMPLETE</span>
+              <span style={{ fontSize: 10, color: 'var(--brand-primary)', fontWeight: 800 }}>{Math.round(progress)}% {t('COMPLETE')}</span>
             </div>
             <div className="progress-bar" style={{ height: 6, background: 'var(--bg-neutral)' }}><div className="progress-fill" style={{ width: `${progress}%`, background: 'var(--gradient-brand)' }} /></div>
           </div>
@@ -170,7 +170,7 @@ export default function SpendingStyleQuiz() {
             <div className="card" style={{ padding: 'var(--space-10)', border: '1px solid var(--border-subtle)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--brand-primary)', fontWeight: 700, fontSize: 10, textTransform: 'uppercase', marginBottom: 'var(--space-6)', letterSpacing: '0.1em' }}>
                 <div style={{ width: 16, height: 2, background: 'var(--brand-primary)', borderRadius: 2 }} />
-                DIMENSION {step} / 10
+                {t('DIMENSION')} {step} / 10
               </div>
               <h2 className="heading-xl" style={{ color: 'var(--text-primary)', marginBottom: 'var(--space-10)', lineHeight: 1.2, fontWeight: 800 }}>{t(currentQ?.text || '')}</h2>
               <div className="stack-4">
@@ -238,7 +238,7 @@ export default function SpendingStyleQuiz() {
                       <div style={{ width: 24, height: 24, borderRadius: '50%', background: '#00A88415', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                         <Check size={12} color="#00A884" strokeWidth={3} />
                       </div>
-                      {s}
+                      {t(s)}
                     </div>
                   ))}
                 </div>
@@ -253,7 +253,7 @@ export default function SpendingStyleQuiz() {
                       <div style={{ width: 24, height: 24, borderRadius: '50%', background: '#E74C3C15', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                         <Info size={12} color="#E74C3C" strokeWidth={3} />
                       </div>
-                      {c}
+                      {t(c)}
                     </div>
                   ))}
                 </div>

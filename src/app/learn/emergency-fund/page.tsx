@@ -12,16 +12,16 @@ export default function EmergencyFundLearn() {
       subtitle={t("Your financial airbag")}
       readTime={t("5 min")}
       category={t("Savings")}
-      introduction={t("An emergency fund is not optional'it's essential. It's the difference between a problem and a catastrophe. Think of it as your financial airbag.")}
+      introduction={t("An emergency fund is not optional — it's essential. It's the difference between a problem and a catastrophe. Think of it as your financial airbag.")}
       sections={[
         { 
           icon: Shield, 
           heading: t("What Counts as an Emergency?"), 
           content: [
-            { title: t("GÂ£Ã´ Medical emergency"), description: t('Surgery, hospitalization, or unexpected health crisis') }, 
-            { title: t("GÂ£Ã´ Job loss"), description: t('Unexpected unemployment while you search for new work') }, 
-            { title: t("GÂ£Ã´ Major repairs"), description: t('Home foundation, car breakdown, plumbing failure') }, 
-            { title: t("GÂ£Ã¹ NOT an emergency"), description: t('Vacation, sale shopping, wanting a new gadget or upgrade') }
+            { title: t("• Medical emergency"), description: t('Surgery, hospitalization, or unexpected health crisis') }, 
+            { title: t("• Job loss"), description: t('Unexpected unemployment while you search for new work') }, 
+            { title: t("• Major repairs"), description: t('Home foundation, car breakdown, plumbing failure') }, 
+            { title: t("• NOT an emergency"), description: t('Vacation, sale shopping, wanting a new gadget or upgrade') }
           ], 
           variant: 'cards' 
         },

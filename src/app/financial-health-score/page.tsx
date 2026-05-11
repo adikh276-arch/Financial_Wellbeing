@@ -292,7 +292,7 @@ export default function FinancialHealthScore() {
                   <div key={section.timeframe}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
                       <section.icon size={14} color="#F39C12" />
-                      <span style={{ fontSize: 11, fontWeight: 800, color: '#F39C12', textTransform: 'uppercase' }}>{section.timeframe}</span>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: '#F39C12', textTransform: 'uppercase' }}>{t(section.timeframe)}</span>
                     </div>
                     <div className="stack-2">
                        {section.actions.map(action => (

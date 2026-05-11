@@ -118,7 +118,7 @@ export default function MoneyStressQuiz() {
                    {history.map((h, i) => (
                       <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                          <div>
-                            <div style={{ fontSize: 13, fontWeight: 800, color: 'var(--text-primary)' }}>{h.label}</div>
+                            <div style={{ fontSize: 13, fontWeight: 800, color: 'var(--text-primary)' }}>{t(h.label)}</div>
                             <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>{new Date(h.date).toLocaleDateString()}</div>
                          </div>
                          <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--brand-primary)' }}>{h.totalStress}</div>
@@ -133,6 +133,9 @@ export default function MoneyStressQuiz() {
         {step > 0 && step <= QUESTIONS.length && currentQ && (
           <div key={step} style={{ animation: 'slideInRight 0.35s ease' }}>
             <div style={{ marginBottom: 'var(--space-8)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
+                <span style={{ fontSize: 10, color: 'var(--brand-primary)', fontWeight: 800 }}>{Math.round(progress)}% {t('COMPLETE')}</span>
+              </div>
               <div className="progress-bar" style={{ height: 4, background: 'var(--border-subtle)' }}><div className="progress-fill" style={{ width: `${progress}%` }} /></div>
             </div>
             <div className="card" style={{ padding: 'var(--space-8)' }}>

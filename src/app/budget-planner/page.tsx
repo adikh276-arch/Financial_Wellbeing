@@ -223,7 +223,7 @@ export default function BudgetPlanner() {
                     <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                       <div>
                         <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>{t('Monthly Flow')}</div>
-                        <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Income: {fmt.currency(h.totalIncome)}</div>
+                        <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{t('Income')}: {fmt.currency(h.totalIncome)}</div>
                       </div>
                       <div style={{ textAlign: 'right' }}>
                         <div style={{ fontWeight: 800, fontSize: 13, color: h.surplus >= 0 ? 'var(--brand-success)' : 'var(--brand-danger)' }}>
@@ -333,9 +333,9 @@ export default function BudgetPlanner() {
             <div style={{ background: 'white', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-xl)', padding: 'var(--space-5)', marginBottom: 'var(--space-4)', boxShadow: 'var(--shadow-xs)' }}>
               <p style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 'var(--text-sm)', marginBottom: 'var(--space-4)' }}>{t("50/30/20 Analysis")}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-                <PctBar label={t('Needs')} pct={needsPct} target={50} color="#2563EB" />
-                <PctBar label={t('Wants')} pct={wantsPct} target={30} color="#F39C12" />
-                <PctBar label={t('Savings')} pct={savePct} target={20} color="#00A884" />
+                <PctBar label="Needs" pct={needsPct} target={50} color="#2563EB" />
+                <PctBar label="Wants" pct={wantsPct} target={30} color="#F39C12" />
+                <PctBar label="Savings" pct={savePct} target={20} color="#00A884" />
               </div>
             </div>
 

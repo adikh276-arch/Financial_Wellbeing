@@ -99,7 +99,7 @@ export default function InvestmentReadiness() {
                    {history.map((h, i) => (
                       <div key={i} className="card" style={{ padding: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                          <div>
-                            <div style={{ fontSize: 13, fontWeight: 800 }}>{h.label}</div>
+                            <div style={{ fontSize: 13, fontWeight: 800 }}>{t(h.label)}</div>
                             <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>{new Date(h.date).toLocaleDateString()}</div>
                          </div>
                          <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--brand-primary)' }}>{h.score} pts</div>

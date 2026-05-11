@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Lo lắng tài chính đáng kể đang ảnh hưởng đến sức khỏe của bạn. Nên can thiệp chiến thuật ngay lập tức để ổn định tình hình của bạn.",
   "CRITICAL": "QUAN TRỌNG",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Phát hiện áp lực tài chính nghiêm trọng. Tình trạng này gây ra rủi ro cao cho sức khỏe tinh thần và thể chất của bạn. Ưu tiên hỗ trợ tư vấn chuyên nghiệp.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Mẹo chuyên nghiệp: t(')}</strong> {t(')Hoàn thành cả 4 lần đăng ký để có báo cáo toàn diện về tình hình tài chính của bạn.",
   "Decode your money personality & behavioral archetype": "Giải mã tính cách tiền bạc và nguyên mẫu hành vi của bạn",
   "Benchmark your emergency fund, savings rate and habits": "Đánh giá quỹ khẩn cấp, tỷ lệ tiết kiệm và thói quen của bạn",
   "Measure your financial anxiety level and get relief tactics": "Đo lường mức độ lo lắng tài chính của bạn và nhận các chiến thuật cứu trợ",
   "Are your foundations strong enough to start investing?": "Nền tảng của bạn có đủ mạnh để bắt đầu đầu tư không?",
   "Go back": "Quay lại",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Bạn có quỹ khẩn cấp không?",
   "None at all": "Không có gì cả",
   "Partially funded (1-2 mo)": "Tài trợ một phần (1-2 tháng)",
@@ -251,5 +249,6 @@
   "SECURE": "BẢO MẬT",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Bộ đệm tiết kiệm mạnh mẽ. Ưu tiên: Tối ưu hóa năng suất và tăng trưởng.",
   "ELITE": "ƯU TÚ",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Khả năng giữ chân đặc biệt. Ưu tiên: Tập trung vào các chất xúc tác giàu có chiến thuật."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Khả năng giữ chân đặc biệt. Ưu tiên: Tập trung vào các chất xúc tác giàu có chiến thuật.",
+  "}</strong> {": "}</strong> {"
 }

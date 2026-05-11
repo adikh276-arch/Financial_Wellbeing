@@ -35,13 +35,13 @@ const MYTHS = [
 ];
 
 export default function FinancialMyths() {
-  const { t } = useTranslation('explore');
+  const { t } = useTranslation('explore';
 
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title={t('Money Myths')}
-        subtitle={t('Common misconceptions about money')}
+        title={'Money Myths'}
+        subtitle={'Common misconceptions about money'}
         backHref="/"
         accentColor="#EF4444"
       />
@@ -66,7 +66,7 @@ export default function FinancialMyths() {
                   <div style={{ flex: 1 }}>
                     <div className="flex items-center gap-2 mb-3">
                       <XCircle size={16} className="text-danger" />
-                      <span style={{ fontWeight: 800, fontSize: '13px', color: 'var(--brand-danger)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('The Myth')}</span>
+                      <span style={{ fontWeight: 800, fontSize: '13px', color: 'var(--brand-danger)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{'The Myth'}</span>
                     </div>
                     <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '24px', color: 'var(--text-primary)' }}>
                       {t(m.myth)}
@@ -75,7 +75,7 @@ export default function FinancialMyths() {
                     <div style={{ background: 'var(--bg-base)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
                       <div className="flex items-center gap-2 mb-2">
                         <CheckCircle2 size={16} color="var(--brand-success)" />
-                        <span style={{ fontWeight: 800, fontSize: '13px', color: 'var(--brand-success)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('The Reality')}</span>
+                        <span style={{ fontWeight: 800, fontSize: '13px', color: 'var(--brand-success)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{'The Reality'}</span>
                       </div>
                       <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.6, fontWeight: 500 }}>
                         {t(m.reality)}

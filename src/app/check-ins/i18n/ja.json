@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "深刻な経済的不安があなたの健康に影響を与えています。状況を安定させるために即時の戦術的介入が推奨されます。",
   "CRITICAL": "批評",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "深刻な財政的圧力が検出されました。この状態は精神的および身体的健康に高いリスクをもたらします。専門的な助言支援を最優先にしましょう。",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "プロのアドバイス:t(')</strong>} {t(')4回すべてのチェックインを完了し、あなたの財務状況を包括的に報告してください。",
   "Decode your money personality & behavioral archetype": "お金の性格と行動の原型を解読しましょう",
   "Benchmark your emergency fund, savings rate and habits": "緊急資金、貯蓄率、習慣をベンチマークしましょう",
   "Measure your financial anxiety level and get relief tactics": "自分の経済的な不安度を測り、解決策を見つけましょう",
   "Are your foundations strong enough to start investing?": "投資を始めるに足る基盤は十分に強固ですか?",
   "Go back": "戻って",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "緊急資金はありますか?",
   "None at all": "全くありません",
   "Partially funded (1-2 mo)": "部分的に資金提供(1〜2ヶ月)",
@@ -251,5 +249,6 @@
   "SECURE": "安全",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "堅牢な貯蓄バッファ。優先事項:収量と成長の最適化。",
   "ELITE": "エリート",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "卓越した定着率。優先事項:戦術的な富の触媒に注力すること。"
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "卓越した定着率。優先事項:戦術的な富の触媒に注力すること。",
+  "}</strong> {": "}</strong> {"
 }

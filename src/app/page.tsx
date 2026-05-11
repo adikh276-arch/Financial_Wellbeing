@@ -59,39 +59,39 @@ const headerVariants = {
 
 /* ─── Data ─── */
 const learnItems = [
-  { title: t('Budgeting Basics'),                     icon: Wallet,       route: '/learn/budgeting-basics' },
-  { title: t('Saving Habits'),                         icon: PiggyBank,    route: '/learn/saving-habits' },
-  { title: t('Debt Management'),                       icon: CreditCard,   route: '/learn/debt-management' },
-  { title: t('Investing Basics'),                      icon: TrendingUp,   route: '/learn/investing-basics' },
-  { title: t('Emergency Fund'),                        icon: Shield,       route: '/learn/emergency-fund' },
-  { title: t('Financial Goals'),                       icon: Target,       route: '/learn/financial-goals' },
-  { title: t('50/30/20 Rule'),                         icon: BarChart3,    route: '/learn/50-30-20-rule' },
-  { title: t('Mindful Spending'),                      icon: Heart,        route: '/learn/mindful-spending' },
-  { title: t('Your Money Priorities'),                 icon: Compass,      route: '/learn/your-money-priorities' },
-  { title: t('Plan for Your Future'),                  icon: CalendarCheck,route: '/learn/plan-for-your-future' },
-  { title: t('Understand Your Income & Expenses'),     icon: Receipt,      route: '/learn/understand-your-income-expenses' },
-  { title: t('Avoid Common Money Mistakes'),           icon: AlertCircle,  route: '/learn/avoid-common-money-mistakes' },
+  { title: 'Budgeting Basics',                     icon: Wallet,       route: '/learn/budgeting-basics' },
+  { title: 'Saving Habits',                         icon: PiggyBank,    route: '/learn/saving-habits' },
+  { title: 'Debt Management',                       icon: CreditCard,   route: '/learn/debt-management' },
+  { title: 'Investing Basics',                      icon: TrendingUp,   route: '/learn/investing-basics' },
+  { title: 'Emergency Fund',                        icon: Shield,       route: '/learn/emergency-fund' },
+  { title: 'Financial Goals',                       icon: Target,       route: '/learn/financial-goals' },
+  { title: '50/30/20 Rule',                         icon: BarChart3,    route: '/learn/50-30-20-rule' },
+  { title: 'Mindful Spending',                      icon: Heart,        route: '/learn/mindful-spending' },
+  { title: 'Your Money Priorities',                 icon: Compass,      route: '/learn/your-money-priorities' },
+  { title: 'Plan for Your Future',                  icon: CalendarCheck,route: '/learn/plan-for-your-future' },
+  { title: 'Understand Your Income & Expenses',     icon: Receipt,      route: '/learn/understand-your-income-expenses' },
+  { title: 'Avoid Common Money Mistakes',           icon: AlertCircle,  route: '/learn/avoid-common-money-mistakes' },
 ];
 
 const checkinItems = [
-  { title: t('Spending Style Quiz'),    icon: Wallet,     route: '/check-ins/spending-style-quiz' },
-  { title: t('Savings Check-up'),       icon: PiggyBank,  route: '/check-ins/savings-check-up' },
-  { title: t('Money Stress Quiz'),      icon: Heart,      route: '/check-ins/money-stress-quiz' },
-  { title: t('Investment Readiness'),   icon: TrendingUp, route: '/check-ins/investment-readiness' },
+  { title: 'Spending Style Quiz',    icon: Wallet,     route: '/check-ins/spending-style-quiz' },
+  { title: 'Savings Check-up',       icon: PiggyBank,  route: '/check-ins/savings-check-up' },
+  { title: 'Money Stress Quiz',      icon: Heart,      route: '/check-ins/money-stress-quiz' },
+  { title: 'Investment Readiness',   icon: TrendingUp, route: '/check-ins/investment-readiness' },
 ];
 
 const exploreItems = [
-  { title: t('Financial Tips'),     icon: Lightbulb,    route: '/explore/financial-tips',     desc: t('Quick ideas to improve your money habits') },
-  { title: t('Financial Stories'),  icon: MessageSquare,route: '/explore/financial-stories',   desc: t('Real experiences from people like you') },
-  { title: t('Financial Articles'), icon: FileText,     route: '/explore/financial-articles',  desc: t('In-depth reads on financial wellbeing') },
-  { title: t('Financial FAQs'),     icon: HelpCircle,   route: '/explore/financial-faqs',      desc: t('Answers to common money questions') },
-  { title: t('Financial Myths'),    icon: BookOpen,     route: '/explore/financial-myths',     desc: t('Common misconceptions about money') },
+  { title: 'Financial Tips',     icon: Lightbulb,    route: '/explore/financial-tips',     desc: 'Quick ideas to improve your money habits' },
+  { title: 'Financial Stories',  icon: MessageSquare,route: '/explore/financial-stories',   desc: 'Real experiences from people like you' },
+  { title: 'Financial Articles', icon: FileText,     route: '/explore/financial-articles',  desc: 'In-depth reads on financial wellbeing' },
+  { title: 'Financial FAQs',     icon: HelpCircle,   route: '/explore/financial-faqs',      desc: 'Answers to common money questions' },
+  { title: 'Financial Myths',    icon: BookOpen,     route: '/explore/financial-myths',     desc: 'Common misconceptions about money' },
 ];
 
 /* ─── Component ─── */
 export default function FinancialWellbeingDashboard() {
   const router = useRouter();
-  const { t } = useTranslation('dashboard');
+  const { t } = useTranslation('dashboard';
 
   return (
     <div className="page-wrapper">
@@ -107,7 +107,7 @@ export default function FinancialWellbeingDashboard() {
           <button
             onClick={handleExternalExit}
             className="back-btn"
-            aria-label={t('Go back')}
+            aria-label={'Go back'}
           >
             <ChevronLeft size={18} />
           </button>
@@ -117,9 +117,9 @@ export default function FinancialWellbeingDashboard() {
           </div>
 
           <div className="dashboard-title-section">
-            <h1 className="dashboard-title">{t('Financial Self-Care')}</h1>
+            <h1 className="dashboard-title">{'Financial Self-Care'}</h1>
             <p className="dashboard-subtitle">
-              {t('Build healthier financial habits through expert content, personal reflections, and smart tool guidance.')}
+              {'Build healthier financial habits through expert content, personal reflections, and smart tool guidance.'}
             </p>
           </div>
 
@@ -135,7 +135,7 @@ export default function FinancialWellbeingDashboard() {
           >
             <motion.h2 className="dashboard-section-title" variants={itemVariants}>
               <BookOpen size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
-              {t('Learn')}
+              {'Learn'}
             </motion.h2>
             <div className="dashboard-grid">
               {learnItems.map((item) => {
@@ -166,11 +166,11 @@ export default function FinancialWellbeingDashboard() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
               <motion.h2 className="dashboard-section-title" variants={itemVariants} style={{ marginBottom: 0 }}>
                 <Zap size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
-                {t('Check-ins')}
+                {'Check-ins'}
               </motion.h2>
               <motion.div variants={itemVariants}>
                 <Link href="/history" className="btn btn-ghost btn-sm" style={{ gap: 6, fontSize: 12 }}>
-                  <History size={14} /> {t('View History')}
+                  <History size={14} /> {'View History'}
                 </Link>
               </motion.div>
             </div>
@@ -202,7 +202,7 @@ export default function FinancialWellbeingDashboard() {
           >
             <motion.h2 className="dashboard-section-title" variants={itemVariants}>
               <Compass size={18} strokeWidth={2.2} style={{ color: 'var(--brand-primary)' }} />
-              {t('Explore')}
+              {'Explore'}
             </motion.h2>
             <div className="stack-column">
               {exploreItems.map((item) => {

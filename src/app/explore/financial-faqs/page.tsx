@@ -19,14 +19,14 @@ const FAQS = [
 ];
 
 export default function FinancialFAQs() {
-  const { t } = useTranslation('explore');
+  const { t } = useTranslation('explore';
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title={t('Financial FAQs')}
-        subtitle={t('Answers to common money questions')}
+        title={'Financial FAQs'}
+        subtitle={'Answers to common money questions'}
         backHref="/"
         accentColor="var(--brand-accent)"
       />

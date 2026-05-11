@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Merkittävä taloudellinen ahdistus vaikuttaa hyvinvointiisi. Välittömiä taktisia toimenpiteitä suositellaan tilanteen vakauttamiseksi.",
   "CRITICAL": "KRIITTINEN",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Vakava taloudellinen paine havaittu. Tämä tila aiheuttaa suuria riskejä mielenterveydellesi ja fyysiselle terveydellesi. Aseta ammatillinen neuvontatuki etusijalle.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Vinkki: t(')}</strong> {t(')Suorita kaikki neljä tarkistusta saadaksesi kattavan raportin taloudellisesta hyvinvoinnistasi.",
   "Decode your money personality & behavioral archetype": "Purkaa rahapersoonallisuutesi ja käyttäytymisarkkityyppisi",
   "Benchmark your emergency fund, savings rate and habits": "Vertaile hätärahastoasi, säästökorkoasi ja tapojasi",
   "Measure your financial anxiety level and get relief tactics": "Mittaa taloudellisen ahdistuksen tasosi ja hanki helpotuskeinoja",
   "Are your foundations strong enough to start investing?": "Ovatko perustasi tarpeeksi vahvat aloittaaksesi sijoittamisen?",
   "Go back": "Mene takaisin",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Onko sinulla hätärahastoa?",
   "None at all": "Ei lainkaan",
   "Partially funded (1-2 mo)": "Osittain rahoitettu (1–2 kuukautta)",
@@ -251,5 +249,6 @@
   "SECURE": "TURVALLINEN",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Vahva säästöpuskuri. Prioriteetti: Optimoi tuotto ja kasvu.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Poikkeuksellinen pysyvyys. Prioriteetti: Keskity taktisiin varallisuuden katalysaattoreihin."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Poikkeuksellinen pysyvyys. Prioriteetti: Keskity taktisiin varallisuuden katalysaattoreihin.",
+  "}</strong> {": "}</strong> {"
 }

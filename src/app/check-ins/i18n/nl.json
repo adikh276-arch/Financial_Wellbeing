@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Aanzienlijke financiële angst beïnvloedt je welzijn. Directe tactische interventies worden aanbevolen om uw situatie te stabiliseren.",
   "CRITICAL": "KRITISCH",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Ernstige financiële druk gedetecteerd. Deze toestand brengt grote risico's met zich mee voor je mentale en fysieke gezondheid. Geef prioriteit aan professionele adviesondersteuning.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Pro tip: t(')}</strong> {t(')Voltooi alle 4 check-ins voor een uitgebreid rapport van je financiële welzijn.",
   "Decode your money personality & behavioral archetype": "Ontcijfer je geld, persoonlijkheid en gedragsarchetype",
   "Benchmark your emergency fund, savings rate and habits": "Benchmark je noodfonds, spaarrente en gedragingen",
   "Measure your financial anxiety level and get relief tactics": "Meet je financiële angstniveau en zoek verlichtingstactieken",
   "Are your foundations strong enough to start investing?": "Zijn je fundamenten sterk genoeg om te beginnen met investeren?",
   "Go back": "Ga terug",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Heb je een noodfonds?",
   "None at all": "Helemaal geen",
   "Partially funded (1-2 mo)": "Gedeeltelijk gefinancierd (1-2 maanden)",
@@ -251,5 +249,6 @@
   "SECURE": "VEILIG",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Robuuste spaar-buffer. Prioriteit: Optimaliseer voor opbrengst en groei.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Uitzonderlijke retentie. Prioriteit: Focus op tactische vermogenskatalysatoren."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Uitzonderlijke retentie. Prioriteit: Focus op tactische vermogenskatalysatoren.",
+  "}</strong> {": "}</strong> {"
 }

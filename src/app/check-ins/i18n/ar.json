@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "القلق المالي الكبير يؤثر على صحتك. يوصى بالتدخلات التكتيكية الفورية لاستقرار وضعك.",
   "CRITICAL": "حرج",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "تم رصد ضغط مالي شديد. هذه الحالة تشكل مخاطر كبيرة على صحتك النفسية والجسدية. أعط الأولوية للدعم الاستشاري المهني.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "نصيحة احترافية: t(')}</strong> {t(')أكمل جميع الفحوصات الأربعة للحصول على تقرير شامل عن صحتك المالية.",
   "Decode your money personality & behavioral archetype": "فك شفرة شخصيتك المالية ونمط سلوكك",
   "Benchmark your emergency fund, savings rate and habits": "قم بمقارنة صندوق الطوارئ الخاص بك، ومعدل الادخار، وعاداتك",
   "Measure your financial anxiety level and get relief tactics": "قس مستوى قلقك المالي واحصل على استراتيجيات تخفيف",
   "Are your foundations strong enough to start investing?": "هل أساساتك قوية بما يكفي لتبدأ في الاستثمار؟",
   "Go back": "الرجوع للخلف",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "هل لديك صندوق طوارئ؟",
   "None at all": "لا شيء على الإطلاق",
   "Partially funded (1-2 mo)": "تمويل جزئي (شهر إلى شهرين)",
@@ -251,5 +249,6 @@
   "SECURE": "آمن",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "توفير قوي. الأولوية: تحسين العائد والنمو.",
   "ELITE": "النخبة",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "احتفاظ استثنائي. الأولوية: ركز على محفزات الثروة التكتيكية."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "احتفاظ استثنائي. الأولوية: ركز على محفزات الثروة التكتيكية.",
+  "}</strong> {": "}</strong> {"
 }

@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Výrazná finanční úzkost ovlivňuje vaše zdraví. Okamžitě se doporučují taktické zásahy ke stabilizaci vaší situace.",
   "CRITICAL": "KRITICKÉ",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Zjištěn silný finanční tlak. Tento stav představuje vysoké riziko pro vaše duševní i fyzické zdraví. Upřednostňujte profesionální poradenskou podporu.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Tip: t(')}</strong> {t(')Dokončete všechny 4 kontroly pro komplexní zprávu o vaší finanční situaci.",
   "Decode your money personality & behavioral archetype": "Rozluštěte své peníze, osobnost a behaviorální archetyp",
   "Benchmark your emergency fund, savings rate and habits": "Porovnejte svůj nouzový fond, míru spoření a návyky",
   "Measure your financial anxiety level and get relief tactics": "Měřte si úroveň finanční úzkosti a získejte způsoby, jak pomoci",
   "Are your foundations strong enough to start investing?": "Jsou vaše základy dostatečně pevné na to, abyste mohli začít investovat?",
   "Go back": "Vrať se",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Máte nouzový fond?",
   "None at all": "Vůbec žádné",
   "Partially funded (1-2 mo)": "Částečně financované (1-2 měsíce)",
@@ -251,5 +249,6 @@
   "SECURE": "SECURE",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Robustní úsporná rezerva. Priorita: Optimalizujte výnos a růst.",
   "ELITE": "ELIT",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Výjimečná retence. Priorita: Zaměřit se na katalyzátory taktického bohatství."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Výjimečná retence. Priorita: Zaměřit se na katalyzátory taktického bohatství.",
+  "}</strong> {": "}</strong> {"
 }

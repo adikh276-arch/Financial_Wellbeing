@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Значительная финансовая тревога влияет на ваше благополучие. Рекомендуется немедленное тактическое вмешательство для стабилизации ситуации.",
   "CRITICAL": "КРИТИЧЕСКОЕ",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Обнаружено серьёзное финансовое давление. Это состояние представляет собой высокие риски для вашего психического и физического здоровья. Уделяйте приоритетное внимание профессиональной консультационной поддержке.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Профессиональный совет: t(')}</strong> {t(')Выполните все 4 проверки, чтобы получить подробный отчет о вашем финансовом состоянии.",
   "Decode your money personality & behavioral archetype": "Расшифруйте свои денежные личности и поведенческий архетип",
   "Benchmark your emergency fund, savings rate and habits": "Сравните свой резервный фонд, ставку сбережений и привычки",
   "Measure your financial anxiety level and get relief tactics": "Измерьте уровень финансовой тревоги и выберите способы облегчения",
   "Are your foundations strong enough to start investing?": "Достаточно ли у вас крепкие основы, чтобы начать инвестировать?",
   "Go back": "Возвращайся",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "У вас есть резервный фонд?",
   "None at all": "Совсем нет",
   "Partially funded (1-2 mo)": "Частично финансируется (1-2 месяца)",
@@ -251,5 +249,6 @@
   "SECURE": "БЕЗОПАСНОСТЬ",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Надёжный буфер сбережений. Приоритет: оптимизировать урожайность и рост.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Исключительное запоминание. Приоритет: Сосредоточьтесь на тактических катализаторах богатства."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Исключительное запоминание. Приоритет: Сосредоточьтесь на тактических катализаторах богатства.",
+  "}</strong> {": "}</strong> {"
 }

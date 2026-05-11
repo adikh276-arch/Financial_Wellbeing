@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Kebimbangan kewangan yang ketara memberi kesan kepada kesejahteraan anda. Campur tangan taktikal segera disyorkan untuk menstabilkan keadaan anda.",
   "CRITICAL": "KRITIKAL",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Tekanan kewangan yang teruk dikesan. Keadaan ini menimbulkan risiko tinggi kepada kesihatan mental dan fizikal anda. Utamakan sokongan nasihat profesional.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Petua pro: t(')}</strong> {t(')Lengkapkan kesemua 4 daftar masuk untuk laporan komprehensif tentang kesejahteraan kewangan anda.",
   "Decode your money personality & behavioral archetype": "Nyahkod personaliti wang anda dan arketipe tingkah laku",
   "Benchmark your emergency fund, savings rate and habits": "Penanda aras dana kecemasan, kadar simpanan dan tabiat anda",
   "Measure your financial anxiety level and get relief tactics": "Ukur tahap kebimbangan kewangan anda dan dapatkan taktik bantuan",
   "Are your foundations strong enough to start investing?": "Adakah asas anda cukup kukuh untuk mula melabur?",
   "Go back": "Pulanglah",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Adakah anda mempunyai dana kecemasan?",
   "None at all": "Tiada sama sekali",
   "Partially funded (1-2 mo)": "Dibiayai sebahagiannya (1-2 bln)",
@@ -251,5 +249,6 @@
   "SECURE": "SELAMAT",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Penampan simpanan yang mantap. Keutamaan: Optimumkan untuk hasil dan pertumbuhan.",
   "ELITE": "ELIT",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Pengekalan yang luar biasa. Keutamaan: Fokus pada pemangkin kekayaan taktikal."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Pengekalan yang luar biasa. Keutamaan: Fokus pada pemangkin kekayaan taktikal.",
+  "}</strong> {": "</strong> } {"
 }

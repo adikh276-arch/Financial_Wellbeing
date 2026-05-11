@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Betydande ekonomisk oro påverkar ditt välbefinnande. Omedelbara taktiska insatser rekommenderas för att stabilisera din situation.",
   "CRITICAL": "KRITIK",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Allvarlig ekonomisk press upptäckt. Detta tillstånd innebär stora risker för din mentala och fysiska hälsa. Prioritera professionellt rådgivningsstöd.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Proffstips: t(')}</strong> {t(')Fyll i alla fyra kontroller för en heltäckande rapport om din ekonomiska hälsa.",
   "Decode your money personality & behavioral archetype": "Avkoda din pengapersonlighet och beteendearketyp",
   "Benchmark your emergency fund, savings rate and habits": "Jämför din buffert, sparränta och vanor",
   "Measure your financial anxiety level and get relief tactics": "Mät din ekonomiska ångestnivå och skaffa lättnadsstrategier",
   "Are your foundations strong enough to start investing?": "Är dina grunder tillräckligt starka för att börja investera?",
   "Go back": "Gå tillbaka",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Har du en buffert?",
   "None at all": "Inga alls",
   "Partially funded (1-2 mo)": "Delvis finansierat (1–2 månader)",
@@ -251,5 +249,6 @@
   "SECURE": "SÄKRA",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Robust sparande buffert. Prioritet: Optimera för avkastning och tillväxt.",
   "ELITE": "ELIT",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Exceptionell retention. Prioritet: Fokusera på taktiska rikedomskatalysatorer."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Exceptionell retention. Prioritet: Fokusera på taktiska rikedomskatalysatorer.",
+  "}</strong> {": "}</strong> {"
 }

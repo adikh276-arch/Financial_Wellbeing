@@ -16,10 +16,10 @@ type Strategy = 'snowball' | 'avalanche' | null;
 
 const STRATEGY_INFO = {
   snowball: {
-    title: t('Debt Snowball'),
+    title: 'Debt Snowball',
     tag: 'Psychological Win',
     icon: <LayoutList size={22} color={ACCENT} />,
-    desc: t('Pay the minimum on all debts. Put all extra money onto the smallest debt first. When it is paid off, roll that payment to the next smallest. The momentum keeps you motivated.'),
+    desc: 'Pay the minimum on all debts. Put all extra money onto the smallest debt first. When it is paid off, roll that payment to the next smallest. The momentum keeps you motivated.',
     steps: [
       'List all debts from smallest to largest balance',
       'Make minimum payments on everything except the smallest',
@@ -28,10 +28,10 @@ const STRATEGY_INFO = {
     ],
   },
   avalanche: {
-    title: t('Debt Avalanche'),
+    title: 'Debt Avalanche',
     tag: 'Mathematically Best',
     icon: <Zap size={22} color={ACCENT} />,
-    desc: t('Pay the minimum on all debts. Put all extra money onto the debt with the highest interest rate first. This saves the most money over time.'),
+    desc: 'Pay the minimum on all debts. Put all extra money onto the debt with the highest interest rate first. This saves the most money over time.',
     steps: [
       'List all debts from highest to lowest interest rate',
       'Make minimum payments on everything except the highest rate',
@@ -43,7 +43,7 @@ const STRATEGY_INFO = {
 
 export default function DebtManagementPage() {
   const router = useRouter();
-  const { t } = useTranslation('debt-management-guide');
+  const { t } = useTranslation('debt-management-guide';
   const [step, setStep] = useState(-1);
   const [strategy, setStrategy] = useState<Strategy>(null);
   const [completed, setCompleted] = useState(false);
@@ -61,8 +61,8 @@ export default function DebtManagementPage() {
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
         <PageHeader
-          title={t('Debt Management Guide')}
-          subtitle={t('ACTIVITY')}
+          title={'Debt Management Guide'}
+          subtitle={'ACTIVITY'}
           backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
@@ -81,16 +81,16 @@ export default function DebtManagementPage() {
             </div>
             <p className="label-caps" style={{ color: ACCENT, marginBottom: 8 }}>DEBT-FREE PATHWAY</p>
             <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>
-              {t('Take Control of Your Debt')}
+              {'Take Control of Your Debt'}
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 400, margin: '0 auto var(--space-8)' }}>
-              {t("Debt doesn't have to be a burden forever. Learn the smartest ways to pay it off and reclaim your peace of mind.")}
+              {t("Debt doesn't have to be a burden forever. Learn the smartest ways to pay it off and reclaim your peace of mind."}
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', maxWidth: 400, margin: '0 auto var(--space-10)', textAlign: 'left' }}>
               {[
-                { icon: <BookOpen size={16} color={ACCENT} />, text: t('Learn to differentiate good vs. high-cost debt') },
-                { icon: <LayoutList size={16} color={ACCENT} />, text: t('Choose a proven mathematical repayment strategy') },
+                { icon: <BookOpen size={16} color={ACCENT} />, text: t('Learn to differentiate good vs. high-cost debt')) },
+                { icon: <LayoutList size={16} color={ACCENT} />, text: t('Choose a proven mathematical repayment strategy')) },
                 { icon: <CheckCircle size={16} color="#00A884" />, text: t('Build a step-by-step commitment action plan') },
               ].map((item, i) => (
                 <div key={i} style={{
@@ -108,7 +108,7 @@ export default function DebtManagementPage() {
             </div>
 
             <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
-              {t('Get Started')} <ArrowRight size={18} />
+              {'Get Started'} <ArrowRight size={18} />
             </button>
           </div>
         )}
@@ -125,10 +125,10 @@ export default function DebtManagementPage() {
                 <BookOpen size={26} color={ACCENT} />
               </div>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
-                {t('Understanding Debt')}
+                {'Understanding Debt'}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
-                {t('Not all debt is bad. Know the difference.')}
+                {'Not all debt is bad. Know the difference.'}
               </p>
             </div>
 
@@ -136,11 +136,11 @@ export default function DebtManagementPage() {
               {[
                 {
                   label: t('Good Debt'), color: '#00A884', bg: '#00A88415',
-                  items:[t('Student loans for career growth'), t('Home mortgage builds equity'), t('Business loans for income generation')],
+                  items:['Student loans for career growth', 'Home mortgage builds equity', 'Business loans for income generation'],
                 },
                 {
                   label: t('High-Cost Debt'), color: '#E74C3C', bg: '#E74C3C15',
-                  items:[t('Credit card interest (18–45%)'), t('Personal loans for lifestyle'), t('Buy-now-pay-later traps')],
+                  items:['Credit card interest (18–45%)', 'Personal loans for lifestyle', 'Buy-now-pay-later traps'],
                 },
               ].map(cat => (
                 <div key={cat.label} style={{
@@ -162,7 +162,7 @@ export default function DebtManagementPage() {
             </div>
 
             <button className="btn btn-primary btn-lg" onClick={() => setStep(1)} style={{ width: '100%' }}>
-              {t('Choose My Strategy')} <ArrowRight size={18} />
+              {'Choose My Strategy'} <ArrowRight size={18} />
             </button>
           </div>
         )}
@@ -172,10 +172,10 @@ export default function DebtManagementPage() {
           <div style={{ animation: 'slideInRight 0.35s ease both', paddingTop: 'var(--space-8)' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
-                {t('Choose Your Strategy')}
+                {'Choose Your Strategy'}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
-                {t('Pick the method that fits your personality and situation.')}
+                {'Pick the method that fits your personality and situation.'}
               </p>
             </div>
 
@@ -215,7 +215,7 @@ export default function DebtManagementPage() {
             </div>
 
             <button className="btn btn-primary btn-lg" onClick={() => setStep(2)} disabled={!strategy} style={{ width: '100%' }}>
-              {t('Build My Action Plan')} <ArrowRight size={18} />
+              {'Build My Action Plan'} <ArrowRight size={18} />
             </button>
           </div>
         )}
@@ -230,7 +230,7 @@ export default function DebtManagementPage() {
                 margin: '0 auto var(--space-4)',
               }}>{info.icon}</div>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
-                {info.title} {t('Plan')}
+                {info.title} {'Plan'}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6, lineHeight: 1.5, maxWidth: 380, margin: '8px auto 0' }}>
                 {info.desc}
@@ -255,7 +255,7 @@ export default function DebtManagementPage() {
             </div>
 
             <button className="btn btn-primary btn-lg" onClick={() => setCompleted(true)} style={{ width: '100%' }}>
-              {t('I Commit to This Plan')} <Check size={18} />
+              {'I Commit to This Plan'} <Check size={18} />
             </button>
           </div>
         )}
@@ -273,16 +273,16 @@ export default function DebtManagementPage() {
               <CheckCircle size={44} color="white" />
             </div>
             <p className="label-caps" style={{ color: ACCENT, marginBottom: 8 }}>ACTIVITY COMPLETE</p>
-            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Pathway to Freedom! 🎯')}</h1>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{'Pathway to Freedom! 🎯'}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 380, margin: '0 auto var(--space-10)' }}>
-              {t('You now have a proven strategy to eliminate your debt. Consistency is your greatest ally.')}
+              {'You now have a proven strategy to eliminate your debt. Consistency is your greatest ally.'}
             </p>
             <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button className="btn btn-secondary btn-lg" onClick={handleReset}>
-                <RotateCcw size={16} /> {t('Start Over')}
+                <RotateCcw size={16} /> {'Start Over'}
               </button>
-              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/')}>
-                {t('Back to Dashboard')} <ArrowRight size={16} />
+              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/'}>
+                {'Back to Dashboard')} <ArrowRight size={16} />
               </button>
             </div>
           </div>

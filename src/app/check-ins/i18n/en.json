@@ -145,13 +145,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.",
   "CRITICAL": "CRITICAL",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.",
   "Decode your money personality & behavioral archetype": "Decode your money personality & behavioral archetype",
   "Benchmark your emergency fund, savings rate and habits": "Benchmark your emergency fund, savings rate and habits",
   "Measure your financial anxiety level and get relief tactics": "Measure your financial anxiety level and get relief tactics",
   "Are your foundations strong enough to start investing?": "Are your foundations strong enough to start investing?",
   "Go back": "Go back",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Do you have an emergency fund?",
   "None at all": "None at all",
   "Partially funded (1-2 mo)": "Partially funded (1-2 mo)",
@@ -251,5 +249,6 @@
   "Higher probability of liquidity friction": "Higher probability of liquidity friction",
   "Implement \"Invisible Savings\" - direct deposit to brokerage": "Implement \"Invisible Savings\" - direct deposit to brokerage",
   "Enforce a 48-hour cooling period for any non-essential >1% spend": "Enforce a 48-hour cooling period for any non-essential >1% spend",
-  "Gamify the act of capital retention and tracking": "Gamify the act of capital retention and tracking"
+  "Gamify the act of capital retention and tracking": "Gamify the act of capital retention and tracking",
+  "}</strong> {": "}</strong> {"
 }

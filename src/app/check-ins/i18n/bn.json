@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "উল্লেখযোগ্য আর্থিক উদ্বেগ আপনার সুস্থতাকে প্রভাবিত করছে। আপনার পরিস্থিতি স্থিতিশীল করার জন্য তাত্ক্ষণিক কৌশলগত হস্তক্ষেপের পরামর্শ দেওয়া হয়।",
   "CRITICAL": "সমালোচনামূলক",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "গুরুতর আর্থিক চাপ শনাক্ত হয়েছে। এই অবস্থাটি আপনার মানসিক এবং শারীরিক স্বাস্থ্যের জন্য উচ্চ ঝুঁকি তৈরি করে। পেশাদার পরামর্শদাতা সহায়তাকে অগ্রাধিকার দিন।",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "প্রো টিপ: t(')}</strong> {t(')আপনার আর্থিক সুস্থতার একটি বিস্তৃত প্রতিবেদনের জন্য সমস্ত 4 টি চেক-ইন সম্পূর্ণ করুন।",
   "Decode your money personality & behavioral archetype": "আপনার অর্থের ব্যক্তিত্ব এবং আচরণগত প্রত্নতাত্ত্বিক ডিকোড করুন",
   "Benchmark your emergency fund, savings rate and habits": "আপনার জরুরি তহবিল, সঞ্চয়ের হার এবং অভ্যাসগুলি বেঞ্চমার্ক করুন",
   "Measure your financial anxiety level and get relief tactics": "আপনার আর্থিক উদ্বেগের স্তর পরিমাপ করুন এবং ত্রাণ কৌশল পান",
   "Are your foundations strong enough to start investing?": "আপনার ভিত্তি কি বিনিয়োগ শুরু করার জন্য যথেষ্ট শক্তিশালী?",
   "Go back": "ফিরে যাও",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "আপনার কি জরুরি তহবিল আছে?",
   "None at all": "মোটেও না,",
   "Partially funded (1-2 mo)": "আংশিক অর্থায়ন (1-2 mo)",
@@ -251,5 +249,6 @@
   "SECURE": "নিরাপদ",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "শক্তিশালী সঞ্চয় বাফার। অগ্রাধিকার: ফলন এবং বৃদ্ধির জন্য অপ্টিমাইজ করুন।",
   "ELITE": "অভিজাত",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "ব্যতিক্রমী ধরে রাখা। অগ্রাধিকার: কৌশলগত সম্পদ অনুঘটকের দিকে মনোনিবেশ করুন।"
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "ব্যতিক্রমী ধরে রাখা। অগ্রাধিকার: কৌশলগত সম্পদ অনুঘটকের দিকে মনোনিবেশ করুন।",
+  "}</strong> {": "} {</strong>"
 }

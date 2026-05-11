@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Znaczny lęk finansowy wpływa na Twoje samopoczucie. Zaleca się natychmiastowe interwencje taktyczne, aby ustabilizować sytuację.",
   "CRITICAL": "KRYTYCZNE",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Wykryto silną presję finansową. Ten stan niesie ze sobą wysokie ryzyko dla zdrowia psychicznego i fizycznego. Priorytetem jest profesjonalne wsparcie doradcze.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Profesjonalna wskazówka: t(')}</strong> {t(')Wykonaj wszystkie 4 kontrole, aby uzyskać kompleksowy raport o swoim stanie finansowym.",
   "Decode your money personality & behavioral archetype": "Rozszyfruj swoje pieniądze, osobowość i archetyp zachowań",
   "Benchmark your emergency fund, savings rate and habits": "Porównaj swój fundusz awaryjny, stopę oszczędzania i nawyki",
   "Measure your financial anxiety level and get relief tactics": "Mierz poziom swojego niepokoju finansowego i znajdź taktyki ulgi",
   "Are your foundations strong enough to start investing?": "Czy Twoje fundamenty są wystarczająco silne, by zacząć inwestować?",
   "Go back": "Wróć",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Czy masz fundusz awaryjny?",
   "None at all": "Wcale",
   "Partially funded (1-2 mo)": "Częściowo finansowane (1-2 miesiące)",
@@ -251,5 +249,6 @@
   "SECURE": "ZABEZPIECZENIE",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Solidny bufor oszczędnościowy. Priorytet: Optymalizuj pod kątem plonów i wzrostu.",
   "ELITE": "ELITA",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Wyjątkowa retencja. Priorytet: Skup się na katalizatorach taktycznego bogactwa."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Wyjątkowa retencja. Priorytet: Skup się na katalizatorach taktycznego bogactwa.",
+  "}</strong> {": "}</strong> {"
 }

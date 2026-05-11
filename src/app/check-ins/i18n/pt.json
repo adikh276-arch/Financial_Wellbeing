@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Uma ansiedade financeira significativa está afetando seu bem-estar. Intervenções táticas imediatas são recomendadas para estabilizar sua situação.",
   "CRITICAL": "CRÍTICO",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Pressão financeira severa detectada. Esse estado representa altos riscos para sua saúde mental e física. Priorize o suporte profissional de aconselhamento.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Dica profissional: t(')}</strong> {t(')Complete todas as 4 verificações para um relatório completo do seu bem-estar financeiro.",
   "Decode your money personality & behavioral archetype": "Decifre seu arquétipo de personalidade e comportamento do seu dinheiro",
   "Benchmark your emergency fund, savings rate and habits": "Compare seu fundo de emergência, taxa de poupança e hábitos",
   "Measure your financial anxiety level and get relief tactics": "Meça seu nível de ansiedade financeira e busque estratégias de alívio",
   "Are your foundations strong enough to start investing?": "Suas bases são fortes o suficiente para começar a investir?",
   "Go back": "Volte",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Você tem um fundo de emergência?",
   "None at all": "Nenhum",
   "Partially funded (1-2 mo)": "Parcialmente financiado (1-2 meses)",
@@ -251,5 +249,6 @@
   "SECURE": "SEGURO",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Um amplo de desconto robusto. Prioridade: Otimizar para rendimento e crescimento.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Retenção excepcional. Prioridade: Foque em catalisadores táticos de riqueza."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Retenção excepcional. Prioridade: Foque em catalisadores táticos de riqueza.",
+  "}</strong> {": "}</strong> {"
 }

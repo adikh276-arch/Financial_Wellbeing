@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "महत्वपूर्ण वित्तीय चिंता आपकी भलाई को प्रभावित कर रही है। आपकी स्थिति को स्थिर करने के लिए तत्काल सामरिक हस्तक्षेप की सिफारिश की जाती है।",
   "CRITICAL": "गंभीर",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "गंभीर वित्तीय दबाव का पता चला। यह अवस्था आपके मानसिक और शारीरिक स्वास्थ्य के लिए उच्च जोखिम पैदा करती है। पेशेवर सलाहकार सहायता को प्राथमिकता दें।",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "प्रो टिप: t(')}</strong> {t(')अपनी वित्तीय भलाई की व्यापक रिपोर्ट के लिए सभी 4 चेक-इन पूरे करें।",
   "Decode your money personality & behavioral archetype": "अपने धन के व्यक्तित्व और व्यवहार संबंधी आदर्श को डिकोड करें",
   "Benchmark your emergency fund, savings rate and habits": "अपने आपातकालीन निधि, बचत दर और आदतों को बेंचमार्क करें",
   "Measure your financial anxiety level and get relief tactics": "अपनी वित्तीय चिंता के स्तर को मापें और राहत की रणनीति प्राप्त करें",
   "Are your foundations strong enough to start investing?": "क्या आपकी नींव निवेश शुरू करने के लिए पर्याप्त मजबूत है?",
   "Go back": "पस जाओ",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "क्या आपके पास आपातकालीन निधि है?",
   "None at all": "बिल्कुल भी नहीं",
   "Partially funded (1-2 mo)": "आंशिक रूप से वित्त पोषित (1-2 माह)",
@@ -251,5 +249,6 @@
   "SECURE": "सुरक्षित",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "मजबूत बचत बफर। प्राथमिकता: उपज और विकास के लिए अनुकूलन करें।",
   "ELITE": "अभिजात वर्ग",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "असाधारण प्रतिधारण। प्राथमिकता: सामरिक धन उत्प्रेरकों पर ध्यान दें।"
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "असाधारण प्रतिधारण। प्राथमिकता: सामरिक धन उत्प्रेरकों पर ध्यान दें।",
+  "}</strong> {": "}</strong> {"
 }

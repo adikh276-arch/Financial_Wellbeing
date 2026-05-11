@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "חרדה כלכלית משמעותית משפיעה על רווחתך. מומלץ לבצע התערבויות טקטיות מיידיות כדי לייצב את מצבך.",
   "CRITICAL": "קריטי",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "זוהה לחץ כלכלי חמור. מצב זה מהווה סיכון גבוה לבריאותך הנפשית והפיזית. תן עדיפות לתמיכה מקצועית בייעוץ.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "טיפ מקצועי: t(')}</strong> {t(')השלים את כל ארבעת הבדיקות לקבלת דוח מקיף על מצבך הכלכלי.",
   "Decode your money personality & behavioral archetype": "פענח את האישיות וההתנהגות הכספית שלך",
   "Benchmark your emergency fund, savings rate and habits": "השוו את קרן החירום, שיעור החיסכון והרגלים",
   "Measure your financial anxiety level and get relief tactics": "מדד את רמת החרדה הכלכלית שלך וקבל אסטרטגיות להקלה",
   "Are your foundations strong enough to start investing?": "האם היסודות שלך חזקים מספיק כדי להתחיל להשקיע?",
   "Go back": "תחזור אחורה",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "יש לך קרן חירום?",
   "None at all": "כלל לא",
   "Partially funded (1-2 mo)": "מימון חלקי (חודש עד חודשיים)",
@@ -251,5 +249,6 @@
   "SECURE": "מאובטח",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "חיסכון חזק. עדיפות: אופטימיזציה לתשואה וצמיחה.",
   "ELITE": "אליטה",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "שמירה יוצאת דופן. עדיפות: להתמקד בזרזי עושר טקטיים."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "שמירה יוצאת דופן. עדיפות: להתמקד בזרזי עושר טקטיים.",
+  "}</strong> {": "}</strong> {"
 }

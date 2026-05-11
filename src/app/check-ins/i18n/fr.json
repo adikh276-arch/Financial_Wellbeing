@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Une anxiété financière importante affecte votre bien-être. Des interventions tactiques immédiates sont recommandées pour stabiliser votre situation.",
   "CRITICAL": "CRITIQUE",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Pression financière sévère détectée. Cet état présente de grands risques pour votre santé mentale et physique. Privilégiez le soutien professionnel au conseil.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Astuce d’expert : t(')}</strong> {t(')Effectuez les 4 bilans pour obtenir un rapport complet de votre bien-être financier.",
   "Decode your money personality & behavioral archetype": "Décodez votre archétype de personnalité et comportement monétaire",
   "Benchmark your emergency fund, savings rate and habits": "Comparez votre fonds d’urgence, votre taux d’épargne et vos habitudes",
   "Measure your financial anxiety level and get relief tactics": "Mesurez votre niveau d’anxiété financière et trouvez des moyens de soulagement",
   "Are your foundations strong enough to start investing?": "Vos fondations sont-elles suffisamment solides pour commencer à investir ?",
   "Go back": "Retourne",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Avez-vous un fonds d’urgence ?",
   "None at all": "Aucune du tout",
   "Partially funded (1-2 mo)": "Partiellement financé (1-2 mois)",
@@ -251,5 +249,6 @@
   "SECURE": "SÉCURISÉ",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Un tampon d’économie robuste. Priorité : Optimiser pour le rendement et la croissance.",
   "ELITE": "ÉLITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Une rétention exceptionnelle. Priorité : Concentrez-vous sur les catalyseurs tactiques de richesse."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Une rétention exceptionnelle. Priorité : Concentrez-vous sur les catalyseurs tactiques de richesse.",
+  "}</strong> {": "}</strong> {"
 }

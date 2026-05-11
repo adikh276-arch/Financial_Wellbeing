@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "குறிப்பிடத்தக்க நிதி கவலை உங்கள் நல்வாழ்வை பாதிக்கிறது. உங்கள் நிலைமையை உறுதிப்படுத்த உடனடி தந்திரோபாய தலையீடுகள் பரிந்துரைக்கப்படுகின்றன.",
   "CRITICAL": "சிக்கலானது",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "கடுமையான நிதி அழுத்தம் கண்டறியப்பட்டது. இந்த நிலை உங்கள் மன மற்றும் உடல் ஆரோக்கியத்திற்கு அதிக ஆபத்துகளை ஏற்படுத்துகிறது. தொழில்முறை ஆலோசனை ஆதரவுக்கு முன்னுரிமை அளிக்கவும்.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "ப்ரோ உதவிக்குறிப்பு: t(')}</strong> {t(')உங்கள் நிதி நல்வாழ்வின் விரிவான அறிக்கைக்கு அனைத்து 4 செக்-இன்களையும் முடிக்கவும்.",
   "Decode your money personality & behavioral archetype": "உங்கள் பணம், ஆளுமை மற்றும் நடத்தை தொல்பொருள் ஆகியவற்றை டிகோட் செய்யுங்கள்",
   "Benchmark your emergency fund, savings rate and habits": "உங்கள் அவசரகால நிதி, சேமிப்பு விகிதம் மற்றும் பழக்கவழக்கங்களை அளவிடுங்கள்",
   "Measure your financial anxiety level and get relief tactics": "உங்கள் நிதி கவலை அளவை அளவிடுங்கள் மற்றும் நிவாரண தந்திரங்களைப் பெறுங்கள்",
   "Are your foundations strong enough to start investing?": "முதலீடு செய்யத் தொடங்கும் அளவுக்கு உங்கள் அடித்தளங்கள் வலுவாக உள்ளதா?",
   "Go back": "திரும்பிச் செல்லுங்கள்",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "உங்களிடம் அவசர நிதி இருக்கிறதா?",
   "None at all": "எதுவுமே இல்லை",
   "Partially funded (1-2 mo)": "ஓரளவு நிதியளிக்கப்பட்டது (1-2 mo)",
@@ -251,5 +249,6 @@
   "SECURE": "பாதுகாப்பானது",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "வலுவான சேமிப்பு இடையகம். முன்னுரிமை: மகசூல் மற்றும் வளர்ச்சிக்கு உகந்ததாக்குங்கள்.",
   "ELITE": "உயரடுக்கு",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "விதிவிலக்கான தக்கவைப்பு. முன்னுரிமை: தந்திரோபாய செல்வ வினையூக்கிகளில் கவனம் செலுத்துங்கள்."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "விதிவிலக்கான தக்கவைப்பு. முன்னுரிமை: தந்திரோபாய செல்வ வினையூக்கிகளில் கவனம் செலுத்துங்கள்.",
+  "}</strong> {": "} {</strong>"
 }

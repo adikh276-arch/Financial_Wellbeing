@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "嚴重的財務焦慮正在影響你的身心健康。建議立即採取戰術介入以穩定您的狀況。",
   "CRITICAL": "批評",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "偵測到嚴重的財務壓力。這種狀態對你的心理和身體健康構成高度風險。優先尋求專業諮詢支持。",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "專業建議：t（'）</strong>} {t（'）完成全部4次檢查，以全面報告你的財務狀況。",
   "Decode your money personality & behavioral archetype": "解碼你的金錢、個性與行為原型",
   "Benchmark your emergency fund, savings rate and habits": "比較你的緊急基金、儲蓄率和習慣",
   "Measure your financial anxiety level and get relief tactics": "測量你的財務焦慮程度並獲得緩解策略",
   "Are your foundations strong enough to start investing?": "你的基礎夠堅實可以開始投資嗎？",
   "Go back": "回去",
-  ")}</strong> {t(": "）}</strong> {t（",
   "Do you have an emergency fund?": "你有緊急備用金嗎？",
   "None at all": "一點都沒有",
   "Partially funded (1-2 mo)": "部分資助（1-2個月）",
@@ -251,5 +249,6 @@
   "SECURE": "安全",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "穩健的儲蓄緩衝。優先事項：優化產量與成長。",
   "ELITE": "精英",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "優秀的留存率。優先事項：專注於戰術性財富催化劑。"
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "優秀的留存率。優先事項：專注於戰術性財富催化劑。",
+  "}</strong> {": "}</strong> {"
 }

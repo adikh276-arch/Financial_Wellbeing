@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "ความวิตกกังวลทางการเงินอย่างมีนัยสําคัญกําลังส่งผลกระทบต่อความเป็นอยู่ที่ดีของคุณ แนะนําให้มีการแทรกแซงทางยุทธวิธีทันทีเพื่อทําให้สถานการณ์ของคุณมีเสถียรภาพ",
   "CRITICAL": "วิกฤต",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "ตรวจพบแรงกดดันทางการเงินอย่างรุนแรง สถานะนี้ก่อให้เกิดความเสี่ยงสูงต่อสุขภาพจิตและร่างกายของคุณ จัดลําดับความสําคัญของการสนับสนุนที่ปรึกษาอย่างมืออาชีพ",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "เคล็ดลับสําหรับมือโปร: t(')}</strong> {t(')เช็คอินทั้ง 4 ครั้งให้เสร็จสมบูรณ์เพื่อรับรายงานที่ครอบคลุมเกี่ยวกับความเป็นอยู่ทางการเงินของคุณ",
   "Decode your money personality & behavioral archetype": "ถอดรหัสบุคลิกภาพเงินและต้นแบบพฤติกรรมของคุณ",
   "Benchmark your emergency fund, savings rate and habits": "เปรียบเทียบกองทุนฉุกเฉิน อัตราการออม และนิสัยของคุณ",
   "Measure your financial anxiety level and get relief tactics": "วัดระดับความวิตกกังวลทางการเงินของคุณและรับกลยุทธ์การบรรเทาทุกข์",
   "Are your foundations strong enough to start investing?": "รากฐานของคุณแข็งแกร่งพอที่จะเริ่มลงทุนหรือไม่?",
   "Go back": "ย้อนกลับไป",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "คุณมีกองทุนฉุกเฉินหรือไม่?",
   "None at all": "ไม่มีเลย",
   "Partially funded (1-2 mo)": "ได้รับทุนบางส่วน (1-2 เดือน)",
@@ -251,5 +249,6 @@
   "SECURE": "ปลอดภัย",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "บัฟเฟอร์การประหยัดที่แข็งแกร่ง ลําดับความสําคัญ: เพิ่มประสิทธิภาพสําหรับผลผลิตและการเติบโต",
   "ELITE": "ชั้นยอด",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "การเก็บรักษาที่ยอดเยี่ยม ลําดับความสําคัญ: มุ่งเน้นไปที่ตัวเร่งปฏิกิริยาความมั่งคั่งทางยุทธวิธี"
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "การเก็บรักษาที่ยอดเยี่ยม ลําดับความสําคัญ: มุ่งเน้นไปที่ตัวเร่งปฏิกิริยาความมั่งคั่งทางยุทธวิธี",
+  "}</strong> {": "}</strong> {"
 }

@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "شدید مالی اضطراب آپ کی فلاح و بہبود پر اثر انداز ہو رہا ہے۔ آپ کی صورتحال کو مستحکم کرنے کے لیے فوری حکمت عملی کی مداخلتیں تجویز کی جاتی ہیں۔",
   "CRITICAL": "تنقیدی",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "شدید مالی دباؤ کا پتہ چلا۔ یہ حالت آپ کی ذہنی اور جسمانی صحت کے لیے شدید خطرات پیدا کرتی ہے۔ پیشہ ورانہ مشاورتی معاونت کو ترجیح دیں۔",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "پیشہ ورانہ مشورہ: t(')}</strong> {t(')اپنی مالی فلاح و بہبود کی جامع رپورٹ کے لیے تمام 4 چیک انز مکمل کریں۔",
   "Decode your money personality & behavioral archetype": "اپنے پیسے کی شخصیت اور رویے کی مثال کو سمجھیں",
   "Benchmark your emergency fund, savings rate and habits": "اپنے ایمرجنسی فنڈ، بچت کی شرح اور عادات کا اندازہ لگائیں",
   "Measure your financial anxiety level and get relief tactics": "اپنی مالی بے چینی کی سطح کو ناپیں اور ریلیف کے طریقے حاصل کریں",
   "Are your foundations strong enough to start investing?": "کیا آپ کی بنیادیں اتنی مضبوط ہیں کہ آپ سرمایہ کاری شروع کر سکیں؟",
   "Go back": "واپس جاؤ",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "کیا آپ کے پاس ایمرجنسی فنڈ ہے؟",
   "None at all": "بالکل بھی نہیں",
   "Partially funded (1-2 mo)": "جزوی طور پر فنڈڈ (1-2 ماہ)",
@@ -251,5 +249,6 @@
   "SECURE": "محفوظ",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "مضبوط بچت کا بفر۔ ترجیح: پیداوار اور ترقی کے لیے بہتر بنائیں۔",
   "ELITE": "ایلیٹ",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "غیر معمولی برقرار رکھنا۔ ترجیح: ٹیکٹیکل دولت کے کیٹالسٹ پر توجہ مرکوز کریں۔"
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "غیر معمولی برقرار رکھنا۔ ترجیح: ٹیکٹیکل دولت کے کیٹالسٹ پر توجہ مرکوز کریں۔",
+  "}</strong> {": "}</strong> {"
 }

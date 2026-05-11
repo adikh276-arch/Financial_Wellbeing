@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Betydelig økonomisk angst påvirker helsen din. Umiddelbare taktiske tiltak anbefales for å stabilisere situasjonen din.",
   "CRITICAL": "KRITISK",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Alvorlig økonomisk press oppdaget. Denne tilstanden utgjør høy risiko for din mentale og fysiske helse. Prioriter profesjonell rådgivningsstøtte.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Profftips: t(')}</strong> {t(')Fullfør alle fire sjekkene for en omfattende rapport om din økonomiske situasjon.",
   "Decode your money personality & behavioral archetype": "Dekode pengenes personlighet og atferdsarketypen din",
   "Benchmark your emergency fund, savings rate and habits": "Benchmark nødfondet ditt, sparerente og vaner",
   "Measure your financial anxiety level and get relief tactics": "Mål ditt økonomiske angstnivå og få avlastningsstrategier",
   "Are your foundations strong enough to start investing?": "Er fundamentet ditt sterkt nok til å begynne å investere?",
   "Go back": "Gå tilbake",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Har du en nødfond?",
   "None at all": "Ingen i det hele tatt",
   "Partially funded (1-2 mo)": "Delvis finansiert (1-2 måneder)",
@@ -251,5 +249,6 @@
   "SECURE": "SIKRE",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Robust sparebuffer. Prioritet: Optimaliser for avkastning og vekst.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Eksepsjonell retensjon. Prioritet: Fokuser på taktiske rikdomskatalysatorer."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Eksepsjonell retensjon. Prioritet: Fokuser på taktiske rikdomskatalysatorer.",
+  "}</strong> {": "}</strong> {"
 }

@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Kecemasan keuangan yang signifikan memengaruhi kesejahteraan Anda. Intervensi taktis segera direkomendasikan untuk menstabilkan situasi Anda.",
   "CRITICAL": "KRITIS",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Tekanan keuangan yang parah terdeteksi. Keadaan ini menimbulkan risiko tinggi bagi kesehatan mental dan fisik Anda. Prioritaskan dukungan konsultasi profesional.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Kiat pro: t(')}</strong> {t(')Selesaikan ke-4 check-in untuk laporan komprehensif tentang kesejahteraan keuangan Anda.",
   "Decode your money personality & behavioral archetype": "Memecahkan kode kepribadian uang Anda dan pola dasar perilaku Anda",
   "Benchmark your emergency fund, savings rate and habits": "Tolok ukur dana darurat, suku bunga tabungan, dan kebiasaan Anda",
   "Measure your financial anxiety level and get relief tactics": "Ukur tingkat kecemasan keuangan Anda dan dapatkan taktik bantuan",
   "Are your foundations strong enough to start investing?": "Apakah fondasi Anda cukup kuat untuk mulai berinvestasi?",
   "Go back": "Kembali",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Apakah Anda memiliki dana darurat?",
   "None at all": "Tidak ada sama sekali",
   "Partially funded (1-2 mo)": "Didanai sebagian (1-2 bln)",
@@ -251,5 +249,6 @@
   "SECURE": "AMAN",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Buffer tabungan yang kuat. Prioritas: Optimalkan hasil dan pertumbuhan.",
   "ELITE": "ELIT",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Retensi yang luar biasa. Prioritas: Fokus pada katalis kekayaan taktis."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Retensi yang luar biasa. Prioritas: Fokus pada katalis kekayaan taktis.",
+  "}</strong> {": "</strong> } {"
 }

@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Значна фінансова тривога впливає на ваше благополуччя. Рекомендується негайне тактичне втручання для стабілізації вашої ситуації.",
   "CRITICAL": "КРИТИЧНО",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Виявлено серйозний фінансовий тиск. Цей стан становить великі ризики для вашого психічного та фізичного здоров'я. Пріоритет — професійна консультаційна підтримка.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Порада: t(')}</strong> {t(')Заповніть усі 4 перевірки, щоб отримати повний звіт про свій фінансовий стан.",
   "Decode your money personality & behavioral archetype": "Розшифруйте свої гроші, особистість і поведінковий архетип",
   "Benchmark your emergency fund, savings rate and habits": "Оцініть свій резервний фонд, ставку заощаджень і звички",
   "Measure your financial anxiety level and get relief tactics": "Виміряйте свій рівень фінансової тривоги та обирайте способи полегшення",
   "Are your foundations strong enough to start investing?": "Чи достатньо міцні ваші основи, щоб почати інвестувати?",
   "Go back": "Повернись назад",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "У вас є резервний фонд?",
   "None at all": "Взагалі жодних",
   "Partially funded (1-2 mo)": "Частково фінансується (1-2 місяці)",
@@ -251,5 +249,6 @@
   "SECURE": "БЕЗПЕЧНО",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Надійний буфер заощаджень. Пріоритет: оптимізувати врожайність і зростання.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Виняткова пам'ятність. Пріоритет: зосередитися на тактичних каталізаторах багатства."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Виняткова пам'ятність. Пріоритет: зосередитися на тактичних каталізаторах багатства.",
+  "}</strong> {": "}</strong> {"
 }

@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "A jelentős pénzügyi szorongás befolyásolja a jólétedet. Azonnali taktikai beavatkozásokat javasolnak a helyzet stabilizálása érdekében.",
   "CRITICAL": "KRITIKUS",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Súlyos pénzügyi nyomást észleltek. Ez az állapot nagy kockázatot jelent a mentális és fizikai egészségedre nézve. Helyezd előtérbe a szakmai tanácsadó támogatást.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Tipp: t(')}</strong> {t(')Töltse ki mind a négy ellenőrzést, hogy átfogó jelentést kapjon pénzügyi helyzetéről.",
   "Decode your money personality & behavioral archetype": "Fejtsd meg a pénzed, személyiségedet és viselkedési archetípusodat",
   "Benchmark your emergency fund, savings rate and habits": "Mérje fel vészhelyzeti alapját, megtakarítási karátáját és szokásait",
   "Measure your financial anxiety level and get relief tactics": "Mérd fel a pénzügyi szorongásod szintjét, és szerezz megkönnyebbülési módszereket",
   "Are your foundations strong enough to start investing?": "Elég erős az alapjaid ahhoz, hogy elkezdj befektetni?",
   "Go back": "Menj vissza",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Van vészhelyzeti alapotok?",
   "None at all": "Egyáltalán nem",
   "Partially funded (1-2 mo)": "Részben finanszírozott (1-2 hónap)",
@@ -251,5 +249,6 @@
   "SECURE": "BIZTONSÁGOS",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Erős megtakarítási puffer. Prioritás: Optimalizálni a hozamot és a növekedést.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Kivételes megtartás. Prioritás: A taktikai vagyon katalizátoraira koncentráljunk."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Kivételes megtartás. Prioritás: A taktikai vagyon katalizátoraira koncentráljunk.",
+  "}</strong> {": "}</strong> {"
 }

@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "심각한 재정적 불안이 당신의 웰빙에 영향을 미치고 있습니다. 상황을 안정시키기 위해 즉각적인 전술적 개입이 권장됩니다.",
   "CRITICAL": "비평",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "심각한 재정 압박이 감지됨. 이 상태는 정신적, 신체적 건강에 큰 위험을 초래합니다. 전문적인 자문 지원을 우선시하세요.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "팁: t(')</strong>} {t(')4번의 체크인을 모두 완료하여 재정 상태에 대한 포괄적인 보고서를 작성하세요.",
   "Decode your money personality & behavioral archetype": "당신의 돈, 성격, 행동 원형을 해독하세요",
   "Benchmark your emergency fund, savings rate and habits": "비상금, 저축률, 습관을 벤치마크하세요",
   "Measure your financial anxiety level and get relief tactics": "재정적 불안 수준을 측정하고 완화 전략을 세우세요",
   "Are your foundations strong enough to start investing?": "투자를 시작할 만큼 기초가 튼튼한가요?",
   "Go back": "돌아가",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "비상금이 있나요?",
   "None at all": "전혀 없습니다",
   "Partially funded (1-2 mo)": "부분 지원 (1-2개월)",
@@ -251,5 +249,6 @@
   "SECURE": "안전해",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "견고한 저축 완충 장치. 우선순위: 수확량과 성장을 최적화하세요.",
   "ELITE": "엘리트",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "탁월한 고객 유지율. 우선순위: 전술적 부의 촉매제에 집중하세요."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "탁월한 고객 유지율. 우선순위: 전술적 부의 촉매제에 집중하세요.",
+  "}</strong> {": "}</strong> {"
 }

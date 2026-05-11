@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Σημαντικό οικονομικό άγχος επηρεάζει την ευημερία σας. Συνιστώνται άμεσες τακτικές παρεμβάσεις για τη σταθεροποίηση της κατάστασής σας.",
   "CRITICAL": "ΚΡΊΣΙΜΟΣ",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Εντοπίστηκε σοβαρή οικονομική πίεση. Αυτή η κατάσταση εγκυμονεί υψηλούς κινδύνους για την ψυχική και σωματική σας υγεία. Δώστε προτεραιότητα στην επαγγελματική συμβουλευτική υποστήριξη.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Επαγγελματική συμβουλή: t(')}</strong> {t(')Ολοκληρώστε και τα 4 check-in για μια ολοκληρωμένη αναφορά της οικονομικής σας ευημερίας.",
   "Decode your money personality & behavioral archetype": "Αποκωδικοποιήστε το αρχέτυπο της προσωπικότητας και της συμπεριφοράς σας",
   "Benchmark your emergency fund, savings rate and habits": "Συγκρίνετε το ταμείο έκτακτης ανάγκης, το ποσοστό αποταμίευσης και τις συνήθειές σας",
   "Measure your financial anxiety level and get relief tactics": "Μετρήστε το επίπεδο του οικονομικού σας άγχους και λάβετε τακτικές ανακούφισης",
   "Are your foundations strong enough to start investing?": "Είναι τα θεμέλιά σας αρκετά ισχυρά για να ξεκινήσετε να επενδύετε;",
   "Go back": "Επιστροφή",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Έχετε ταμείο έκτακτης ανάγκης;",
   "None at all": "Καμία απολύτως",
   "Partially funded (1-2 mo)": "Μερικώς χρηματοδοτούμενο (1-2 μήνες)",
@@ -251,5 +249,6 @@
   "SECURE": "ΑΣΦΑΛΗΣ",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Ισχυρό απόθεμα αποταμίευσης. Προτεραιότητα: Βελτιστοποίηση για απόδοση και ανάπτυξη.",
   "ELITE": "ΕΛΊΤ",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Εξαιρετική διατήρηση. Προτεραιότητα: Επικεντρωθείτε σε τακτικούς καταλύτες πλούτου."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Εξαιρετική διατήρηση. Προτεραιότητα: Επικεντρωθείτε σε τακτικούς καταλύτες πλούτου.",
+  "}</strong> {": "}</strong> {"
 }

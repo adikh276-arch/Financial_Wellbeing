@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "గణనీయమైన ఆర్థిక ఆందోళన మీ శ్రేయస్సును ప్రభావితం చేస్తుంది. మీ పరిస్థితిని స్థిరీకరించడానికి తక్షణ వ్యూహాత్మక జోక్యాలు సిఫార్సు చేయబడ్డాయి.",
   "CRITICAL": "క్రిటికల్",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "తీవ్రమైన ఆర్థిక ఒత్తిడి గుర్తించబడింది. ఈ స్థితి మీ మానసిక మరియు శారీరక ఆరోగ్యానికి అధిక ప్రమాదాలను కలిగిస్తుంది. ప్రొఫెషనల్ అడ్వైజరీ సపోర్ట్ కు ప్రాధాన్యత ఇవ్వండి.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "ప్రో చిట్కా: t(')}</strong> {t(')మీ ఆర్థిక శ్రేయస్సు యొక్క సమగ్ర నివేదిక కోసం మొత్తం 4 చెక్-ఇన్ లను పూర్తి చేయండి.",
   "Decode your money personality & behavioral archetype": "మీ డబ్బు వ్యక్తిత్వం మరియు ప్రవర్తనా ఆర్కిటైప్ ను డీకోడ్ చేయండి",
   "Benchmark your emergency fund, savings rate and habits": "మీ ఎమర్జెన్సీ ఫండ్, పొదుపు రేటు మరియు అలవాట్లను బెంచ్ మార్క్ చేయండి",
   "Measure your financial anxiety level and get relief tactics": "మీ ఆర్థిక ఆందోళన స్థాయిని లెక్కించండి మరియు ఉపశమన వ్యూహాలను పొందండి",
   "Are your foundations strong enough to start investing?": "పెట్టుబడి పెట్టడం ప్రారంభించడానికి మీ పునాదులు బలంగా ఉన్నాయా?",
   "Go back": "వెనక్కి వెళ్ళు",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "మీకు అత్యవసర నిధి ఉందా?",
   "None at all": "ఏదీ లేదు",
   "Partially funded (1-2 mo)": "పాక్షికంగా నిధులు సమకూర్చబడ్డాయి (1-2 mo)",
@@ -251,5 +249,6 @@
   "SECURE": "సురక్షితం",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "బలమైన పొదుపు బఫర్. ప్రాధాన్యత: దిగుబడి మరియు పెరుగుదల కోసం ఆప్టిమైజ్ చేయండి.",
   "ELITE": "ఎలైట్",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "అసాధారణమైన నిలుపుదల. ప్రాధాన్యత: వ్యూహాత్మక సంపద ఉత్ప్రేరకాలపై దృష్టి పెట్టండి."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "అసాధారణమైన నిలుపుదల. ప్రాధాన్యత: వ్యూహాత్మక సంపద ఉత్ప్రేరకాలపై దృష్టి పెట్టండి.",
+  "}</strong> {": "} {</strong>"
 }

@@ -20,18 +20,18 @@ const CATEGORY_META: Record<string, { color: string; bg: string }> = {
 };
 
 export default function FinancialTips() {
-  const { t } = useTranslation('explore');
+  const { t } = useTranslation('explore';
   const router = useRouter();
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('All';
   const [copied, setCopied] = useState<string | null>(null);
 
   const TIPS = [
-    { category: t('Savings'), tip: t("Automate your savings on payday. If you never see the money in your spending account, you won't miss it."), label: t("Automatic First") },
-    { category: t('Savings'), tip: t("Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative."), label: t("Starter Win") },
-    { category: t('Budgeting'), tip: t("The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade."), label: t("Cooling Period") },
-    { category: t('Budgeting'), tip: t("Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth."), label: t("Leak Audit") },
-    { category: t('Debt'), tip: t("Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid."), label: t("Apex Strategy") },
-    { category: t('Investing'), tip: t("Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility."), label: t("Consistency") },
+    { category: t('Savings'), tip: t("Automate your savings on payday. If you never see the money in your spending account, you won't miss it.", label: t("Automatic First" },
+    { category: t('Savings')), tip: t("Aim for a small win: Save your first 1,000 units. The psychological boost of a completed goal is transformative.", label: t("Starter Win" },
+    { category: t('Budgeting')), tip: t("The 48-hour rule: Wait 48 hours for any non-essential purchase over 1% of your income. Most impulses fade.", label: t("Cooling Period" },
+    { category: t('Budgeting')), tip: t("Audit subscriptions quarterly. Recurring micro-leaks are the silent killers of wealth.", label: t("Leak Audit" },
+    { category: t('Debt')), tip: t("Use the Avalanche Method: Pay off the highest interest debt first to minimize total interest paid.", label: t("Apex Strategy" },
+    { category: t('Investing')), tip: t("Time in the market beats timing the market. Start your systematic plan today, regardless of current volatility.", label: t('Consistency') },
   ];
 
   const categories = ['All', ...Object.keys(CATEGORY_META)];
@@ -46,8 +46,8 @@ export default function FinancialTips() {
   return (
     <div className="page-wrapper">
       <PageHeader 
-        title={t("Financial Tips")}
-        subtitle={t("Quick ideas to improve your money habits")}
+        title={"Financial Tips"}
+        subtitle={"Quick ideas to improve your money habits"}
         backHref="/"
         accentColor="#F59E0B"
       />

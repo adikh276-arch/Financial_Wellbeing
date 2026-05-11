@@ -15,12 +15,12 @@ const ACCENT = '#3B82F6';
 
 export default function BudgetBuddyPage() {
   const router = useRouter();
-  const { t } = useTranslation('budget-buddy');
+  const { t } = useTranslation('budget-buddy';
   const [step, setStep] = useState(-1);
-  const [income, setIncome] = useState('');
+  const [income, setIncome] = useState('';
   const [completed, setCompleted] = useState(false);
 
-  const amount = Number(income.replace(/,/g, '')) || 0;
+  const amount = Number(income.replace(/,/g, '') || 0;
   const needs = Math.round(amount * 0.5);
   const wants = Math.round(amount * 0.3);
   const savings = Math.round(amount * 0.2);
@@ -28,7 +28,7 @@ export default function BudgetBuddyPage() {
   const handleReset = () => {
     setCompleted(false);
     setStep(-1);
-    setIncome('');
+    setIncome('';
   };
 
   return (
@@ -36,8 +36,8 @@ export default function BudgetBuddyPage() {
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
         <PageHeader
-          title={t('Budget Buddy')}
-          subtitle={t('ACTIVITY')}
+          title={'Budget Buddy'}
+          subtitle={'ACTIVITY'}
           backHref="/"
           steps={step >= 0 && !completed ? STEPS : undefined}
           currentStep={step >= 0 ? step : undefined}
@@ -56,17 +56,17 @@ export default function BudgetBuddyPage() {
             </div>
             <p className="label-caps" style={{ color: ACCENT, marginBottom: 8 }}>NEW ACTIVITY</p>
             <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>
-              {t('Own Your Money, Own Your Life')}
+              {'Own Your Money, Own Your Life'}
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 400, margin: '0 auto var(--space-8)' }}>
-              {t("A budget isn't about restriction — it's about freedom. Let's build yours in under 10 minutes.")}
+              {t("A budget isn't about restriction — it's about freedom. Let's build yours in under 10 minutes."}
             </p>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-6)', marginBottom: 'var(--space-10)', flexWrap: 'wrap' }}>
               {[
-                { icon: <Clock size={16} color={ACCENT} />, label: t('TIME'), val: t('7 mins') },
-                { icon: <ListChecks size={16} color={ACCENT} />, label: t('STEPS'), val: t('4 total') },
-                { icon: <TrendingUp size={16} color={ACCENT} />, label: t('IMPACT'), val: t('High') },
+                { icon: <Clock size={16} color={ACCENT} />, label: t('TIME')), val: t('7 mins')) },
+                { icon: <ListChecks size={16} color={ACCENT} />, label: t('STEPS')), val: t('4 total')) },
+                { icon: <TrendingUp size={16} color={ACCENT} />, label: t('IMPACT')), val: t('High')) },
               ].map(item => (
                 <div key={item.label} style={{ textAlign: 'center' }}>
                   <div style={{
@@ -81,7 +81,7 @@ export default function BudgetBuddyPage() {
             </div>
 
             <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
-              {t('Get Started')} <ArrowRight size={18} />
+              {'Get Started'} <ArrowRight size={18} />
             </button>
           </div>
         )}
@@ -98,10 +98,10 @@ export default function BudgetBuddyPage() {
                 <Wallet size={26} color={ACCENT} />
               </div>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
-                {t("What's your monthly income?")}
+                {t("What's your monthly income?"}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
-                {t('Enter your take-home pay after tax')}
+                {'Enter your take-home pay after tax')}
               </p>
             </div>
 
@@ -111,14 +111,14 @@ export default function BudgetBuddyPage() {
               boxShadow: 'var(--shadow-sm)',
             }}>
               <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 8 }}>
-                {t('Monthly Income')}
+                {'Monthly Income')}
               </label>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontSize: 'var(--text-2xl)', fontWeight: 700, color: 'var(--text-muted)' }}>$</span>
                 <input
                   type="text"
                   value={income}
-                  onChange={e => setIncome(e.target.value.replace(/[^0-9,]/g, ''))}
+                  onChange={e => setIncome(e.target.value.replace(/[^0-9,]/g, '')}
                   placeholder="0"
                   autoFocus
                   style={{
@@ -141,7 +141,7 @@ export default function BudgetBuddyPage() {
               disabled={!amount}
               style={{ width: '100%' }}
             >
-              {t('Calculate My Budget')} <ArrowRight size={18} />
+              {'Calculate My Budget'} <ArrowRight size={18} />
             </button>
           </div>
         )}
@@ -151,18 +151,18 @@ export default function BudgetBuddyPage() {
           <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
-                {t('Your 50/30/20 Plan')}
+                {'Your 50/30/20 Plan'}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
-                {t('Based on')} <strong style={{ color: 'var(--text-primary)' }}>{fmt.currency(amount, true)}</strong> {t('monthly income')}
+                {'Based on'} <strong style={{ color: 'var(--text-primary)' }}>{fmt.currency(amount, true)}</strong> {'monthly income'}
               </p>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
               {[
-                { label: t('Needs (50%)'), desc: t('Rent, Food, Bills'), val: needs, color: '#2563EB', icon: <Wallet size={20} color="#2563EB" /> },
-                { label: t('Wants (30%)'), desc: t('Dining, Fun, Hobbies'), val: wants, color: '#F39C12', icon: <Target size={20} color="#F39C12" /> },
-                { label: t('Savings (20%)'), desc: t('Emergency, Investments'), val: savings, color: '#00A884', icon: <PiggyBank size={20} color="#00A884" /> },
+                { label: t('Needs (50%)'), desc: 'Rent, Food, Bills', val: needs, color: '#2563EB', icon: <Wallet size={20} color="#2563EB" /> },
+                { label: t('Wants (30%)'), desc: 'Dining, Fun, Hobbies', val: wants, color: '#F39C12', icon: <Target size={20} color="#F39C12" /> },
+                { label: t('Savings (20%)'), desc: 'Emergency, Investments', val: savings, color: '#00A884', icon: <PiggyBank size={20} color="#00A884" /> },
               ].map(item => (
                 <div key={item.label} style={{
                   background: 'white', border: '1px solid var(--border-subtle)',
@@ -187,7 +187,7 @@ export default function BudgetBuddyPage() {
             </div>
 
             <button className="btn btn-primary btn-lg" onClick={() => setStep(2)} style={{ width: '100%' }}>
-              {t('See My Action Plan')} <ArrowRight size={18} />
+              {'See My Action Plan'} <ArrowRight size={18} />
             </button>
           </div>
         )}
@@ -197,18 +197,18 @@ export default function BudgetBuddyPage() {
           <div style={{ animation: 'fadeInUp 0.4s ease both', paddingTop: 'var(--space-8)' }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', fontWeight: 800, color: 'var(--text-primary)' }}>
-                {t('Your Budget Action Plan')}
+                {'Your Budget Action Plan'}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 6 }}>
-                {t('3 steps to make your budget work')}
+                {'3 steps to make your budget work'}
               </p>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-8)' }}>
               {[
-                { num: '01', title: t('Track Every Rupee'), desc: t('Use a budgeting app or spreadsheet to log your spending daily.') },
-                { num: '02', title: t('Automate Savings'), desc: t('Set up an auto-debit for your savings on payday. Pay yourself first.') },
-                { num: '03', title: t('Review Monthly'), desc: t('Every month-end, compare actual spending vs your 50/30/20 targets.') },
+                { num: '01', title: 'Track Every Rupee', desc: 'Use a budgeting app or spreadsheet to log your spending daily.' },
+                { num: '02', title: 'Automate Savings', desc: 'Set up an auto-debit for your savings on payday. Pay yourself first.' },
+                { num: '03', title: 'Review Monthly', desc: 'Every month-end, compare actual spending vs your 50/30/20 targets.' },
               ].map(item => (
                 <div key={item.num} style={{
                   background: 'white', border: '1px solid var(--border-subtle)',
@@ -228,7 +228,7 @@ export default function BudgetBuddyPage() {
             </div>
 
             <button className="btn btn-primary btn-lg" onClick={() => setCompleted(true)} style={{ width: '100%' }}>
-              {t('Complete Activity')} <Check size={18} />
+              {'Complete Activity'} <Check size={18} />
             </button>
           </div>
         )}
@@ -246,16 +246,16 @@ export default function BudgetBuddyPage() {
               <CheckCircle size={44} color="white" />
             </div>
             <p className="label-caps" style={{ color: '#00A884', marginBottom: 8 }}>ACTIVITY COMPLETE</p>
-            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Budget Built! 🎉')}</h1>
+            <h1 className="display-sm" style={{ marginBottom: 'var(--space-4)' }}>{'Budget Built! 🎉'}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 380, margin: '0 auto var(--space-10)' }}>
-              {t("You've taken a crucial step toward financial freedom. Stick to your plan and review it every month.")}
+              {t("You've taken a crucial step toward financial freedom. Stick to your plan and review it every month."}
             </p>
             <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button className="btn btn-secondary btn-lg" onClick={handleReset}>
-                <RotateCcw size={16} /> {t('Start Over')}
+                <RotateCcw size={16} /> {'Start Over'}
               </button>
-              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/')}>
-                {t('Back to Dashboard')} <ArrowRight size={16} />
+              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/'}>
+                {'Back to Dashboard')} <ArrowRight size={16} />
               </button>
             </div>
           </div>

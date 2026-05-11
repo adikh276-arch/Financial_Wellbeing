@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Önemli finansal kaygı sağlığınızı etkiliyor. Durumunuzu istikrara kavuşturmak için acil taktik müdahaleler önerilir.",
   "CRITICAL": "KRITIK",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Ciddi finansal baskı tespit edildi. Bu durum, zihinsel ve fiziksel sağlığınız için yüksek riskler taşır. Profesyonel danışmanlık desteğine öncelik verin.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Profesyonel ipucu: t(')}</strong> {t(')Finansal durumunuzun kapsamlı bir raporu için tüm 4 check-in tamamlanın.",
   "Decode your money personality & behavioral archetype": "Paranızın kişiliğini ve davranış arketipinizi çözün",
   "Benchmark your emergency fund, savings rate and habits": "Acil durum fonunuzu, tasarruf oranınızı ve alışkanlıklarınızı kıyaslayın",
   "Measure your financial anxiety level and get relief tactics": "Finansal kaygı seviyenizi ölçün ve rahatlama taktikleri kullanın",
   "Are your foundations strong enough to start investing?": "Temelleriniz yatırım yapmaya başlayacak kadar güçlü mi?",
   "Go back": "Geri dön",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Acil durum fonunuz var mı?",
   "None at all": "Hiç yok",
   "Partially funded (1-2 mo)": "Kısmen finanse edilen (1-2 ay)",
@@ -251,5 +249,6 @@
   "SECURE": "GÜVENLİ",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Sağlam tasarruf tamponu var. Öncelik: Verim ve büyüme için optimize edin.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Olağanüstü bir tutum. Öncelik: Taktiksel zenginlik katalizörlerine odaklanın."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Olağanüstü bir tutum. Öncelik: Taktiksel zenginlik katalizörlerine odaklanın.",
+  "}</strong> {": "}</strong> {"
 }

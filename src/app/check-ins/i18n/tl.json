@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Ang matinding pagkabalisa sa pananalapi ay nakakaapekto sa iyong kagalingan. Inirerekumenda ang agarang taktikal na interbensyon upang patatagin ang iyong sitwasyon.",
   "CRITICAL": "KRITIKAL",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Natuklasan ang matinding panggigipit sa pananalapi. Ang ganitong kalagayan ay nagdudulot ng mataas na panganib sa iyong mental at pisikal na kalusugan. Unahin ang propesyonal na suporta sa payo.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Pro tip: t(')}</strong> {t(')Kumpletuhin ang lahat ng 4 na check-in para sa isang komprehensibong ulat ng iyong kagalingan sa pananalapi.",
   "Decode your money personality & behavioral archetype": "I-decode ang iyong personalidad sa pera at archetype ng pag-uugali",
   "Benchmark your emergency fund, savings rate and habits": "I-benchmark ang iyong emergency fund, savings rate at gawi",
   "Measure your financial anxiety level and get relief tactics": "Sukatin ang iyong antas ng pagkabalisa sa pananalapi at kumuha ng mga taktika sa pagtulong",
   "Are your foundations strong enough to start investing?": "Sapat na ba ang iyong mga pundasyon upang simulan ang pamumuhunan?",
   "Go back": "Bumalik",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Mayroon ka bang emergency fund?",
   "None at all": "Wala sa lahat",
   "Partially funded (1-2 mo)": "Bahagyang pinondohan (1-2 mo)",
@@ -251,5 +249,6 @@
   "SECURE": "LIGTAS",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Matibay na buffer ng pagtitipid. Prayoridad: I-optimize para sa ani at paglago.",
   "ELITE": "PILING TAO",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Pambihirang pagpapanatili. Prayoridad: Tumuon sa mga taktikal na katalista ng kayamanan."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Pambihirang pagpapanatili. Prayoridad: Tumuon sa mga taktikal na katalista ng kayamanan.",
+  "}</strong> {": "</strong> } {"
 }

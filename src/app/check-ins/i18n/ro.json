@@ -218,13 +218,11 @@
   "Significant financial anxiety is impacting your wellbeing. Immediate tactical interventions are recommended to stabilize your situation.": "Anxietatea financiară semnificativă îți afectează starea de bine. Se recomandă intervenții tactice imediate pentru a stabiliza situația.",
   "CRITICAL": "CRITIC",
   "Severe financial pressure detected. This state poses high risks to your mental and physical health. Prioritize professional advisory support.": "Presiune financiară severă detectată. Această stare prezintă riscuri ridicate pentru sănătatea ta mentală și fizică. Prioritizează sprijinul profesional de consiliere.",
-  "Pro tip: t(')}</strong> {t(')Complete all 4 check-ins for a comprehensive report of your financial wellbeing.": "Sfat de profesionist: t(')}</strong> {t(')Completează toate cele 4 verificări pentru un raport cuprinzător al stării tale financiare.",
   "Decode your money personality & behavioral archetype": "Descodă-ți arhetipul de personalitate și comportament al banilor",
   "Benchmark your emergency fund, savings rate and habits": "Comparați-vă fondul de urgență, rata de economisire și obiceiurile",
   "Measure your financial anxiety level and get relief tactics": "Măsoară-ți nivelul de anxietate financiară și găsește tactici de alinare",
   "Are your foundations strong enough to start investing?": "Sunt fundațiile tale suficient de solide pentru a începe să investești?",
   "Go back": "Întoarce-te",
-  ")}</strong> {t(": ")}</strong> {t(",
   "Do you have an emergency fund?": "Ai un fond de urgență?",
   "None at all": "Deloc",
   "Partially funded (1-2 mo)": "Parțial finanțat (1-2 luni)",
@@ -251,5 +249,6 @@
   "SECURE": "SIGUR",
   "Robust savings buffer. Priority: Optimize for yield and growth.": "Amortizare solidă de economii. Prioritate: Optimizarea pentru randament și creștere.",
   "ELITE": "ELITE",
-  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Retenție excepțională. Prioritate: Concentrează-te pe catalizatorii tactici ai averii."
+  "Exceptional retention. Priority: Focus on tactical wealth catalysts.": "Retenție excepțională. Prioritate: Concentrează-te pe catalizatorii tactici ai averii.",
+  "}</strong> {": "}</strong> {"
 }

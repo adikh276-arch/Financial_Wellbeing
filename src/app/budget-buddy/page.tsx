@@ -254,10 +254,7 @@ export default function BudgetBuddyPage() {
               <button className="btn btn-secondary btn-lg" onClick={handleReset}>
                 <RotateCcw size={16} /> {t('Start Over')}
               </button>
-              <button className="btn btn-primary btn-lg" onClick={(e) => {
-                e.preventDefault();
-                window.location.replace('/');
-              }}>
+              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/')}>
                 {t('Back to Dashboard')} <ArrowRight size={16} />
               </button>
             </div>

@@ -11,57 +11,58 @@ import { storage } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 
-const QUESTIONS = [
-  { id: 'q1', text: t('When you encounter an unsolicited discount or sale event:'), options: ['Disregard entirely - utility over price always', 'Analytical review for potential high-value needs', 'Capitalize on the discount opportunity immediately'] },
-  { id: 'q2', text: t('Your primary methodology for monthly capital allocation:'), options: ['Algorithmic - automated transfers on payday', 'Residual - saving whatever remains post-spend', 'Opportunistic - minimal structure, living for today'] },
-  { id: 'q3', text: t('Under high-stress environments, your fiscal reaction is:'), options: ['Hyper-retention - increasing cash reserves for security', 'Moderate - consistent spending on small comforts', 'Disruptive - significant spend for immediate dopamine'] },
-  { id: 'q4', text: t('The act of transaction execution makes you feel:'), options: ['Friction - spending feels like a responsibility shift', 'Neutral - a purely functional exchange of value', 'Vibrant - an immediate sense of reward or relief'] },
-  { id: 'q5', text: t('Your level of granular expense monitoring:'), options: ['Continuous - real-time tracking in digital ledger', 'Periodic - rough mental estimates of major outflows', 'Non-existent - trusting intuition and balance checks'] },
-  { id: 'q6', text: t('Your strategic perspective on credit instruments:'), options: ['Leverage - strictly functional, paid in full monthly', 'Convenience - a standard operational payment tool', 'Extension - a means to bridge current capital gaps'] },
-  { id: 'q7', text: t('Your approach to long-horizon financial modeling:'), options: ['Detailed - comprehensive multi-year strategic plan', 'Conceptual - vague directional milestones', 'Reactive - primary focus on current liquidity needs'] },
-  { id: 'q8', text: t('Upon receiving a significant revenue increase:'), options: ['Capitalize - immediately increase investment velocity', 'Hybrid - split between lifestyle and accumulation', 'Lifestyle - immediate upgrade to current environment'] },
-  { id: 'q9', text: t('How frequently do you execute impulse acquisitions?'), options: ['Negligible - strictly following evaluation protocols', 'Occasional - mostly low-impact lifestyle spends', 'Chronic - immediate conversion from desire to spend'] },
-  { id: 'q10', text: t('Your current relationship with your financial state:'), options: ['Sovereign - complete mastery of personal numbers', 'Functional - mostly optimized, occasional outliers', 'Turbulent - capital appears to dissipate rapidly'] },
-];
-
-const STYLES = [
-  {
-    id: 'saver',
-    label: t('The Strategic Architect'),
-    icon: Shield,
-    color: '#00A884',
-    gradient: 'linear-gradient(135deg, #00A884 0%, #00d2d3 100%)',
-    description: t('You prioritize fiscal security and long-term capital accumulation. You possess high self-regulation but may under-allocate to current lifestyle enjoyment.'),
-    strengths: ['Exceptional capital retention', 'Robust emergency liquidity', 'Long-horizon strategic thinking'],
-    challenges: ['Potential opportunity cost of enjoyment', 'Risk of hyper-frugality burnout', 'Emotional friction during necessary spends'],
-    recommendations: ['Explicitly budget 20-30% for lifestyle capital', 'Quantify the ROI of experiences and joy', 'Automate "joy funds" to reduce spending guilt'],
-  },
-  {
-    id: 'balancer',
-    label: t('The Equitable Optimizer'),
-    icon: Scale,
-    color: 'var(--brand-primary)',
-    gradient: 'linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)',
-    description: t('You maintain a high-functioning equilibrium between current fulfillment and future security. An adaptable and pragmatic fiscal behavioral model.'),
-    strengths: ['Sustainable lifestyle balance', 'High adaptability to market shifts', 'Low psychological stress regarding money'],
-    challenges: ['May lack aggressive growth momentum', 'Savings velocity might be inconsistent', 'Risk of "middle ground" stagnation'],
-    recommendations: ['Implement a strict 50/30/20 framework', 'Increase investment velocity during high-revenue cycles', 'Set ambitious 10-year terminal wealth targets'],
-  },
-  {
-    id: 'spender',
-    label: t('The Experiential Catalyst'),
-    icon: Zap,
-    color: '#F39C12',
-    gradient: 'linear-gradient(135deg, #F39C12 0%, #E67E22 100%)',
-    description: t('You prioritize current environment optimization and experiences. You catalyze capital into immediate value but require rigorous systems for accumulation.'),
-    strengths: ['Maximizes real-time lifestyle value', 'Highly generous and social capital', 'Risk-tolerant and growth-oriented'],
-    challenges: ['Low structural accumulation baseline', 'Susceptible to impulse capital leaks', 'Higher probability of liquidity friction'],
-    recommendations: ['Implement "Invisible Savings" - direct deposit to brokerage', 'Enforce a 48-hour cooling period for any non-essential >1% spend', 'Gamify the act of capital retention and tracking'],
-  },
-];
-
 export default function SpendingStyleQuiz() {
   const { t } = useTranslation('check-ins');
+
+  const QUESTIONS = [
+    { id: 'q1', text: 'When you encounter an unsolicited discount or sale event:', options: ['Disregard entirely - utility over price always', 'Analytical review for potential high-value needs', 'Capitalize on the discount opportunity immediately'] },
+    { id: 'q2', text: 'Your primary methodology for monthly capital allocation:', options: ['Algorithmic - automated transfers on payday', 'Residual - saving whatever remains post-spend', 'Opportunistic - minimal structure, living for today'] },
+    { id: 'q3', text: 'Under high-stress environments, your fiscal reaction is:', options: ['Hyper-retention - increasing cash reserves for security', 'Moderate - consistent spending on small comforts', 'Disruptive - significant spend for immediate dopamine'] },
+    { id: 'q4', text: 'The act of transaction execution makes you feel:', options: ['Friction - spending feels like a responsibility shift', 'Neutral - a purely functional exchange of value', 'Vibrant - an immediate sense of reward or relief'] },
+    { id: 'q5', text: 'Your level of granular expense monitoring:', options: ['Continuous - real-time tracking in digital ledger', 'Periodic - rough mental estimates of major outflows', 'Non-existent - trusting intuition and balance checks'] },
+    { id: 'q6', text: 'Your strategic perspective on credit instruments:', options: ['Leverage - strictly functional, paid in full monthly', 'Convenience - a standard operational payment tool', 'Extension - a means to bridge current capital gaps'] },
+    { id: 'q7', text: 'Your approach to long-horizon financial modeling:', options: ['Detailed - comprehensive multi-year strategic plan', 'Conceptual - vague directional milestones', 'Reactive - primary focus on current liquidity needs'] },
+    { id: 'q8', text: 'Upon receiving a significant revenue increase:', options: ['Capitalize - immediately increase investment velocity', 'Hybrid - split between lifestyle and accumulation', 'Lifestyle - immediate upgrade to current environment'] },
+    { id: 'q9', text: 'How frequently do you execute impulse acquisitions?', options: ['Negligible - strictly following evaluation protocols', 'Occasional - mostly low-impact lifestyle spends', 'Chronic - immediate conversion from desire to spend'] },
+    { id: 'q10', text: 'Your current relationship with your financial state:', options: ['Sovereign - complete mastery of personal numbers', 'Functional - mostly optimized, occasional outliers', 'Turbulent - capital appears to dissipate rapidly'] },
+  ];
+
+  const STYLES = [
+    {
+      id: 'saver',
+      label: 'The Strategic Architect',
+      icon: Shield,
+      color: '#00A884',
+      gradient: 'linear-gradient(135deg, #00A884 0%, #00d2d3 100%)',
+      description: 'You prioritize fiscal security and long-term capital accumulation. You possess high self-regulation but may under-allocate to current lifestyle enjoyment.',
+      strengths: ['Exceptional capital retention', 'Robust emergency liquidity', 'Long-horizon strategic thinking'],
+      challenges: ['Potential opportunity cost of enjoyment', 'Risk of hyper-frugality burnout', 'Emotional friction during necessary spends'],
+      recommendations: ['Explicitly budget 20-30% for lifestyle capital', 'Quantify the ROI of experiences and joy', 'Automate "joy funds" to reduce spending guilt'],
+    },
+    {
+      id: 'balancer',
+      label: 'The Equitable Optimizer',
+      icon: Scale,
+      color: 'var(--brand-primary)',
+      gradient: 'linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)',
+      description: 'You maintain a high-functioning equilibrium between current fulfillment and future security. An adaptable and pragmatic fiscal behavioral model.',
+      strengths: ['Sustainable lifestyle balance', 'High adaptability to market shifts', 'Low psychological stress regarding money'],
+      challenges: ['May lack aggressive growth momentum', 'Savings velocity might be inconsistent', 'Risk of "middle ground" stagnation'],
+      recommendations: ['Implement a strict 50/30/20 framework', 'Increase investment velocity during high-revenue cycles', 'Set ambitious 10-year terminal wealth targets'],
+    },
+    {
+      id: 'spender',
+      label: 'The Experiential Catalyst',
+      icon: Zap,
+      color: '#F39C12',
+      gradient: 'linear-gradient(135deg, #F39C12 0%, #E67E22 100%)',
+      description: 'You prioritize current environment optimization and experiences. You catalyze capital into immediate value but require rigorous systems for accumulation.',
+      strengths: ['Maximizes real-time lifestyle value', 'Highly generous and social capital', 'Risk-tolerant and growth-oriented'],
+      challenges: ['Low structural accumulation baseline', 'Susceptible to impulse capital leaks', 'Higher probability of liquidity friction'],
+      recommendations: ['Implement "Invisible Savings" - direct deposit to brokerage', 'Enforce a 48-hour cooling period for any non-essential >1% spend', 'Gamify the act of capital retention and tracking'],
+    },
+  ];
+
   const [step, setStep] = useState(0); 
   const [answers, setAnswers] = useState<number[]>([]);
   const [saved, setSaved] = useState(false);

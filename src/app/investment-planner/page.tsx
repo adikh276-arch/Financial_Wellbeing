@@ -19,51 +19,8 @@ interface FormData {
   goal: string; monthly: number;
 }
 
-const RISK_PROFILES = {
-  Conservative: {
-    return: 7.5, label: t('PRESERVATION'), color: '#00A884',
-    gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
-    desc: "Stable, lower-risk. capital preservation.",
-    allocation: [
-      { name: 'Fixed Income', value: 50, color: '#00A884' },
-      { name: 'Bullion', value: 20, color: '#F39C12' },
-      { name: 'Equity', value: 20, color: '#2563EB' },
-      { name: 'Liquidity', value: 10, color: '#9CA3AF' },
-    ],
-    vehicles: ['Debt Mutual Funds', 'Sovereign Gold Bonds', 'PPF', 'NPS'],
-    returnRange: '7-9%',
-  },
-  Moderate: {
-    return: 11, label: t('BALANCED'), color: '#2563EB',
-    gradient: 'linear-gradient(135deg, #2563EB, #60A5FA)',
-    desc: "Balanced. Mix of growth and stability.",
-    allocation: [
-      { name: 'Equity', value: 50, color: '#2563EB' },
-      { name: 'Fixed Income', value: 25, color: '#00A884' },
-      { name: 'Bullion', value: 15, color: '#F39C12' },
-      { name: 'Liquidity', value: 10, color: '#9CA3AF' },
-    ],
-    vehicles: ['Hybrid Mutual Funds', 'Large-cap Index Funds', 'Corporate Bonds', 'Blue-chip Stocks'],
-    returnRange: '10-13%',
-  },
-  Aggressive: {
-    return: 15, label: t('EXPANSION'), color: '#e84393',
-    gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
-    desc: "High-growth. Suited for long horizons.",
-    allocation: [
-      { name: 'Equity', value: 75, color: '#e84393' },
-      { name: 'Fixed Income', value: 10, color: '#00A884' },
-      { name: 'Bullion', value: 10, color: '#F39C12' },
-      { name: 'Liquidity', value: 5, color: '#9CA3AF' },
-    ],
-    vehicles: ['Direct Equity', 'Small-cap Focus Funds', 'Sector ETFs', 'International Funds'],
-    returnRange: '14-18%',
-  },
-};
-
 const GOALS = ['Wealth Creation', 'Retirement', 'Real Estate', 'Education', 'Other'];
 const PERIODS = [1, 3, 5, 10, 20];
-
 const STEPS = ['Capital', 'Strategy', 'Results'];
 
 export default function InvestmentPlanner() {
@@ -71,6 +28,48 @@ export default function InvestmentPlanner() {
   const searchParams = useSearchParams();
   const query = searchParams.toString();
   const suffix = query ? `?${query}` : '';
+
+  const RISK_PROFILES = {
+    Conservative: {
+      return: 7.5, label: 'PRESERVATION', color: '#00A884',
+      gradient: 'linear-gradient(135deg, #00A884, #00D2D3)',
+      desc: "Stable, lower-risk. capital preservation.",
+      allocation: [
+        { name: 'Fixed Income', value: 50, color: '#00A884' },
+        { name: 'Bullion', value: 20, color: '#F39C12' },
+        { name: 'Equity', value: 20, color: '#2563EB' },
+        { name: 'Liquidity', value: 10, color: '#9CA3AF' },
+      ],
+      vehicles: ['Debt Mutual Funds', 'Sovereign Gold Bonds', 'PPF', 'NPS'],
+      returnRange: '7-9%',
+    },
+    Moderate: {
+      return: 11, label: 'BALANCED', color: '#2563EB',
+      gradient: 'linear-gradient(135deg, #2563EB, #60A5FA)',
+      desc: "Balanced. Mix of growth and stability.",
+      allocation: [
+        { name: 'Equity', value: 50, color: '#2563EB' },
+        { name: 'Fixed Income', value: 25, color: '#00A884' },
+        { name: 'Bullion', value: 15, color: '#F39C12' },
+        { name: 'Liquidity', value: 10, color: '#9CA3AF' },
+      ],
+      vehicles: ['Hybrid Mutual Funds', 'Large-cap Index Funds', 'Corporate Bonds', 'Blue-chip Stocks'],
+      returnRange: '10-13%',
+    },
+    Aggressive: {
+      return: 15, label: 'EXPANSION', color: '#e84393',
+      gradient: 'linear-gradient(135deg, #e84393, #fd79a8)',
+      desc: "High-growth. Suited for long horizons.",
+      allocation: [
+        { name: 'Equity', value: 75, color: '#e84393' },
+        { name: 'Fixed Income', value: 10, color: '#00A884' },
+        { name: 'Bullion', value: 10, color: '#F39C12' },
+        { name: 'Liquidity', value: 5, color: '#9CA3AF' },
+      ],
+      vehicles: ['Direct Equity', 'Small-cap Focus Funds', 'Sector ETFs', 'International Funds'],
+      returnRange: '14-18%',
+    },
+  };
 
   const [step, setStep] = useState(-1);
   const [saved, setSaved] = useState(false);
@@ -102,7 +101,7 @@ export default function InvestmentPlanner() {
     });
   }, []);
 
-  const profile = RISK_PROFILES[form.risk];
+  const profile = (RISK_PROFILES as any)[form.risk];
 
   const compute = useCallback(() => {
     const projectedAmount = calc.futureValue(form.amount, profile.return, form.period, form.monthly);

@@ -1,8 +1,8 @@
 {
   "{{count}} active goals_one": "{{count}} فعال goals_one",
   "{{count}} active goals_other": "{{count}} فعال goals_other",
-  "{{count}} months_one": "{{گنتی}} months_one",
-  "{{count}} months_other": "{{گنتی}} months_other",
+  "{{count}} months_one": "{{count}} مہینے_ایک",
+  "{{count}} months_other": "{{count}} ماہ_دیگر",
   "Back": "واپس",
   "Category": "زمرہ",
   "Create First Goal": "پہلا مقصد تخلیق کریں",
@@ -34,7 +34,6 @@
   "TOTAL SAVED": "ٹوٹل سیو",
   "TOTAL TARGET": "ٹوٹل ٹارگٹ",
   "Update Strategy": "حکمت عملی کو اپ ڈیٹ کریں",
-  "T": "T",
   "Vacation": "چھٹیاں",
   "Home": "گھر",
   "Education": "تعلیم",

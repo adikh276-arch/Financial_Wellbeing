@@ -5,11 +5,12 @@ import { useTranslation } from 'react-i18next';
 import { 
   Award, TrendingUp, Shield, Activity, Target, 
   ArrowRight, ChevronLeft, ChevronRight, Check, Save, RotateCcw, 
-  Search, Calculator, Wallet, Zap, Heart, AlertCircle, Clock, Compass
+  Search, Calculator, Wallet, Zap, Heart, AlertCircle, Clock, Compass, Share2
 } from 'lucide-react';
 import { storage } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { handleExternalExit } from '@/lib/navigation';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 /* Questions */
 const CATEGORY_MAX: Record<string, number> = {
@@ -21,7 +22,8 @@ const CATEGORY_MAX: Record<string, number> = {
 };
 
 export default function FinancialHealthScore() {
-  const { t } = useTranslation('financial-health-score');
+  const { t } = useTranslation(['financial-health-score', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const QUESTIONS = [
     { id: 'incomeStability', text: 'How stable is your income?', options: [{ label: 'Very stable (salaried)', score: 10 }, { label: 'Somewhat stable', score: 5 }, { label: 'Unstable / Freelance', score: 2 }], category: 'Income & Stability' },
@@ -121,7 +123,8 @@ export default function FinancialHealthScore() {
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+  return (
+    <div className="inner-page">
       <PageHeader 
         title={t('Financial Health Score')}
         onBackClick={handleExternalExit}
@@ -137,7 +140,7 @@ export default function FinancialHealthScore() {
           </div>
         ) : null}
       />
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div className="inner-content">
         
         {step === -1 && (
           <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
@@ -306,9 +309,25 @@ export default function FinancialHealthScore() {
                 ))}
               </div>
             </div>
+            
+            <div style={{ marginTop: 'var(--space-12)', display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <button 
+                onClick={() => setIsShareModalOpen(true)}
+                className="btn btn-primary btn-lg" 
+                style={{ padding: '16px 32px', display: 'flex', alignItems: 'center', gap: 10, background: 'linear-gradient(135deg, #F39C12, #f1c40f)', border: 'none' }}
+              >
+                <Share2 size={20} /> {t('share:share')}
+              </button>
+              <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(-1); setAnswers({}); }}>{t('Audit Again')}</button>
+            </div>
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={t('Financial Health Score')} 
+      />
     </div>
   );
 }

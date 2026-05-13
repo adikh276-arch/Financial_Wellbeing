@@ -17,6 +17,9 @@ i18n
     if (namespace === 'common') {
        return import(`../locales/${language}/common.json`).catch(() => ({}));
     }
+    if (namespace === 'share') {
+       return import(`../locales/${language}/share.json`).catch(() => ({}));
+    }
     // Load module-specific translations dynamically
     return import(`../app/${namespace}/i18n/${language}.json`).catch(() => ({}));
   }))
@@ -25,15 +28,15 @@ i18n
   .init({
     fallbackLng: 'en',
     supportedLngs: supportedLngs,
-    ns: ['common'],
+    ns: ['common', 'share'],
     defaultNS: 'common',
     interpolation: {
       escapeValue: false,
     },
     detection: {
-      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'path'],
+      order: ['querystring', 'navigator'],
       lookupQuerystring: 'lang',
-      caches: ['localStorage', 'cookie'],
+      caches: [],
     },
     react: {
       useSuspense: false

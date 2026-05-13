@@ -1,9 +1,9 @@
 {
-  "Income: ${{income}} / mo": "Renda: ${{renda}} / mês",
+  "Income: ${{income}} / mo": "Renda: $ {{income}} / mês",
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "A análise completa para \"{{title}}\" feita pela Equipe de Bem-Estar Financeiro é reservada para módulos aprofundados da academia. Os principais pontos incluem otimizar a alocação de capital e entender os pontos de atrito comportamental.",
   "The Myth": "O Mito",
   "The Reality": "A Realidade",
-  " ${{income}} / mo": " ${{renda}} / mo",
+  " ${{income}} / mo": " $ {{income}} / mês",
   "Investing": "Investimentos",
   "Detailed content about mutual funds...": "Conteúdo detalhado sobre fundos mútuos...",
   "Savings": "Economia",

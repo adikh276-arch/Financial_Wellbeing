@@ -5,14 +5,16 @@ import {
   CheckSquare, ArrowRight, RotateCcw, Save, Check,
   PiggyBank, Scale, Palette, Sparkles, AlertTriangle, Target,
   Zap, Brain, Star, Quote, ChevronLeft, Shield, TrendingUp,
-  CreditCard, Calendar, BarChart2, Heart, Info
+  CreditCard, Calendar, BarChart2, Heart, Info, Share2
 } from 'lucide-react';
 import { storage } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 export default function SpendingStyleQuiz() {
-  const { t } = useTranslation('check-ins');
+  const { t } = useTranslation(['check-ins', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const QUESTIONS = [
     { id: 'q1', text: 'When you encounter an unsolicited discount or sale event:', options: ['Disregard entirely - utility over price always', 'Analytical review for potential high-value needs', 'Capitalize on the discount opportunity immediately'] },
@@ -116,7 +118,8 @@ export default function SpendingStyleQuiz() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+  return (
+    <div className="inner-page">
       <PageHeader 
         title={t('Spending Style Quiz')}
         backHref="/"
@@ -127,7 +130,7 @@ export default function SpendingStyleQuiz() {
           </div>
         ) : null}
       />
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div className="inner-content">
         {step > 0 && step <= 10 && (
           <div style={{ marginBottom: 'var(--space-10)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -227,7 +230,7 @@ export default function SpendingStyleQuiz() {
               <p style={{ fontSize: 'var(--text-lg)', maxWidth: 600, margin: '0 auto', opacity: 0.95, lineHeight: 1.6, fontWeight: 500 }}>{t(style.description)}</p>
             </div>
 
-            <div className="responsive-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-6)', marginBottom: 'var(--space-8)' }}>
+            <div className="grid-2" style={{ marginBottom: 'var(--space-8)' }}>
               <div className="card" style={{ borderTop: '4px solid #00A884', padding: 'var(--space-8)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#00A884', fontWeight: 800, fontSize: 11, textTransform: 'uppercase', marginBottom: 'var(--space-6)', letterSpacing: '0.05em' }}>
                   <TrendingUp size={16} /> {t('Strategic Assets')}
@@ -275,11 +278,23 @@ export default function SpendingStyleQuiz() {
             </div>
 
             <div style={{ marginTop: 'var(--space-12)', display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <button 
+                onClick={() => setIsShareModalOpen(true)}
+                className="btn btn-primary btn-lg" 
+                style={{ padding: '16px 32px', display: 'flex', alignItems: 'center', gap: 10 }}
+              >
+                <Share2 size={20} /> {t('share:share')}
+              </button>
               <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(0); setAnswers([]); }}>{t('Recalibrate Profile')}</button>
             </div>
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={t('Spending Style Quiz')} 
+      />
     </div>
   );
 }

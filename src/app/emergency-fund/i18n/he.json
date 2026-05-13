@@ -1,6 +1,6 @@
 {
-  "{{count}} Mo Fund_one": "{{ספירה}} מו Fund_one",
-  "{{count}} Mo Fund_other": "{{ספירה}} מו Fund_other",
+  "{{count}} Mo Fund_one": "{{count}} מו קרן_אחד",
+  "{{count}} Mo Fund_other": "{{count}} מו",
   "12M (Ultimate)": "12M (אולטימייט)",
   "3M (Standard)": "3M (סטנדרט)",
   "Asset Repair": "תיקון נכסים",

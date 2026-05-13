@@ -5,10 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { 
   Target, Plus, Edit2, Trash2, Check, Save, X, 
   TrendingUp, AlertTriangle, Star, CheckCircle2, AlertCircle, ChevronLeft, ArrowRight,
-  Plane, Home, GraduationCap, Car, Heart, Shield, Umbrella, Rocket, Layout, Calendar
+  Plane, Home, GraduationCap, Car, Heart, Shield, Umbrella, Rocket, Layout, Calendar, Share2
 } from 'lucide-react';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { ShareModal } from '@/components/shared/ShareModal';
 import { differenceInMonths, parseISO, format } from 'date-fns';
 
 
@@ -31,7 +32,8 @@ const newGoalTemplate = (catOther: string): Omit<Goal, 'id' | 'createdAt'> => ({
 });
 
 export default function GoalPlanner() {
-  const { t } = useTranslation('goal-planner');
+  const { t } = useTranslation(['goal-planner', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const CATEGORIES = [
     { id: 'Vacation', icon: Plane, label: 'Vacation' },
@@ -112,7 +114,8 @@ export default function GoalPlanner() {
   }).length;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+  return (
+    <div className="inner-page">
       <PageHeader 
         title={t('Goal Planner')} 
         backHref="/"
@@ -127,7 +130,7 @@ export default function GoalPlanner() {
           </div>
         )}
       />
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div className="inner-content">
         
         {step === -1 && (
           <div style={{ animation: 'fadeInUp 0.4s ease both' }}>
@@ -139,9 +142,16 @@ export default function GoalPlanner() {
               <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-lg)', maxWidth: 440, margin: '0 auto var(--space-10)', lineHeight: 1.6 }}>
                 {t('Define your financial milestones. Track progress toward your house, car, or education goals with real-time probability analysis.')}
               </p>
-              <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 220 }}>
-                {goals.length > 0 ? t('Manage My Goals') : t('Create First Goal')} <Target size={18} style={{ marginLeft: 8 }} />
-              </button>
+              <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+                <button className="btn btn-primary btn-lg" onClick={() => setStep(0)} style={{ minWidth: 200 }}>
+                  {goals.length > 0 ? t('Manage My Goals') : t('Create First Goal')} <Target size={18} style={{ marginLeft: 8 }} />
+                </button>
+                {goals.length > 0 && (
+                  <button className="btn btn-secondary btn-lg" onClick={() => setIsShareModalOpen(true)} style={{ minWidth: 150, display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <Share2 size={18} /> {t('share:share')}
+                  </button>
+                )}
+              </div>
 
               {goals.length > 0 && (
                 <div style={{ marginTop: 'var(--space-12)', textAlign: 'left' }}>
@@ -303,6 +313,11 @@ export default function GoalPlanner() {
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={t('Goal Planner')} 
+      />
     </div>
   );
 }

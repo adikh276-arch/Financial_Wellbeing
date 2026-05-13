@@ -4,13 +4,14 @@ import { useState, useCallback, useEffect } from 'react';
 import {
   TrendingUp, ChevronLeft, ChevronRight, ArrowRight,
   Shield, Zap, Target, Check, Save, RotateCcw,
-  PieChart as PieChartIcon, Landmark, Activity, BarChart3
+  PieChart as PieChartIcon, Landmark, Activity, BarChart3, Share2
 } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 
 interface FormData {
@@ -24,7 +25,8 @@ const PERIODS = [1, 3, 5, 10, 20];
 const STEPS = ['Capital', 'Strategy', 'Results'];
 
 export default function InvestmentPlanner() {
-  const { t } = useTranslation('investment-planner');
+  const { t } = useTranslation(['investment-planner', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const searchParams = useSearchParams();
   const query = searchParams.toString();
   const suffix = query ? `?${query}` : '';
@@ -129,8 +131,8 @@ export default function InvestmentPlanner() {
   const totalInvested = form.amount + form.monthly * form.period * 12;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+    <div className="inner-page">
+      <div className="inner-content">
         
         {true && (
           <PageHeader 
@@ -315,12 +317,26 @@ export default function InvestmentPlanner() {
               </div>
             </div>
 
-            <button onClick={() => setStep(-1)} className="btn btn-secondary btn-full">
-              <RotateCcw size={16} /> {t('New Assessment')}
-            </button>
+            <div style={{ marginTop: 'var(--space-8)', display: 'flex', gap: 'var(--space-3)' }}>
+              <button 
+                onClick={() => setIsShareModalOpen(true)}
+                className="btn btn-primary" 
+                style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '12px' }}
+              >
+                <Share2 size={18} /> {t('share:share')}
+              </button>
+              <button onClick={() => setStep(-1)} className="btn btn-secondary" style={{ flex: 1 }}>
+                <RotateCcw size={16} /> {t('New Assessment')}
+              </button>
+            </div>
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={form.goal || t('Investment Plan')} 
+      />
     </div>
   );
 }

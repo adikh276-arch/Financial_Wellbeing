@@ -3,7 +3,7 @@
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "การวิเคราะห์ฉบับเต็มสําหรับ \"{{title}}\" โดยทีมสุขภาพทางการเงินสงวนไว้สําหรับโมดูลสถาบันการศึกษาเชิงลึก ประเด็นสําคัญ ได้แก่ การเพิ่มประสิทธิภาพการจัดสรรเงินทุนและการทําความเข้าใจจุดเสียดทานทางพฤติกรรม",
   "The Myth": "ตํานาน",
   "The Reality": "ความเป็นจริง",
-  " ${{income}} / mo": " ${{รายได้}} / เดือน",
+  " ${{income}} / mo": " $ {{income}} / เดือน",
   "Investing": "การลงทุน",
   "Detailed content about mutual funds...": "เนื้อหาโดยละเอียดเกี่ยวกับกองทุนรวม...",
   "Savings": "เงินออม",

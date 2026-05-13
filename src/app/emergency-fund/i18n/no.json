@@ -1,6 +1,6 @@
 {
-  "{{count}} Mo Fund_one": "{{tell}} Mo Fund_one",
-  "{{count}} Mo Fund_other": "{{tell}} Mo Fund_other",
+  "{{count}} Mo Fund_one": "{{count}} Mo Fund_one",
+  "{{count}} Mo Fund_other": "{{count}} Mo Fund_other",
   "12M (Ultimate)": "12M (Ultimate)",
   "3M (Standard)": "3M (Standard)",
   "Asset Repair": "Reparasjon av eiendeler",

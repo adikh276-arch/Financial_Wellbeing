@@ -5,12 +5,13 @@ import {
   Shield, Save, Check, Info, AlertTriangle, 
   HeartPulse, Briefcase, Home, Users, Wallet,
   BarChart4, TrendingUp, MapPin, Calendar, ArrowRight,
-  TrendingDown, MinusCircle, XCircle, ChevronLeft, RotateCcw, Clock
+  TrendingDown, MinusCircle, XCircle, ChevronLeft, RotateCcw, Clock, Share2
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { storage, fmt } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { handleExternalExit } from '@/lib/navigation';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 interface EFData {
   monthlyExpenses: number;
@@ -27,7 +28,8 @@ interface EFHistory {
 }
 
 export default function EmergencyFund() {
-  const { t } = useTranslation('emergency-fund');
+  const { t } = useTranslation(['emergency-fund', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const SCENARIOS = [
     { icon: HeartPulse, label: 'Medical Emergency', months: 2, desc: "Covers typical urgent medical crises" },
@@ -107,7 +109,7 @@ export default function EmergencyFund() {
   const status = getStatusLabel();
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+    <div className="inner-page">
       <PageHeader 
         title={t("Emergency Fund Builder")}
         onBackClick={handleExternalExit}
@@ -122,7 +124,7 @@ export default function EmergencyFund() {
            </div>
         )}
       />
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+      <div className="inner-content">
 
         {showHistory && history.length > 0 && (
           <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-8)', animation: 'slideInDown 0.3s ease' }}>
@@ -153,7 +155,14 @@ export default function EmergencyFund() {
                 <label className="form-label">{t('Monthly Essential Spend')}</label>
                 <div className="input-group">
                   <span className="input-prefix"></span>
-                  <input type="number" className="form-input" style={{ fontSize: 20, fontWeight: 800 }} placeholder="0.00" value={data.monthlyExpenses || ''} onChange={e => setData(d => ({ ...d, monthlyExpenses: Number(e.target.value) }))} />
+                  <input 
+                    type="number" 
+                    className="form-input" 
+                    style={{ fontSize: 'var(--text-xl)', fontWeight: 800 }} 
+                    placeholder="0.00" 
+                    value={data.monthlyExpenses || ''} 
+                    onChange={e => setData(d => ({ ...d, monthlyExpenses: Number(e.target.value) }))} 
+                  />
                 </div>
                 <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 8 }}>{t('Fixed bills, rent, food, and necessary debt.')}</p>
               </div>
@@ -173,7 +182,7 @@ export default function EmergencyFund() {
               {target > 0 && (
                 <div style={{ padding: 'var(--space-6)', background: 'var(--bg-glass-light)', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border-brand)', textAlign: 'center' }}>
                   <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: 4 }}>{t('TARGET RESERVE CAPITAL')}</div>
-                  <div style={{ fontSize: 32, fontWeight: 900, color: 'var(--brand-primary)', fontFamily: 'var(--font-display)' }}>{fmt.currency(target)}</div>
+                  <div style={{ fontSize: 'var(--text-3xl)', fontWeight: 900, color: 'var(--brand-primary)', fontFamily: 'var(--font-display)' }}>{fmt.currency(target)}</div>
                 </div>
               )}
             </div>
@@ -192,7 +201,14 @@ export default function EmergencyFund() {
               <div className="form-group">
                 <label className="form-label">{t('Current Reserve Balance')}</label>
                 <div className="input-group">
-                  <input type="number" className="form-input" style={{ fontSize: 20, fontWeight: 800 }} placeholder="0.00" value={data.currentSaved || ''} onChange={e => setData(d => ({ ...d, currentSaved: Number(e.target.value) }))} />
+                  <input 
+                    type="number" 
+                    className="form-input" 
+                    style={{ fontSize: 'var(--text-xl)', fontWeight: 800 }} 
+                    placeholder="0.00" 
+                    value={data.currentSaved || ''} 
+                    onChange={e => setData(d => ({ ...d, currentSaved: Number(e.target.value) }))} 
+                  />
                 </div>
               </div>
 
@@ -246,8 +262,23 @@ export default function EmergencyFund() {
               ))}
             </div>
           </div>
+          
+          <div style={{ display: 'flex', gap: 'var(--space-4)', marginTop: 'var(--space-8)' }}>
+            <button 
+              onClick={() => setIsShareModalOpen(true)}
+              className="btn btn-primary" 
+              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '16px' }}
+            >
+              <Share2 size={20} /> {t('share:share')}
+            </button>
+          </div>
         </div>
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={t('Emergency Fund Builder')} 
+      />
     </div>
   );
 }

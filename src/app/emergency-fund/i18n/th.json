@@ -1,6 +1,6 @@
 {
-  "{{count}} Mo Fund_one": "{{นับ}} โม Fund_one",
-  "{{count}} Mo Fund_other": "{{นับ}} โม Fund_other",
+  "{{count}} Mo Fund_one": "{{count}} Mo Fund_one",
+  "{{count}} Mo Fund_other": "{{count}} กองทุน Mo_อื่นๆ",
   "12M (Ultimate)": "12M (อัลติเมท)",
   "3M (Standard)": "3M (มาตรฐาน)",
   "Asset Repair": "ซ่อมทรัพย์สิน",

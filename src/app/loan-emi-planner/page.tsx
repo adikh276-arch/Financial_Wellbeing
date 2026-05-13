@@ -4,13 +4,14 @@ import { useState, useCallback, useEffect } from 'react';
 import { 
   Calculator, Save, RotateCcw, ArrowRight, Check, 
   AlertTriangle, TrendingDown, Info, ShieldCheck,
-  ChevronRight, BarChart3, PieChart, Landmark, ChevronLeft
+  ChevronRight, BarChart3, PieChart, Landmark, ChevronLeft, Share2
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import ClientOnly from '@/components/ClientOnly';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 
 const LOAN_TYPES = ['Personal Loan', 'Home Loan', 'Auto Loan', 'Education Loan', 'Business Loan'];
@@ -72,7 +73,8 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export default function LoanEMIPlanner() {
-  const { t } = useTranslation('loan-emi-planner');
+  const { t } = useTranslation(['loan-emi-planner', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [step, setStep] = useState(-1);
   const [saved, setSaved] = useState(false);
   const [form, setForm] = useState<LoanForm>({ principal: 0, type: 'Personal Loan', rate: 12, tenureYears: 5, processingFee: 0 });
@@ -141,10 +143,11 @@ export default function LoanEMIPlanner() {
   const interestPercent = result ? ((result.interest / result.total) * 100).toFixed(1) : 0;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+  return (
+    <div className="inner-page">
       {/* Navigation removed as per requirement */}
 
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-5) var(--space-4) var(--space-16)' }}>
+      <div className="inner-content">
         <PageHeader 
           title={t('Loan & EMI Planner')}
           backHref="/"
@@ -414,12 +417,26 @@ export default function LoanEMIPlanner() {
               </div>
             </div>
 
-            <button className="btn btn-secondary btn-lg" style={{ marginTop: 'var(--space-8)' }} onClick={() => { setStep(0); setResult(null); }}>
-              <ChevronRight size={18} style={{ transform: 'rotate(180deg)' }} /> {t("Adjust Parameters")}
-            </button>
+            <div style={{ marginTop: 'var(--space-8)', display: 'flex', gap: 'var(--space-3)' }}>
+              <button 
+                onClick={() => setIsShareModalOpen(true)}
+                className="btn btn-primary" 
+                style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '12px' }}
+              >
+                <Share2 size={18} /> {t('share:share')}
+              </button>
+              <button className="btn btn-secondary" style={{ flex: 1 }} onClick={() => { setStep(0); setResult(null); }}>
+                <ChevronLeft size={18} /> {t("Adjust Parameters")}
+              </button>
+            </div>
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={form.type || t('Loan Plan')} 
+      />
     </div>
   );
 }

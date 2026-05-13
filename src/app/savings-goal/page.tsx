@@ -3,19 +3,21 @@
 import { useState } from 'react';
 import {
   Target, ArrowRight, RotateCcw, Check, CheckCircle,
-  Gem, Calendar, TrendingUp, Rocket, Wallet, Star
+  Gem, Calendar, TrendingUp, Rocket, Wallet, Star, Share2
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { fmt } from '@/lib/storage';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 const STEPS = ['Goal', 'Target', 'Strategy'];
 const ACCENT = '#F59E0B';
 
 export default function SavingsGoalPage() {
   const router = useRouter();
-  const { t } = useTranslation('savings-goal');
+  const { t } = useTranslation(['savings-goal', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const CATEGORIES = [
     { id: 'travel', label: 'Travel', icon: '✈️' },
@@ -59,8 +61,9 @@ export default function SavingsGoalPage() {
   const selectedStrategy = STRATEGIES.find(s => s.id === savingStrategy);
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+  return (
+    <div className="inner-page">
+      <div className="inner-content">
 
         <PageHeader
           title={t('Savings Goal Setter')}
@@ -411,8 +414,15 @@ export default function SavingsGoalPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button
                 className="btn btn-lg"
+                onClick={() => setIsShareModalOpen(true)}
+                style={{ width: '100%', background: ACCENT, color: 'white', border: 'none', boxShadow: `0 8px 20px ${ACCENT}40`, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}
+              >
+                <Share2 size={20} /> {t('share:share')}
+              </button>
+              <button
+                className="btn btn-lg btn-secondary"
                 onClick={() => router.replace('/')}
-                style={{ width: '100%', background: ACCENT, color: 'white', border: 'none', boxShadow: `0 8px 20px ${ACCENT}40` }}
+                style={{ width: '100%' }}
               >
                 {t('Back to Dashboard')} <ArrowRight size={18} />
               </button>
@@ -423,6 +433,11 @@ export default function SavingsGoalPage() {
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={goalName || t('Savings Goal')} 
+      />
     </div>
   );
 }

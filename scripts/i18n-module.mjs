@@ -9,8 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
-const AZURE_TRANSLATOR_KEY = process.env.AZURE_TRANSLATOR_KEY;
-const AZURE_TRANSLATOR_REGION = process.env.AZURE_TRANSLATOR_REGION || 'eastus';
+const GOOGLE_TRANSLATOR_KEY = process.env.GOOGLE_TRANSLATOR_KEY;
+const UNUSED_REGION = process.env.UNUSED_REGION || 'eastus';
 
 const supportedLngs = [
   'es', 'fr', 'de', 'pt', 'ru',
@@ -71,12 +71,12 @@ export default {
 }
 
 async function translateStrings(strings, targetLang) {
-  const endpoint = "https://api.cognitive.microsofttranslator.com";
+  const endpoint = "https://translation.googleapis.com/language/translate/v2";
   const entries = Object.entries(strings);
   if (entries.length === 0) return {};
 
-  if (!AZURE_TRANSLATOR_KEY) {
-      console.warn("WARNING: AZURE_TRANSLATOR_KEY not found. Skipping real translation.");
+  if (!GOOGLE_TRANSLATOR_KEY) {
+      console.warn("WARNING: GOOGLE_TRANSLATOR_KEY not found. Skipping real translation.");
       const mock = {};
       for (const [key, val] of entries) {
           mock[key] = `[${targetLang}] ${val}`;
@@ -84,45 +84,34 @@ async function translateStrings(strings, targetLang) {
       return mock;
   }
 
+  const googleLang = targetLang === 'zh-Hans' ? 'zh-CN' : 
+                    targetLang === 'zh-Hant' ? 'zh-TW' : 
+                    targetLang === 'tl' ? 'tl' : targetLang;
+
   const translated = {};
-  const chunks = [];
-  for (let i = 0; i < entries.length; i += 100) {
-    chunks.push(entries.slice(i, i + 100));
-  }
+  const batch = entries.map(([key, val]) => val);
+  
+  try {
+    const response = await axios({
+      url: endpoint,
+      method: 'post',
+      params: { key: GOOGLE_TRANSLATOR_KEY },
+      data: {
+        q: batch.map(s => s.replace(/\{\{(.*?)\}\}/g, '<span class="notranslate">{{$1}}</span>')),
+        target: googleLang,
+        format: 'html' // Use HTML format to respect notranslate class
+      }
+    });
 
-  for (const chunk of chunks) {
-    const data = chunk.map(([key, val]) => ({ Text: val }));
-    try {
-      const azureLang = targetLang === 'tl' ? 'fil' : targetLang;
-      const response = await axios({
-        baseURL: endpoint,
-        url: '/translate',
-        method: 'post',
-        headers: {
-          'Ocp-Apim-Subscription-Key': AZURE_TRANSLATOR_KEY,
-          'Ocp-Apim-Subscription-Region': AZURE_TRANSLATOR_REGION,
-          'Content-type': 'application/json',
-        },
-        params: {
-          'api-version': '3.0',
-          from: 'en',
-          to: azureLang
-        },
-        data: data,
-        responseType: 'json'
-      });
-
-      const translations = response.data;
-      chunk.forEach((entry, index) => {
-        const key = entry[0];
-        translated[key] = translations[index].translations[0].text;
-      });
-      // Delay to avoid rate limits
-      await new Promise(resolve => setTimeout(resolve, 1000));
-    } catch (err) {
-      console.error(`Failed to translate to ${targetLang}`, err.response?.data || err.message);
-      throw err;
-    }
+    const translations = response.data.data.translations;
+    entries.forEach((entry, index) => {
+      const key = entry[0];
+      // Clean up the notranslate markers
+      translated[key] = translations[index].translatedText.replace(/<span class="notranslate">(.*?)<\/span>/g, '$1');
+    });
+  } catch (err) {
+    console.error(`Failed to translate to ${targetLang}`, err.response?.data || err.message);
+    throw err;
   }
   return translated;
 }
@@ -173,5 +162,7 @@ if (action === 'translate' || !action) {
     } else {
       console.log(`[${lang}] up to date.`);
     }
+    // Add delay to avoid rate limits
+    await new Promise(resolve => setTimeout(resolve, 500));
   }
 }

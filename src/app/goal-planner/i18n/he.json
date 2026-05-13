@@ -1,8 +1,8 @@
 {
   "{{count}} active goals_one": "{{count}} פעיל goals_one",
   "{{count}} active goals_other": "{{count}} פעיל goals_other",
-  "{{count}} months_one": "{{ספירה}} months_one",
-  "{{count}} months_other": "{{ספירה}} months_other",
+  "{{count}} months_one": "חודשים {{count}}",
+  "{{count}} months_other": "חודשים {{count}}",
   "Back": "חזרה",
   "Category": "קטגוריה",
   "Create First Goal": "ליצור את המטרה הראשונה",
@@ -34,7 +34,6 @@
   "TOTAL SAVED": "סך הכל נשמר",
   "TOTAL TARGET": "מטרה כוללת",
   "Update Strategy": "אסטרטגיית עדכון",
-  "T": "T",
   "Vacation": "חופשה",
   "Home": "בית",
   "Education": "השכלה",

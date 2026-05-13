@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Home, RotateCcw, Sparkles } from 'lucide-react';
+import { CheckCircle2, Home, RotateCcw, Sparkles, Share2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { ShareModal } from './ShareModal';
 
 interface PremiumCompleteProps {
   title?: string;
@@ -20,7 +21,9 @@ export const PremiumComplete: React.FC<PremiumCompleteProps> = ({
   children,
   icon
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = React.useState(false);
+  
   const displayTitle = title || t("Well Done!");
   const displayMessage = message || t("You've successfully completed this activity. Take a moment to appreciate your progress.");
   const handleHome = () => {
@@ -103,6 +106,19 @@ export const PremiumComplete: React.FC<PremiumCompleteProps> = ({
       {/* Action Buttons — fixed at bottom */}
       <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/60 backdrop-blur-md z-20 flex justify-center border-t border-slate-100/50">
         <div className="w-full max-w-lg flex flex-col gap-4">
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55 }}
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setIsShareModalOpen(true)}
+            className="w-full py-4.5 rounded-2xl bg-blue-600 text-white font-bold flex items-center justify-center gap-3 hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 cursor-pointer"
+          >
+            <Share2 size={18} strokeWidth={2.5} />
+            {t("share:share")}
+          </motion.button>
+
           {onRestart && (
             <motion.button
               initial={{ opacity: 0, y: 10 }}
@@ -131,6 +147,12 @@ export const PremiumComplete: React.FC<PremiumCompleteProps> = ({
           </motion.button>
         </div>
       </div>
+
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={title ? t(title) : ""} 
+      />
     </div>
   );
 };

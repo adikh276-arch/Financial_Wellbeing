@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import {
   CreditCard, ArrowRight, RotateCcw, Check, CheckCircle,
-  TrendingDown, LayoutList, Zap, BookOpen, ChevronRight
+  TrendingDown, LayoutList, Zap, BookOpen, ChevronRight, Share2
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 const STEPS = ['Learn', 'Choose', 'Action'];
 const ACCENT = '#3B82F6';
@@ -43,7 +44,8 @@ const STRATEGY_INFO = {
 
 export default function DebtManagementPage() {
   const router = useRouter();
-  const { t } = useTranslation('debt-management-guide');
+  const { t } = useTranslation(['debt-management-guide', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [step, setStep] = useState(-1);
   const [strategy, setStrategy] = useState<Strategy>(null);
   const [completed, setCompleted] = useState(false);
@@ -57,8 +59,9 @@ export default function DebtManagementPage() {
   const info = strategy ? STRATEGY_INFO[strategy] : null;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+  return (
+    <div className="inner-page">
+      <div className="inner-content">
 
         <PageHeader
           title={t('Debt Management Guide')}
@@ -277,17 +280,31 @@ export default function DebtManagementPage() {
             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', lineHeight: 1.6, maxWidth: 380, margin: '0 auto var(--space-10)' }}>
               {t('You now have a proven strategy to eliminate your debt. Consistency is your greatest ally.')}
             </p>
-            <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button className="btn btn-secondary btn-lg" onClick={handleReset}>
-                <RotateCcw size={16} /> {t('Start Over')}
+            <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap', flexDirection: 'column', maxWidth: 320, margin: '0 auto' }}>
+              <button 
+                onClick={() => setIsShareModalOpen(true)}
+                className="btn btn-primary btn-lg" 
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}
+              >
+                <Share2 size={20} /> {t('share:share')}
               </button>
-              <button className="btn btn-primary btn-lg" onClick={() => router.replace('/')}>
-                {t('Back to Dashboard')} <ArrowRight size={16} />
-              </button>
+              <div style={{ display: 'flex', gap: 'var(--space-3)', width: '100%' }}>
+                <button className="btn btn-secondary btn-lg" style={{ flex: 1 }} onClick={handleReset}>
+                  <RotateCcw size={16} /> {t('Start Over')}
+                </button>
+                <button className="btn btn-primary btn-lg" style={{ flex: 1 }} onClick={() => router.replace('/')}>
+                  {t('Back')}
+                </button>
+              </div>
             </div>
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={t('Debt Management Guide')} 
+      />
     </div>
   );
 }

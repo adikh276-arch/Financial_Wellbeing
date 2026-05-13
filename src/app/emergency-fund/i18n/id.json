@@ -1,6 +1,6 @@
 {
-  "{{count}} Mo Fund_one": "{{hitung}} Mo Fund_one",
-  "{{count}} Mo Fund_other": "{{hitung}} Mo Fund_other",
+  "{{count}} Mo Fund_one": "{{count}} Dana Mo_satu",
+  "{{count}} Mo Fund_other": "{{count}} Dana Mo_lainnya",
   "12M (Ultimate)": "12M (Ultimate)",
   "3M (Standard)": "3M (Standar)",
   "Asset Repair": "Perbaikan Aset",

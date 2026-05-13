@@ -928,7 +928,7 @@
   "Knowledge & Insights": "知识与见解",
   "Learning Academy": "学习学院",
   "12 Modules": "12个模块",
-  "Emergency Fund Builder": "Emergency Fund Builder",
+  "Emergency Fund Builder": "应急基金构建器",
   "The Complete Beginner's Guide to Mutual Funds": "The Complete Beginner's Guide to Mutual Funds",
   "Mutual funds are a simple way to start investing professionally. Learn about systematic plans and risk-adjusted returns.": "Mutual funds are a simple way to start investing professionally. Learn about systematic plans and risk-adjusted returns.",
   "Gamify your saving habit by increasing your weekly goal. By week 52, you will have a substantial emergency buffer.": "Gamify your saving habit by increasing your weekly goal. By week 52, you will have a substantial emergency buffer.",
@@ -1068,5 +1068,17 @@
   "500 units/month invested at 7% annual return for 20 years = over 260,000 units. You only invested 120,000 - the rest is compound returns working silently for you. Start today, not tomorrow.": "500 units/month invested at 7% annual return for 20 years = over 260,000 units. You only invested 120,000 - the rest is compound returns working silently for you. Start today, not tomorrow.",
   "A tracker thought they spent 3,000 units/month. After tracking for 30 days, it was 4,200. Biggest surprises: subscriptions (350/month they'd forgotten) and dining out (450, not the 200 they estimated). Solution: cancelled 4 subscriptions, meal planned on weekdays. New spending: 3,500/month. Freed 700/month for savings - without feeling deprived.": "A tracker thought they spent 3,000 units/month. After tracking for 30 days, it was 4,200. Biggest surprises: subscriptions (350/month they'd forgotten) and dining out (450, not the 200 they estimated). Solution: cancelled 4 subscriptions, meal planned on weekdays. New spending: 3,500/month. Freed 700/month for savings - without feeling deprived.",
   "A person said their priority was family time, yet they spent heavily on a luxury vehicle and had no budget for family vacations. They felt stressed and unfulfilled. By switching to a more economical vehicle, they freed up substantial monthly funds. Within 12 months, they funded multiple family trips and an emergency fund. Satisfaction reached a new high.": "A person said their priority was family time, yet they spent heavily on a luxury vehicle and had no budget for family vacations. They felt stressed and unfulfilled. By switching to a more economical vehicle, they freed up substantial monthly funds. Within 12 months, they funded multiple family trips and an emergency fund. Satisfaction reached a new high.",
-  "If a purchase aligns with your top 3 priorities ¥Ã† spend guilt-free. If it doesn't ¥Ã† question it honestly. This removes both deprivation AND impulsive spending. You can travel generously if travel is priority #1, while cutting status purchases guilt-free because status isn't your priority.": "If a purchase aligns with your top 3 priorities ¥Ã† spend guilt-free. If it doesn't ¥Ã† question it honestly. This removes both deprivation AND impulsive spending. You can travel generously if travel is priority #1, while cutting status purchases guilt-free because status isn't your priority."
+  "If a purchase aligns with your top 3 priorities ¥Ã† spend guilt-free. If it doesn't ¥Ã† question it honestly. This removes both deprivation AND impulsive spending. You can travel generously if travel is priority #1, while cutting status purchases guilt-free because status isn't your priority.": "If a purchase aligns with your top 3 priorities ¥Ã† spend guilt-free. If it doesn't ¥Ã† question it honestly. This removes both deprivation AND impulsive spending. You can travel generously if travel is priority #1, while cutting status purchases guilt-free because status isn't your priority.",
+  "Audit Again": "再次审计",
+  "Savings Goal Setter": "储蓄目标设定器",
+  "Debt Management Guide": "债务管理指南",
+  "Savings Goal": "储蓄目标",
+  "Back to Dashboard": "返回仪表板",
+  "Set Another Goal": "设定另一个目标",
+  "back": "返回",
+  "read": "阅读",
+  "Action Steps": "行动步骤",
+  "Key Takeaways": "核心要点",
+  "What to explore next": "接下来探索什么",
+  "End of module": "模块结束"
 }

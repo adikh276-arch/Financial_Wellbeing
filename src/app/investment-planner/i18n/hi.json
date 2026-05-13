@@ -1,10 +1,10 @@
 {
-  "{{strategy}} Strategy": "{{रणनीति}} रणनीति",
+  "{{strategy}} Strategy": "{{strategy}}",
   "Asset Allocation Strategy": "परिसंपत्ति आवंटन रणनीति",
   "Begin Analysis": "विश्लेषण शुरू करें",
   "CAGR": "सीएजीआर",
   "Determine your seed capital": "अपनी बीज पूंजी निर्धारित करें",
-  "Forecasted Wealth ({{period}}Y)": "पूर्वानुमानित धन ({{अवधि}}Y)",
+  "Forecasted Wealth ({{period}}Y)": "अनुमानित संपत्ति ( {{period}} वर्ष)",
   "Gains": "लाभ",
   "Generate Portfolio": "पोर्टफोलियो जनरेट करें",
   "Initial Lump Sum": "प्रारंभिक एकमुश्त राशि",

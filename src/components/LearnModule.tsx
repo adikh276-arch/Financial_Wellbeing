@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Clock, BookOpen, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Clock, BookOpen, CheckCircle2, ChevronRight, Share2 } from 'lucide-react';
 import { PageHeader } from './layout/PageHeader';
+import { ShareModal } from './shared/ShareModal';
+import { useState } from 'react';
 
 interface Section {
   icon: any;
@@ -41,15 +43,16 @@ const itemVariants = {
 export function LearnModule({
   title, subtitle, readTime, category, introduction, sections, actionSteps, keyTakeaways, nextSteps
 }: LearnModuleProps) {
-  const { t } = useTranslation('learn');
+  const { t } = useTranslation(['learn', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const searchParams = useSearchParams();
   const query = searchParams.toString();
   const suffix = query ? `?${query}` : '';
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
+    <div className="inner-page">
       <PageHeader title={t(title)} backHref="/" />
-      <div style={{ padding: 'var(--space-8) var(--space-4) var(--space-20)' }}>
+      <div className="inner-content">
         <motion.div 
           style={{ maxWidth: 680, margin: '0 auto' }}
           variants={containerVariants}
@@ -62,7 +65,7 @@ export function LearnModule({
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--brand-primary-glow)', color: 'var(--brand-primary)', padding: '6px 16px', borderRadius: 99, fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 20 }}>
               <BookOpen size={14} /> {t(category)}
             </div>
-            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em', marginBottom: 12 }}>{t(title)}</h1>
+            <h1 className="display-md" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em', marginBottom: 12 }}>{t(title)}</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', fontWeight: 500, marginBottom: 20, lineHeight: 1.6 }}>{t(subtitle)}</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: 20, color: 'var(--text-muted)', fontSize: 13, fontWeight: 600 }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Clock size={16} /> {readTime} {t("read")}</span>
@@ -146,10 +149,24 @@ export function LearnModule({
           )}
 
           <motion.div variants={itemVariants} style={{ textAlign: 'center', marginTop: 'var(--space-16)', padding: '32px', borderTop: '1px solid var(--border-subtle)', color: 'var(--text-muted)', fontSize: 14, fontWeight: 600 }}>
-            {t("End of module")}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}>
+              <p>{t("End of module")}</p>
+              <button 
+                onClick={() => setIsShareModalOpen(true)}
+                className="btn btn-primary"
+                style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: '16px', background: 'var(--brand-primary)', color: 'white', fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: '0 4px 12px var(--brand-primary-glow)' }}
+              >
+                <Share2 size={18} /> {t("share:share")}
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={t(title)} 
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 {
   "{{count}} active goals_one": "{{count}} সক্রিয় goals_one",
   "{{count}} active goals_other": "{{count}} সক্রিয় goals_other",
-  "{{count}} months_one": "{{গণনা}} months_one",
+  "{{count}} months_one": "{{count}} মাস_এক",
   "{{count}} months_other": "{{count}} months_other",
   "Back": "পিছনে",
   "Category": "ক্যাটাগরি",
@@ -34,7 +34,6 @@
   "TOTAL SAVED": "মোট সংরক্ষিত",
   "TOTAL TARGET": "মোট টার্গেট",
   "Update Strategy": "কৌশল আপডেট করুন",
-  "T": "T",
   "Vacation": "ছুটি",
   "Home": "হোম",
   "Education": "শিক্ষা",

@@ -1,6 +1,6 @@
 {
-  "{{count}} Mo Fund_one": "{{καταμέτρηση}} Μο Fund_one",
-  "{{count}} Mo Fund_other": "{{καταμέτρηση}} Μο Fund_other",
+  "{{count}} Mo Fund_one": "{{count}} Mo Fund_one",
+  "{{count}} Mo Fund_other": "{{count}} Μήνας Fund_other",
   "12M (Ultimate)": "12Μ (Απόλυτη)",
   "3M (Standard)": "3M (Στάνταρ)",
   "Asset Repair": "Επισκευή περιουσιακών στοιχείων",

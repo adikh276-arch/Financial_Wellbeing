@@ -1,8 +1,8 @@
 {
   "{{count}} active goals_one": "{{count}} نشط goals_one",
   "{{count}} active goals_other": "{{count}} نشط goals_other",
-  "{{count}} months_one": "{{عداد}} months_one",
-  "{{count}} months_other": "{{عد}} months_other",
+  "{{count}} months_one": "{{count}} أشهر_واحد",
+  "{{count}} months_other": "{{count}} أشهر_أخرى",
   "Back": "العودة",
   "Category": "الفئة",
   "Create First Goal": "إنشاء الهدف الأول",
@@ -34,7 +34,6 @@
   "TOTAL SAVED": "إجمالي الحفظ",
   "TOTAL TARGET": "الهدف الكامل",
   "Update Strategy": "تحديث استراتيجية",
-  "T": "T",
   "Vacation": "الإجازة",
   "Home": "المنزل",
   "Education": "التعليم",

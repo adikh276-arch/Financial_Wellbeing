@@ -6,13 +6,14 @@ import {
   AlertTriangle, TrendingUp, Wallet, Shield,
   ChevronLeft, ChevronRight, ArrowRight, Home, Utensils,
   Car, Zap, HeartPulse, CreditCard, Smile, ShoppingBag,
-  Tv, Plane, Dumbbell, PiggyBank, BarChart2, Star
+  Tv, Plane, Dumbbell, PiggyBank, BarChart2, Star, Share2
 } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import ClientOnly from '@/components/ClientOnly';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { ShareModal } from '@/components/shared/ShareModal';
 
 
 type Field =
@@ -29,7 +30,8 @@ const DEFAULT: Record<Field, number> = {
 };
 
 export default function BudgetPlanner() {
-  const { t } = useTranslation('budget-planner');
+  const { t } = useTranslation(['budget-planner', 'share']);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const INCOME_FIELDS: { key: Extract<Field, 'income' | 'otherIncome'>; label: string; icon: any }[] = [
     { key: 'income', label: 'Monthly Salary', icon: Wallet },
@@ -178,8 +180,9 @@ export default function BudgetPlanner() {
   );
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
+  return (
+    <div className="inner-page">
+      <div className="inner-content">
         
         {true && (
           <PageHeader 
@@ -369,11 +372,23 @@ export default function BudgetPlanner() {
             </div>
 
             <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+              <button 
+                onClick={() => setIsShareModalOpen(true)}
+                className="btn btn-primary" 
+                style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+              >
+                <Share2 size={16} /> {t('share:share')}
+              </button>
               <button onClick={() => { setStep(0); setForm(DEFAULT); }} className="btn btn-secondary" style={{ flex: 1 }}><RotateCcw size={14} /> {t('Reset All')}</button>
             </div>
           </div>
         )}
       </div>
+      <ShareModal 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+        activityName={t('Budget Planner')} 
+      />
     </div>
   );
 }

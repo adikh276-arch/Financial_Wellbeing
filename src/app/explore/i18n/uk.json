@@ -3,7 +3,7 @@
   "The full analysis for \"{{title}}\" by the Financial Wellness Team is reserved for in-depth academy modules. Key takeaways include optimizing capital allocation and understanding behavioral friction points.": "Повний аналіз «{{title}}» від Financial Wellness Team зарезервований для глибоких академічних модулів. Основні висновки включають оптимізацію розподілу капіталу та розуміння поведінкових точок тертя.",
   "The Myth": "Міф",
   "The Reality": "Реальність",
-  " ${{income}} / mo": " ${{доход}} / mo",
+  " ${{income}} / mo": " $ {{income}} / міс.",
   "Investing": "Інвестування",
   "Detailed content about mutual funds...": "Детальний контент про пайові фонди...",
   "Savings": "Заощадження",

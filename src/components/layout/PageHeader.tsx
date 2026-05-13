@@ -49,13 +49,12 @@ export function PageHeader({
   });
 
   return (
-    <div className="page-header-bar">
+    <div className="page-header-bar" style={{ boxShadow: '0 4px 20px -5px rgba(0,0,0,0.05)' }}>
       <div className="page-header-inner">
         <button
           onClick={handleBack}
           className="back-btn"
           aria-label={label}
-          style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
           <ChevronLeft size={18} />
         </button>
@@ -108,10 +107,11 @@ export function PageHeader({
       {steps && (
         <div
           style={{
-            maxWidth: 640,
-            margin: '8px auto 0',
+            maxWidth: 800,
+            margin: '12px auto 0',
+            padding: '0 var(--space-6)',
             display: 'flex',
-            gap: 4,
+            gap: 6,
           }}
         >
           {steps.map((_, i) => (
@@ -119,15 +119,15 @@ export function PageHeader({
               key={i}
               style={{
                 flex: 1,
-                height: 3,
-                borderRadius: 2,
+                height: 4,
+                borderRadius: 4,
                 background:
                   i < currentStep
                     ? accentColor
                     : i === currentStep
-                    ? `${accentColor}60`
+                    ? `${accentColor}40`
                     : 'var(--border-default)',
-                transition: 'all 0.4s ease',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             />
           ))}

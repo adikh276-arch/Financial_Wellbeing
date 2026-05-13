@@ -61,7 +61,6 @@ export default function SavingsGoalPage() {
   const selectedStrategy = STRATEGIES.find(s => s.id === savingStrategy);
 
   return (
-  return (
     <div className="inner-page">
       <div className="inner-content">
 

@@ -114,7 +114,6 @@ export default function GoalPlanner() {
   }).length;
 
   return (
-  return (
     <div className="inner-page">
       <PageHeader 
         title={t('Goal Planner')} 

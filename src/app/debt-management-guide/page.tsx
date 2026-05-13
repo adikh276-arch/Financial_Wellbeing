@@ -59,7 +59,6 @@ export default function DebtManagementPage() {
   const info = strategy ? STRATEGY_INFO[strategy] : null;
 
   return (
-  return (
     <div className="inner-page">
       <div className="inner-content">
 

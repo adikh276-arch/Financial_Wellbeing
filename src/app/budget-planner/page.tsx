@@ -180,7 +180,6 @@ export default function BudgetPlanner() {
   );
 
   return (
-  return (
     <div className="inner-page">
       <div className="inner-content">
         

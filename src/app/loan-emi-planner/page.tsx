@@ -143,7 +143,6 @@ export default function LoanEMIPlanner() {
   const interestPercent = result ? ((result.interest / result.total) * 100).toFixed(1) : 0;
 
   return (
-  return (
     <div className="inner-page">
       {/* Navigation removed as per requirement */}
 

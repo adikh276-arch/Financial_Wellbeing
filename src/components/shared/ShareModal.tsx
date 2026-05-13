@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Share2, Copy, Check, Twitter, Facebook, MessageCircle, Send } from 'lucide-react';
+import { X, Share2, Copy, Check, MessageCircle, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface ShareModalProps {
@@ -42,13 +42,13 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
     },
     {
       name: 'Twitter',
-      icon: <Twitter className="text-sky-500" />,
+      icon: <Send className="text-sky-500" />,
       url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`,
       color: 'bg-sky-50'
     },
     {
       name: 'Facebook',
-      icon: <Facebook className="text-blue-600" />,
+      icon: <Share2 className="text-blue-600" />,
       url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(webUrl)}&quote=${encodeURIComponent(shareText)}`,
       color: 'bg-blue-50'
     },

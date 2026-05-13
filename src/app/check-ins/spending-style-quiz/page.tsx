@@ -118,7 +118,6 @@ export default function SpendingStyleQuiz() {
   };
 
   return (
-  return (
     <div className="inner-page">
       <PageHeader 
         title={t('Spending Style Quiz')}

@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CheckSquare, Heart, Activity, TrendingUp, ChevronRight, ChevronLeft, Star, ActivityIcon, ClipboardCheck, History } from 'lucide-react';
+import { handleExternalExit } from '@/lib/navigation';
 
 const checkIns = [
   {
@@ -77,7 +78,7 @@ export default function CheckInsHub() {
           animate={{ opacity: 1, y: 0 }}
           className="dashboard-header"
         >
-          <button onClick={() => router.back()} className="back-btn" aria-label="Go back">
+          <button onClick={handleExternalExit} className="back-btn" aria-label="Go back">
             <ChevronLeft size={22} />
           </button>
           

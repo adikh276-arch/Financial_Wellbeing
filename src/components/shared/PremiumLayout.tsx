@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, RotateCcw } from 'lucide-react';
+import { handleExternalExit } from '@/lib/navigation';
 
 interface PremiumLayoutProps {
   children: React.ReactNode;
@@ -26,11 +27,7 @@ export const PremiumLayout: React.FC<PremiumLayoutProps> = ({
       onBack();
       return;
     }
-    // Default exit behavior for the platform
-    if (window.parent !== window) {
-      window.parent.postMessage({ action: 'exit' }, 'https://web.mantracare.com');
-    }
-    window.location.href = '/financial_wellbeing';
+    handleExternalExit();
   };
 
   return (

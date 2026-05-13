@@ -3,6 +3,7 @@
 import { ChevronLeft } from 'lucide-react';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { handleExternalExit } from '@/lib/navigation';
 
 import { HistoryModal } from '@/components/HistoryModal';
 import { useState } from 'react';
@@ -44,7 +45,11 @@ export function PageHeader({
   // the double-click issue. onBackClick overrides for custom exits (e.g. dashboard).
   const handleBack = onBackClick ?? (() => {
     if (typeof window !== 'undefined') {
-      window.history.back();
+      if (backHref && backHref !== '/') {
+        window.location.href = backHref;
+      } else {
+        handleExternalExit();
+      }
     }
   });
 

@@ -47,6 +47,27 @@ export const storage = {
 
     try {
       await saveUserRecord(key, data, score);
+      
+      // Webhook Trigger for Daily Activity Completion
+      const upaId = sessionStorage.getItem("fw_upa_id");
+      const uid = sessionStorage.getItem("fw_uid");
+      
+      if (upaId && uid) {
+        // Prevent firing multiple times per session by removing it after first successful save
+        sessionStorage.removeItem("fw_upa_id");
+        
+        fetch('https://api.mantracare.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            intent: "complete_activity",
+            upa_id: parseInt(upaId, 10),
+            uid: uid
+          })
+        }).catch(err => console.error("Webhook failed:", err));
+      } else {
+        console.log("No upa_id or uid found in session, skipping webhook.");
+      }
     } catch (err) {
       console.error('Persistence sync failed:', err);
     }

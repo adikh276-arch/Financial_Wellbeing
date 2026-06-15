@@ -32,6 +32,14 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const userId = localStorage.getItem(USER_KEY);
     const token = searchParams.get("token");
+    
+    // Capture Webhook Parameters for Daily Activity Assignment
+    const upaId = searchParams.get("upa_id");
+    const uid = searchParams.get("uid");
+    if (upaId && uid) {
+      sessionStorage.setItem("fw_upa_id", upaId);
+      sessionStorage.setItem("fw_uid", uid);
+    }
 
     // 1. Intercept Unauthenticated Deep Links
     if (!userId && !token) {

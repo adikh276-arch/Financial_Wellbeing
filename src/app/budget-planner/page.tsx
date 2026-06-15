@@ -196,11 +196,7 @@ export default function BudgetPlanner() {
               else setForm(restored);
               setStep(2); // Jump to results
             }}
-            rightSlot={step === 2 ? (
-              <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
-              </div>
-            ) : null}
+            bottomSlot={step === 2 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
           />
         )}
 

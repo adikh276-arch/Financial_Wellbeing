@@ -116,10 +116,7 @@ export default function EmergencyFund() {
         accentColor="#e84393"
         historyKey="emergency_fund"
         onRestore={(restored) => setData(restored)}
-        rightSlot={(
-           <div style={{ display: 'flex', gap: 8 }}>
-              <button className="btn btn-primary btn-sm" onClick={handleSave}>
-                 {saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved') : t('Save')}
+        bottomSlot={<SaveAndFinishButton onSave={handleSave} saved={saved} />} /> : <Save size={14} />} {saved ? t('Saved') : t('Save')}
               </button>
            </div>
         )}

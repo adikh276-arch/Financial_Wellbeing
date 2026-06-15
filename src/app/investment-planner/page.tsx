@@ -144,12 +144,7 @@ export default function InvestmentPlanner() {
               setForm(restored);
               setStep(2);
             }}
-            rightSlot={step === 2 ? (
-              <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Success') : t('Save')}</button>
-                <button onClick={() => { setStep(0); setForm({ amount: 0, period: 5, risk: 'Moderate', goal: 'Wealth Creation', monthly: 0 }); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
-              </div>
-            ) : null}
+            bottomSlot={step === 2 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
           />
         )}
 

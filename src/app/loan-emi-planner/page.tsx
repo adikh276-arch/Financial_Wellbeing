@@ -156,12 +156,7 @@ export default function LoanEMIPlanner() {
             setResult(restored);
             setStep(1);
           }}
-          rightSlot={step === 1 ? (
-            <div style={{ display: 'flex', gap: 8 }}>
-              <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
-              <button onClick={() => { setStep(0); setResult(null); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
-            </div>
-          ) : null}
+          bottomSlot={step === 1 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
         />
         {step >= 0 && (
           <div style={{ display: 'flex', gap: 4, marginBottom: 'var(--space-6)' }}>

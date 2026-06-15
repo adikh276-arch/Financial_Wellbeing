@@ -122,12 +122,7 @@ export default function SpendingStyleQuiz() {
       <PageHeader 
         title={t('Spending Style Quiz')}
         backHref="/"
-        rightSlot={step === 11 ? (
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button onClick={handleSave} className="btn btn-primary btn-sm">{saved ? <Check size={14} /> : <Save size={14} />} {saved ? t('Saved!') : t('Save')}</button>
-            <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-icon btn-sm"><RotateCcw size={14} /></button>
-          </div>
-        ) : null}
+        bottomSlot={step === 11 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
       />
       <div className="inner-content">
         {step > 0 && step <= 10 && (

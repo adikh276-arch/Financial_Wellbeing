@@ -16,6 +16,7 @@ interface PageHeaderProps {
   backLabel?: string;
   accentColor?: string;
   rightSlot?: ReactNode;
+  bottomSlot?: ReactNode;
   steps?: string[];
   currentStep?: number;
   historyKey?: string;
@@ -30,6 +31,7 @@ export function PageHeader({
   backLabel,
   accentColor = 'var(--brand-primary)',
   rightSlot,
+  bottomSlot,
   steps,
   currentStep = 0,
   historyKey,
@@ -138,6 +140,8 @@ export function PageHeader({
           ))}
         </div>
       )}
+      
+      {bottomSlot}
     </div>
   );
 }

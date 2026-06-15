@@ -315,7 +315,8 @@ export default function GoalPlanner() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={t('Goal Planner')} 
+        activityName={t('Goal Planner')}
+        customMessage={t('share_custom_goal_planner', "I just set up my financial goals using the Goal Planner on TherapyMantra! Start planning your future here: https://web.mantracare.com/finance")}
       />
     </div>
   );

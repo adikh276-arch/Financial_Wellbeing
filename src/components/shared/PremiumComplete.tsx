@@ -152,6 +152,7 @@ export const PremiumComplete: React.FC<PremiumCompleteProps> = ({
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
         activityName={title ? t(title) : ""} 
+        customMessage={t('share_custom_premium_complete', "I just completed an awesome financial exercise on TherapyMantra! Start your journey to financial wellness here: https://web.mantracare.com/finance")}
       />
     </div>
   );

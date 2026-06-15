@@ -165,7 +165,8 @@ export function LearnModule({
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={t(title)} 
+        activityName={t(title)}
+        customMessage={t('share_custom_learn_module', "I just finished reading the '{{moduleTitle}}' article on TherapyMantra and learned a lot! Read it here: https://web.mantracare.com/finance", { moduleTitle: t(title) })}
       />
     </div>
   );

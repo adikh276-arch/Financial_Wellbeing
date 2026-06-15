@@ -435,7 +435,8 @@ export default function SavingsGoalPage() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={goalName || t('Savings Goal')} 
+        activityName={t('Savings Goal')}
+        customMessage={t('share_custom_savings_goal', "I just created a new savings target using the Savings Goal Tracker on TherapyMantra! Check it out here: https://web.mantracare.com/finance")}
       />
     </div>
   );

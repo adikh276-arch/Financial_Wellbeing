@@ -288,7 +288,8 @@ export default function SpendingStyleQuiz() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={t('Spending Style Quiz')} 
+        activityName={t('Spending Style Quiz')}
+        customMessage={t('share_custom_spending_style', "I just took the Spending Style Quiz on TherapyMantra and gained some great insights into my financial habits! You should try it too: https://web.mantracare.com/finance")}
       />
     </div>
   );

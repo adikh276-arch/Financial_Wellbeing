@@ -321,7 +321,8 @@ export default function FinancialHealthScore() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={t('Financial Health Score')} 
+        activityName={t('Financial Health Score')}
+        customMessage={t('share_custom_financial_health', "I just completed the Financial Health Score assessment on TherapyMantra to see where I stand! You should take it too: https://web.mantracare.com/finance")}
       />
     </div>
   );

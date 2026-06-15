@@ -383,7 +383,8 @@ export default function BudgetPlanner() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={t('Budget Planner')} 
+        activityName={t('Budget Planner')}
+        customMessage={t('share_custom_budget_planner', "I just used the Budget Planner tool on TherapyMantra to organize my finances and it was incredibly helpful! You should check it out here: https://web.mantracare.com/finance")}
       />
     </div>
   );

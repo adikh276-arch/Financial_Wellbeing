@@ -331,7 +331,8 @@ export default function InvestmentPlanner() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={form.goal || t('Investment Plan')} 
+        activityName={t('Investment Planner')}
+        customMessage={t('share_custom_investment_planner', "I just used the Investment Planner on TherapyMantra to strategize my portfolio! Check it out here: https://web.mantracare.com/finance")}
       />
     </div>
   );

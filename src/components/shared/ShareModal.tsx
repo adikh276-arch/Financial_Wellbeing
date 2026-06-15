@@ -9,15 +9,16 @@ interface ShareModalProps {
   isOpen: boolean;
   onClose: () => void;
   activityName: string;
+  customMessage?: string;
 }
 
-export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activityName }) => {
+export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activityName, customMessage }) => {
   const { t } = useTranslation('share');
   const [copied, setCopied] = React.useState(false);
 
   const webUrl = "https://web.mantracare.com/finance";
   
-  const shareText = t('share_text', {
+  const shareText = customMessage || t('share_text', {
     defaultValue: "I just tried out the {{activityName}} on TherapyMantra and found it really helpful! You should check it out here: https://web.mantracare.com/finance",
     activityName: activityName || t('this_activity', 'this activity'),
     webUrl

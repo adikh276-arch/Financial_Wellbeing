@@ -302,7 +302,8 @@ export default function DebtManagementPage() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={t('Debt Management Guide')} 
+        activityName={t('Debt Management Guide')}
+        customMessage={t('share_custom_debt_guide', "I just read the Debt Management Guide on TherapyMantra and learned some amazing strategies to get debt-free! Check it out here: https://web.mantracare.com/finance")}
       />
     </div>
   );

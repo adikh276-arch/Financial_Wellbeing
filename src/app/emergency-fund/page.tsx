@@ -272,7 +272,8 @@ export default function EmergencyFund() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={t('Emergency Fund Builder')} 
+        activityName={t('Emergency Fund Builder')}
+        customMessage={t('share_custom_emergency_fund', "I just used the Emergency Fund Builder tool on TherapyMantra to secure my financial future! You should check it out here: https://web.mantracare.com/finance")}
       />
     </div>
   );

@@ -430,7 +430,8 @@ export default function LoanEMIPlanner() {
       <ShareModal 
         isOpen={isShareModalOpen} 
         onClose={() => setIsShareModalOpen(false)} 
-        activityName={form.type || t('Loan Plan')} 
+        activityName={t('Loan EMI Planner')}
+        customMessage={t('share_custom_loan_emi', "I just calculated my payments using the Loan EMI Planner on TherapyMantra! It's a great tool, check it out: https://web.mantracare.com/finance")}
       />
     </div>
   );

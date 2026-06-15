@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import { 
   Activity, ArrowRight, Save, Check, RotateCcw, 
   Smile, Meh, Frown, AlertCircle, Heart, Calendar, 

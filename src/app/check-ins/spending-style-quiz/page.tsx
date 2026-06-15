@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import { 
   CheckSquare, ArrowRight, RotateCcw, Save, Check,
   PiggyBank, Scale, Palette, Sparkles, AlertTriangle, Target,

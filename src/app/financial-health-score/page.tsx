@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import { useTranslation } from 'react-i18next';
 import { 
   Award, TrendingUp, Shield, Activity, Target, 

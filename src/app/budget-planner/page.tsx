@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
+import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import {
   PieChart as PieIcon, Save, RotateCcw, Check,
   AlertTriangle, TrendingUp, Wallet, Shield,

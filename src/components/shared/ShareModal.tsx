@@ -18,7 +18,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
   const webUrl = "https://web.mantracare.com/finance";
   
   const shareText = t('share_text', {
-    defaultValue: "I have done this {{activityName}} in TherapyMantra and really enjoy it you can do it too just follow the link to https://web.mantracare.com/finance",
+    defaultValue: "I just tried out the {{activityName}} on TherapyMantra and found it really helpful! You should check it out here: https://web.mantracare.com/finance",
     activityName: activityName || t('this_activity', 'this activity'),
     webUrl
   });

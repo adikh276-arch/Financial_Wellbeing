@@ -116,10 +116,7 @@ export default function EmergencyFund() {
         accentColor="#e84393"
         historyKey="emergency_fund"
         onRestore={(restored) => setData(restored)}
-        bottomSlot={<SaveAndFinishButton onSave={handleSave} saved={saved} />} /> : <Save size={14} />} {saved ? t('Saved') : t('Save')}
-              </button>
-           </div>
-        )}
+        bottomSlot={<SaveAndFinishButton onSave={handleSave} saved={saved} />}
       />
       <div className="inner-content">
 

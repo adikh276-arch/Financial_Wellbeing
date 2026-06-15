@@ -85,8 +85,8 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
                       <Share2 size={24} />
                     </div>
                     <div>
-                      <h3 className="font-black text-slate-900 text-xl leading-tight">{t('share_progress', 'Share Progress')}</h3>
-                      <p className="text-slate-500 text-sm font-bold">{t('inspire_others', 'Inspire others today')}</p>
+                      <h3 className="font-bold text-slate-900 text-xl tracking-tight">{t('share_progress', 'Share Progress')}</h3>
+                      <p className="text-slate-500 text-sm font-medium mt-0.5">{t('inspire_others', 'Inspire others today')}</p>
                     </div>
                   </div>
                   <button 
@@ -97,8 +97,11 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
                   </button>
                 </div>
 
-                <div className="bg-slate-50 rounded-3xl p-6 border-2 border-dashed border-slate-200">
-                   <p className="text-slate-600 text-sm font-bold leading-relaxed line-clamp-4 italic">
+                <div className="relative bg-gradient-to-br from-slate-50 to-indigo-50/30 rounded-3xl p-6 border border-indigo-100/50 shadow-inner">
+                   <div className="absolute top-4 left-4 text-indigo-200 opacity-50">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" /></svg>
+                   </div>
+                   <p className="text-slate-700 text-[15px] font-medium leading-relaxed line-clamp-4 relative z-10 pt-2 pl-4">
                      "{shareText}"
                    </p>
                 </div>
@@ -112,20 +115,20 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
                       rel="noopener noreferrer"
                       className="flex flex-col items-center gap-2 group"
                     >
-                      <div className={`w-14 h-14 rounded-2xl ${option.color} flex items-center justify-center transition-all group-hover:scale-110 group-active:scale-95 shadow-sm`}>
+                      <div className={`w-14 h-14 rounded-2xl ${option.color} flex items-center justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md group-active:scale-95 shadow-sm`}>
                         {option.icon}
                       </div>
-                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{option.name}</span>
+                      <span className="text-[11px] font-semibold text-slate-500">{option.name}</span>
                     </a>
                   ))}
                 </div>
 
                 <button
                   onClick={handleCopy}
-                  className={`w-full py-5 rounded-2xl flex items-center justify-center gap-3 transition-all font-black text-sm uppercase tracking-widest ${
+                  className={`w-full py-4 rounded-2xl flex items-center justify-center gap-2.5 transition-all duration-300 font-bold text-[15px] ${
                     copied 
-                      ? 'bg-emerald-500 text-white shadow-xl shadow-emerald-200' 
-                      : 'bg-slate-900 text-white shadow-xl shadow-slate-200 hover:bg-slate-800'
+                      ? 'bg-gradient-to-r from-emerald-400 to-emerald-500 text-white shadow-lg shadow-emerald-200/50' 
+                      : 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-200/50 hover:shadow-indigo-300/50 hover:-translate-y-0.5'
                   }`}
                 >
                   {copied ? (

@@ -1,4 +1,5 @@
 import i18n from './i18n';
+import { fetchUserRecord, saveUserRecord } from '@/actions/storageActions';
 
 // ============================================================
 // LOCAL STORAGE UTILITY — Financial Wellbeing
@@ -45,11 +46,7 @@ export const storage = {
     if (!userId) return;
 
     try {
-      await fetch('/financial_wellbeing/api/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, key, data, score }),
-      });
+      await saveUserRecord(key, data, score);
     } catch (err) {
       console.error('Persistence sync failed:', err);
     }
@@ -61,10 +58,8 @@ export const storage = {
     if (!userId) return null;
 
     try {
-      const res = await fetch(`/financial_wellbeing/api/get?userId=${userId}&key=${key}`);
-      if (!res.ok) return null;
-      const json = await res.json();
-      return json.data;
+      const data = await fetchUserRecord(key);
+      return data;
     } catch (err) {
       console.error('Persistence fetch failed:', err);
       return null;

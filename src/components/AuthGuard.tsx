@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import { setSessionId } from "@/actions/sessionActions";
 
 const REDIRECT_KEY = "APP_REDIRECT_PATH";
 const USER_KEY = "financial_wellbeing_user_id";
@@ -62,6 +63,9 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
         if (id) {
           localStorage.setItem(USER_KEY, id.toString());
           localStorage.setItem(TOKEN_KEY, token);
+          setSessionId(id.toString()).then(() => {
+            localStorage.setItem("fw_session_synced", "true");
+          }).catch(console.error);
           setIsAuthorized(true);
           restoreAndNavigate(pathname);
         } else {
@@ -86,6 +90,11 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     }
 
     if (userId) {
+      if (!localStorage.getItem("fw_session_synced")) {
+        setSessionId(userId).then(() => {
+          localStorage.setItem("fw_session_synced", "true");
+        }).catch(console.error);
+      }
       setIsAuthorized(true);
     }
   }, [pathname, searchParams, router, restoreAndNavigate]);

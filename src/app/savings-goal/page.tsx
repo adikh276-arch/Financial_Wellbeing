@@ -8,7 +8,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
-import { fmt } from '@/lib/storage';
+import { storage, fmt } from '@/lib/storage';
 import { ShareModal } from '@/components/shared/ShareModal';
 
 const STEPS = ['Goal', 'Target', 'Strategy'];
@@ -55,6 +55,12 @@ export default function SavingsGoalPage() {
     setTargetAmount('');
     setTargetMonths('12');
     setSavingStrategy('');
+  };
+
+  const handleComplete = () => {
+    setCompleted(true);
+    const data = { category, goalName, targetAmount: amount, targetMonths: months, savingStrategy, date: new Date().toISOString() };
+    storage.sync('savings_goal_history', data);
   };
 
   const selectedCategory = CATEGORIES.find(c => c.id === category);
@@ -310,7 +316,7 @@ export default function SavingsGoalPage() {
 
             <button
               className="btn btn-lg"
-              onClick={() => setCompleted(true)}
+              onClick={handleComplete}
               disabled={!savingStrategy}
               style={{ width: '100%', background: ACCENT, color: 'white', border: 'none', boxShadow: `0 8px 20px ${ACCENT}40` }}
             >

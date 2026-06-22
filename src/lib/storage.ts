@@ -40,7 +40,7 @@ export const storage = {
 
   async sync(key: string, data: any, score?: number): Promise<void> {
     if (typeof window === 'undefined') return;
-    const userId = sessionStorage.getItem("financial_wellbeing_user_id") || localStorage.getItem("fw_guest_id");
+    const userId = localStorage.getItem("financial_wellbeing_user_id") || localStorage.getItem("fw_guest_id");
     
     // Minimal attempt: if no user, just don't sync
     if (!userId) return;
@@ -75,7 +75,7 @@ export const storage = {
 
   async fetch(key: string): Promise<any | null> {
     if (typeof window === 'undefined') return null;
-    const userId = sessionStorage.getItem("financial_wellbeing_user_id") || localStorage.getItem("fw_guest_id");
+    const userId = localStorage.getItem("financial_wellbeing_user_id") || localStorage.getItem("fw_guest_id");
     if (!userId) return null;
 
     try {

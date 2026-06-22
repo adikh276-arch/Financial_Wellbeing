@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { ShareModal } from '@/components/shared/ShareModal';
+import { storage } from '@/lib/storage';
 
 const STEPS = ['Learn', 'Choose', 'Action'];
 const ACCENT = '#3B82F6';
@@ -54,6 +55,12 @@ export default function DebtManagementPage() {
     setCompleted(false);
     setStep(-1);
     setStrategy(null);
+  };
+
+  const handleComplete = () => {
+    setCompleted(true);
+    const data = { strategy, date: new Date().toISOString() };
+    storage.sync('debt_management_history', data);
   };
 
   const info = strategy ? STRATEGY_INFO[strategy] : null;
@@ -256,7 +263,7 @@ export default function DebtManagementPage() {
               ))}
             </div>
 
-            <button className="btn btn-primary btn-lg" onClick={() => setCompleted(true)} style={{ width: '100%' }}>
+            <button className="btn btn-primary btn-lg" onClick={handleComplete} style={{ width: '100%' }}>
               {t('I Commit to This Plan')} <Check size={18} />
             </button>
           </div>

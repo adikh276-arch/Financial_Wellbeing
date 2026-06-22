@@ -35,7 +35,7 @@ export function useAutoSave(key: string, data: any, options: { debounceMs?: numb
 
       // 3. Sync with database API
       try {
-        let userId = sessionStorage.getItem("financial_wellbeing_user_id");
+        let userId = localStorage.getItem("financial_wellbeing_user_id");
         if (!userId || userId === "undefined") userId = "anonymous";
         
         await fetch('/financial_wellbeing/api/save', {

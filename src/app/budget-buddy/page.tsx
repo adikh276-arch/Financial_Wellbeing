@@ -31,6 +31,12 @@ export default function BudgetBuddyPage() {
     setIncome('');
   };
 
+  const handleComplete = () => {
+    setCompleted(true);
+    const data = { income: amount, needs, wants, savings, date: new Date().toISOString() };
+    storage.sync('budget_buddy_history', data);
+  };
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
@@ -227,7 +233,7 @@ export default function BudgetBuddyPage() {
               ))}
             </div>
 
-            <button className="btn btn-primary btn-lg" onClick={() => setCompleted(true)} style={{ width: '100%' }}>
+            <button className="btn btn-primary btn-lg" onClick={handleComplete} style={{ width: '100%' }}>
               {t('Complete Activity')} <Check size={18} />
             </button>
           </div>

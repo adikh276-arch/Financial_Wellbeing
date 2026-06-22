@@ -74,10 +74,12 @@ export default function MoneyStressQuiz() {
   };
 
   const handleSave = () => {
+    console.log("[MoneyStressQuiz] handleSave clicked. totalStress:", totalStress);
     const newEntry = { totalStress, label: stressLevel.label, date: new Date().toISOString() };
     const updatedHistory = [newEntry, ...history].slice(0, 10);
     setHistory(updatedHistory);
     storage.set('money_stress_history', updatedHistory);
+    console.log("[MoneyStressQuiz] Triggering storage.sync for money_stress_history");
     storage.sync('money_stress_history', newEntry, totalStress); // Sync individual snapshot
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);

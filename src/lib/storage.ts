@@ -42,34 +42,49 @@ export const storage = {
     if (typeof window === 'undefined') return;
     const userId = localStorage.getItem("financial_wellbeing_user_id") || localStorage.getItem("fw_guest_id");
     
-    // Minimal attempt: if no user, just don't sync
-    if (!userId) return;
+    console.log(`[storage.sync] Triggered for key: ${key}. userId: ${userId}`);
+    if (!userId) {
+      console.warn('[storage.sync] Sync aborted: no userId found in localStorage.');
+      return;
+    }
 
     try {
+      console.log(`[storage.sync] Saving user record to DB...`);
       await saveUserRecord(key, data, score);
+      console.log(`[storage.sync] DB save successful.`);
       
       // Webhook Trigger for Daily Activity Completion
       const upaId = sessionStorage.getItem("fw_upa_id");
       const uid = sessionStorage.getItem("fw_uid");
+      console.log(`[storage.sync] Webhook check - fw_upa_id: ${upaId}, fw_uid: ${uid}`);
       
       if (upaId && uid) {
         // Prevent firing multiple times per session by removing it after first successful save
         sessionStorage.removeItem("fw_upa_id");
         
-        fetch('https://api.mantracare.com', {
+        const payload = {
+          intent: "complete_activity",
+          upa_id: parseInt(upaId, 10),
+          uid: uid
+        };
+        console.log('[storage.sync] Sending webhook POST to https://api.mantracare.com/webhook/pathway with payload:', payload);
+
+        fetch('https://api.mantracare.com/webhook/pathway', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            intent: "complete_activity",
-            upa_id: parseInt(upaId, 10),
-            uid: uid
-          })
-        }).catch(err => console.error("Webhook failed:", err));
+          body: JSON.stringify(payload)
+        })
+        .then(async (res) => {
+          console.log(`[storage.sync] Webhook response status: ${res.status}`);
+          const text = await res.text();
+          console.log(`[storage.sync] Webhook response body: ${text}`);
+        })
+        .catch(err => console.error("[storage.sync] Webhook fetch failed:", err));
       } else {
-        console.log("No upa_id or uid found in session, skipping webhook.");
+        console.log("[storage.sync] Skipping webhook trigger: fw_upa_id or fw_uid is missing in sessionStorage.");
       }
     } catch (err) {
-      console.error('Persistence sync failed:', err);
+      console.error('[storage.sync] Persistence sync failed:', err);
     }
   },
 

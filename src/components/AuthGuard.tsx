@@ -36,9 +36,11 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     // Capture Webhook Parameters for Daily Activity Assignment
     const upaId = searchParams.get("upa_id");
     const uid = searchParams.get("uid");
+    console.log("[AuthGuard] Checking URL query params - upa_id:", upaId, "uid:", uid);
     if (upaId && uid) {
       sessionStorage.setItem("fw_upa_id", upaId);
       sessionStorage.setItem("fw_uid", uid);
+      console.log("[AuthGuard] Successfully saved fw_upa_id and fw_uid to sessionStorage:", upaId, uid);
     }
 
     // 1. Intercept Unauthenticated Deep Links

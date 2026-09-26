@@ -137,21 +137,6 @@ export function LearnModule({
             </div>
           </motion.div>
 
-          {nextSteps && nextSteps.length > 0 && (
-            <motion.div variants={itemVariants} style={{ marginTop: 'var(--space-12)' }}>
-               <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-display)', fontWeight: 800, marginBottom: 'var(--space-6)', color: 'var(--text-primary)' }}>{t("What to explore next")}</h3>
-               <div className="stack-4">
-                 {nextSteps.map((step, i) => (
-                   <Link key={i} href={`${step.href}${suffix}`} className="card" style={{ display: 'flex', alignItems: 'center', gap: 16, padding: 'var(--space-4) var(--space-5)', textDecoration: 'none' }}>
-                     <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--brand-accent)' }} />
-                     <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)', flex: 1 }}>{t(step.label)}</span>
-                     <ChevronRight size={18} color="var(--text-muted)" />
-                   </Link>
-                 ))}
-               </div>
-            </motion.div>
-          )}
-
           <motion.div variants={itemVariants} style={{ textAlign: 'center', marginTop: 'var(--space-16)', padding: '32px', borderTop: '1px solid var(--border-subtle)', color: 'var(--text-muted)', fontSize: 14, fontWeight: 600 }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}>
               <p>{t("End of module")}</p>

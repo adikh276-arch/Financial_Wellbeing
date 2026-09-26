@@ -48,6 +48,16 @@ export function PageHeader({
   const handleBack = onBackClick ?? (() => {
     if (backHref && backHref !== '/') {
       router.push(backHref);
+      return;
+    }
+
+    const fromDashboard = typeof window !== 'undefined' && (
+      sessionStorage.getItem('fw_opened_from_dashboard') === 'true' ||
+      (window.history.length > 1 && document.referrer.includes(window.location.host))
+    );
+
+    if (fromDashboard) {
+      router.push('/');
     } else {
       handleExit();
     }

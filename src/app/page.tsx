@@ -1,7 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import {
   ChevronLeft,
   ChevronRight,
@@ -31,7 +32,7 @@ import { useTranslation } from 'react-i18next';
 import { handleExternalExit } from '@/lib/navigation';
 
 /* ─── Animation Variants ─── */
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -39,7 +40,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
@@ -48,7 +49,7 @@ const itemVariants = {
   },
 };
 
-const headerVariants = {
+const headerVariants: Variants = {
   hidden: { opacity: 0, y: -20 },
   visible: {
     opacity: 1,
@@ -93,6 +94,19 @@ export default function FinancialWellbeingDashboard() {
   const router = useRouter();
   const { t } = useTranslation('dashboard');
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('fw_opened_from_dashboard', 'true');
+    }
+  }, []);
+
+  const handleDashboardExit = () => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem('fw_opened_from_dashboard');
+    }
+    handleExternalExit();
+  };
+
   return (
     <div className="page-wrapper">
       <main className="dashboard-wrapper">
@@ -105,7 +119,7 @@ export default function FinancialWellbeingDashboard() {
           className="dashboard-header"
         >
           <button
-            onClick={handleExternalExit}
+            onClick={handleDashboardExit}
             className="back-btn"
             aria-label="Go back"
           >

@@ -1,15 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import {
   CreditCard, ArrowRight, RotateCcw, Check, CheckCircle,
   TrendingDown, LayoutList, Zap, BookOpen, ChevronRight, Share2
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { ShareModal } from '@/components/shared/ShareModal';
 import { storage } from '@/lib/storage';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 const STEPS = ['Learn', 'Choose', 'Action'];
 const ACCENT = '#3B82F6';
@@ -298,8 +299,8 @@ export default function DebtManagementPage() {
                 <button className="btn btn-secondary btn-lg" style={{ flex: 1 }} onClick={handleReset}>
                   <RotateCcw size={16} /> {t('Start Over')}
                 </button>
-                <button className="btn btn-primary btn-lg" style={{ flex: 1 }} onClick={() => router.replace('/')}>
-                  {t('Back')}
+                <button className="btn btn-primary btn-lg" style={{ flex: 1 }} onClick={() => handleExitOrDashboard(router)}>
+                  {t('Finish')}
                 </button>
               </div>
             </div>

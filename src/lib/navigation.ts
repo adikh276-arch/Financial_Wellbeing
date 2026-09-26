@@ -99,19 +99,47 @@ export function handleExit() {
 export const handleExternalExit = handleExit;
 
 /**
- * Handles back routing, delegating to onBackCallback or handleExit.
+ * Checks if the user entered from the Financial Self Care dashboard.
  */
-export const goBack = (onBackCallback?: () => void) => {
-  if (onBackCallback) {
-    onBackCallback();
+export const isOpenedFromDashboard = (): boolean => {
+  if (typeof window === 'undefined') return false;
+  return (
+    sessionStorage.getItem('fw_opened_from_dashboard') === 'true' ||
+    (window.history.length > 1 && document.referrer.includes(window.location.host))
+  );
+};
+
+/**
+ * Centrally handles navigation after completion or back button:
+ * - If opened from the Financial Self Care dashboard -> routes back to the dashboard ('/')
+ * - If opened directly (deep link / standalone task) -> executes handleExit()
+ */
+export const handleExitOrDashboard = (router?: { push: (path: string) => void }) => {
+  if (isOpenedFromDashboard()) {
+    if (router) {
+      router.push('/');
+    } else if (typeof window !== 'undefined') {
+      window.location.href = '/financial_wellbeing';
+    }
   } else {
     handleExit();
   }
 };
 
 /**
+ * Handles back routing, delegating to onBackCallback or handleExitOrDashboard.
+ */
+export const goBack = (onBackCallback?: () => void, router?: { push: (path: string) => void }) => {
+  if (onBackCallback) {
+    onBackCallback();
+  } else {
+    handleExitOrDashboard(router);
+  }
+};
+
+/**
  * Redirects back to Dashboard / Exit.
  */
-export const goToDashboard = () => {
-  handleExit();
+export const goToDashboard = (router?: { push: (path: string) => void }) => {
+  handleExitOrDashboard(router);
 };

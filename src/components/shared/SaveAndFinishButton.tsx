@@ -1,8 +1,8 @@
-'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { Check, ArrowRight } from 'lucide-react';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 interface SaveAndFinishButtonProps {
   onSave: () => void | Promise<void>;
@@ -21,12 +21,10 @@ export function SaveAndFinishButton({ onSave, saved, label, returnHref, onFinish
     setTimeout(() => {
       if (onFinished) {
         onFinished();
-      } else if (returnHref) {
+      } else if (returnHref && returnHref !== '/') {
         router.push(returnHref);
-      } else if (typeof window !== 'undefined' && window.history.length > 1) {
-        router.back();
       } else {
-        router.push('/');
+        handleExitOrDashboard(router);
       }
     }, 500);
   };

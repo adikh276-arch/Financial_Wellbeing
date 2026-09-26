@@ -1,15 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Target, ArrowRight, RotateCcw, Check, CheckCircle,
   Gem, Calendar, TrendingUp, Rocket, Wallet, Star, Share2
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { storage, fmt } from '@/lib/storage';
 import { ShareModal } from '@/components/shared/ShareModal';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 const STEPS = ['Goal', 'Target', 'Strategy'];
 const ACCENT = '#F59E0B';
@@ -426,10 +427,10 @@ export default function SavingsGoalPage() {
               </button>
               <button
                 className="btn btn-lg btn-secondary"
-                onClick={() => router.replace('/')}
+                onClick={() => handleExitOrDashboard(router)}
                 style={{ width: '100%' }}
               >
-                {t('Back to Dashboard')} <ArrowRight size={18} />
+                {t('Finish Activity')} <ArrowRight size={18} />
               </button>
               <button className="btn btn-secondary btn-lg" onClick={handleReset} style={{ width: '100%' }}>
                 <RotateCcw size={16} /> {t('Set Another Goal')}

@@ -3,7 +3,7 @@
 import { ChevronLeft } from 'lucide-react';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { handleExit } from '@/lib/navigation';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 import { HistoryModal } from '@/components/HistoryModal';
 import { useState } from 'react';
@@ -50,17 +50,7 @@ export function PageHeader({
       router.push(backHref);
       return;
     }
-
-    const fromDashboard = typeof window !== 'undefined' && (
-      sessionStorage.getItem('fw_opened_from_dashboard') === 'true' ||
-      (window.history.length > 1 && document.referrer.includes(window.location.host))
-    );
-
-    if (fromDashboard) {
-      router.push('/');
-    } else {
-      handleExit();
-    }
+    handleExitOrDashboard(router);
   });
 
   return (

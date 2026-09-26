@@ -3,7 +3,7 @@
 import { ChevronLeft } from 'lucide-react';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { handleExternalExit } from '@/lib/navigation';
+import { handleExit } from '@/lib/navigation';
 
 import { HistoryModal } from '@/components/HistoryModal';
 import { useState } from 'react';
@@ -46,12 +46,10 @@ export function PageHeader({
   const label = backLabel || t('back');
 
   const handleBack = onBackClick ?? (() => {
-    if (backHref) {
+    if (backHref && backHref !== '/') {
       router.push(backHref);
-    } else if (typeof window !== 'undefined' && window.history.length > 1) {
-      router.back();
     } else {
-      router.push('/');
+      handleExit();
     }
   });
 

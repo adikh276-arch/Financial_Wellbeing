@@ -473,15 +473,19 @@ button { cursor: pointer; font-family: var(--font-body); }
 
 /* ─── Sticky PageHeader ─── */
 .page-header-bar {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: rgba(248, 250, 252, 0.9);
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(248, 250, 252, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: var(--space-4);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  border-bottom: 1px solid var(--border-default);
+  padding: 12px max(24px, env(safe-area-inset-right)) 12px max(24px, env(safe-area-inset-left));
+  box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
 }
 
 .page-header-inner {
@@ -489,7 +493,17 @@ button { cursor: pointer; font-family: var(--font-body); }
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-4);
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .page-header-bar {
+    padding: 10px max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
+  }
+  .page-header-inner {
+    gap: var(--space-3);
+  }
 }
 
 /* ─── Back button ─── */
@@ -791,28 +805,51 @@ button { cursor: pointer; font-family: var(--font-body); }
    ============================================================ */
 .app-shell {
   min-height: 100vh;
-  /* Body handles the soft gradient background now */
+  width: 100%;
+  overflow-x: clip;
 }
 
 /* ─── Layout Wrappers ─── */
 .inner-page {
   min-height: 100vh;
+  width: 100%;
   background-color: var(--bg-page);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .inner-content {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: var(--space-8) var(--space-6) var(--space-20);
+  padding: var(--space-8) max(24px, env(safe-area-inset-right)) var(--space-20) max(24px, env(safe-area-inset-left));
   flex: 1;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .inner-content {
+    padding: var(--space-6) max(20px, env(safe-area-inset-right)) var(--space-16) max(20px, env(safe-area-inset-left));
+  }
+  .dashboard-wrapper {
+    padding: var(--space-6) max(20px, env(safe-area-inset-right)) 80px max(20px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-content {
+    padding: var(--space-5) max(18px, env(safe-area-inset-right)) var(--space-12) max(18px, env(safe-area-inset-left));
+  }
+  .dashboard-wrapper {
+    padding: var(--space-4) max(18px, env(safe-area-inset-right)) 60px max(18px, env(safe-area-inset-left));
+  }
 }
 
 /* Ensure motion divs don't break layout */
 .inner-content > div {
   width: 100%;
+  box-sizing: border-box;
 }

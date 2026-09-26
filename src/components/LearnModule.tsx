@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Clock, BookOpen, CheckCircle2, ChevronRight, Share2 } from 'lucide-react';
 import { PageHeader } from './layout/PageHeader';
 import { ShareModal } from './shared/ShareModal';
@@ -27,7 +27,7 @@ interface LearnModuleProps {
   nextSteps?: { label: string; href: string }[];
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -35,9 +35,13 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 100, damping: 20 }
+  }
 };
 
 export function LearnModule({
@@ -54,7 +58,7 @@ export function LearnModule({
       <PageHeader title={t(title)} backHref="/" />
       <div className="inner-content">
         <motion.div 
-          style={{ maxWidth: 680, margin: '0 auto' }}
+          style={{ maxWidth: 680, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}
           variants={containerVariants}
           initial="hidden"
           animate="visible"

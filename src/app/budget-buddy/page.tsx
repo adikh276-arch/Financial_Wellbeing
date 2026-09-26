@@ -38,17 +38,16 @@ export default function BudgetBuddyPage() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-page)' }}>
-      <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
-
-        <PageHeader
-          title={t('Budget Buddy')}
-          subtitle={t('ACTIVITY')}
-          backHref="/"
-          steps={step >= 0 && !completed ? STEPS : undefined}
-          currentStep={step >= 0 ? step : undefined}
-          accentColor={ACCENT}
-        />
+    <div className="inner-page">
+      <PageHeader
+        title={t('Budget Buddy')}
+        subtitle={t('ACTIVITY')}
+        backHref="/"
+        steps={step >= 0 && !completed ? STEPS : undefined}
+        currentStep={step >= 0 ? step : undefined}
+        accentColor={ACCENT}
+      />
+      <div className="inner-content">
 
         {/* ── Intro ── */}
         {step === -1 && !completed && (

@@ -24,6 +24,8 @@ interface PageHeaderProps {
   onBackClick?: () => void;
 }
 
+import { useRouter } from 'next/navigation';
+
 export function PageHeader({
   title,
   subtitle,
@@ -38,20 +40,18 @@ export function PageHeader({
   onRestore,
   onBackClick,
 }: PageHeaderProps) {
+  const router = useRouter();
   const [showHistory, setShowHistory] = useState(false);
   const { t } = useTranslation();
   const label = backLabel || t('back');
 
-  // Always use window.history.back() to properly pop the history stack.
-  // Using Link replace or router.replace creates duplicate entries causing
-  // the double-click issue. onBackClick overrides for custom exits (e.g. dashboard).
   const handleBack = onBackClick ?? (() => {
-    if (typeof window !== 'undefined') {
-      if (backHref && backHref !== '/') {
-        window.location.href = backHref;
-      } else {
-        handleExternalExit();
-      }
+    if (backHref) {
+      router.push(backHref);
+    } else if (typeof window !== 'undefined' && window.history.length > 1) {
+      router.back();
+    } else {
+      router.push('/');
     }
   });
 

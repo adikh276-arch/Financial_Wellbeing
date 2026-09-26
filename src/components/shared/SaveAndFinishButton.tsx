@@ -8,16 +8,26 @@ interface SaveAndFinishButtonProps {
   onSave: () => void | Promise<void>;
   saved: boolean;
   label?: string;
+  returnHref?: string;
+  onFinished?: () => void;
 }
 
-export function SaveAndFinishButton({ onSave, saved, label }: SaveAndFinishButtonProps) {
+export function SaveAndFinishButton({ onSave, saved, label, returnHref, onFinished }: SaveAndFinishButtonProps) {
   const router = useRouter();
   const { t } = useTranslation();
 
   const handleClick = async () => {
     await onSave();
     setTimeout(() => {
-      router.push('/');
+      if (onFinished) {
+        onFinished();
+      } else if (returnHref) {
+        router.push(returnHref);
+      } else if (typeof window !== 'undefined' && window.history.length > 1) {
+        router.back();
+      } else {
+        router.push('/');
+      }
     }, 500);
   };
 

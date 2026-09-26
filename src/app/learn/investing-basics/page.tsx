@@ -78,9 +78,9 @@ export default function InvestingBasics() {
         t('Review quarterly but ignore daily market noise')
       ]}
       nextSteps={[
-        { label: t("Investment Planner"), href: '/investment-planner' }, 
+        { label: t("Investment Planner Tool"), href: '/investment-planner' }, 
         { label: t("Investment Readiness Quiz"), href: '/check-ins/investment-readiness' }, 
-        { label: t("Emergency Fund First"), href: '/learn/emergency-fund' }
+        { label: t("Emergency Fund Calculator"), href: '/emergency-fund' }
       ]}
     />
   );

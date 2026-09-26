@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import { 
   ShieldCheck, ArrowRight, Save, Check, RotateCcw, 
-  Activity, Target, TrendingUp, Info, CheckCircle2, ChevronLeft, AlertTriangle, Wallet, Clock
+  Activity, Target, TrendingUp, Info, CheckCircle2, ChevronLeft, AlertTriangle, Wallet, Clock, Shield
 } from 'lucide-react';
 import { storage, fmt } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
@@ -135,8 +136,37 @@ export default function SavingsCheckup() {
                 <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{t(result.desc)}</p>
              </div>
 
-             <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>{t('Use the controls at the top to save your results or start over.')}</p>
+             <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-6)' }}>
+                <h3 className="heading-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Recommended Next Actions')}</h3>
+                <div className="stack-3">
+                  <Link href="/budget-planner" className="card-hover" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', borderRadius: 16, border: '1px solid var(--border-subtle)', textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 12, background: 'var(--brand-primary-glow)', color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Wallet size={20} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: 14 }}>{t('Optimize in Budget Planner')}</div>
+                      <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{t('Align your 50/30/20 spending ratios')}</div>
+                    </div>
+                    <ArrowRight size={16} color="var(--text-muted)" />
+                  </Link>
+
+                  <Link href="/emergency-fund" className="card-hover" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', borderRadius: 16, border: '1px solid var(--border-subtle)', textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 12, background: 'var(--brand-success-glow)', color: 'var(--brand-success)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Shield size={20} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: 14 }}>{t('Calculate Emergency Buffer')}</div>
+                      <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{t('Determine 3-6 month cash safety requirements')}</div>
+                    </div>
+                    <ArrowRight size={16} color="var(--text-muted)" />
+                  </Link>
+                </div>
+             </div>
+
+             <div style={{ display: 'flex', gap: 12 }}>
+                <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-full">
+                  <RotateCcw size={16} /> {t('Retake Check-up')}
+                </button>
              </div>
           </div>
         )}

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Share2, Copy, Check, MessageCircle, Send } from 'lucide-react';
+import { X, Share2, Copy, Check, MessageCircle, Send, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface ShareModalProps {
@@ -40,6 +40,12 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
       icon: <MessageCircle className="text-emerald-500" />,
       url: `https://wa.me/?text=${encodeURIComponent(shareText)}`,
       color: 'bg-emerald-50'
+    },
+    {
+      name: 'Email',
+      icon: <Mail className="text-rose-500" />,
+      url: `mailto:?subject=${encodeURIComponent(activityName || 'Financial Wellbeing')}&body=${encodeURIComponent(shareText)}`,
+      color: 'bg-rose-50'
     },
     {
       name: 'Twitter',
@@ -109,7 +115,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
                    </p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px' }}>
                   {shareOptions.map((option) => (
                     <a
                       key={option.name}
@@ -118,7 +124,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, activit
                       rel="noopener noreferrer"
                       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
                     >
-                      <div className="card-hover" style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'var(--bg-card)', border: '1px solid var(--border-default)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease' }}>
+                      <div className="card-hover" style={{ width: '52px', height: '52px', borderRadius: '16px', background: 'var(--bg-card)', border: '1px solid var(--border-default)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s ease' }}>
                         {option.icon}
                       </div>
                       <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)' }}>{option.name}</span>

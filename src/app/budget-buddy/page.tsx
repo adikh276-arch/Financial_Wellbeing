@@ -258,7 +258,7 @@ export default function BudgetBuddyPage() {
             </p>
             <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button className="btn btn-secondary btn-lg" onClick={handleReset}>
-                <RotateCcw size={16} /> {t('Start Over')}
+                <RotateCcw size={16} /> {t('Start Over')} 
               </button>
               <button className="btn btn-primary btn-lg" onClick={() => router.replace('/')}>
                 {t('Back to Dashboard')} <ArrowRight size={16} />

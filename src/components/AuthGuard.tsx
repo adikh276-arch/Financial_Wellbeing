@@ -14,7 +14,22 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState(() => {
+    if (typeof window !== "undefined") {
+      const isLocal =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        process.env.NODE_ENV === "development";
+      if (isLocal) {
+        if (!localStorage.getItem(USER_KEY)) {
+          localStorage.setItem(USER_KEY, "local_dev_user");
+        }
+        return true;
+      }
+      return !!localStorage.getItem(USER_KEY);
+    }
+    return false;
+  });
   const processingRef = useRef(false);
 
   const restoreAndNavigate = useCallback((currentPath: string) => {
@@ -43,7 +58,22 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
       console.log("[AuthGuard] Successfully saved fw_upa_id and fw_uid to sessionStorage:", upaId, uid);
     }
 
-    // 1. Intercept Unauthenticated Deep Links
+    // 1. Local Testing / Development Bypass
+    const isLocal =
+      typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        process.env.NODE_ENV === "development");
+
+    if (!userId && !token && isLocal) {
+      const devUserId = "local_dev_user";
+      localStorage.setItem(USER_KEY, devUserId);
+      setSessionId(devUserId).catch(console.error);
+      setIsAuthorized(true);
+      return;
+    }
+
+    // 2. Intercept Unauthenticated Deep Links (Production)
     if (!userId && !token) {
       const fullPath = pathname + window.location.search;
       localStorage.setItem(REDIRECT_KEY, fullPath);

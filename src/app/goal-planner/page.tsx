@@ -47,7 +47,7 @@ export default function GoalPlanner() {
     { id: 'Other', icon: Target, label: 'Other' }
   ];
   const [goals, setGoals] = useState<Goal[]>([]);
-  const [step, setStep] = useState(-1);
+  const [step, setStep] = useState(0);
   const [showForm, setShowForm] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
   const [form, setForm] = useState(newGoalTemplate("Other"));
@@ -174,11 +174,20 @@ export default function GoalPlanner() {
         {step === 0 && (
           <div style={{ animation: 'fadeIn 0.35s ease' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-8)' }}>
-              <button onClick={() => setStep(-1)} className="btn btn-secondary btn-sm"><ChevronLeft size={14} /> {t('Back')}</button>
-              <h2 className="heading-md">{t('Goal Planner')}</h2>
-              <button className="btn btn-primary btn-sm" onClick={() => { setShowForm(true); setEditId(null); setForm(newGoalTemplate("Other")); }}>
-                <Plus size={14} /> {t('New Goal')}
-              </button>
+              <div>
+                <h2 className="heading-md" style={{ margin: 0 }}>{t('Your Financial Goals')}</h2>
+                <p style={{ fontSize: 13, color: 'var(--text-muted)', margin: '2px 0 0 0' }}>{t('Track and calibrate your target milestones')}</p>
+              </div>
+              <div style={{ display: 'flex', gap: 8 }}>
+                {goals.length > 0 && (
+                  <button className="btn btn-secondary btn-sm" onClick={() => setIsShareModalOpen(true)} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Share2 size={14} /> {t('share:share')}
+                  </button>
+                )}
+                <button className="btn btn-primary btn-sm" onClick={() => { setShowForm(true); setEditId(null); setForm(newGoalTemplate("Other")); }} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <Plus size={14} /> {t('New Goal')}
+                </button>
+              </div>
             </div>
 
             {/* Analytics bar */}

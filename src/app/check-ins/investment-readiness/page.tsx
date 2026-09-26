@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import { 
   TrendingUp, ArrowRight, Save, Check, RotateCcw, 
@@ -134,8 +135,37 @@ export default function InvestmentReadiness() {
                 <p style={{ opacity: 0.9, lineHeight: 1.5 }}>{t(readiness.desc)}</p>
              </div>
 
-             <div className="card" style={{ padding: 'var(--space-8)', background: 'var(--bg-glass-light)', border: '1px solid var(--border-subtle)', textAlign: 'center' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>{t('Use the controls at the top to save your results or start over.')}</p>
+             <div className="card" style={{ padding: 'var(--space-6)', marginBottom: 'var(--space-6)' }}>
+                <h3 className="heading-sm" style={{ marginBottom: 'var(--space-4)' }}>{t('Recommended Next Actions')}</h3>
+                <div className="stack-3">
+                  <Link href="/investment-planner" className="card-hover" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', borderRadius: 16, border: '1px solid var(--border-subtle)', textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 12, background: 'var(--brand-primary-glow)', color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <TrendingUp size={20} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: 14 }}>{t('Plan Your Portfolio')}</div>
+                      <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{t('Simulate returns in the Investment Planner')}</div>
+                    </div>
+                    <ArrowRight size={16} color="var(--text-muted)" />
+                  </Link>
+
+                  <Link href="/emergency-fund" className="card-hover" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', borderRadius: 16, border: '1px solid var(--border-subtle)', textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 12, background: 'var(--brand-success-glow)', color: 'var(--brand-success)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Shield size={20} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: 14 }}>{t('Emergency Fund Calculator')}</div>
+                      <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{t('Verify your financial buffer before investing')}</div>
+                    </div>
+                    <ArrowRight size={16} color="var(--text-muted)" />
+                  </Link>
+                </div>
+             </div>
+
+             <div style={{ display: 'flex', gap: 12 }}>
+                <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-full">
+                  <RotateCcw size={16} /> {t('Retake Quiz')}
+                </button>
              </div>
           </div>
         )}

@@ -27,6 +27,8 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
+import { Suspense } from 'react';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   
   return (
@@ -38,11 +40,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased">
         <I18nProvider>
-          <AuthGuard>
-            <div className="app-shell">
-              {children}
-            </div>
-          </AuthGuard>
+          <Suspense fallback={null}>
+            <AuthGuard>
+              <div className="app-shell">
+                {children}
+              </div>
+            </AuthGuard>
+          </Suspense>
         </I18nProvider>
       </body>
     </html>

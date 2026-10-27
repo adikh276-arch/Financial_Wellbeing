@@ -1,9 +1,10 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import { Clock, BookOpen, CheckCircle2, ChevronRight, Share2 } from 'lucide-react';
+import { handleExitOrDashboard } from '@/lib/navigation';
 import { PageHeader } from './layout/PageHeader';
 import { ShareModal } from './shared/ShareModal';
 import { useState } from 'react';
@@ -47,6 +48,7 @@ const itemVariants: Variants = {
 export function LearnModule({
   title, subtitle, readTime, category, introduction, sections, actionSteps, keyTakeaways, nextSteps
 }: LearnModuleProps) {
+  const router = useRouter();
   const { t } = useTranslation(['learn', 'share']);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const searchParams = useSearchParams();
@@ -140,13 +142,22 @@ export function LearnModule({
           <motion.div variants={itemVariants} style={{ textAlign: 'center', marginTop: 'var(--space-16)', padding: '32px', borderTop: '1px solid var(--border-subtle)', color: 'var(--text-muted)', fontSize: 14, fontWeight: 600 }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}>
               <p>{t("End of module")}</p>
-              <button 
-                onClick={() => setIsShareModalOpen(true)}
-                className="btn btn-primary"
-                style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: '16px', background: 'var(--brand-primary)', color: 'white', fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: '0 4px 12px var(--brand-primary-glow)' }}
-              >
-                <Share2 size={18} /> {t("share:share")}
-              </button>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', width: '100%', maxWidth: 420 }}>
+                <button 
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="btn btn-secondary"
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '14px 24px', borderRadius: '16px', fontWeight: 700 }}
+                >
+                  <Share2 size={18} /> {t("share:share")}
+                </button>
+                <button 
+                  onClick={() => handleExitOrDashboard(router)}
+                  className="btn btn-primary"
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '14px 24px', borderRadius: '16px', fontWeight: 700, boxShadow: '0 4px 12px var(--brand-primary-glow)' }}
+                >
+                  <CheckCircle2 size={18} /> {t("Finish Activity")}
+                </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>

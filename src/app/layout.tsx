@@ -1,8 +1,22 @@
 
 import type { Metadata, Viewport } from 'next';
+import { Inter, Nunito } from 'next/font/google';
 import './globals.css';
 import { I18nProvider } from '@/components/I18nProvider';
 import AuthGuard from "@/components/AuthGuard";
+import { Suspense } from 'react';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-body',
+});
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -13,10 +27,10 @@ export const metadata: Metadata = {
   keywords: 'financial wellbeing, budget planner, investment planner, EMI calculator, goal planner',
   icons: {
     icon: [
-      { url: '/favicon.png' },
+      { url: '/financial_wellbeing/favicon.png' },
     ],
     apple: [
-      { url: '/favicon.png' },
+      { url: '/financial_wellbeing/favicon.png' },
     ],
   },
 };
@@ -27,15 +41,10 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
-import { Suspense } from 'react';
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${nunito.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="theme-color" content="#F7F8FC" />
       </head>
       <body className="antialiased">

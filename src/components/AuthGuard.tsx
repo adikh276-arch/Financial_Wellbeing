@@ -124,7 +124,11 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     // 4. Stale Token Cleanup (Failsafe)
     if (userId && token) {
       console.log("User already authenticated. Cleaning stale token from URL.");
-      router.replace(pathname);
+      if (typeof window !== "undefined") {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("token");
+        window.history.replaceState({}, "", url.toString());
+      }
       setIsAuthorized(true);
       return;
     }

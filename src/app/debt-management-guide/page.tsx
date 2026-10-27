@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import {
   CreditCard, ArrowRight, RotateCcw, Check, CheckCircle,
-  TrendingDown, LayoutList, Zap, BookOpen, ChevronRight, Share2
+  LayoutList, Zap, BookOpen, ChevronRight, Share2
 } from 'lucide-react';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { ShareModal } from '@/components/shared/ShareModal';
@@ -158,7 +158,7 @@ export default function DebtManagementPage() {
                   borderRadius: 'var(--radius-xl)', padding: 'var(--space-4)',
                   boxShadow: 'var(--shadow-xs)',
                 }}>
-                  <p style={{ fontWeight: 700, fontSize: 'var(--text-sm)', color: cat.color, marginBottom: 'var(--space-3)', textTransform: 'uppercase', fontSize: 11, letterSpacing: '0.06em' }}>
+                  <p style={{ fontWeight: 700, fontSize: 11, color: cat.color, marginBottom: 'var(--space-3)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                     {cat.label}
                   </p>
                   {cat.items.map((item, i) => (

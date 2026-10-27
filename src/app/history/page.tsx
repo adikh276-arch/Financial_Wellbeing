@@ -198,10 +198,10 @@ export default function ActivityHistory() {
                   
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ fontSize: 13, fontWeight: 900, color: entry.color }}>
-                      {entry.type === 'budget' ? (entry.score >= 0 ? '+' : '') + fmt.currency(entry.score) : 
-                       entry.type === 'investment' ? fmt.currency(entry.score, true) :
-                       entry.type === 'health_score' ? `${entry.score}/100` :
-                       entry.score ? fmt.number(entry.score) : ''}
+                      {entry.type === 'budget' ? ((entry.score ?? 0) >= 0 ? '+' : '') + fmt.currency(entry.score ?? 0) : 
+                       entry.type === 'investment' ? fmt.currency(entry.score ?? 0, true) :
+                       entry.type === 'health_score' ? `${entry.score ?? 0}/100` :
+                       entry.score !== undefined ? fmt.number(entry.score) : ''}
                     </span>
                     {entry.label && (
                       <>

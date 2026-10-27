@@ -25,8 +25,6 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  if (!isReady) return null; // Avoid hydration mismatch for translations
-
   return (
     <I18nextProvider i18n={i18n}>
       {children}

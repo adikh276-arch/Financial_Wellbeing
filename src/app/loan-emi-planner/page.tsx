@@ -9,10 +9,12 @@ import {
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import ClientOnly from '@/components/ClientOnly';
 import { ShareModal } from '@/components/shared/ShareModal';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 
 const LOAN_TYPES = ['Personal Loan', 'Home Loan', 'Auto Loan', 'Education Loan', 'Business Loan'];
@@ -74,6 +76,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export default function LoanEMIPlanner() {
+  const router = useRouter();
   const { t } = useTranslation(['loan-emi-planner', 'share']);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [step, setStep] = useState(-1);
@@ -86,7 +89,7 @@ export default function LoanEMIPlanner() {
     // 1. Initial local load
     const list = storage.get('loan_history') || [];
     setHistory(Array.isArray(list) ? list : []);
-    const local = storage.get('loan_emi_form', null);
+    const local = storage.get<Partial<LoanForm>>('loan_emi_form');
     if (local && typeof local === 'object') setForm(prev => ({ ...prev, ...local }));
 
     // 2. Async server sync
@@ -145,20 +148,17 @@ export default function LoanEMIPlanner() {
 
   return (
     <div className="inner-page">
-      {/* Navigation removed as per requirement */}
-
+      <PageHeader 
+        title={t('Loan & EMI Planner')}
+        backHref="/"
+        historyKey="loan"
+        onRestore={(restored) => {
+          setForm(restored);
+          setResult(restored);
+          setStep(1);
+        }}
+      />
       <div className="inner-content">
-        <PageHeader 
-          title={t('Loan & EMI Planner')}
-          backHref="/"
-          historyKey="loan"
-          onRestore={(restored) => {
-            setForm(restored);
-            setResult(restored);
-            setStep(1);
-          }}
-          bottomSlot={step === 1 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
-        />
         {step >= 0 && (
           <div style={{ display: 'flex', gap: 4, marginBottom: 'var(--space-6)' }}>
             <div style={{ flex: 1, height: 3, borderRadius: 2, background: '#0984e3' }} />
@@ -412,17 +412,29 @@ export default function LoanEMIPlanner() {
               </div>
             </div>
 
-            <div style={{ marginTop: 'var(--space-8)', display: 'flex', gap: 'var(--space-3)' }}>
+            <div style={{ marginTop: 'var(--space-8)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button 
-                onClick={() => setIsShareModalOpen(true)}
-                className="btn btn-primary" 
-                style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '12px' }}
+                onClick={async () => {
+                  handleSave();
+                  setTimeout(() => handleExitOrDashboard(router), 400);
+                }}
+                className="btn btn-primary btn-lg"
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
               >
-                <Share2 size={18} /> {t('share:share')}
+                {saved ? <Check size={18} /> : <Check size={18} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
               </button>
-              <button className="btn btn-secondary" style={{ flex: 1 }} onClick={() => { setStep(0); setResult(null); }}>
-                <ChevronLeft size={18} /> {t("Adjust Parameters")}
-              </button>
+              <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+                <button 
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="btn btn-secondary btn-lg" 
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}
+                >
+                  <Share2 size={18} /> {t('share:share')}
+                </button>
+                <button className="btn btn-secondary btn-lg" style={{ flex: 1 }} onClick={() => { setStep(0); setResult(null); }}>
+                  <ChevronLeft size={18} /> {t("Adjust Parameters")}
+                </button>
+              </div>
             </div>
           </div>
         )}

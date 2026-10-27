@@ -11,8 +11,11 @@ import {
 import { storage } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 export default function MoneyStressQuiz() {
+  const router = useRouter();
   const { t } = useTranslation('check-ins');
 
   const QUESTIONS = [
@@ -93,7 +96,6 @@ export default function MoneyStressQuiz() {
       <PageHeader 
         title={t('Money Stress Quiz')}
         backHref="/"
-        bottomSlot={step === QUESTIONS.length + 1 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
       />
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
 
@@ -179,7 +181,17 @@ export default function MoneyStressQuiz() {
                    ) : (
                       <div className="card" style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600 }}>{t('Optimize redundant reserve channels into yields.')}</div>
                    )}
-                   <button className="btn btn-secondary btn-full" style={{ marginTop: 'var(--space-4)' }} onClick={() => setStep(0)}>{t('Recalibrate Assessment')}</button>
+                    <button 
+                      onClick={async () => {
+                        handleSave();
+                        setTimeout(() => handleExitOrDashboard(router), 400);
+                      }}
+                      className="btn btn-primary btn-full" 
+                      style={{ marginTop: 'var(--space-4)' }}
+                    >
+                      {saved ? <Check size={18} /> : <Check size={18} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
+                    </button>
+                    <button className="btn btn-secondary btn-full" onClick={() => setStep(0)}>{t('Recalibrate Assessment')}</button>
                 </div>
              </div>
           </div>

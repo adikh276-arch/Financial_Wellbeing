@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -23,6 +24,7 @@ const CATEGORY_MAX: Record<string, number> = {
 };
 
 export default function FinancialHealthScore() {
+  const router = useRouter();
   const { t } = useTranslation(['financial-health-score', 'share']);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
@@ -133,7 +135,6 @@ export default function FinancialHealthScore() {
           // Score results are usually just a snapshot, we show the results step
           setStep(totalQuestions);
         }}
-        bottomSlot={step === totalQuestions ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
       />
       <div className="inner-content">
         
@@ -305,15 +306,27 @@ export default function FinancialHealthScore() {
               </div>
             </div>
             
-            <div style={{ marginTop: 'var(--space-12)', display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div style={{ marginTop: 'var(--space-12)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button 
-                onClick={() => setIsShareModalOpen(true)}
-                className="btn btn-primary btn-lg" 
-                style={{ padding: '16px 32px', display: 'flex', alignItems: 'center', gap: 10, background: 'linear-gradient(135deg, #F39C12, #f1c40f)', border: 'none' }}
+                onClick={async () => {
+                  handleSave();
+                  setTimeout(() => handleExternalExit(), 400);
+                }}
+                className="btn btn-primary btn-lg"
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'linear-gradient(135deg, #F39C12, #f1c40f)', border: 'none' }}
               >
-                <Share2 size={20} /> {t('share:share')}
+                {saved ? <Check size={18} /> : <Check size={18} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
               </button>
-              <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(-1); setAnswers({}); }}>{t('Audit Again')}</button>
+              <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+                <button 
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="btn btn-secondary btn-lg" 
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}
+                >
+                  <Share2 size={20} /> {t('share:share')}
+                </button>
+                <button className="btn btn-secondary btn-lg" style={{ flex: 1 }} onClick={() => { setStep(-1); setAnswers({}); }}>{t('Audit Again')}</button>
+              </div>
             </div>
           </div>
         )}

@@ -1,8 +1,9 @@
 {
-  "{{count}} active goals_one": "{{count}} active goals_one",
-  "{{count}} active goals_other": "{{count}} active goals_other",
-  "{{count}} months_one": "{{count}} months_one",
-  "{{count}} months_other": "{{count}} months_other",
+  "{{count}} active goals_one": "{{count}} active goal",
+  "{{count}} active goals_other": "{{count}} active goals",
+  "{{count}} months_one": "{{count}} month",
+  "{{count}} months_other": "{{count}} months",
+  "Done for Now": "Done for Now",
   "Back": "Back",
   "Category": "Category",
   "Create First Goal": "Create First Goal",

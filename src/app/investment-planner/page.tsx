@@ -11,8 +11,9 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { storage, fmt, calc } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ShareModal } from '@/components/shared/ShareModal';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 
 interface FormData {
@@ -26,6 +27,7 @@ const PERIODS = [1, 3, 5, 10, 20];
 const STEPS = ['Capital', 'Strategy', 'Results'];
 
 export default function InvestmentPlanner() {
+  const router = useRouter();
   const { t } = useTranslation(['investment-planner', 'share']);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const searchParams = useSearchParams();
@@ -85,7 +87,7 @@ export default function InvestmentPlanner() {
     // 1. Local
     const list = storage.get('invest_history') || [];
     setHistory(Array.isArray(list) ? list : []);
-    const local = storage.get('investment_form', null);
+    const local = storage.get<Partial<FormData>>('investment_form');
     if (local && typeof local === 'object') setForm(prev => ({ ...prev, ...local }));
 
     // 2. Server
@@ -133,21 +135,17 @@ export default function InvestmentPlanner() {
 
   return (
     <div className="inner-page">
+      <PageHeader 
+        title={t('Investment Planner')}
+        backHref="/"
+        accentColor="#2563EB"
+        historyKey="investment_form"
+        onRestore={(restored) => {
+          setForm(restored);
+          setStep(2);
+        }}
+      />
       <div className="inner-content">
-        
-        {true && (
-          <PageHeader 
-            title={t('Investment Planner')}
-            backHref="/"
-            accentColor="#2563EB"
-            historyKey="investment_form"
-            onRestore={(restored) => {
-              setForm(restored);
-              setStep(2);
-            }}
-            bottomSlot={step === 2 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
-          />
-        )}
 
         {step === -1 && (
           <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
@@ -313,17 +311,29 @@ export default function InvestmentPlanner() {
               </div>
             </div>
 
-            <div style={{ marginTop: 'var(--space-8)', display: 'flex', gap: 'var(--space-3)' }}>
+            <div style={{ marginTop: 'var(--space-8)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button 
-                onClick={() => setIsShareModalOpen(true)}
-                className="btn btn-primary" 
-                style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '12px' }}
+                onClick={async () => {
+                  handleSave();
+                  setTimeout(() => handleExitOrDashboard(router), 400);
+                }}
+                className="btn btn-primary btn-lg"
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
               >
-                <Share2 size={18} /> {t('share:share')}
+                {saved ? <Check size={18} /> : <Check size={18} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
               </button>
-              <button onClick={() => setStep(-1)} className="btn btn-secondary" style={{ flex: 1 }}>
-                <RotateCcw size={16} /> {t('New Assessment')}
-              </button>
+              <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+                <button 
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="btn btn-secondary btn-lg" 
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}
+                >
+                  <Share2 size={18} /> {t('share:share')}
+                </button>
+                <button onClick={() => setStep(-1)} className="btn btn-secondary btn-lg" style={{ flex: 1 }}>
+                  <RotateCcw size={16} /> {t('New Assessment')}
+                </button>
+              </div>
             </div>
           </div>
         )}

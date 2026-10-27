@@ -1,6 +1,6 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Trophy, Target, TrendingUp, Rocket, Gem, Zap, MapPin, Quote, User } from 'lucide-react';
 import { PageHeader } from '@/components/layout/PageHeader';
 
@@ -13,7 +13,7 @@ const STORIES = [
   { id: 'liam', name: 'Liam, 25', city: 'Dublin', income: '3,500', achievement: 'First Time Home Buyer', story: "I thought I'd be renting forever. By following the 'Saving Habits' module, I managed to save my deposit in 3 years. Walking into my own home was the best feeling ever.", color: '#6366F1', icon: Zap },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -21,7 +21,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
   visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 20 } }
 };

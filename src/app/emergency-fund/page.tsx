@@ -117,7 +117,6 @@ export default function EmergencyFund() {
         accentColor="#e84393"
         historyKey="emergency_fund"
         onRestore={(restored) => setData(restored)}
-        bottomSlot={<SaveAndFinishButton onSave={handleSave} saved={saved} />}
       />
       <div className="inner-content">
 
@@ -258,11 +257,21 @@ export default function EmergencyFund() {
             </div>
           </div>
           
-          <div style={{ display: 'flex', gap: 'var(--space-4)', marginTop: 'var(--space-8)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginTop: 'var(--space-8)' }}>
+            <button 
+              onClick={async () => {
+                handleSave();
+                setTimeout(() => handleExternalExit(), 400);
+              }}
+              className="btn btn-primary btn-lg" 
+              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '16px', background: 'linear-gradient(135deg, #e84393, #fd79a8)', border: 'none' }}
+            >
+              {saved ? <Check size={20} /> : <Check size={20} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
+            </button>
             <button 
               onClick={() => setIsShareModalOpen(true)}
-              className="btn btn-primary" 
-              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '16px' }}
+              className="btn btn-secondary btn-lg" 
+              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '16px' }}
             >
               <Share2 size={20} /> {t('share:share')}
             </button>

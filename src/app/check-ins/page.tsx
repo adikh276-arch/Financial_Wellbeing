@@ -1,7 +1,7 @@
 'use client';
 import { useTranslation } from 'react-i18next';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Link from 'next/link';
 import { CheckSquare, Heart, Activity, TrendingUp, ChevronRight, ChevronLeft, Star, ActivityIcon, ClipboardCheck, History } from 'lucide-react';
 import { handleExternalExit } from '@/lib/navigation';
@@ -9,7 +9,7 @@ import { handleExternalExit } from '@/lib/navigation';
 const checkIns = [
   {
     href: '/check-ins/spending-style-quiz',
-    label: t('Spending Style Quiz'),
+    label: 'Spending Style Quiz',
     desc: "Decode your money personality & behavioral archetype",
     icon: CheckSquare,
     tag: 'Behavior',
@@ -18,7 +18,7 @@ const checkIns = [
   },
   {
     href: '/check-ins/savings-check-up',
-    label: t('Savings Check-up'),
+    label: 'Savings Check-up',
     desc: "Benchmark your emergency fund, savings rate and habits",
     icon: Heart,
     tag: 'Savings',
@@ -27,7 +27,7 @@ const checkIns = [
   },
   {
     href: '/check-ins/money-stress-quiz',
-    label: t('Money Stress Quiz'),
+    label: 'Money Stress Quiz',
     desc: "Measure your financial anxiety level and get relief tactics",
     icon: Activity,
     tag: 'Wellness',
@@ -36,7 +36,7 @@ const checkIns = [
   },
   {
     href: '/check-ins/investment-readiness',
-    label: t('Investment Readiness'),
+    label: 'Investment Readiness',
     desc: "Are your foundations strong enough to start investing?",
     icon: TrendingUp,
     tag: 'Investing',
@@ -45,7 +45,7 @@ const checkIns = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -53,7 +53,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
   visible: { 
     opacity: 1, 

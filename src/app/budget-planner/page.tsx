@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { SaveAndFinishButton } from '@/components/shared/SaveAndFinishButton';
 import {
   PieChart as PieIcon, Save, RotateCcw, Check,
@@ -15,6 +16,7 @@ import ClientOnly from '@/components/ClientOnly';
 import { storage, fmt } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { ShareModal } from '@/components/shared/ShareModal';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 type Field =
   'income' | 'otherIncome' |
@@ -129,6 +131,7 @@ const PctBar = ({ label, pct, target, color }: { label: string; pct: number; tar
 );
 
 export default function BudgetPlanner() {
+  const router = useRouter();
   const { t } = useTranslation(['budget-planner', 'share']);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
@@ -205,25 +208,21 @@ export default function BudgetPlanner() {
 
   return (
     <div className="inner-page">
+      <PageHeader 
+        title={t('Budget Planner')}
+        backHref="/"
+        onBackClick={step > 0 ? () => setStep(s => s - 1) : undefined}
+        steps={step >= 0 ? STEPS : undefined}
+        currentStep={step >= 0 ? step : undefined}
+        accentColor="#00A884"
+        historyKey="budget"
+        onRestore={(restored) => {
+          if (restored.form) setForm(restored.form);
+          else setForm(restored);
+          setStep(2); // Jump to results
+        }}
+      />
       <div className="inner-content">
-        
-        {true && (
-          <PageHeader 
-            title={t('Budget Planner')}
-            backHref="/"
-            onBackClick={step > 0 ? () => setStep(s => s - 1) : undefined}
-            steps={step >= 0 ? STEPS : undefined}
-            currentStep={step >= 0 ? step : undefined}
-            accentColor="#00A884"
-            historyKey="budget"
-            onRestore={(restored) => {
-              if (restored.form) setForm(restored.form);
-              else setForm(restored);
-              setStep(2); // Jump to results
-            }}
-            bottomSlot={step === 2 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
-          />
-        )}
 
         {step === -1 && (
           <div style={{ textAlign: 'center', padding: 'var(--space-12) var(--space-4)', animation: 'fadeIn 0.5s ease' }}>
@@ -431,15 +430,27 @@ export default function BudgetPlanner() {
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button 
-                onClick={() => setIsShareModalOpen(true)}
-                className="btn btn-primary" 
-                style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+                onClick={async () => {
+                  handleSave();
+                  setTimeout(() => handleExitOrDashboard(router), 400);
+                }}
+                className="btn btn-primary btn-lg"
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
               >
-                <Share2 size={16} /> {t('share:share')}
+                {saved ? <Check size={18} /> : <Check size={18} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
               </button>
-              <button onClick={() => { setStep(0); setForm(DEFAULT); }} className="btn btn-secondary" style={{ flex: 1 }}><RotateCcw size={14} /> {t('Reset All')}</button>
+              <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+                <button 
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="btn btn-secondary btn-lg" 
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+                >
+                  <Share2 size={16} /> {t('share:share')}
+                </button>
+                <button onClick={() => { setStep(0); setForm(DEFAULT); }} className="btn btn-secondary btn-lg" style={{ flex: 1 }}><RotateCcw size={14} /> {t('Reset All')}</button>
+              </div>
             </div>
           </div>
         )}

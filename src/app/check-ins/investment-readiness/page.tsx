@@ -11,8 +11,11 @@ import {
 import { storage } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 export default function InvestmentReadiness() {
+  const router = useRouter();
   const { t } = useTranslation('check-ins');
 
   const QUESTIONS = [
@@ -75,7 +78,6 @@ export default function InvestmentReadiness() {
       <PageHeader 
         title={t('Investment Readiness')}
         backHref="/"
-        bottomSlot={step === QUESTIONS.length + 1 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
       />
       <div style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-6) var(--space-4) var(--space-16)' }}>
         
@@ -162,7 +164,16 @@ export default function InvestmentReadiness() {
                 </div>
              </div>
 
-             <div style={{ display: 'flex', gap: 12 }}>
+             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <button 
+                  onClick={async () => {
+                    handleSave();
+                    setTimeout(() => handleExitOrDashboard(router), 400);
+                  }}
+                  className="btn btn-primary btn-full"
+                >
+                  {saved ? <Check size={18} /> : <Check size={18} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
+                </button>
                 <button onClick={() => { setStep(0); setAnswers([]); }} className="btn btn-secondary btn-full">
                   <RotateCcw size={16} /> {t('Retake Quiz')}
                 </button>

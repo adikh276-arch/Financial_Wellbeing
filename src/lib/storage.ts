@@ -6,13 +6,13 @@ import { fetchUserRecord, saveUserRecord } from '@/actions/storageActions';
 // ============================================================
 
 export const storage = {
-  get<T>(key: string, fallback: T): T {
-    if (typeof window === 'undefined') return fallback;
+  get<T>(key: string, fallback?: T): T {
+    if (typeof window === 'undefined') return fallback as T;
     try {
       const item = localStorage.getItem(`fw_${key}`);
-      return item ? JSON.parse(item) : fallback;
+      return item ? JSON.parse(item) : (fallback as T);
     } catch {
-      return fallback;
+      return fallback as T;
     }
   },
 
@@ -94,7 +94,9 @@ export const storage = {
     if (!userId) return null;
 
     try {
-      const data = await fetchUserRecord(key);
+      // Race against a 2.5s timeout so slow remote DB connections never hang the app
+      const timeoutPromise = new Promise<null>((resolve) => setTimeout(() => resolve(null), 2500));
+      const data = await Promise.race([fetchUserRecord(key), timeoutPromise]);
       return data;
     } catch (err) {
       console.error('Persistence fetch failed:', err);

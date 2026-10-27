@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { 
   Target, Plus, Edit2, Trash2, Check, Save, X, 
@@ -8,6 +9,7 @@ import {
   Plane, Home, GraduationCap, Car, Heart, Shield, Umbrella, Rocket, Layout, Calendar, Share2
 } from 'lucide-react';
 import { storage, fmt, calc } from '@/lib/storage';
+import { handleExitOrDashboard } from '@/lib/navigation';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { ShareModal } from '@/components/shared/ShareModal';
 import { differenceInMonths, parseISO, format } from 'date-fns';
@@ -32,6 +34,7 @@ const newGoalTemplate = (catOther: string): Omit<Goal, 'id' | 'createdAt'> => ({
 });
 
 export default function GoalPlanner() {
+  const router = useRouter();
   const { t } = useTranslation(['goal-planner', 'share']);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
@@ -318,6 +321,33 @@ export default function GoalPlanner() {
                 );
               })}
             </div>
+
+            {goals.length > 0 && (
+              <div style={{ marginTop: 'var(--space-8)', paddingTop: 'var(--space-6)', borderTop: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                <button 
+                  onClick={async () => {
+                    await storage.sync('goals', { goals });
+                    handleExitOrDashboard(router);
+                  }}
+                  className="btn btn-primary btn-lg"
+                  style={{
+                    width: '100%',
+                    padding: '16px',
+                    borderRadius: '16px',
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 14px rgba(99, 102, 241, 0.25)'
+                  }}
+                >
+                  <Check size={18} />
+                  <span>{t('Done for Now')}</span>
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>

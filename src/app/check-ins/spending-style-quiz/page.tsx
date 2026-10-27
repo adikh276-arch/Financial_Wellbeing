@@ -11,9 +11,12 @@ import {
 import { storage } from '@/lib/storage';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
 import { ShareModal } from '@/components/shared/ShareModal';
+import { handleExitOrDashboard } from '@/lib/navigation';
 
 export default function SpendingStyleQuiz() {
+  const router = useRouter();
   const { t } = useTranslation(['check-ins', 'share']);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
@@ -123,7 +126,6 @@ export default function SpendingStyleQuiz() {
       <PageHeader 
         title={t('Spending Style Quiz')}
         backHref="/"
-        bottomSlot={step === 11 ? <SaveAndFinishButton onSave={handleSave} saved={saved} /> : null}
       />
       <div className="inner-content">
         {step > 0 && step <= 10 && (
@@ -272,15 +274,27 @@ export default function SpendingStyleQuiz() {
               </div>
             </div>
 
-            <div style={{ marginTop: 'var(--space-12)', display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div style={{ marginTop: 'var(--space-12)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               <button 
-                onClick={() => setIsShareModalOpen(true)}
+                onClick={async () => {
+                  handleSave();
+                  setTimeout(() => handleExitOrDashboard(router), 400);
+                }}
                 className="btn btn-primary btn-lg" 
-                style={{ padding: '16px 32px', display: 'flex', alignItems: 'center', gap: 10 }}
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
               >
-                <Share2 size={20} /> {t('share:share')}
+                {saved ? <Check size={18} /> : <Check size={18} />} {saved ? t('Saved Successfully!') : t('Save & Finish')}
               </button>
-              <button className="btn btn-secondary btn-lg" style={{ padding: '16px 32px' }} onClick={() => { setStep(0); setAnswers([]); }}>{t('Recalibrate Profile')}</button>
+              <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+                <button 
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="btn btn-secondary btn-lg" 
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}
+                >
+                  <Share2 size={20} /> {t('share:share')}
+                </button>
+                <button className="btn btn-secondary btn-lg" style={{ flex: 1 }} onClick={() => { setStep(0); setAnswers([]); }}>{t('Recalibrate Profile')}</button>
+              </div>
             </div>
           </div>
         )}
